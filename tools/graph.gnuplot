@@ -14,7 +14,7 @@ set output "./graph.eps"
 set title ""
 
 # Appearance
-set data style lines
+set style data lines
 set nokey
 set border 3
 set xtics nomirror
@@ -22,10 +22,10 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:36]
+set xrange [-0.5:85]
 set xlabel "Training Time (hours)"
 
-set yrange [5.5:13.5]
+set yrange [5.5:18.5]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
