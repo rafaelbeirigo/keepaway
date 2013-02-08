@@ -1,0 +1,85 @@
+* 201301301752-LTI-PROJETO-TM
+Objetivo: gerar $weights$ para reuso.
+
+diff keepaway.sh.original keepaway.sh
+23,24c23,24
+< keeper_learn=0                   # should learning be turned on for keepers?
+< #keeper_policy="learned"         # policy followed by keepers
+---
+> keeper_learn=1                   # should learning be turned on for keepers?
+> keeper_policy="learned"          # policy followed by keepers
+27c27
+< keeper_policy="rand"
+---
+> #keeper_policy="rand"
+44c44
+< save_weights=0                    # should I save learned weights
+---
+> save_weights=1                    # should I save learned weights
+63c63
+< synch_mode=0                     # should I speed up with synchronous mode?
+---
+> synch_mode=1                     # should I speed up with synchronous mode?
+66c66
+< save_rcg_log=0                   # should I save game log to .rcg file?
+---
+> save_rcg_log=1                   # should I save game log to .rcg file?
+* 201301301958-LTI-PROJETO-TM
+Objetivo: testar reuso de $weights$
+
+diff keepaway.sh.original keepaway.sh
+21,22c21,22
+< keeper_load=0                    # should I load previously learned weights?
+< keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
+---
+> keeper_load=1                    # should I load previously learned weights?
+> keeper_load_dir=201301301752-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+24c24
+< #keeper_policy="learned"         # policy followed by keepers
+---
+> keeper_policy="learned"          # policy followed by keepers
+27c27
+< keeper_policy="rand"
+---
+> #keeper_policy="rand"
+44c44
+< save_weights=0                    # should I save learned weights
+---
+> save_weights=1                    # should I save learned weights
+63c63
+< synch_mode=0                     # should I speed up with synchronous mode?
+---
+> synch_mode=1                     # should I speed up with synchronous mode?
+66c66
+< save_rcg_log=0                   # should I save game log to .rcg file?
+---
+> save_rcg_log=1                   # should I save game log to .rcg file?
+* 201301302106-LTI-PROJETO-TM
+Objetivo: obter pesos muito bons
+
+
+diff keepaway.sh.original keepaway.sh
+22,24c22,24
+< keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
+< keeper_learn=0                   # should learning be turned on for keepers?
+< #keeper_policy="learned"         # policy followed by keepers
+---
+> keeper_load_dir=201301301752-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+> keeper_learn=1                   # should learning be turned on for keepers?
+> keeper_policy="learned"          # policy followed by keepers
+27c27
+< keeper_policy="rand"
+---
+> #keeper_policy="rand"
+44c44
+< save_weights=0                    # should I save learned weights
+---
+> save_weights=1                    # should I save learned weights
+63c63
+< synch_mode=0                     # should I speed up with synchronous mode?
+---
+> synch_mode=1                     # should I speed up with synchronous mode?
+66c66
+< save_rcg_log=0                   # should I save game log to .rcg file?
+---
+> save_rcg_log=1                   # should I save game log to .rcg file?

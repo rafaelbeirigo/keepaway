@@ -1,0 +1,20 @@
+* 
+diff keepaway.sh keepaway.sh.original 
+23,24c23,24
+< keeper_learn=1                   # should learning be turned on for keepers?
+< keeper_policy="learned"          # policy followed by keepers
+---
+> keeper_learn=0                   # should learning be turned on for keepers?
+> #keeper_policy="learned"         # policy followed by keepers
+27c27
+< #keeper_policy="rand"
+---
+> keeper_policy="rand"
+44c44
+< save_weights=1                    # should I save learned weights
+---
+> save_weights=0                    # should I save learned weights
+66c66
+< save_rcg_log=1                   # should I save game log to .rcg file?
+---
+> save_rcg_log=0                   # should I save game log to .rcg file?

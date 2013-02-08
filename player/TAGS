@@ -1,0 +1,2557 @@
+
+ActHandler.cc,490
+ActHandler* ACT;57,2244
+extern void CALLBACK sigalarmHandler(66,2686
+ActHandler::ActHandler(80,3168
+void ActHandler::emptyQueue(91,3512
+bool ActHandler::isQueueEmpty(101,3863
+bool ActHandler::sendCommands(115,4566
+SoccerCommand ActHandler::getPrimaryCommand(205,7872
+bool ActHandler::putCommandInQueue(215,8326
+bool ActHandler::sendCommand(251,9699
+bool ActHandler::sendMessage(263,10159
+bool ActHandler::sendCommandDirect(288,10890
+bool ActHandler::sendMessageDirect(300,11297
+
+BasicPlayer.cc,2450
+SoccerCommand BasicPlayer::alignNeckWithBody(63,2638
+SoccerCommand BasicPlayer::turnBodyToPoint(86,4033
+SoccerCommand BasicPlayer::turnBackToPoint(110,5412
+SoccerCommand BasicPlayer::turnNeckToPoint(143,7432
+SoccerCommand BasicPlayer::searchBall(186,9668
+SoccerCommand BasicPlayer::dashToPoint(233,11741
+SoccerCommand BasicPlayer::freezeBall(256,13070
+SoccerCommand BasicPlayer::kickBallCloseToBody(308,15868
+SoccerCommand BasicPlayer::accelerateBallToVelocity(387,19635
+SoccerCommand BasicPlayer::catchBall(422,21256
+SoccerCommand BasicPlayer::communicate(434,21777
+SoccerCommand BasicPlayer::teleportToPos(443,22097
+SoccerCommand BasicPlayer::listenTo(451,22351
+SoccerCommand BasicPlayer::tackle(462,22721
+SoccerCommand BasicPlayer::turnBodyToObject(477,23395
+SoccerCommand BasicPlayer::turnNeckToObject(497,24588
+SoccerCommand BasicPlayer::directTowards(502,24737
+SoccerCommand BasicPlayer::moveToPos(581,28781
+SoccerCommand BasicPlayer::collideWithBall(625,30784
+SoccerCommand BasicPlayer::interceptClose(720,36536
+SoccerCommand BasicPlayer::interceptCloseGoalie(1007,49345
+SoccerCommand BasicPlayer::kickTo(1119,55012
+SoccerCommand BasicPlayer::turnWithBallTo(1297,63055
+SoccerCommand BasicPlayer::moveToPosAlongLine(1426,69474
+SoccerCommand BasicPlayer::intercept(1481,72000
+SoccerCommand BasicPlayer::dribble(1541,75283
+SoccerCommand BasicPlayer::directPass(1602,77707
+SoccerCommand BasicPlayer::leadingPass(1628,79192
+SoccerCommand BasicPlayer::throughPass(1666,81446
+SoccerCommand BasicPlayer::outplayOpponent(1756,87546
+SoccerCommand BasicPlayer::clearBall(1885,93423
+SoccerCommand BasicPlayer::mark(2009,99215
+SoccerCommand BasicPlayer::defendGoalLine(2087,103263
+SoccerCommand BasicPlayer::interceptScoringAttempt(2162,106752
+SoccerCommand BasicPlayer::holdBall(2244,109882
+VecPosition BasicPlayer::getThroughPassShootingPoint(2296,112186
+VecPosition BasicPlayer::getInterceptionPointBall(2318,113337
+VecPosition BasicPlayer::getActiveInterceptionPointBall(2474,119228
+VecPosition BasicPlayer::getDribblePoint(2549,121966
+VecPosition BasicPlayer::getShootPositionOnLine(2599,123835
+double BasicPlayer::getEndSpeedForPass(2630,125614
+VecPosition BasicPlayer::getMarkingPosition(2674,127863
+SoccerCommand BasicPlayer::getOpenForPassFromInRectangle(2744,130233
+SoccerCommand BasicPlayer::markMostOpenOpponent(2763,130775
+VecPosition BasicPlayer::leastCongestedPointForPassInRectangle(2790,131569
+
+Connection.cc,361
+Connection::Connection(72,2845
+Connection::Connection(81,3193
+Connection::~Connection(93,3709
+bool Connection::connect(102,4012
+void Connection::disconnect(184,6227
+bool Connection::isConnected(199,6599
+int Connection::receiveMessage(209,6981
+bool Connection::sendMessage(253,8078
+int Connection::message_loop(271,8773
+void Connection::show(321,10090
+
+DemoExtension.cc,401
+namespace keepaway_demo 6,69
+class DemoAgent:keepaway_demo::DemoAgent8,96
+  WorldModel& world;keepaway_demo::DemoAgent::world18,427
+SMDPAgent* createAgent(30,524
+namespace keepaway_demo 42,750
+DemoAgent::DemoAgent(keepaway_demo::DemoAgent::DemoAgent45,778
+int DemoAgent::startEpisode(53,998
+int DemoAgent::step(61,1154
+void DemoAgent::endEpisode(72,1477
+void DemoAgent::setParams(77,1575
+
+Formations.cc,1786
+PlayerTypeInfo::PlayerTypeInfo(64,2797
+PlayerTypeInfo::PlayerTypeInfo(79,3517
+bool PlayerTypeInfo::setValues(95,4280
+void PlayerTypeInfo::show(111,4755
+bool PlayerTypeInfo::setPlayerType(122,5137
+PlayerT PlayerTypeInfo::getPlayerType(130,5338
+bool PlayerTypeInfo::setAttrX(143,5962
+double PlayerTypeInfo::getAttrX(156,6540
+bool PlayerTypeInfo::setAttrY(169,7154
+double PlayerTypeInfo::getAttrY(182,7732
+bool PlayerTypeInfo::setMinX(192,8140
+double PlayerTypeInfo::getMinX(202,8506
+bool PlayerTypeInfo::setMaxX(212,8913
+double PlayerTypeInfo::getMaxX(222,9280
+bool PlayerTypeInfo::setBehindBall(234,9802
+bool PlayerTypeInfo::getBehindBall(246,10272
+FormationTypeInfo::FormationTypeInfo(256,10641
+bool FormationTypeInfo::setFormationType(263,10860
+FormationT FormationTypeInfo::getFormationType(271,11076
+void FormationTypeInfo::show(287,11764
+bool FormationTypeInfo::setPosHome(349,13471
+bool FormationTypeInfo::setXPosHome(360,13877
+bool FormationTypeInfo::setYPosHome(371,14275
+VecPosition FormationTypeInfo::getPosHome(382,14750
+bool FormationTypeInfo::setPlayerType(392,15142
+PlayerT FormationTypeInfo::getPlayerType(401,15431
+bool FormationTypeInfo::setPlayerTypeInfo(411,15896
+PlayerTypeInfo* FormationTypeInfo::getPlayerTypeInfo(421,16297
+PlayerTypeInfo* FormationTypeInfo::getPlayerTypeInfoOfPlayer(431,16676
+Formations::Formations(448,17571
+void Formations::show(466,18205
+VecPosition Formations::getStrategicPosition(493,19825
+bool Formations::readFormations(543,21800
+bool Formations::setFormation(644,25666
+FormationT Formations::getFormation(652,25849
+bool Formations::setPlayerInFormation(661,26134
+int Formations::getPlayerInFormation(669,26386
+PlayerT Formations::getPlayerType(682,26706
+PlayerT Formations::getPlayerType(692,27052
+
+GenericValues.cc,700
+GenericValueT::GenericValueT(76,3662
+GenericValueT::~GenericValueT(85,3991
+const char* GenericValueT::getName 94,4224
+bool GenericValueT::setValue(108,4754
+char* GenericValueT::getValue(164,6606
+void GenericValueT::show(202,7862
+GenericValues::GenericValues(243,9335
+GenericValues::~GenericValues(258,9857
+char* GenericValues::getClassName(271,10255
+int GenericValues::getValuesTotal(278,10459
+bool GenericValues::addSetting(297,11086
+GenericValueT* GenericValues::getValuePtr(329,12285
+char* GenericValues::getValue(360,13584
+bool GenericValues::setValue(387,14456
+bool GenericValues::readValues(412,15450
+bool GenericValues::saveValues(478,17739
+void GenericValues::show(509,18836
+
+Geometry.cc,5093
+int sign(62,2730
+double max(71,2951
+double min(80,3187
+AngDeg Rad2Deg(90,3425
+AngRad Deg2Rad(99,3659
+double cosDeg(108,3937
+double sinDeg(117,4213
+double tanDeg(126,4498
+AngDeg atanDeg(136,4818
+double atan2Deg(149,5295
+AngDeg acosDeg(161,5697
+AngDeg asinDeg(175,6085
+bool isAngInInterval(193,6705
+AngDeg getBisectorTwoAngles(212,7514
+VecPosition::VecPosition(238,8965
+VecPosition VecPosition::operator - VecPosition::operator -247,9341
+VecPosition VecPosition::operator + VecPosition::operator +260,9880
+VecPosition VecPosition::operator + VecPosition::operator +270,10325
+VecPosition VecPosition::operator - VecPosition::operator -283,10928
+VecPosition VecPosition::operator - VecPosition::operator -296,11412
+VecPosition VecPosition::operator * VecPosition::operator *308,11924
+VecPosition VecPosition::operator * VecPosition::operator *320,12392
+VecPosition VecPosition::operator / VecPosition::operator /333,12884
+VecPosition VecPosition::operator / VecPosition::operator /345,13336
+void VecPosition::operator = VecPosition::operator =355,13775
+void VecPosition::operator +=(VecPosition::operator +=366,14169
+void VecPosition::operator += VecPosition::operator +=378,14625
+void VecPosition::operator -=(VecPosition::operator -=391,15059
+void VecPosition::operator -=(VecPosition::operator -=404,15544
+void VecPosition::operator *=(VecPosition::operator *=417,15970
+void VecPosition::operator *=(VecPosition::operator *=430,16449
+void VecPosition::operator /=(VecPosition::operator /=442,16853
+void VecPosition::operator /=(VecPosition::operator /=455,17317
+bool VecPosition::operator !=(VecPosition::operator !=468,17766
+bool VecPosition::operator !=(VecPosition::operator !=482,18364
+bool VecPosition::operator ==(VecPosition::operator ==495,18827
+bool VecPosition::operator ==(VecPosition::operator ==509,19421
+ostream& operator <<(operator <<522,19930
+void VecPosition::show(532,20324
+string VecPosition::str(547,20928
+bool VecPosition::setX(564,21392
+double VecPosition::getX(573,21588
+bool VecPosition::setY(582,21841
+double VecPosition::getY(591,22037
+void VecPosition::setVecPosition(611,22722
+double VecPosition::getDistanceTo(630,23269
+VecPosition VecPosition::setMagnitude(647,23985
+double VecPosition::getMagnitude(661,24374
+AngDeg VecPosition::getDirection(674,24863
+bool VecPosition::isInFrontOf(687,25352
+bool VecPosition::isInFrontOf(701,25790
+bool VecPosition::isBehindOf(716,26288
+bool VecPosition::isBehindOf(729,26712
+bool VecPosition::isLeftOf(744,27225
+bool VecPosition::isLeftOf(758,27667
+bool VecPosition::isRightOf(773,28179
+bool VecPosition::isRightOf(787,28623
+bool VecPosition::isBetweenX(806,29265
+bool VecPosition::isBetweenX(824,29939
+bool VecPosition::isBetweenY(843,30643
+bool VecPosition::isBetweenY(861,31325
+VecPosition VecPosition::normalize(872,31722
+VecPosition VecPosition::rotate(891,32502
+VecPosition VecPosition::globalToRelative(917,33669
+VecPosition VecPosition::relativeToGlobal(943,34866
+VecPosition VecPosition::getVecPositionOnLineFraction(969,35961
+VecPosition VecPosition::getVecPositionFromPolar(991,36878
+AngDeg VecPosition::normalizeAngle(1003,37328
+AngDeg VecPosition::getAngleBetweenPoints(1012,37490
+double Geometry::getLengthGeomSeries(1037,38737
+double Geometry::getSumGeomSeries(1061,39802
+double Geometry::getSumInfGeomSeries(1078,40665
+double Geometry::getFirstGeomSeries(1097,41509
+double Geometry::getFirstInfGeomSeries(1114,42400
+int Geometry::abcFormula(1132,43107
+Circle::Circle(1159,44166
+Circle::Circle(1166,44337
+void Circle::show(1175,44668
+bool Circle::setCircle(1185,44949
+bool Circle::setRadius(1193,45201
+double Circle::getRadius(1209,45442
+bool Circle::setCenter(1217,45635
+VecPosition Circle::getCenter(1225,45804
+double Circle::getCircumference(1232,45963
+double Circle::getArea(1239,46123
+bool Circle::isInside(1251,46446
+int Circle::getIntersectionPoints(1262,46892
+double Circle::getIntersectionArea(1316,48611
+Line::Line(1375,50982
+ostream& operator <<(operator <<1387,51327
+void Line::show(1411,51887
+VecPosition Line::getIntersection(1420,52176
+int Line::getCircleIntersectionPoints(1459,53881
+Line Line::getTangentLine(1509,55942
+VecPosition Line::getPointOnLineClosestTo(1520,56393
+double Line::getDistanceWithPoint(1530,56826
+bool Line::isInBetween(1543,57327
+double Line::getYGivenX(1557,57903
+double Line::getXGivenY(1573,58281
+Line Line::makeLineFromTwoPoints(1588,58665
+Line Line::makeLineFromPositionAndAngle(1616,59530
+double Line::getACoefficient(1625,59894
+double Line::getBCoefficient(1632,60065
+double Line::getCCoefficient(1639,60235
+Rect::Rect(1648,60531
+Rect::Rect(1658,60948
+void Rect::setRectanglePoints(1667,61256
+void Rect::show(1678,61761
+bool Rect::isInside(1687,62097
+bool Rect::setPosLeftTop(1697,62455
+VecPosition Rect::getPosLeftTop(1705,62654
+bool Rect::setPosRightBottom(1713,62887
+VecPosition Rect::getPosRightBottom(1721,63097
+VecPosition Rect::getPosCenter(1726,63169
+double Rect::getWidth(1732,63258
+double Rect::getLength(1737,63340
+
+HandCodedAgent.cc,272
+HandCodedAgent::HandCodedAgent(36,1611
+int HandCodedAgent::startEpisode(45,1802
+int HandCodedAgent::step(50,1885
+void HandCodedAgent::endEpisode(63,2168
+int HandCodedAgent::alwaysHold(70,2278
+int HandCodedAgent::random(75,2328
+int HandCodedAgent::handCoded(84,2495
+
+KeepawayPlayer.cc,496
+KeepawayPlayer::KeepawayPlayer(39,1664
+void KeepawayPlayer::mainLoop(74,2802
+bool KeepawayPlayer::shallISaySomething(185,7002
+void KeepawayPlayer::makeSayMessage(195,7213
+SoccerCommand KeepawayPlayer::keeper(277,10052
+SoccerCommand KeepawayPlayer::keeperWithBall(348,12273
+SoccerCommand KeepawayPlayer::interpretKeeperAction(378,13235
+SoccerCommand KeepawayPlayer::keeperSupport(408,14202
+ObjectT KeepawayPlayer::chooseLookObject(431,15010
+SoccerCommand KeepawayPlayer::taker(452,15527
+
+LinearSarsaAgent.cc,752
+LinearSarsaAgent::LinearSarsaAgent(15,311
+int LinearSarsaAgent::startEpisode(61,1343
+int LinearSarsaAgent::step(83,1879
+void LinearSarsaAgent::endEpisode(125,3031
+int LinearSarsaAgent::selectAction(147,3685
+bool LinearSarsaAgent::loadWeights(162,3921
+bool LinearSarsaAgent::saveWeights(173,4230
+double LinearSarsaAgent::computeQ(183,4525
+int LinearSarsaAgent::argmaxQ(194,4765
+void LinearSarsaAgent::updateWeights(217,5229
+void LinearSarsaAgent::loadTiles(228,5551
+void LinearSarsaAgent::clearTrace(248,6203
+void LinearSarsaAgent::clearExistentTrace(257,6505
+void LinearSarsaAgent::decayTraces(268,6914
+void LinearSarsaAgent::setTrace(282,7356
+void LinearSarsaAgent::increaseMinTrace(300,8069
+void LinearSarsaAgent::setParams(311,8410
+
+Logger.cc,849
+Logger Log;62,2548
+Logger::Logger(75,3229
+bool Logger::log(91,3832
+bool Logger::log(112,4643
+bool Logger::logWithTime(144,5857
+bool Logger::logFromSignal(182,7091
+bool Logger::logSignal(214,7886
+void Logger::restartTimer(226,8111
+Timing Logger::getTiming(233,8274
+bool Logger::isInLogLevel(244,8611
+bool  Logger::addLogLevel(253,8969
+bool  Logger::addLogRange(264,9332
+char* Logger::getHeader(275,9638
+bool Logger::setHeader(283,9889
+bool Logger::setHeader(295,10291
+bool Logger::setHeader(306,10662
+bool Logger::setOutputStream(318,11035
+ostream& Logger::getOutputStream(328,11339
+void Logger::showLogLevels(336,11549
+double Timing::getTimeDifference(352,12198
+double Timing::getTimeDifference(357,12308
+void Timing::printTimeDiffWithText(373,13019
+double Timing::getElapsedTime(382,13407
+void Timing::restartTime(394,13695
+
+LoggerDraw.cc,853
+#define NORM(35,1586
+LoggerDraw LogDraw;37,1641
+LogColor::LogColor(41,1727
+LogColor LogColor::operator *(LogColor::operator *49,1840
+void LogColor::operator *=(LogColor::operator *=54,1935
+bool LogColor::operator ==(LogColor::operator ==61,2061
+bool LogColor::operator !=(LogColor::operator !=66,2169
+LogColor LogColor::getColor(71,2248
+ostream& operator <<(operator <<219,12565
+LoggerDraw::LoggerDraw(229,12805
+void LoggerDraw::setSide(242,13070
+void LoggerDraw::logLine(250,13182
+void LoggerDraw::logText(284,14128
+void LoggerDraw::logCircle(318,15070
+void LoggerDraw::logRectangle(357,16164
+void LoggerDraw::setTime(396,17302
+void LoggerDraw::setActive(401,17364
+bool LoggerDraw::isActive(406,17432
+void LoggerDraw::setOutputStream(411,17484
+ostream& LoggerDraw::getOutputStream(415,17550
+char* LoggerDraw::escape(420,17610
+
+main.cc,107
+int main(82,3266
+    typedef SMDPAgent* (*CreateAgent)CreateAgent298,11552
+void printOptions(358,13109
+
+Objects.cc,4920
+Object::Object(62,2612
+AngDeg Object::getRelativeAngle(70,2860
+double Object::getRelativeDistance(78,3139
+double Object::getConfidence(88,3557
+double Object::getConfidenceFromTimeDiff(103,4054
+bool Object::setType(114,4409
+ObjectT  Object::getType(122,4565
+bool Object::setRelativePosition(134,5008
+bool Object::setRelativePosition(146,5443
+VecPosition Object::getRelativePosition(158,5878
+bool Object::setTimeRelativePosition(166,6128
+Time Object::getTimeRelativePosition(175,6384
+bool Object::setGlobalPosition(185,6698
+VecPosition Object::getGlobalPosition(197,7125
+bool Object::setTimeGlobalPosition(205,7370
+Time Object::getTimeGlobalPosition(214,7618
+bool Object::setGlobalPositionLastSee(226,8076
+VecPosition Object::getGlobalPositionLastSee(237,8476
+bool Object::setTimeGlobalPosDerivedFromSee(246,8777
+Time Object::getTimeGlobalPosDerivedFromSee(255,9067
+bool Object::setTimeLastSeen(264,9355
+Time Object::getTimeLastSeen(273,9634
+void FixedObject::show(286,10111
+VecPosition FixedObject::getGlobalPosition(307,11141
+AngDeg FixedObject::getGlobalAngle(318,11693
+DynamicObject::DynamicObject(329,12187
+bool DynamicObject::setGlobalVelocity(340,12569
+VecPosition DynamicObject::getGlobalVelocity(353,13006
+double DynamicObject::getSpeed(361,13277
+bool DynamicObject::setTimeGlobalVelocity(370,13602
+Time DynamicObject::getTimeGlobalVelocity(379,13853
+bool DynamicObject::setRelativeDistanceChange(390,14200
+double DynamicObject::getRelativeDistanceChange(403,14759
+bool DynamicObject::setRelativeAngleChange(413,15108
+double DynamicObject::getRelativeAngleChange(424,15489
+bool DynamicObject::setTimeChangeInformation(432,15764
+Time DynamicObject::getTimeChangeInformation(441,16067
+bool DynamicObject::setGlobalVelocityLastSee 450,16403
+VecPosition DynamicObject::getGlobalVelocityLastSee 460,16771
+PlayerObject::PlayerObject(472,17255
+bool PlayerObject::setRelativeBodyAngle(490,17870
+AngDeg PlayerObject::getRelativeBodyAngle(502,18227
+bool PlayerObject::setGlobalBodyAngle(512,18589
+AngDeg PlayerObject::getGlobalBodyAngle(522,18928
+bool PlayerObject::setRelativeNeckAngle(532,19298
+AngDeg PlayerObject::getRelativeNeckAngle(542,19645
+bool PlayerObject::setGlobalNeckAngle(552,20003
+AngDeg PlayerObject::getGlobalNeckAngle(562,20337
+bool PlayerObject::setTimeRelativeAngles(570,20602
+Time PlayerObject::getTimeRelativeAngles(579,20885
+bool PlayerObject::setTimeGlobalAngles(587,21151
+bool PlayerObject::setGlobalBodyAngleLastSee(599,21583
+AngDeg PlayerObject::getGlobalBodyAngleLastSee(612,22032
+Time PlayerObject::getTimeGlobalAngles(621,22309
+bool PlayerObject::setPossibleRange(634,22863
+bool PlayerObject::isInRange(645,23275
+ObjectT PlayerObject::getMinRange(665,24032
+ObjectT PlayerObject::getMaxRange(673,24231
+bool PlayerObject::setIsKnownPlayer(684,24719
+bool PlayerObject::getIsKnownPlayer(695,25180
+bool PlayerObject::setIsGoalie(703,25445
+bool PlayerObject::getIsGoalie(711,25671
+void PlayerObject::show(720,25946
+void PlayerObject::show(729,26292
+bool PlayerObject::setHeteroPlayerType(749,27254
+int  PlayerObject::getHeteroPlayerType(757,27478
+bool PlayerObject::setTimeTackle(764,27637
+Time PlayerObject::getTimeTackle(772,27818
+bool PlayerObject::setGlobalArm(781,28065
+AngDeg PlayerObject::getGlobalArm(789,28304
+bool PlayerObject::setTimeGlobalArm(797,28554
+Time PlayerObject::getTimeGlobalArm(806,28828
+BallObject::BallObject(817,29245
+void BallObject::show(826,29442
+AgentObject::AgentObject(854,30766
+void AgentObject::show(871,31352
+void AgentObject::show(880,31684
+ViewAngleT AgentObject::getViewAngle(897,32349
+VecPosition AgentObject::getPositionDifference(907,32747
+bool  AgentObject::setPositionDifference(917,33120
+bool AgentObject::setViewAngle(926,33411
+ViewQualityT AgentObject::getViewQuality(935,33663
+bool AgentObject::setViewQuality(943,33898
+Stamina AgentObject::getStamina(951,34083
+bool AgentObject::setStamina(959,34302
+VecPosition AgentObject::getSpeedRelToNeck(969,34674
+bool AgentObject::setSpeedRelToNeck(978,34996
+bool AgentObject::setGlobalNeckAngle(987,35260
+AngDeg AgentObject::getBodyAngleRelToNeck(999,35713
+bool AgentObject::setBodyAngleRelToNeck(1007,35980
+bool AgentObject::getArmMovable(1015,36241
+bool AgentObject::setArmMovable(1021,36390
+int AgentObject::getArmExpires(1030,36666
+bool AgentObject::setArmExpires(1038,36924
+VecPosition AgentObject::getGlobalArmPosition(1047,37190
+bool AgentObject::setGlobalArmPosition 1053,37344
+int AgentObject::getTackleExpires(1061,37576
+bool AgentObject::setTackleExpires(1068,37780
+Stamina::Stamina(1084,38372
+void Stamina::show(1094,38644
+TiredNessT  Stamina::getTiredNess(1103,38929
+double Stamina::getStamina(1122,39561
+bool Stamina::setStamina(1131,39837
+double Stamina::getEffort(1149,40340
+bool Stamina::setEffort(1159,40708
+double Stamina::getRecovery(1182,41327
+bool Stamina::setRecovery(1192,41703
+
+Parse.cc,208
+char Parse::gotoFirstNonSpace(63,2798
+char Parse::gotoFirstSpaceOrClosingBracket(79,3396
+int Parse::gotoFirstOccurenceOf(92,3947
+int Parse::parseFirstInt(112,4597
+double Parse::parseFirstDouble(145,5796
+
+PlayerSettings.cc,2875
+PlayerSettings::PlayerSettings(58,2647
+double PlayerSettings::getPlayerConfThr(130,7604
+bool PlayerSettings::setPlayerConfThr(139,7904
+double PlayerSettings::getPlayerHighConfThr(148,8150
+bool PlayerSettings::setPlayerHighConfThr(157,8465
+double PlayerSettings::getBallConfThr(166,8708
+bool PlayerSettings::setBallConfThr(175,9000
+double PlayerSettings::getPlayerDistTolerance(184,9259
+bool PlayerSettings::setPlayerDistTolerance(193,9584
+double PlayerSettings::getPlayerWhenToTurnAngle(202,9878
+bool PlayerSettings::setPlayerWhenToTurnAngle(211,10221
+double PlayerSettings::getPlayerWhenToKick(225,10849
+bool PlayerSettings::setPlayerWhenToKick(235,11259
+int PlayerSettings::getPlayerWhenToIntercept(245,11567
+bool PlayerSettings::setPlayerWhenToIntercept(254,11864
+double PlayerSettings::getClearBallDist(265,12291
+bool PlayerSettings::setClearBallDist(274,12553
+double PlayerSettings::getClearBallOppMaxDist(283,12814
+bool PlayerSettings::setClearBallOppMaxDist(292,13138
+double PlayerSettings::getClearBallToSideAngle(300,13380
+bool PlayerSettings::setClearBallToSideAngle(308,13675
+double PlayerSettings::getConeWidth(320,14165
+bool PlayerSettings::setConeWidth(331,14637
+double PlayerSettings::getPassEndSpeed(340,14858
+bool PlayerSettings::setPassEndSpeed(349,15137
+double PlayerSettings::getFastPassEndSpeed(358,15385
+bool PlayerSettings::setFastPassEndSpeed(368,15684
+double PlayerSettings::getPassExtraX(377,15981
+bool PlayerSettings::setPassExtraX(386,16291
+double PlayerSettings::getFractionWaitNoSee(396,16627
+bool PlayerSettings::setFractionWaitNoSee(407,17045
+double PlayerSettings::getFractionWaitSeeBegin(418,17449
+bool PlayerSettings::setFractionWaitSeeBegin(429,17919
+double PlayerSettings::getFractionWaitSeeEnd(440,18331
+bool PlayerSettings::setFractionWaitSeeEnd(451,18799
+double PlayerSettings::getMarkDistance(460,19044
+bool PlayerSettings::setMarkDistance(469,19323
+double PlayerSettings::getStratAreaRadius(479,19621
+bool PlayerSettings::setStratAreaRadius(489,19983
+double PlayerSettings::getShootRiskProbability(501,20533
+bool PlayerSettings::setShootRiskProbability(514,21120
+int PlayerSettings::getCyclesCatchWait(523,21392
+bool PlayerSettings::setCyclesCatchWait(532,21697
+int PlayerSettings::getServerTimeOut(543,22097
+bool PlayerSettings::setServerTimeOut(553,22516
+double PlayerSettings::getDribbleAngThr(563,22868
+bool PlayerSettings::setDribbleAngThr(573,23268
+double PlayerSettings::getTurnWithBallAngThr(585,23643
+bool PlayerSettings::setTurnWithBallAngThr(596,24072
+double PlayerSettings::getTurnWithBallFreezeThr(606,24419
+bool PlayerSettings::setTurnWithBallFreezeThr(616,24816
+int PlayerSettings::getInitialFormation(624,25044
+bool PlayerSettings::setInitialFormation(632,25290
+double PlayerSettings::getMaxYPercentage(642,25601
+bool PlayerSettings::setMaxYPercentage(652,25949
+
+SenseHandler.cc,1034
+DWORD WINAPI sense_callback(73,3078
+SenseHandler::SenseHandler(91,3711
+void SenseHandler::handleMessagesFromServer(137,5198
+void SenseHandler::setTimeSignal(162,6206
+bool SenseHandler::analyzeMessage(208,7899
+bool SenseHandler::analyzeSeeMessage(275,10494
+bool SenseHandler::analyzeSeeGlobalMessage(323,12349
+bool SenseHandler::analyzeFullStateMessage(380,14550
+bool SenseHandler::analyzeSenseMessage(517,20656
+bool SenseHandler::analyzeInitMessage(558,22223
+bool SenseHandler::analyzeHearMessage(585,23428
+bool SenseHandler::analyzePlayerMessage(670,26634
+bool SenseHandler::analyzeCoachMessage(702,27892
+bool SenseHandler::analyzeTrainerMessage(709,28026
+bool SenseHandler::analyzeCheckBall(725,28638
+bool SenseHandler::analyzeChangePlayerTypeMessage(739,29240
+bool SenseHandler::analyzeServerParamMessage(769,30372
+bool SenseHandler::readServerParam(881,36175
+bool SenseHandler::analyzePlayerTypeMessage 913,37371
+bool SenseHandler::analyzePlayerParamMessage(944,38835
+bool SenseHandler::synchronize(988,41166
+
+ServerSettings.cc,12538
+ServerSettings::ServerSettings(70,3377
+bool ServerSettings::setValue(555,33672
+bool ServerSettings::readValues(572,34507
+bool ServerSettings::setGoalWidth(586,35098
+double ServerSettings::getGoalWidth(594,35276
+bool ServerSettings::setPlayerSize(602,35534
+double ServerSettings::getPlayerSize(613,35872
+bool ServerSettings::setPlayerDecay(621,36150
+double ServerSettings::getPlayerDecay(629,36345
+bool ServerSettings::setPlayerRand(637,36627
+double ServerSettings::getPlayerRand(645,36822
+bool ServerSettings::setPlayerWeight(653,37102
+double ServerSettings::getPlayerWeight(661,37301
+bool ServerSettings::setPlayerSpeedMax(669,37583
+double ServerSettings::getPlayerSpeedMax(677,37784
+bool ServerSettings::setPlayerAccelMax(686,38091
+double ServerSettings::getPlayerAccelMax(694,38309
+bool ServerSettings::setStaminaMax(702,38593
+double ServerSettings::getStaminaMax(710,38784
+bool ServerSettings::setStaminaIncMax(719,39086
+double ServerSettings::getStaminaIncMax(727,39305
+bool ServerSettings::setRecoverDecThr(736,39630
+double ServerSettings::getRecoverDecThr(744,39862
+bool ServerSettings::setRecoverDec(753,40165
+double ServerSettings::getRecoverDec(761,40373
+bool ServerSettings::setRecoverMin(769,40645
+double ServerSettings::getRecoverMin(777,40832
+bool ServerSettings::setEffortDecThr(786,41157
+double ServerSettings::getEffortDecThr(795,41401
+bool ServerSettings::setEffortDec(804,41708
+double ServerSettings::getEffortDec(812,41920
+bool ServerSettings::setEffortIncThr(821,42243
+double ServerSettings::getEffortIncThr(830,42487
+bool ServerSettings::setEffortInc(839,42794
+double ServerSettings::getEffortInc(847,43006
+bool ServerSettings::setEffortMin(855,43283
+double ServerSettings::getEffortMin(863,43475
+bool ServerSettings::setHearMax(875,43837
+int ServerSettings::getHearMax(885,44100
+bool ServerSettings::setHearInc(895,44462
+int ServerSettings::getHearInc(904,44733
+bool ServerSettings::setHearDecay(913,45068
+int ServerSettings::getHearDecay(922,45320
+bool ServerSettings::setInertiaMoment(931,45644
+double ServerSettings::getInertiaMoment(940,45894
+bool ServerSettings::setSenseBodyStep(949,46228
+int ServerSettings::getSenseBodyStep(958,46472
+bool ServerSettings::setCatchableAreaL(969,46924
+double ServerSettings::getCatchableAreaL(978,47175
+bool ServerSettings::setCatchableAreaW(987,47510
+double ServerSettings::getCatchableAreaW(996,47760
+bool ServerSettings::setCatchProbability(1005,48073
+double ServerSettings::getCatchProbability(1013,48301
+bool ServerSettings::setCatchBanCycle(1022,48644
+int ServerSettings::getCatchBanCycle(1031,48891
+bool ServerSettings::setGoalieMaxMoves(1040,49224
+int ServerSettings::getGoalieMaxMoves(1049,49472
+bool ServerSettings::setBallSize(1057,49733
+double ServerSettings::getBallSize(1068,50065
+bool ServerSettings::setBallDecay(1076,50335
+double ServerSettings::getBallDecay(1084,50522
+bool ServerSettings::setBallRand(1095,50806
+double ServerSettings::getBallRand(1103,50997
+bool ServerSettings::setBallWeight(1111,51271
+double ServerSettings::getBallWeight(1119,51464
+bool ServerSettings::setBallSpeedMax(1127,51740
+double ServerSettings::getBallSpeedMax(1135,51935
+bool ServerSettings::setBallAccelMax(1144,52236
+double ServerSettings::getBallAccelMax(1152,52448
+bool ServerSettings::setWindForce(1160,52717
+double ServerSettings::getWindForce(1168,52895
+bool ServerSettings::setWindDir(1176,53160
+double ServerSettings::getWindDir(1184,53336
+bool ServerSettings::setWindRand(1192,53607
+double ServerSettings::getWindRand(1200,53795
+bool ServerSettings::setWindRandom(1208,54070
+bool ServerSettings::getWindRandom(1216,54290
+bool ServerSettings::setKickableMargin(1226,54667
+double ServerSettings::getKickableMargin(1238,55117
+bool ServerSettings::setCkickMargin(1248,55492
+double ServerSettings::getCkickMargin(1257,55770
+bool ServerSettings::setDashPowerRate(1267,56186
+double ServerSettings::getDashPowerRate(1277,56521
+bool ServerSettings::setKickPowerRate(1287,56939
+double ServerSettings::getKickPowerRate(1297,57272
+bool ServerSettings::setKickRand(1305,57555
+double ServerSettings::getKickRand(1313,57743
+bool ServerSettings::setVisibleAngle(1322,58054
+double ServerSettings::getVisibleAngle(1330,58284
+bool ServerSettings::setAudioCutDist(1339,58600
+double ServerSettings::getAudioCutDist(1347,58827
+bool ServerSettings::setQuantizeStep(1356,59138
+double ServerSettings::getQuantizeStep(1364,59360
+bool ServerSettings::setQuantizeStepL(1373,59667
+double ServerSettings::getQuantizeStepL(1381,59887
+bool ServerSettings::setMaxPower(1389,60171
+int ServerSettings::getMaxPower(1397,60355
+bool ServerSettings::setMinPower(1405,60626
+int ServerSettings::getMinPower(1413,60810
+bool ServerSettings::setMaxMoment(1421,61082
+int ServerSettings::getMaxMoment(1429,61269
+bool ServerSettings::setMinMoment(1437,61543
+int ServerSettings::getMinMoment(1445,61730
+bool ServerSettings::setMaxNeckMoment(1453,62007
+int ServerSettings::getMaxNeckMoment(1461,62205
+bool ServerSettings::setMinNeckMoment(1469,62490
+int ServerSettings::getMinNeckMoment(1477,62688
+bool ServerSettings::setMaxNeckAng(1488,62979
+int ServerSettings::getMaxNeckAng(1496,63175
+bool ServerSettings::setMinNeckAng(1507,63460
+int ServerSettings::getMinNeckAng(1515,63656
+bool ServerSettings::setPort(1524,63937
+int ServerSettings::getPort(1532,64115
+bool ServerSettings::setCoachPort(1541,64388
+int ServerSettings::getCoachPort(1549,64580
+bool ServerSettings::setOlCoachPort(1558,64882
+int ServerSettings::getOlCoachPort(1566,65088
+bool ServerSettings::setSayCoachCntMax(1575,65387
+int ServerSettings::getSayCoachCntMax(1583,65601
+bool ServerSettings::setSayCoachMsgSize(1591,65892
+int ServerSettings::getSayCoachMsgSize(1599,66098
+bool ServerSettings::setClangWinSize(1608,66424
+int ServerSettings::getClangWinSize(1616,66649
+bool ServerSettings::setClangDefineWin(1625,66963
+int ServerSettings::getClangDefineWin(1633,67190
+bool ServerSettings::setClangMetaWin(1642,67504
+int ServerSettings::getClangMetaWin(1650,67723
+bool ServerSettings::setClangAdviceWin(1659,68037
+int ServerSettings::getClangAdviceWin(1667,68264
+bool ServerSettings::setClangInfoWin(1676,68578
+int ServerSettings::getClangInfoWin(1684,68797
+bool ServerSettings::setClangMessDelay(1694,69174
+int ServerSettings::getClangMessDelay(1703,69462
+bool ServerSettings::setClangMessPerCycle(1712,69763
+int ServerSettings::getClangMessPerCycle(1720,69979
+bool ServerSettings::setSendViStep(1730,70357
+int ServerSettings::getSendViStep(1739,70628
+bool ServerSettings::setSimulatorStep(1750,71039
+int ServerSettings::getSimulatorStep(1758,71244
+bool ServerSettings::setSendStep(1769,71734
+int ServerSettings::getSendStep(1778,71985
+bool ServerSettings::setRecvStep(1789,72421
+int ServerSettings::getRecvStep(1798,72647
+bool ServerSettings::setHalfTime(1809,72936
+int ServerSettings::getHalfTime(1817,73132
+bool ServerSettings::setDropBallTime(1826,73479
+int ServerSettings::getDropBallTime(1835,73747
+bool ServerSettings::setSayMsgSize(1844,74048
+int ServerSettings::getSayMsgSize(1852,74254
+bool ServerSettings::setUseOffside(1861,74546
+bool ServerSettings::getUseOffside(1871,74784
+bool ServerSettings::setOffsideActiveAreaSize(1880,75140
+double ServerSettings::getOffsideActiveAreaSize(1889,75435
+bool ServerSettings::setForbidKickOffOffside(1898,75760
+bool ServerSettings::getForbidKickOffOffside(1907,76025
+bool ServerSettings::setOffsideKickMargin(1917,76427
+double ServerSettings::getOffsideKickMargin(1926,76734
+bool ServerSettings::setVerbose(1935,77090
+bool ServerSettings::getVerbose(1944,77368
+bool ServerSettings::setRecordVersion(1952,77632
+int ServerSettings::getRecordVersion(1960,77820
+bool ServerSettings::setRecordLog(1969,78117
+bool ServerSettings::getRecordLog(1978,78351
+bool ServerSettings::setSendLog(1987,78652
+bool ServerSettings::getSendLog(1996,78893
+bool ServerSettings::setLogTimes(2005,79184
+bool ServerSettings::getLogTimes(2014,79421
+bool ServerSettings::setLogFile(2023,79703
+char* ServerSettings::getLogFile(2031,79933
+bool ServerSettings::setSynchMode(2039,80193
+bool ServerSettings::getSynchMode(2047,80403
+bool ServerSettings::getFullStateRight(2054,80610
+bool ServerSettings::setFullStateRight(2062,80891
+bool ServerSettings::setFullStateLeft(2071,81184
+bool ServerSettings::getFullStateLeft(2079,81406
+bool ServerSettings::setPlayerTypes(2091,81720
+int ServerSettings::getPlayerTypes(2099,81940
+bool ServerSettings::setSubsMax(2111,82330
+int ServerSettings::getSubsMax(2122,82624
+bool ServerSettings::setPlayerSpeedMaxDeltaMin(2131,82924
+double ServerSettings::getPlayerSpeedMaxDeltaMin(2139,83168
+bool ServerSettings::setPlayerSpeedMaxDeltaMax(2148,83501
+double ServerSettings::getPlayerSpeedMaxDeltaMax(2156,83745
+bool ServerSettings::setStaminaIncMaxDeltaFactor(2165,84091
+double ServerSettings::getStaminaIncMaxDeltaFactor(2173,84352
+bool ServerSettings::setPlayerDecayDeltaMin(2182,84682
+double ServerSettings::getPlayerDecayDeltaMin(2190,84913
+bool ServerSettings::setPlayerDecayDeltaMax(2199,85233
+double ServerSettings::getPlayerDecayDeltaMax(2207,85464
+bool ServerSettings::setInertiaMomentDeltaFactor(2216,85803
+double ServerSettings::getInertiaMomentDeltaFactor(2224,86063
+bool ServerSettings::setDashPowerRateDeltaMin(2233,86398
+double ServerSettings::getDashPowerRateDeltaMin(2241,86638
+bool ServerSettings::setDashPowerRateDeltaMax(2250,86967
+double ServerSettings::getDashPowerRateDeltaMax(2258,87207
+bool ServerSettings::setPlayerSizeDeltaFactor(2267,87544
+double ServerSettings::getPlayerSizeDeltaFactor(2275,87792
+bool ServerSettings::setKickableMarginDeltaMin(2284,88122
+double ServerSettings::getKickableMarginDeltaMin(2292,88365
+bool ServerSettings::setKickableMarginDeltaMax(2301,88697
+double ServerSettings::getKickableMarginDeltaMax(2309,88940
+bool ServerSettings::setKickRandDeltaFactor(2318,89275
+double ServerSettings::getKickRandDeltaFactor(2326,89515
+bool ServerSettings::setExtraStaminaDeltaMin(2335,89837
+double ServerSettings::getExtraStaminaDeltaMin(2343,90072
+bool ServerSettings::setExtraStaminaDeltaMax(2352,90396
+double ServerSettings::getExtraStaminaDeltaMax(2360,90631
+bool ServerSettings::setEffortMaxDeltaFactor(2369,90964
+double ServerSettings::getEffortMaxDeltaFactor(2377,91208
+bool ServerSettings::setEffortMinDeltaFactor(2386,91541
+double ServerSettings::getEffortMinDeltaFactor(2394,91785
+bool ServerSettings::setNewDashPowerRateDeltaMin(2403,92112
+double ServerSettings::getNewDashPowerRateDeltaMin(2411,92361
+bool ServerSettings::setNewDashPowerRateDeltaMax(2420,92699
+double ServerSettings::getNewDashPowerRateDeltaMax(2428,92948
+bool ServerSettings::setNewStaminaIncMaxDeltaFactor(2437,93301
+double ServerSettings::getNewStaminaIncMaxDeltaFactor(2445,93571
+bool ServerSettings::setPenDistX(2452,93834
+double ServerSettings::getPenDistX(2460,94068
+bool ServerSettings::setPenMaxGoalieDistX(2468,94300
+double ServerSettings::getPenMaxGoalieDistX(2477,94563
+bool ServerSettings::setPenAllowMultKicks(2484,94796
+bool ServerSettings::getPenAllowMultKicks(2492,95040
+bool ServerSettings::setTackleDist(2500,95339
+double ServerSettings::getTackleDist(2509,95639
+bool ServerSettings::setTackleBackDist(2517,95929
+double ServerSettings::getTackleBackDist(2526,96239
+bool ServerSettings::setTackleWidth(2534,96522
+double ServerSettings::getTackleWidth(2543,96811
+bool ServerSettings::setTackleExponent(2550,97045
+double ServerSettings::getTackleExponent(2558,97297
+bool ServerSettings::setTackleCycles(2565,97513
+int ServerSettings::getTackleCycles(2573,97734
+bool ServerSettings::setTacklePowerRate(2580,97940
+double ServerSettings::getTacklePowerRate(2588,98167
+bool ServerSettings::setEffortMax(2596,98452
+double ServerSettings::getEffortMax(2604,98643
+bool ServerSettings::setSlowDownFactor(2613,98953
+int ServerSettings::getSlowDownFactor(2621,99178
+bool ServerSettings::setVisibleDistance(2632,99522
+double ServerSettings::getVisibleDistance(2641,99784
+bool ServerSettings::setExtraStamina(2651,100186
+double ServerSettings::getExtraStamina(2661,100499
+bool ServerSettings::setMaximalKickDist(2670,100828
+double ServerSettings::getMaximalKickDist(2679,101078
+bool ServerSettings::setKeepawayWidth(2684,101165
+double ServerSettings::getKeepawayWidth(2690,101261
+bool ServerSettings::setKeepawayLength(2695,101344
+double ServerSettings::getKeepawayLength(2701,101442
+void HeteroPlayerSettings::show(2713,101928
+
+SoccerTypes.cc,4858
+Time::Time(75,3304
+bool Time::updateTime(87,3740
+bool Time::setTimeStopped(103,4092
+int Time::getTime(112,4293
+int Time::getTimeStopped(120,4490
+int Time::getTimeDifference(128,4706
+bool Time::isStopped(142,5136
+Time Time::getTimeAddedWith(161,5931
+bool Time::addToTime(195,7375
+void Time::show(205,7722
+Time Time::operator + Time::operator +215,8150
+Time Time::operator + Time::operator +226,8628
+Time Time::operator - Time::operator -236,9051
+int Time::operator - Time::operator -245,9396
+void Time::operator = Time::operator =254,9621
+void Time::operator += Time::operator +=263,9899
+void Time::operator += Time::operator +=273,10260
+void Time::operator -= Time::operator -=283,10603
+void Time::operator -= Time::operator -=292,10912
+bool Time::operator != Time::operator !=307,11512
+bool Time::operator != Time::operator !=319,11988
+bool Time::operator == Time::operator ==332,12525
+bool Time::operator == Time::operator ==342,12961
+bool Time::operator < Time::operator <354,13388
+bool Time::operator < Time::operator <365,13783
+bool Time::operator <= Time::operator <=376,14127
+bool Time::operator <= Time::operator <=388,14547
+bool Time::operator > Time::operator >397,14915
+bool Time::operator > Time::operator >410,15305
+bool Time::operator >= Time::operator >=419,15672
+bool Time::operator >= Time::operator >=431,16085
+ostream& operator <<(operator <<443,16563
+SoccerCommand::SoccerCommand(462,17566
+SoccerCommand::SoccerCommand(482,18249
+void SoccerCommand::makeCommand(505,19444
+void SoccerCommand::makeCommand(548,20461
+void SoccerCommand::makeCommand(562,20885
+void SoccerCommand::show(571,21157
+bool SoccerCommand::isIllegal(626,22699
+bool SoccerCommand::getCommandString(640,23291
+bool SoccerCommand::makeCatchCommand(676,25031
+bool SoccerCommand::makeChangeViewCommand(695,25747
+bool SoccerCommand::makeDashCommand(717,26669
+bool SoccerCommand::makeKickCommand(739,27479
+bool SoccerCommand::makeMoveCommand(760,28311
+bool SoccerCommand::makeSayCommand(783,29161
+bool SoccerCommand::makeSenseBodyCommand(800,29758
+bool SoccerCommand::makeTurnCommand(812,30245
+bool SoccerCommand::makeTurnNeckCommand(834,31067
+bool SoccerCommand::makeChangePlayerCommand(860,32082
+bool SoccerCommand::makeAttentionToCommand(885,33138
+bool SoccerCommand::makeTackleCommand(917,34093
+bool SoccerCommand::makePointToCommand(939,34946
+Feature::Feature(964,35728
+Feature::Feature(981,36628
+bool Feature::setFeature(1000,37729
+bool Feature::setTimeSee(1017,38252
+Time Feature::getTimeSee(1025,38436
+bool Feature::setTimeSense(1032,38600
+Time Feature::getTimeSense(1040,38789
+bool Feature::setTimeHear(1047,38955
+Time Feature::getTimeHear(1055,39141
+bool Feature::setObject 1062,39306
+ObjectT Feature::getObject(1070,39498
+bool Feature::setInfo(1077,39669
+double Feature::getInfo(1085,39846
+bool Feature::setVec(1092,40026
+VecPosition Feature::getVec(1100,40229
+bool Feature::setCommand(1107,40410
+SoccerCommand Feature::getCommand(1115,40607
+const char * ObjectNames[ObjectNames1129,41188
+char* SoccerTypes::getObjectStr(1150,42476
+ObjectT SoccerTypes::getObjectFromStr(1185,44024
+int SoccerTypes::getIndex(1437,54664
+ObjectT SoccerTypes::getTeammateObjectFromIndex(1457,55457
+ObjectT SoccerTypes::getOpponentObjectFromIndex(1466,55826
+bool SoccerTypes::isInSet(1478,56327
+bool SoccerTypes::isPlayerTypeInSet(1500,57248
+bool SoccerTypes::isFlag(1523,57846
+bool SoccerTypes::isLine(1532,58176
+bool SoccerTypes::isGoal(1540,58432
+bool SoccerTypes::isTeammate(1548,58689
+bool SoccerTypes::isOpponent(1556,58966
+bool SoccerTypes::isPlayer(1567,59310
+bool SoccerTypes::isKnownPlayer(1579,59703
+bool SoccerTypes::isGoalie(1589,60075
+bool SoccerTypes::isBall(1597,60338
+ObjectT SoccerTypes::getOwnGoal(1605,60567
+ObjectT SoccerTypes::getGoalOpponent(1621,60985
+VecPosition SoccerTypes::getGlobalPositionFlag(1641,61837
+AngDeg SoccerTypes::getGlobalAngleLine(1782,68864
+char* SoccerTypes::getPlayModeStr(1807,69644
+PlayModeT SoccerTypes::getPlayModeFromStr(1849,71819
+PlayModeT SoccerTypes::getPlayModeFromRefereeMessage(1859,72268
+char* SoccerTypes::getRefereeMessageStr(1904,74905
+RefereeMessageT SoccerTypes::getRefereeMessageFromStr(1971,78676
+char* SoccerTypes::getViewAngleStr(2080,83444
+ViewAngleT SoccerTypes::getViewAngleFromStr(2095,83909
+AngDeg SoccerTypes::getHalfViewAngleValue(2115,84565
+char* SoccerTypes::getViewQualityStr(2131,85045
+ViewQualityT SoccerTypes::getViewQualityFromStr(2146,85500
+char* SoccerTypes::getCommandStr(2157,85938
+bool SoccerTypes::isPrimaryCommand(2184,86905
+char* SoccerTypes::getSideStr(2195,87297
+SideT SoccerTypes::getSideFromStr(2210,87742
+char* SoccerTypes::getBallStatusStr(2223,88229
+BallStatusT SoccerTypes::getBallStatusFromStr(2241,88800
+AngDeg SoccerTypes::getAngleFromDirection(2257,89275
+
+tiles2.cc,1107
+int mod(29,1091
+void GetTiles(31,1156
+void GetTiles(79,2829
+int hash_UNH(132,4585
+int hash(177,5676
+void collision_table::reset(220,6662
+collision_table::collision_table(229,6801
+collision_table::~collision_table(247,7147
+int collision_table::usage(252,7207
+void collision_table::save(261,7354
+void collision_table::restore(271,7687
+int i_tmp_arr[i_tmp_arr292,8235
+float f_tmp_arr[f_tmp_arr293,8264
+void GetTiles(296,8307
+void GetTiles(300,8431
+void GetTiles(306,8571
+void GetTiles(311,8723
+void GetTiles(318,8893
+void GetTiles(324,9073
+void GetTiles(332,9273
+void GetTiles(339,9481
+void GetTiles1(348,9717
+void GetTiles1(353,9852
+void GetTiles1(360,10015
+void GetTiles1(366,10178
+void GetTiles1(374,10370
+void GetTiles1(381,10561
+void GetTiles1(390,10783
+void GetTiles1(398,11002
+void GetTiles2(408,11250
+void GetTiles2(414,11415
+void GetTiles2(422,11609
+void GetTiles2(429,11802
+void GetTiles2(438,12025
+void GetTiles2(446,12246
+void GetTiles2(456,12499
+void GetTiles2(465,12748
+void GetTilesWrap(475,13003
+void GetTilesWrap(526,15003
+void GetTilesWrap(578,17014
+
+WorldModel.cc,7411
+WorldModel::WorldModel(76,3191
+WorldModel::~WorldModel(143,5216
+Object* WorldModel::getObjectPtrFromType(154,5569
+void WorldModel::setTimeLastCatch(187,6720
+int WorldModel::getTimeSinceLastCatch(194,6903
+bool WorldModel::setTimeLastRefereeMessage(204,7232
+Time WorldModel::getTimeLastRefereeMessage(212,7462
+Time WorldModel::getCurrentTime(221,7753
+int WorldModel::getCurrentCycle(233,8135
+bool WorldModel::isTimeStopped(244,8426
+bool WorldModel::isLastMessageSee(251,8654
+Time WorldModel::getTimeLastSeeGlobalMessage(259,8929
+bool WorldModel::setTimeLastSeeGlobalMessage(267,9174
+Time WorldModel::getTimeLastSeeMessage(275,9424
+Time WorldModel::getTimeLastRecvSeeMessage(285,9800
+bool WorldModel::setTimeLastSeeMessage(296,10196
+Time WorldModel::getTimeLastSenseMessage(319,10805
+Time WorldModel::getTimeLastRecvSenseMessage(329,11192
+bool WorldModel::setTimeLastSenseMessage(341,11598
+Time WorldModel::getTimeLastHearMessage(364,12184
+bool WorldModel::setTimeLastHearMessage(372,12413
+int WorldModel::getPlayerNumber(381,12710
+bool WorldModel::setPlayerNumber(390,13047
+SideT WorldModel::getSide(399,13302
+bool WorldModel::setSide(407,13513
+const char* WorldModel::getTeamName(418,13881
+bool WorldModel::setTeamName(427,14198
+PlayModeT WorldModel::getPlayMode(437,14458
+bool WorldModel::setPlayMode(445,14700
+int WorldModel::getGoalDiff(458,15226
+int WorldModel::addOneToGoalDiff(466,15428
+int WorldModel::subtractOneFromGoalDiff(474,15638
+int WorldModel::getNrOfCommands(483,15965
+bool WorldModel::setNrOfCommands(497,16671
+Time WorldModel::getTimeCheckBall(510,17123
+bool WorldModel::setTimeCheckBall(519,17390
+BallStatusT WorldModel::getCheckBallStatus(529,17753
+bool WorldModel::setCheckBallStatus(538,18104
+bool WorldModel::getRecvThink(546,18309
+char* WorldModel::getCommunicationString(555,18600
+ObjectT WorldModel::getObjectFocus(564,18885
+bool WorldModel::setObjectFocus(573,19155
+bool WorldModel::setCommunicationString(584,19470
+ObjectT WorldModel::iterateObjectStart(601,20225
+ObjectT WorldModel::iterateObjectNext(616,20923
+void WorldModel::iterateObjectDone(675,22983
+ObjectT WorldModel::getAgentObjectType(683,23239
+int WorldModel::getAgentIndex(688,23324
+bool WorldModel::setAgentObjectType(697,23666
+AngDeg WorldModel::getAgentBodyAngleRelToNeck(705,23908
+AngDeg WorldModel::getAgentGlobalNeckAngle(712,24126
+AngDeg WorldModel::getAgentGlobalBodyAngle(719,24341
+Stamina WorldModel::getAgentStamina(726,24543
+TiredNessT WorldModel::getAgentTiredNess(734,24782
+double WorldModel::getAgentEffort(742,25046
+VecPosition WorldModel::getAgentGlobalVelocity(749,25254
+double WorldModel::getAgentSpeed(756,25438
+VecPosition WorldModel::getAgentGlobalPosition(763,25619
+bool WorldModel::setAgentViewAngle(770,25835
+ViewAngleT WorldModel::getAgentViewAngle(781,26084
+bool WorldModel::setAgentViewQuality(788,26291
+ViewQualityT WorldModel::getAgentViewQuality(795,26517
+double WorldModel::getAgentViewFrequency(804,26867
+bool WorldModel::getAgentArmMovable(835,27705
+VecPosition WorldModel::getAgentArmPosition(842,27882
+int WorldModel::getAgentArmExpires(849,28083
+VecPosition  WorldModel::getBallPos(858,28385
+double WorldModel::getBallSpeed(865,28618
+AngDeg WorldModel::getBallDirection(872,28827
+Time WorldModel::getTimeGlobalPosition(881,29135
+VecPosition WorldModel::getGlobalPosition(898,29774
+Time WorldModel::getTimeGlobalVelocity(916,30437
+VecPosition WorldModel::getGlobalVelocity(930,30982
+double WorldModel::getRelativeDistance(944,31573
+VecPosition  WorldModel::getRelativePosition(957,32065
+AngDeg WorldModel::getRelativeAngle(975,32920
+Time WorldModel::getTimeGlobalAngles(994,33521
+AngDeg WorldModel::getGlobalBodyAngle(1007,34019
+AngDeg WorldModel::getGlobalNeckAngle(1020,34522
+AngDeg WorldModel::getGlobalAngle(1032,34963
+double WorldModel::getConfidence(1045,35480
+bool WorldModel::isKnownPlayer(1061,36167
+ObjectT WorldModel::getOppGoalieType(1080,36970
+ObjectT WorldModel::getOwnGoalieType(1129,38883
+Time WorldModel::getTimeLastSeen(1159,39913
+Time WorldModel::getTimeChangeInformation(1173,40387
+VecPosition WorldModel::getGlobalPositionLastSee(1186,40881
+Time WorldModel::getTimeGlobalPositionLastSee(1199,41442
+VecPosition WorldModel::getGlobalVelocityLastSee(1211,41940
+AngDeg WorldModel::getGlobalBodyAngleLastSee(1223,42480
+int WorldModel::getTackleExpires(1234,42897
+AngDeg WorldModel::getGlobalArmDirection(1250,43485
+Time  WorldModel::getTimeGlobalArmDirection(1262,43910
+double WorldModel::getProbTackleSucceeds(1276,44464
+list<ObjectT> WorldModel::getListCloseOpponents(1355,47347
+double WorldModel::getProbTackleClosestOpp(1373,47876
+bool WorldModel::setIsKnownPlayer(1392,48657
+bool WorldModel::setTimeLastSeen(1402,49075
+bool WorldModel::setHeteroPlayerType(1412,49500
+PlayerT WorldModel::getPlayerType 1423,49865
+bool WorldModel::isInPlayerSet(1432,50140
+int WorldModel::getHeteroPlayerType(1441,50502
+VecPosition WorldModel::getPosOpponentGoal(1452,50811
+VecPosition WorldModel::getPosOwnGoal(1465,51334
+double  WorldModel::getRelDistanceOpponentGoal(1480,51887
+double  WorldModel::getRelAngleOpponentGoal(1493,52355
+HeteroPlayerSettings WorldModel::getInfoHeteroPlayer(1508,52914
+HeteroPlayerSettings WorldModel::getHeteroInfoPlayer(1516,53231
+bool WorldModel::setSubstitutedOpp(1533,53951
+ObjectT WorldModel::getSubstitutedOpp(1541,54215
+double WorldModel::getDashPowerRate(1553,54500
+double WorldModel::getPlayerSpeedMax(1559,54675
+double WorldModel::getPlayerDecay(1565,54844
+double WorldModel::getMaximalKickDist(1571,55023
+double WorldModel::getStaminaIncMax(1577,55205
+double WorldModel::getPlayerSize(1583,55371
+double WorldModel::getInertiaMoment(1589,55541
+double WorldModel::getEffortMax(1595,55716
+double WorldModel::getEffectiveMaxSpeed(1601,55888
+bool WorldModel::isQueuedActionPerformed(1626,56968
+bool WorldModel::isFreeKickUs(1644,57649
+bool WorldModel::isFreeKickThem(1662,58385
+bool WorldModel::isBeforeKickOff(1683,59328
+bool WorldModel::isDeadBallUs(1700,60061
+bool WorldModel::isDeadBallThem(1719,60885
+bool WorldModel::setChangeViewCommand(1729,61204
+SoccerCommand WorldModel::getChangeViewCommand(1735,61312
+SideT WorldModel::getSidePenalty(1741,61460
+bool WorldModel::setSidePenalty(1747,61585
+bool WorldModel::isCornerKickUs(1760,62031
+bool WorldModel::isCornerKickThem(1775,62650
+bool WorldModel::isOffsideUs(1790,63241
+bool WorldModel::isOffsideThem(1805,63841
+bool WorldModel::isKickInUs(1820,64419
+bool WorldModel::isKickInThem(1835,65018
+bool WorldModel::isFreeKickFaultUs(1852,65709
+bool WorldModel::isFreeKickFaultThem(1871,66445
+bool WorldModel::isKickOffUs(1886,67051
+bool WorldModel::isKickOffThem(1902,67748
+bool WorldModel::isBackPassUs(1919,68463
+bool WorldModel::isBackPassThem(1937,69206
+bool WorldModel::isGoalKickUs(1952,69795
+bool WorldModel::isGoalKickThem(1967,70402
+bool WorldModel::isPenaltyUs(1982,70989
+bool WorldModel::isPenaltyThem(2004,71831
+bool WorldModel::isFullStateOn(2019,72303
+void WorldModel::show(2036,72799
+void WorldModel::show(2070,74314
+void WorldModel::showQueuedCommands(2083,74763
+void WorldModel::show(2095,75200
+bool WorldModel::waitForNewInformation(2118,75923
+void WorldModel::logObjectInformation(2189,79248
+bool WorldModel::isFeatureRelevant(2271,82681
+Feature WorldModel::getFeature(2308,84097
+bool WorldModel::setFeature(2318,84469
+
+WorldModelHighLevel.cc,2650
+int WorldModel::getNrInSetInCircle(59,2679
+int WorldModel::getNrInSetInRectangle(86,3637
+int WorldModel::getNrInSetInCone(114,4775
+bool WorldModel::isEmptySpace(146,5982
+bool WorldModel::coordinateWith(161,6311
+bool WorldModel::sortClosestTo(176,6727
+ObjectT WorldModel::getClosestInSetTo(229,8330
+ObjectT WorldModel::getClosestInSetTo(273,9839
+ObjectT WorldModel::getClosestInSetTo(314,11441
+ObjectT WorldModel::getClosestRelativeInSet(356,12922
+ObjectT WorldModel::getSecondClosestInSetTo 389,14161
+ObjectT WorldModel::getSecondClosestRelativeInSet(434,15917
+ObjectT WorldModel::getFurthestInSetTo(480,17765
+ObjectT WorldModel::getFurthestRelativeInSet(516,18965
+VecPosition WorldModel::getPosClosestOpponentTo(539,19538
+double WorldModel::getMaxTraveledDistance(550,19891
+void WorldModel::createInterceptFeatures(556,20029
+ObjectT WorldModel::getFastestInSetTo(755,28022
+ObjectT WorldModel::getFastestInSetTo(892,32974
+ObjectT WorldModel::getFirstEmptySpotInSet(951,34967
+bool WorldModel::isVisible(973,35786
+bool WorldModel::isBallKickable(990,36274
+bool WorldModel::isBallCatchable(1004,36873
+bool WorldModel::isBallHeadingToGoal(1020,37607
+bool WorldModel::isBallInOurPossesion(1066,39200
+bool WorldModel::isBallInOwnPenaltyArea(1081,39608
+bool WorldModel::isInOwnPenaltyArea(1090,39909
+bool WorldModel::isInTheirPenaltyArea(1111,40744
+bool WorldModel::isConfidenceGood(1133,41617
+bool WorldModel::isConfidenceVeryGood(1147,42223
+bool WorldModel::isOnside(1156,42587
+bool WorldModel::isOpponentAtAngle(1168,43177
+Time WorldModel::getTimeFromConfidence(1198,44235
+ObjectT WorldModel::getLastOpponentDefender(1207,44597
+double WorldModel::getOffsideX(1254,46216
+VecPosition WorldModel::getOuterPositionInField(1280,47366
+AngDeg WorldModel::getDirectionOfWidestAngle(1329,49584
+bool WorldModel::isInField(1468,54252
+bool WorldModel::isBeforeGoal(1479,54675
+VecPosition WorldModel::getStrategicPosition(1497,55610
+VecPosition WorldModel::getStrategicPosition(1514,56568
+VecPosition WorldModel::getMarkingPosition(1594,60120
+double WorldModel::getActualKickPowerRate(1688,64060
+double WorldModel::getKickPowerForSpeed(1712,65427
+double WorldModel::getKickSpeedToTravel(1726,66002
+double WorldModel::getFirstSpeedFromEndSpeed(1751,67294
+double WorldModel::getFirstSpeedFromDist(1771,68270
+double WorldModel::getEndSpeedFromFirstSpeed(1786,68870
+AngDeg WorldModel::getAngleForTurn(1800,69507
+AngDeg WorldModel::getActualTurnAngle(1818,70205
+double WorldModel::getPowerForDash(1834,70993
+int WorldModel::getClosestPlayerInFormationTo(1870,72781
+ObjectT WorldModel::getLeastConfidentInSet(1906,73874
+
+WorldModelKeepaway.cc,749
+int WorldModel::getNumKeepers(36,1588
+void WorldModel::setNumKeepers(41,1648
+int WorldModel::getNumTakers(46,1719
+void WorldModel::setNumTakers(51,1777
+double WorldModel::congestion(56,1846
+void WorldModel::resetEpisode(77,2514
+void WorldModel::setNewEpisode(97,3143
+bool WorldModel::isNewEpisode(102,3219
+double WorldModel::keeperReward(107,3279
+void WorldModel::setLastAction(113,3394
+int WorldModel::getLastAction(120,3563
+int WorldModel::getTimeLastAction(125,3623
+int WorldModel::keeperStateVars(130,3691
+int WorldModel::keeperStateRangesAndResolutions(220,6316
+void WorldModel::setMoveSpeed(279,7921
+double WorldModel::getMoveSpeed(284,7995
+void WorldModel::setKeepawayRect(289,8056
+Rect WorldModel::getKeepawayRect(294,8183
+
+WorldModelPredict.cc,999
+bool WorldModel::predictStateAfterCommand(66,3039
+bool WorldModel::predictAgentStateAfterCommand(110,4825
+bool WorldModel::predictObjectStateAfterCommand(135,6051
+VecPosition WorldModel::predictAgentPosAfterCommand(156,6952
+void WorldModel::predictStateAfterDash(173,7726
+void WorldModel::predictStateAfterTurn(209,9382
+void WorldModel::predictBallInfoAfterCommand(224,9986
+VecPosition WorldModel::predictPosAfterNrCycles(263,11595
+VecPosition WorldModel::predictAgentPos(311,13492
+VecPosition WorldModel::predictFinalAgentPos(319,13846
+int WorldModel::predictNrCyclesForDistance 331,14404
+int WorldModel::predictNrCyclesToPoint(371,16011
+int WorldModel::predictNrCyclesToObject(481,20107
+void WorldModel::predictStaminaAfterDash(543,22379
+SoccerCommand WorldModel::predictCommandTurnTowards(588,24013
+SoccerCommand WorldModel::predictCommandToMoveToPos(686,28251
+SoccerCommand WorldModel::predictCommandToInterceptBall(715,29547
+bool WorldModel::isCollisionAfterCommand(928,38425
+
+WorldModelSayMsgTypes.cc,673
+short char2numMap[char2numMap36,1625
+WMOurPos::WMOurPos(38,1681
+void WMOurPos::process(43,1745
+WMBallInfo::WMBallInfo(50,1960
+void WMBallInfo::process(55,2031
+WMWeHaveBall::WMWeHaveBall(82,2926
+void WMWeHaveBall::process(87,3002
+WMOppHasBall::WMOppHasBall(93,3141
+void WMOppHasBall::process(98,3217
+WMPassToPlayer::WMPassToPlayer(104,3356
+void WMPassToPlayer::process(109,3438
+WMPassToCoord::WMPassToCoord(115,3640
+void WMPassToCoord::process(120,3719
+WMWantPass::WMWantPass(126,3868
+void WMWantPass::process(131,3938
+WMOppPos::WMOppPos(136,4052
+void WMOppPos::process(141,4116
+WMTeammatePos::WMTeammatePos(149,4396
+void WMTeammatePos::process(154,4475
+
+WorldModelUpdate.cc,2710
+void WorldModel::processSeeGlobalInfo(85,3386
+bool WorldModel::processNewAgentInfo(131,5210
+void WorldModel::processNewObjectInfo(180,7979
+bool WorldModel::storePlayerMessage(310,13321
+bool WorldModel::processPlayerMessage(320,13619
+bool WorldModel::processRecvThink(367,15105
+bool WorldModel::processPerfectHearInfoBall(394,16023
+bool WorldModel::processPerfectHearInfo(442,18060
+bool WorldModel::processUnsureHearInfo(487,20295
+bool WorldModel::processNewHeteroPlayer(552,23355
+void WorldModel::processCatchedBall(590,25101
+void WorldModel::processQueuedCommands(607,25943
+bool WorldModel::updateAll(632,26941
+void  WorldModel::processLastSeeMessage(820,34107
+bool WorldModel::updateAfterSeeMessage(963,39248
+bool WorldModel::updateAgentObjectAfterSee(1013,41065
+bool WorldModel::updateDynamicObjectAfterSee(1040,42255
+void WorldModel::processLastSenseMessage(1086,44056
+bool WorldModel::updateAfterSenseMessage(1155,47582
+bool WorldModel::updateAgentAndBallAfterSense(1215,49871
+bool WorldModel::updateBallAfterKick(1400,57563
+bool WorldModel::updateDynamicObjectForNextCycle(1433,58920
+bool WorldModel::updateBallForCollision(1517,61800
+bool WorldModel::updateRelativeFromGlobal(1539,62875
+bool WorldModel::updateObjectRelativeFromGlobal(1568,63852
+bool WorldModel::calculateStateAgent(1589,64808
+void WorldModel::initParticlesAgent(1661,67834
+void WorldModel::initParticlesAgent(1705,69723
+int WorldModel::checkParticlesAgent(1720,70373
+void WorldModel::updateParticlesAgent(1768,72666
+VecPosition WorldModel::averageParticles(1792,73548
+void WorldModel::resampleParticlesAgent(1814,74318
+bool WorldModel::calculateStateAgent2(1828,75033
+bool WorldModel::calculateStateAgent3(1912,78548
+VecPosition WorldModel::calculatePosAgentWith2Flags(1978,81388
+AngDeg WorldModel::calculateAngleAgentWithPos(2034,83653
+VecPosition WorldModel::calculateVelocityDynamicObject(2077,85193
+bool WorldModel::calculateStateBall(2101,86270
+bool WorldModel::calculateStatePlayer(2260,93521
+bool WorldModel::getMinMaxDistQuantizeValue(2308,95533
+bool WorldModel::getMinMaxDirChange(2337,96902
+bool WorldModel::getMinMaxDistChange(2359,97949
+double WorldModel::invQuantizeMin(2382,99054
+double WorldModel::invQuantizeMax(2394,99618
+void WorldModel::mapUnknownPlayers(2412,100485
+bool WorldModel::updateSSToHeteroPlayerType(2601,108435
+bool WorldModel::resetTimeObjects(2621,109338
+void WorldModel::removeGhosts(2639,110090
+void WorldModel::initParticlesBall(2795,116735
+void WorldModel::checkParticlesBall(2865,119739
+void WorldModel::updateParticlesBall(2953,122796
+void WorldModel::resampleParticlesBall(2990,124347
+ObjectT WorldModel::getMaxRangeUnknownPlayer(3002,124698
+
+ActHandler.h,454
+#define _ACTHANDLER_49,2096
+class ActHandler 87,4225
+  Connection     *connection;ActHandler::connection89,4245
+  ServerSettings *SS;ActHandler::SS90,4325
+  WorldModel     *WM;ActHandler::WM91,4405
+  SoccerCommand  m_queueOneCycleCommand;ActHandler::m_queueOneCycleCommand93,4486
+  SoccerCommand  m_queueMultipleCommands[ActHandler::m_queueMultipleCommands94,4566
+  int            m_iMultipleCommands;ActHandler::m_iMultipleCommands96,4695
+
+BasicPlayer.h,246
+#define _BASICPLAYER_55,2244
+class BasicPlayer65,2634
+  ActHandler      *ACT;BasicPlayer::ACT68,2665
+  WorldModel      *WM;BasicPlayer::WM69,2745
+  ServerSettings  *SS;BasicPlayer::SS70,2825
+  PlayerSettings  *PS;BasicPlayer::PS71,2905
+
+Connection.h,332
+#define _CONNECTION_49,2102
+using namespace std;60,2344
+typedef struct _socket{_socket63,2446
+    int    socketfd 64,2470
+    struct sockaddr_in  serv_addr 65,2550
+} Socket 66,2630
+class Connection 75,3048
+  Socket         m_sock;Connection::m_sock77,3068
+  int            m_iMaxMsgSize;Connection::m_iMaxMsgSize78,3148
+
+Formations.h,923
+#define _FORMATIONS_69,2943
+class PlayerTypeInfo94,4161
+  PlayerT playerType;PlayerTypeInfo::playerType96,4184
+  double  dAttrX;PlayerTypeInfo::dAttrX97,4264
+  double  dAttrY;PlayerTypeInfo::dAttrY98,4344
+  double  dMinX;PlayerTypeInfo::dMinX99,4424
+  double  dMaxX;PlayerTypeInfo::dMaxX100,4504
+  bool    bBehindBall;PlayerTypeInfo::bBehindBall101,4584
+class FormationTypeInfo138,6257
+  FormationT      formationType;FormationTypeInfo::formationType140,6283
+  VecPosition     posHome[FormationTypeInfo::posHome141,6363
+  PlayerT         playerType[FormationTypeInfo::playerType142,6443
+  PlayerTypeInfo  playerTypeInfo[FormationTypeInfo::playerTypeInfo143,6523
+class Formations173,8262
+  FormationTypeInfo formations[Formations::formations175,8281
+  FormationT        curFormation;Formations::curFormation176,8361
+  int               iPlayerInFormation;Formations::iPlayerInFormation177,8441
+
+GenericValues.h,726
+#define _GENERIC_VALUES_56,2595
+using namespace std;60,2673
+enum GenericValueKind63,2773
+  GENERIC_VALUE_DOUBLE 65,2797
+  GENERIC_VALUE_STRING 66,2826
+  GENERIC_VALUE_BOOLEAN 67,2855
+  GENERIC_VALUE_INTEGER 68,2884
+class GenericValueT79,3440
+  const char*      m_strName;GenericValueT::m_strName84,3497
+  void*            m_vAddress;GenericValueT::m_vAddress86,3654
+  GenericValueKind m_type;GenericValueT::m_type87,3734
+class GenericValues124,5326
+  char  *m_strClassName;GenericValues::m_strClassName129,5383
+  GenericValueT ** m_values;GenericValues::m_values132,5616
+  int   m_iValuesTotal;GenericValues::m_iValuesTotal134,5774
+  int   m_iMaxGenericValues;GenericValues::m_iMaxGenericValues136,5932
+
+Geometry.h,742
+#define _GEOMETRY_52,2344
+using namespace std;58,2482
+typedef double AngRad;60,2504
+typedef double AngDeg;61,2575
+#define EPSILON 63,2647
+enum CoordSystemT 93,3965
+  CARTESIAN,94,3985
+  POLAR95,3998
+class VecPosition108,4652
+  double m_x;VecPosition::m_x113,4707
+  double m_y;VecPosition::m_y114,4761
+class Geometry209,10846
+class Circle231,11761
+    VecPosition m_posCenter;Circle::m_posCenter233,11776
+    double      m_dRadius;Circle::m_dRadius234,11846
+class Line269,13327
+  double m_a;Line::m_a272,13395
+  double m_b;Line::m_b273,13471
+  double m_c;Line::m_c274,13547
+class Rect315,15692
+  VecPosition m_posLeftTop;Rect::m_posLeftTop317,15705
+  VecPosition m_posRightBottom;Rect::m_posRightBottom318,15785
+
+HandCodedAgent.h,221
+#define HAND_CODED_AGENT33,1567
+class HandCodedAgent:HandCodedAgent39,1660
+  WorldModel *WM;HandCodedAgent::WM41,1700
+  char policy[HandCodedAgent::policy46,1792
+  void setParams(HandCodedAgent::setParams57,2080
+
+KeepawayPlayer.h,334
+#define KEEPAWAY_PLAYER33,1566
+class KeepawayPlayer:KeepawayPlayer40,1778
+  bool          bContLoop;KeepawayPlayer::bContLoop43,1832
+  Time          m_timeLastSay;KeepawayPlayer::m_timeLastSay45,1913
+  Time          m_timeStartEpisode;KeepawayPlayer::m_timeStartEpisode46,1993
+  SMDPAgent     *SA;KeepawayPlayer::SA47,2029
+
+LinearSarsaAgent.h,1261
+#define LINEAR_SARSA_AGENT2,27
+#define RL_MEMORY_SIZE 7,99
+#define RL_MAX_NONZERO_TRACES 8,130
+#define RL_MAX_NUM_TILINGS 9,167
+class LinearSarsaAgent:LinearSarsaAgent11,200
+  char weightsFile[LinearSarsaAgent::weightsFile13,242
+  bool bLearning;LinearSarsaAgent::bLearning14,267
+  bool bSaveWeights;LinearSarsaAgent::bSaveWeights15,285
+  int epochNum;LinearSarsaAgent::epochNum17,309
+  int lastAction;LinearSarsaAgent::lastAction18,325
+  double alpha;LinearSarsaAgent::alpha20,344
+  double gamma;LinearSarsaAgent::gamma21,360
+  double lambda;LinearSarsaAgent::lambda22,376
+  double epsilon;LinearSarsaAgent::epsilon23,393
+  double tileWidths[LinearSarsaAgent::tileWidths25,412
+  double Q[LinearSarsaAgent::Q26,451
+  double weights[LinearSarsaAgent::weights28,479
+  double traces[LinearSarsaAgent::traces29,515
+  int tiles[LinearSarsaAgent::tiles31,551
+  int numTilings;LinearSarsaAgent::numTilings32,601
+  double minimumTrace;LinearSarsaAgent::minimumTrace34,620
+  int nonzeroTraces[LinearSarsaAgent::nonzeroTraces35,643
+  int numNonzeroTraces;LinearSarsaAgent::numNonzeroTraces36,689
+  int nonzeroTracesInverse[LinearSarsaAgent::nonzeroTracesInverse37,713
+  collision_table *colTab;LinearSarsaAgent::colTab39,760
+
+LoggerDraw.h,5335
+#define _LOGGER_DRAW_33,1564
+using namespace std;41,1769
+#define MAX_LABEL 43,1791
+#define MAX_TEXT 44,1813
+enum ColorT46,1836
+  COLOR_ALICE_BLUE,48,1850
+  COLOR_ANTIQUE_WHITE,49,1870
+  COLOR_AQUA,50,1893
+  COLOR_AQUAMARINE,51,1907
+  COLOR_AZURE,52,1927
+  COLOR_BEIGE,53,1942
+  COLOR_BISQUE,54,1957
+  COLOR_BLACK,55,1973
+  COLOR_BLANCHED_ALMOND,56,1988
+  COLOR_BLUE,57,2013
+  COLOR_BLUE_VIOLET,58,2027
+  COLOR_BROWN,59,2048
+  COLOR_BURLYWOOD,60,2063
+  COLOR_CADET_BLUE,61,2082
+  COLOR_CHARTREUSE,62,2102
+  COLOR_CHOCOLATE,63,2122
+  COLOR_CORAL,64,2141
+  COLOR_CORNFLOWER_BLUE,65,2156
+  COLOR_CORNSILK,66,2181
+  COLOR_CYAN,67,2199
+  COLOR_DARK_BLUE,68,2213
+  COLOR_DARK_CYAN,69,2232
+  COLOR_DARK_GOLDENROD,70,2251
+  COLOR_DARK_GRAY,71,2275
+  COLOR_DARK_GREEN,72,2294
+  COLOR_DARK_KHAKI,73,2314
+  COLOR_DARK_MAGENTA,74,2334
+  COLOR_DARK_OLIVE_GREEN,75,2356
+  COLOR_DARK_ORANGE,76,2382
+  COLOR_DARK_ORCHID,77,2403
+  COLOR_DARK_RED,78,2424
+  COLOR_DARK_SALMON,79,2442
+  COLOR_DARK_SEA_GREEN,80,2463
+  COLOR_DARK_SLATE_BLUE,81,2487
+  COLOR_DARK_SLATE_GRAY,82,2512
+  COLOR_DARK_TURQUOISE,83,2537
+  COLOR_DARK_VIOLET,84,2561
+  COLOR_DEEP_PINK,85,2582
+  COLOR_DEEP_SKY_BLUE,86,2601
+  COLOR_DIM_GRAY,87,2624
+  COLOR_DODGER_BLUE,88,2642
+  COLOR_FIREBRICK,89,2663
+  COLOR_FLORAL_WHITE,90,2682
+  COLOR_FOREST_GREEN,91,2704
+  COLOR_FUSCHIA,92,2726
+  COLOR_GAINSBORO,93,2743
+  COLOR_GHOST_WHITE,94,2762
+  COLOR_GOLD,95,2783
+  COLOR_GOLDENROD,96,2797
+  COLOR_GRAY,97,2816
+  COLOR_GREEN,98,2830
+  COLOR_GREEN_YELLOW,99,2845
+  COLOR_HONEYDEW,100,2867
+  COLOR_HOT_PINK,101,2885
+  COLOR_INDIAN_RED,102,2903
+  COLOR_IVORY,103,2923
+  COLOR_KHAKI,104,2938
+  COLOR_LAVENDER,105,2953
+  COLOR_LAVENDER_BLUSH,106,2971
+  COLOR_LAWN_GREEN,107,2995
+  COLOR_LEMON_CHIFFON,108,3015
+  COLOR_LIGHT_BLUE,109,3038
+  COLOR_LIGHT_CORAL,110,3058
+  COLOR_LIGHT_CYAN,111,3079
+  COLOR_LIGHT_GOLDENROD,112,3099
+  COLOR_LIGHT_GOLDENROD_YELLOW,113,3124
+  COLOR_LIGHT_GRAY,114,3156
+  COLOR_LIGHT_GREEN,115,3176
+  COLOR_LIGHT_PINK,116,3197
+  COLOR_LIGHT_SALMON,117,3217
+  COLOR_LIGHT_SEA_GREEN,118,3239
+  COLOR_LIGHT_SKY_BLUE,119,3264
+  COLOR_LIGHT_SLATE_BLUE,120,3288
+  COLOR_LIGHT_SLATE_GRAY,121,3314
+  COLOR_LIGHT_STEEL_BLUE,122,3340
+  COLOR_LIGHT_YELLOW,123,3366
+  COLOR_LIME,124,3388
+  COLOR_LIME_GREEN,125,3402
+  COLOR_LINEN,126,3422
+  COLOR_MAGENTA,127,3437
+  COLOR_MAROON,128,3454
+  COLOR_MEDIUM_AQUAMARINE,129,3470
+  COLOR_MEDIUM_BLUE,130,3497
+  COLOR_MEDIUM_ORCHID,131,3518
+  COLOR_MEDIUM_PURPLE,132,3541
+  COLOR_MEDIUM_SEA_GREEN,133,3564
+  COLOR_MEDIUM_SLATE_BLUE,134,3590
+  COLOR_MEDIUM_SPRING_GREEN,135,3617
+  COLOR_MEDIUM_TURQUOISE,136,3646
+  COLOR_MEDIUM_VIOLET_RED,137,3672
+  COLOR_MIDNIGHT_BLUE,138,3699
+  COLOR_MINT_CREAM,139,3722
+  COLOR_MISTY_ROSE,140,3742
+  COLOR_MOCCASIN,141,3762
+  COLOR_NAVAJO_WHITE,142,3780
+  COLOR_NAVY,143,3802
+  COLOR_OLD_LACE,144,3816
+  COLOR_OLIVE,145,3834
+  COLOR_OLIVE_DRAB,146,3849
+  COLOR_ORANGE,147,3869
+  COLOR_ORANGE_RED,148,3885
+  COLOR_ORCHID,149,3905
+  COLOR_PALE_GOLDENROD,150,3921
+  COLOR_PALE_GREEN,151,3945
+  COLOR_PALE_TURQUOISE,152,3965
+  COLOR_PALE_VIOLET_RED,153,3989
+  COLOR_PAPAYA_WHIP,154,4014
+  COLOR_PEACH_PUFF,155,4035
+  COLOR_PERU,156,4055
+  COLOR_PINK,157,4069
+  COLOR_PLUM,158,4083
+  COLOR_POWDER_BLUE,159,4097
+  COLOR_PURPLE,160,4118
+  COLOR_RED,161,4134
+  COLOR_ROSY_BROWN,162,4147
+  COLOR_ROYAL_BLUE,163,4167
+  COLOR_SADDLE_BROWN,164,4187
+  COLOR_SALMON,165,4209
+  COLOR_SANDY_BROWN,166,4225
+  COLOR_SEA_GREEN,167,4246
+  COLOR_SEASHELL,168,4265
+  COLOR_SIENNA,169,4283
+  COLOR_SILVER,170,4299
+  COLOR_SKY_BLUE,171,4315
+  COLOR_SLATE_BLUE,172,4333
+  COLOR_SLATE_GRAY,173,4353
+  COLOR_SNOW,174,4373
+  COLOR_SPRING_GREEN,175,4387
+  COLOR_STEEL_BLUE,176,4409
+  COLOR_TAN,177,4429
+  COLOR_TEAL,178,4442
+  COLOR_THISTLE,179,4456
+  COLOR_TOMATO,180,4473
+  COLOR_TURQUOISE,181,4489
+  COLOR_VIOLET,182,4508
+  COLOR_VIOLET_RED,183,4524
+  COLOR_WHEAT,184,4544
+  COLOR_WHITE,185,4559
+  COLOR_WHITE_SMOKE,186,4574
+  COLOR_YELLOW,187,4595
+  COLOR_YELLOW_GREEN,188,4611
+  COLOR_ILLEGAL189,4633
+class LogColor194,4699
+  double m_r,LogColor::m_r196,4716
+  double m_r, m_g,LogColor::m_g196,4716
+  double m_r, m_g, m_b;LogColor::m_b196,4716
+class LoggerDraw213,5152
+  enum LogDrawTLoggerDraw::LogDrawT215,5171
+    LOG_DRAW_LINE,LoggerDraw::LogDrawT::LOG_DRAW_LINE217,5191
+    LOG_DRAW_TEXT,LoggerDraw::LogDrawT::LOG_DRAW_TEXT218,5210
+    LOG_DRAW_CIRCLE,LoggerDraw::LogDrawT::LOG_DRAW_CIRCLE219,5229
+    LOG_DRAW_CIRCLE_FILLED,LoggerDraw::LogDrawT::LOG_DRAW_CIRCLE_FILLED220,5250
+    LOG_DRAW_RECTANGLE,LoggerDraw::LogDrawT::LOG_DRAW_RECTANGLE221,5278
+    LOG_DRAW_RECTANGLE_FILLED,LoggerDraw::LogDrawT::LOG_DRAW_RECTANGLE_FILLED222,5302
+    LOG_DRAW_ILLEGALLoggerDraw::LogDrawT::LOG_DRAW_ILLEGAL223,5333
+  bool     m_active;LoggerDraw::m_active226,5364
+  int      m_cycle;LoggerDraw::m_cycle227,5385
+  int      m_cycle_start;LoggerDraw::m_cycle_start228,5405
+  int      m_depth;LoggerDraw::m_depth229,5431
+  int      m_mult;LoggerDraw::m_mult230,5451
+  LogDrawT m_shape;LoggerDraw::m_shape231,5470
+  LogColor m_color;LoggerDraw::m_color232,5490
+  char     m_label[LoggerDraw::m_label233,5510
+  ostream* m_os;LoggerDraw::m_os234,5541
+
+Logger.h,593
+#define _LOGGER_51,2259
+using namespace std;66,2725
+#define MAX_LOG_LINE 68,2747
+#define MAX_HEADER 69,2811
+class Timing77,3266
+  DWORD  time1;Timing::time180,3294
+  struct timeval time1;Timing::time183,3456
+class Logger119,5370
+  Timing   m_timing;Logger::m_timing121,5385
+  char     m_buf[Logger::m_buf122,5465
+  set<int> m_setLogLevels;Logger::m_setLogLevels123,5545
+  pthread_mutex_t mutex_stream;Logger::mutex_stream125,5626
+  char     m_strHeader[Logger::m_strHeader126,5659
+  ostream* m_os;Logger::m_os127,5739
+  string   m_strSignal;Logger::m_strSignal128,5819
+
+Objects.h,3127
+#define _OBJECTS_47,2051
+class Object61,2797
+  ObjectT     objectType;Object::objectType64,2823
+  Time        timeLastSeen;Object::timeLastSeen65,2903
+  VecPosition posGlobal;Object::posGlobal67,2984
+  Time        timeGlobalPosition;Object::timeGlobalPosition68,3064
+  VecPosition posRelative;Object::posRelative69,3144
+  Time        timeRelativePosition;Object::timeRelativePosition70,3224
+  VecPosition posGlobalLastSee;Object::posGlobalLastSee71,3304
+  Time        timeGlobalPosDerivedFromSee;Object::timeGlobalPosDerivedFromSee72,3384
+class FixedObject 127,6130
+class DynamicObject:DynamicObject144,6853
+  VecPosition vecGlobalVelocity;DynamicObject::vecGlobalVelocity149,6935
+  Time        timeGlobalVelocity;DynamicObject::timeGlobalVelocity150,7015
+  double      dRelativeDistanceChange;DynamicObject::dRelativeDistanceChange153,7120
+  double      dRelativeAngleChange;DynamicObject::dRelativeAngleChange154,7200
+  Time        timeChangeInformation;DynamicObject::timeChangeInformation155,7280
+  VecPosition vecGlobalVelocityLastSee;DynamicObject::vecGlobalVelocityLastSee157,7363
+class PlayerObject:PlayerObject191,8886
+  bool    isKnownPlayer;PlayerObject::isKnownPlayer194,8940
+  ObjectT objRangeMin;PlayerObject::objRangeMin195,9020
+  ObjectT objRangeMax;PlayerObject::objRangeMax196,9100
+  bool    isGoalie;PlayerObject::isGoalie197,9180
+  AngDeg  angGlobalBodyAngle;PlayerObject::angGlobalBodyAngle198,9260
+  AngDeg  angGlobalNeckAngle;PlayerObject::angGlobalNeckAngle199,9340
+  AngDeg  angGlobalBodyAngleLastSee;PlayerObject::angGlobalBodyAngleLastSee200,9420
+  Time    timeGlobalAngles;PlayerObject::timeGlobalAngles201,9500
+  int     iHeteroPlayerType;PlayerObject::iHeteroPlayerType202,9580
+  Time    m_timeTackle;PlayerObject::m_timeTackle204,9661
+  AngDeg  m_angGlobalArm;PlayerObject::m_angGlobalArm206,9742
+  Time    m_timeGlobalArm;PlayerObject::m_timeGlobalArm207,9822
+  AngDeg  angRelativeBodyAngle;PlayerObject::angRelativeBodyAngle210,9913
+  AngDeg  angRelativeNeckAngle;PlayerObject::angRelativeNeckAngle211,9989
+  Time    timeRelativeAngles;PlayerObject::timeRelativeAngles212,10065
+class BallObject:BallObject272,12809
+class Stamina292,13564
+  double m_dStamina;Stamina::m_dStamina294,13580
+  double m_dEffort;Stamina::m_dEffort295,13656
+  double m_dRecovery;Stamina::m_dRecovery296,13732
+class AgentObject:AgentObject320,14954
+  ViewAngleT   viewAngle;AgentObject::viewAngle322,14995
+  ViewQualityT viewQuality;AgentObject::viewQuality323,15075
+  Stamina      stamina;AgentObject::stamina325,15156
+  VecPosition  velSpeedRelToNeck;AgentObject::velSpeedRelToNeck326,15236
+  AngDeg       angBodyAngleRelToNeck;AgentObject::angBodyAngleRelToNeck327,15316
+  VecPosition  posPositionDifference;AgentObject::posPositionDifference329,15397
+  bool         m_bArmMovable;AgentObject::m_bArmMovable331,15478
+  int          m_iArmExpires;AgentObject::m_iArmExpires332,15558
+  VecPosition  m_posGlobalArm;AgentObject::m_posGlobalArm333,15638
+  int          m_iTackleExpires;AgentObject::m_iTackleExpires334,15718
+
+Parse.h,44
+#define _PARSE_49,2135
+class Parse61,2817
+
+PlayerSettings.h,1957
+#define _PlayerSettings_50,2215
+class PlayerSettings 67,3186
+  double dPlayerConfThr;PlayerSettings::dPlayerConfThr69,3232
+  double dPlayerHighConfThr;PlayerSettings::dPlayerHighConfThr71,3390
+  double dBallConfThr;PlayerSettings::dBallConfThr73,3548
+  double dPlayerDistTolerance;PlayerSettings::dPlayerDistTolerance75,3704
+  double dPlayerWhenToTurnAngle;PlayerSettings::dPlayerWhenToTurnAngle77,3861
+  double dPlayerWhenToKick;PlayerSettings::dPlayerWhenToKick78,3941
+  int    iPlayerWhenToIntercept;PlayerSettings::iPlayerWhenToIntercept80,4099
+  double dClearBallDist;PlayerSettings::dClearBallDist81,4179
+  double dClearBallOppMaxDist;PlayerSettings::dClearBallOppMaxDist83,4333
+  double dClearBallToSideAngle;PlayerSettings::dClearBallToSideAngle85,4489
+  double dConeWidth;PlayerSettings::dConeWidth87,4640
+  double dPassEndSpeed;PlayerSettings::dPassEndSpeed89,4798
+  double dFastPassEndSpeed;PlayerSettings::dFastPassEndSpeed90,4878
+  double dPassExtraX;PlayerSettings::dPassExtraX91,4958
+  double dFractionWaitNoSee;PlayerSettings::dFractionWaitNoSee93,5115
+  double dFractionWaitSeeBegin;PlayerSettings::dFractionWaitSeeBegin96,5340
+  double dFractionWaitSeeEnd;PlayerSettings::dFractionWaitSeeEnd99,5574
+  double dMarkDistance;PlayerSettings::dMarkDistance102,5808
+  double dStratAreaRadius;PlayerSettings::dStratAreaRadius104,5963
+  double dShootRiskProbability;PlayerSettings::dShootRiskProbability107,6197
+  int    iCyclesCatchWait;PlayerSettings::iCyclesCatchWait110,6434
+  int    iServerTimeOut;PlayerSettings::iServerTimeOut112,6593
+  double dDribbleAngThr;PlayerSettings::dDribbleAngThr114,6747
+  double dTurnWithBallAngThr;PlayerSettings::dTurnWithBallAngThr117,6976
+  double dTurnWithBallFreezeThr;PlayerSettings::dTurnWithBallFreezeThr120,7211
+  int    iInitialFormation;PlayerSettings::iInitialFormation123,7440
+  double dMaxYPercentage;PlayerSettings::dMaxYPercentage124,7520
+
+SayMsgDataTypes.h,2252
+#define SAY_MSG_DATATYPES_H37,1393
+#define NUMCHARS 42,1463
+using namespace std;44,1546
+const char validchars[validchars46,1568
+class DataTypes 55,1809
+  typedef unsigned short MsgTypeID_t;DataTypes::MsgTypeID_t58,1838
+  typedef float X_t;DataTypes::X_t59,1876
+  typedef float Y_t;DataTypes::Y_t60,1897
+  typedef float dX_t;DataTypes::dX_t61,1918
+  typedef float dY_t;DataTypes::dY_t62,1940
+  typedef unsigned short Cycleno_t;DataTypes::Cycleno_t63,1962
+  typedef unsigned short Playernum_t;DataTypes::Playernum_t64,1998
+  static short get_num_from_char(DataTypes::get_num_from_char70,2168
+  static char get_printable_char(DataTypes::get_printable_char92,2754
+  class MsgTypeID DataTypes::MsgTypeID118,3477
+    static char getEncoding(DataTypes::MsgTypeID::getEncoding120,3507
+    static MsgTypeID_t getDecoding(DataTypes::MsgTypeID::getDecoding124,3596
+  class X DataTypes::X132,3732
+    static char getEncoding(DataTypes::X::getEncoding134,3754
+    static X_t getDecoding(DataTypes::X::getDecoding138,3853
+    static bool bound(DataTypes::X::bound146,4084
+  class Y DataTypes::Y162,4302
+    static char getEncoding(DataTypes::Y::getEncoding164,4324
+    static Y_t getDecoding(DataTypes::Y::getDecoding168,4424
+    static bool bound(DataTypes::Y::bound172,4547
+  class dX DataTypes::dX188,4766
+    static char getEncoding(DataTypes::dX::getEncoding190,4830
+    static dX_t getDecoding(DataTypes::dX::getDecoding194,4933
+    static bool bound(DataTypes::dX::bound198,5056
+  class dY DataTypes::dY214,5280
+    static char getEncoding(DataTypes::dY::getEncoding216,5303
+    static dY_t getDecoding(DataTypes::dY::getDecoding220,5408
+    static bool bound(DataTypes::dY::bound224,5532
+  class Cycleno DataTypes::Cycleno240,5753
+    static char getEncoding(DataTypes::Cycleno::getEncoding242,5781
+    static Cycleno_t getDecoding(DataTypes::Cycleno::getDecoding246,5874
+    static bool bound(DataTypes::Cycleno::bound250,5970
+  class Playernum DataTypes::Playernum266,6194
+    static char getEncoding(DataTypes::Playernum::getEncoding268,6224
+    static Playernum_t getDecoding(DataTypes::Playernum::getDecoding272,6317
+    static bool bound(DataTypes::Playernum::bound276,6415
+
+SayMsgDecoder.h,700
+#define SAY_MSG_DECODER_H60,2432
+using namespace std;65,2499
+class SayMsgDecoder 71,2579
+  vector<SayMsgTypes*> units;SayMsgDecoder::units74,2613
+  SayMsgFactory *msgfactory;SayMsgDecoder::msgfactory75,2690
+  typedef vector<SayMsgTypes*>::const_iterator DecodedMsgIterator;SayMsgDecoder::DecodedMsgIterator79,2781
+  SayMsgDecoder(SayMsgDecoder::SayMsgDecoder86,2965
+  ~SayMsgDecoder(SayMsgDecoder::~SayMsgDecoder89,3036
+  bool decodeStr(SayMsgDecoder::decodeStr99,3362
+  DecodedMsgIterator getMsgIterator(SayMsgDecoder::getMsgIterator157,5281
+  DecodedMsgIterator getMsgIteratorEnd(SayMsgDecoder::getMsgIteratorEnd164,5426
+  void clearStorage(SayMsgDecoder::clearStorage170,5508
+
+SayMsgEncoder.h,644
+#define SAY_MSG_ENCODER_H78,3260
+using namespace std;83,3331
+class SayMsgEncoder 86,3354
+  vector<SayMsgTypes*> units;SayMsgEncoder::units89,3387
+  unsigned int maxsize;SayMsgEncoder::maxsize90,3464
+  unsigned int currentsize;SayMsgEncoder::currentsize91,3488
+  SayMsgEncoder(SayMsgEncoder::SayMsgEncoder99,3714
+  ~SayMsgEncoder(SayMsgEncoder::~SayMsgEncoder103,3809
+  bool add(SayMsgEncoder::add112,4034
+  string getEncodedStr(SayMsgEncoder::getEncodedStr126,4308
+  unsigned int getSize(SayMsgEncoder::getSize138,4520
+  unsigned int getMaxSize(SayMsgEncoder::getMaxSize145,4612
+  void clear(SayMsgEncoder::clear154,4752
+
+SayMsgFactory.h,705
+#define SAY_MSG_FACTORY_H45,1531
+class SayMsgFactory 57,1879
+  virtual OurPos *getOurPos(SayMsgFactory::getOurPos60,1911
+  virtual BallInfo *getBallInfo(SayMsgFactory::getBallInfo62,1966
+  virtual WeHaveBall *getWeHaveBall(SayMsgFactory::getWeHaveBall64,2027
+  virtual OppHasBall *getOppHasBall(SayMsgFactory::getOppHasBall66,2094
+  virtual PassToPlayer *getPassToPlayer(SayMsgFactory::getPassToPlayer68,2161
+  virtual PassToCoord *getPassToCoord(SayMsgFactory::getPassToCoord70,2234
+  virtual WantPass *getWantPass(SayMsgFactory::getWantPass72,2304
+  virtual OppPos *getOppPos(SayMsgFactory::getOppPos74,2365
+  virtual TeammatePos *getTeammatePos(SayMsgFactory::getTeammatePos76,2420
+
+SayMsgIDs.h,314
+#define SAY_MSG_IDS_H40,1403
+#define OUR_POS_ID 44,1428
+#define BALL_INFO_ID 47,1516
+#define WE_HAVE_BALL_ID 48,1544
+#define OPP_HAS_BALL_ID 49,1572
+#define PASS_TO_PLAYER_ID 50,1600
+#define PASS_TO_COORD_ID 51,1628
+#define WANT_PASS_ID 52,1656
+#define OPP_POS_ID 53,1684
+#define TEAMMATE_POS_ID 54,1712
+
+SayMsgTypes.h,4593
+#define SAY_MSG_TYPES_H42,1325
+using namespace std;47,1407
+class SayMsgTypes 57,1564
+  int SenderPlayerNum;SayMsgTypes::SenderPlayerNum60,1597
+  virtual ~SayMsgTypes(SayMsgTypes::~SayMsgTypes66,1714
+  virtual void process(SayMsgTypes::process103,2909
+  void setPlayernum(SayMsgTypes::setPlayernum107,3007
+  int  getPlayernum(SayMsgTypes::getPlayernum108,3064
+class OurPos 120,3214
+  float X,OurPos::X122,3271
+  float X, Y;OurPos::Y122,3271
+  ~OurPos(OurPos::~OurPos125,3295
+  OurPos(OurPos::OurPos126,3309
+  OurPos(OurPos::OurPos128,3341
+  unsigned int getCost(OurPos::getCost131,3390
+  string getName(OurPos::getName132,3429
+  string getEncodedStr(OurPos::getEncodedStr134,3469
+  bool parseStringArgs(OurPos::parseStringArgs149,3990
+class BallInfo 161,4212
+  float X,BallInfo::X163,4270
+  float X, Y,BallInfo::Y163,4270
+  float X, Y, dX,BallInfo::dX163,4270
+  float X, Y, dX, dY;BallInfo::dY163,4270
+  unsigned short cycleno;BallInfo::cycleno164,4292
+  ~BallInfo(BallInfo::~BallInfo167,4328
+  BallInfo(BallInfo::BallInfo168,4344
+  BallInfo(BallInfo::BallInfo170,4403
+  unsigned int getCost(BallInfo::getCost174,4531
+  string getName(BallInfo::getName175,4570
+  string getEncodedStr(BallInfo::getEncodedStr177,4612
+  bool parseStringArgs(BallInfo::parseStringArgs194,5228
+class WeHaveBall 209,5595
+  unsigned short playernum;WeHaveBall::playernum211,5656
+  ~WeHaveBall(WeHaveBall::~WeHaveBall214,5695
+  WeHaveBall(WeHaveBall::WeHaveBall215,5713
+  WeHaveBall(WeHaveBall::WeHaveBall217,5750
+  unsigned int getCost(WeHaveBall::getCost220,5811
+  string getName(WeHaveBall::getName221,5850
+  string getEncodedStr(WeHaveBall::getEncodedStr223,5894
+  bool parseStringArgs(WeHaveBall::parseStringArgs231,6102
+class OppHasBall 243,6278
+  unsigned short playernum;OppHasBall::playernum245,6339
+  ~OppHasBall(OppHasBall::~OppHasBall248,6378
+  OppHasBall(OppHasBall::OppHasBall249,6396
+  OppHasBall(OppHasBall::OppHasBall251,6435
+  unsigned int getCost(OppHasBall::getCost254,6496
+  string getName(OppHasBall::getName255,6535
+  string getEncodedStr(OppHasBall::getEncodedStr257,6579
+  bool parseStringArgs(OppHasBall::parseStringArgs265,6787
+class PassToPlayer 276,6963
+  unsigned short playernum;PassToPlayer::playernum278,7027
+  ~PassToPlayer(PassToPlayer::~PassToPlayer281,7097
+  PassToPlayer(PassToPlayer::PassToPlayer282,7117
+  PassToPlayer(PassToPlayer::PassToPlayer284,7158
+  unsigned int getCost(PassToPlayer::getCost287,7221
+  string getName(PassToPlayer::getName288,7260
+  string getEncodedStr(PassToPlayer::getEncodedStr290,7306
+  bool parseStringArgs(PassToPlayer::parseStringArgs298,7516
+class PassToCoord 308,7691
+  float X,PassToCoord::X310,7753
+  float X, Y;PassToCoord::Y310,7753
+  ~PassToCoord(PassToCoord::~PassToCoord313,7777
+  PassToCoord(PassToCoord::PassToCoord314,7796
+  PassToCoord(PassToCoord::PassToCoord316,7833
+  unsigned int getCost(PassToCoord::getCost319,7887
+  string getName(PassToCoord::getName320,7926
+  string getEncodedStr(PassToCoord::getEncodedStr322,7971
+  bool parseStringArgs(PassToCoord::parseStringArgs336,8438
+class WantPass 348,8660
+  ~WantPass(WantPass::~WantPass353,8740
+  WantPass(WantPass::WantPass354,8756
+  unsigned int getCost(WantPass::getCost356,8773
+  string getName(WantPass::getName357,8812
+  string getEncodedStr(WantPass::getEncodedStr359,8854
+  bool parseStringArgs(WantPass::parseStringArgs366,8997
+class OppPos 377,9198
+  float X,OppPos::X379,9255
+  float X, Y;OppPos::Y379,9255
+  unsigned short playernum;OppPos::playernum380,9269
+  unsigned short cycleno;OppPos::cycleno381,9297
+  ~OppPos(OppPos::~OppPos384,9333
+  OppPos(OppPos::OppPos385,9347
+  OppPos(OppPos::OppPos387,9406
+  unsigned int getCost(OppPos::getCost392,9539
+  string getName(OppPos::getName393,9578
+  string getEncodedStr(OppPos::getEncodedStr395,9619
+  bool parseStringArgs(OppPos::parseStringArgs413,10267
+class TeammatePos 427,10616
+  float X,TeammatePos::X429,10678
+  float X, Y;TeammatePos::Y429,10678
+  unsigned short playernum;TeammatePos::playernum430,10692
+  unsigned short cycleno;TeammatePos::cycleno431,10720
+  ~TeammatePos(TeammatePos::~TeammatePos434,10756
+  TeammatePos(TeammatePos::TeammatePos435,10775
+  TeammatePos(TeammatePos::TeammatePos437,10839
+  unsigned int getCost(TeammatePos::getCost442,10977
+  string getName(TeammatePos::getName443,11016
+  string getEncodedStr(TeammatePos::getEncodedStr445,11062
+  bool parseStringArgs(TeammatePos::parseStringArgs463,11715
+
+SenseHandler.h,928
+#define _SENSEHANDLER_48,2081
+using namespace std;61,2339
+class SenseHandler 78,3282
+  WorldModel     *WM;SenseHandler::WM79,3303
+  ServerSettings *SS;SenseHandler::SS80,3383
+  PlayerSettings *PS;SenseHandler::PS81,3463
+  Connection* connection;SenseHandler::connection82,3543
+  int         iTimeSignal;SenseHandler::iTimeSignal83,3623
+  int         iTriCounter;SenseHandler::iTriCounter84,3703
+  int         m_iSeeCounter;SenseHandler::m_iSeeCounter85,3783
+  int         iSimStep;SenseHandler::iSimStep86,3863
+  UINT        iTimer;SenseHandler::iTimer88,3956
+  UINT        timerRes;SenseHandler::timerRes89,4036
+  struct      itimerval itv;SenseHandler::itv91,4122
+  bool m_bBusySync;SenseHandler::m_bBusySync95,4227
+  int m_iSyncCounter;SenseHandler::m_iSyncCounter96,4247
+  int iNrLateMessages;SenseHandler::iNrLateMessages97,4269
+  int iNrTotalMessages;SenseHandler::iNrTotalMessages98,4292
+
+ServerSettings.h,9006
+#define _SERVERSETTINGS_61,3010
+class ServerSettings:ServerSettings76,3738
+  double dGoalWidth;ServerSettings::dGoalWidth86,4033
+  double dPlayerSize;ServerSettings::dPlayerSize89,4145
+  double dPlayerDecay;ServerSettings::dPlayerDecay90,4225
+  double dPlayerRand;ServerSettings::dPlayerRand91,4305
+  double dPlayerWeight;ServerSettings::dPlayerWeight92,4385
+  double dPlayerSpeedMax;ServerSettings::dPlayerSpeedMax93,4465
+  double dPlayerAccelMax;ServerSettings::dPlayerAccelMax94,4545
+  double dStaminaMax;ServerSettings::dStaminaMax98,4735
+  double dStaminaIncMax;ServerSettings::dStaminaIncMax99,4815
+  double dRecoverDecThr;ServerSettings::dRecoverDecThr101,4975
+  double dRecoverDec;ServerSettings::dRecoverDec103,5131
+  double dRecoverMin;ServerSettings::dRecoverMin105,5286
+  double dEffortDecThr;ServerSettings::dEffortDecThr106,5366
+  double dEffortDec;ServerSettings::dEffortDec108,5522
+  double dEffortIncThr;ServerSettings::dEffortIncThr110,5676
+  double dEffortInc;ServerSettings::dEffortInc112,5832
+  double dEffortMin;ServerSettings::dEffortMin114,5986
+  double dEffortMax;ServerSettings::dEffortMax115,6066
+  int    iHearMax;ServerSettings::iHearMax119,6195
+  int    iHearInc;ServerSettings::iHearInc122,6426
+  int    iHearDecay;ServerSettings::iHearDecay125,6665
+  double dInertiaMoment;ServerSettings::dInertiaMoment130,6944
+  int    iSenseBodyStep;ServerSettings::iSenseBodyStep134,7152
+  double dCatchableAreaL;ServerSettings::dCatchableAreaL138,7346
+  double dCatchableAreaW;ServerSettings::dCatchableAreaW140,7499
+  double dCatchProbability;ServerSettings::dCatchProbability142,7651
+  int    iCatchBanCycle;ServerSettings::iCatchBanCycle144,7805
+  int    iGoalieMaxMoves;ServerSettings::iGoalieMaxMoves146,7964
+  double dBallSize;ServerSettings::dBallSize150,8150
+  double dBallDecay;ServerSettings::dBallDecay151,8230
+  double dBallRand;ServerSettings::dBallRand152,8310
+  double dBallWeight;ServerSettings::dBallWeight153,8390
+  double dBallSpeedMax;ServerSettings::dBallSpeedMax154,8470
+  double dBallAccelMax;ServerSettings::dBallAccelMax155,8550
+  double dWindForce;ServerSettings::dWindForce159,8737
+  double dWindDir;ServerSettings::dWindDir160,8817
+  double dWindRand;ServerSettings::dWindRand161,8897
+  bool   bWindRandom;ServerSettings::bWindRandom162,8977
+  double dKickableMargin;ServerSettings::dKickableMargin165,9112
+  double dCkickMargin;ServerSettings::dCkickMargin168,9349
+  double dDashPowerRate;ServerSettings::dDashPowerRate171,9581
+  double dKickPowerRate;ServerSettings::dKickPowerRate175,9891
+  double dKickRand;ServerSettings::dKickRand179,10202
+  double dVisibleAngle;ServerSettings::dVisibleAngle182,10347
+  double dAudioCutDist;ServerSettings::dAudioCutDist184,10503
+  double dQuantizeStep;ServerSettings::dQuantizeStep188,10692
+  double dQuantizeStepL;ServerSettings::dQuantizeStepL190,10851
+  int    iMaxPower;ServerSettings::iMaxPower194,11054
+  int    iMinPower;ServerSettings::iMinPower195,11134
+  int    iMaxMoment;ServerSettings::iMaxMoment196,11214
+  int    iMinMoment;ServerSettings::iMinMoment197,11294
+  int    iMaxNeckMoment;ServerSettings::iMaxNeckMoment198,11374
+  int    iMinNeckMoment;ServerSettings::iMinNeckMoment199,11454
+  int    iMaxNeckAng;ServerSettings::iMaxNeckAng200,11534
+  int    iMinNeckAng;ServerSettings::iMinNeckAng201,11614
+  int    iPort;ServerSettings::iPort204,11724
+  int    iCoachPort;ServerSettings::iCoachPort205,11804
+  int    iOlCoachPort;ServerSettings::iOlCoachPort206,11884
+  int    iSayCoachCntMax;ServerSettings::iSayCoachCntMax209,11995
+  int    iSayCoachMsgSize;ServerSettings::iSayCoachMsgSize211,12151
+  int    iClangWinSize;ServerSettings::iClangWinSize213,12306
+  int    iClangDefineWin;ServerSettings::iClangDefineWin215,12466
+  int    iClangMetaWin;ServerSettings::iClangMetaWin217,12626
+  int    iClangAdviceWin;ServerSettings::iClangAdviceWin219,12782
+  int    iClangInfoWin;ServerSettings::iClangInfoWin221,12942
+  int    iClangMessDelay;ServerSettings::iClangMessDelay223,13098
+  int    iClangMessPerCycle;ServerSettings::iClangMessPerCycle226,13334
+  int    iSendViStep;ServerSettings::iSendViStep228,13494
+  int    iSimulatorStep;ServerSettings::iSimulatorStep233,13758
+  int    iSendStep;ServerSettings::iSendStep235,13911
+  int    iRecvStep;ServerSettings::iRecvStep238,14146
+  int    iHalfTime;ServerSettings::iHalfTime240,14305
+  int    iDropBallTime;ServerSettings::iDropBallTime242,14465
+  int    iSayMsgSize;ServerSettings::iSayMsgSize247,14735
+  bool   bUseOffside;ServerSettings::bUseOffside251,14928
+  double dOffsideActiveAreaSize;ServerSettings::dOffsideActiveAreaSize253,15088
+  bool   bForbidKickOffOffside;ServerSettings::bForbidKickOffOffside256,15323
+  double dOffsideKickMargin;ServerSettings::dOffsideKickMargin259,15556
+  bool   bVerbose;ServerSettings::bVerbose265,15887
+  int    iRecordVersion;ServerSettings::iRecordVersion268,16126
+  bool   bRecordLog;ServerSettings::bRecordLog269,16206
+  bool   bSendLog;ServerSettings::bSendLog271,16366
+  bool   bLogTimes;ServerSettings::bLogTimes273,16525
+  char   strLogFile[ServerSettings::strLogFile275,16683
+  bool   bSynchMode;ServerSettings::bSynchMode276,16763
+  bool   bFullStateL;ServerSettings::bFullStateL277,16843
+  bool   bFullStateR;ServerSettings::bFullStateR278,16923
+  int    iPlayerTypes;ServerSettings::iPlayerTypes284,17233
+  int    iSubsMax;ServerSettings::iSubsMax286,17389
+  double dPlayerSpeedMaxDeltaMin;ServerSettings::dPlayerSpeedMaxDeltaMin291,17771
+  double dPlayerSpeedMaxDeltaMax;ServerSettings::dPlayerSpeedMaxDeltaMax293,17927
+  double dStaminaIncMaxDeltaFactor;ServerSettings::dStaminaIncMaxDeltaFactor295,18083
+  double dPlayerDecayDeltaMin;ServerSettings::dPlayerDecayDeltaMin298,18313
+  double dPlayerDecayDeltaMax;ServerSettings::dPlayerDecayDeltaMax300,18471
+  double dInertiaMomentDeltaFactor;ServerSettings::dInertiaMomentDeltaFactor302,18629
+  double dDashPowerRateDeltaMin;ServerSettings::dDashPowerRateDeltaMin305,18858
+  double dDashPowerRateDeltaMax;ServerSettings::dDashPowerRateDeltaMax307,19014
+  double dPlayerSizeDeltaFactor;ServerSettings::dPlayerSizeDeltaFactor309,19170
+  double dKickableMarginDeltaMin;ServerSettings::dKickableMarginDeltaMin311,19329
+  double dKickableMarginDeltaMax;ServerSettings::dKickableMarginDeltaMax313,19485
+  double dKickRandDeltaFactor;ServerSettings::dKickRandDeltaFactor315,19641
+  double dExtraStaminaDeltaMin;ServerSettings::dExtraStaminaDeltaMin317,19801
+  double dExtraStaminaDeltaMax;ServerSettings::dExtraStaminaDeltaMax319,19960
+  double dEffortMaxDeltaFactor;ServerSettings::dEffortMaxDeltaFactor321,20119
+  double dEffortMinDeltaFactor;ServerSettings::dEffortMinDeltaFactor323,20277
+  double dNewDashPowerRateDeltaMin;ServerSettings::dNewDashPowerRateDeltaMin325,20435
+  double dNewDashPowerRateDeltaMax;ServerSettings::dNewDashPowerRateDeltaMax328,20629
+  double dNewStaminaIncMaxDeltaFactor;ServerSettings::dNewStaminaIncMaxDeltaFactor331,20865
+  int    iSlowDownFactor;ServerSettings::iSlowDownFactor336,21118
+  double dVisibleDistance;ServerSettings::dVisibleDistance338,21276
+  double dExtraStamina;ServerSettings::dExtraStamina341,21516
+  double dPenDistX;ServerSettings::dPenDistX345,21696
+  double dPenMaxGoalieDistX;ServerSettings::dPenMaxGoalieDistX347,21853
+  bool   bPenAllowMultKicks;ServerSettings::bPenAllowMultKicks349,22008
+  double dTackleDist;ServerSettings::dTackleDist353,22190
+  double dTackleBackDist;ServerSettings::dTackleBackDist355,22349
+  double dTackleWidth;ServerSettings::dTackleWidth357,22511
+  double dTackleExponent;ServerSettings::dTackleExponent359,22672
+  int    iTackleCycles;ServerSettings::iTackleCycles361,22827
+  double dTacklePowerRate;ServerSettings::dTacklePowerRate363,22985
+  double dMaximalKickDist;ServerSettings::dMaximalKickDist366,23111
+  double dKeepawayWidth;ServerSettings::dKeepawayWidth370,23296
+  double dKeepawayLength;ServerSettings::dKeepawayLength371,23321
+class HeteroPlayerSettings690,40725
+  double dPlayerSpeedMax;HeteroPlayerSettings::dPlayerSpeedMax694,40786
+  double dStaminaIncMax;HeteroPlayerSettings::dStaminaIncMax695,40866
+  double dPlayerDecay;HeteroPlayerSettings::dPlayerDecay697,41026
+  double dInertiaMoment;HeteroPlayerSettings::dInertiaMoment698,41106
+  double dDashPowerRate;HeteroPlayerSettings::dDashPowerRate700,41263
+  double dPlayerSize;HeteroPlayerSettings::dPlayerSize704,41574
+  double dKickableMargin;HeteroPlayerSettings::dKickableMargin708,41884
+  double dKickRand;HeteroPlayerSettings::dKickRand711,42121
+  double dExtraStamina;HeteroPlayerSettings::dExtraStamina712,42201
+  double dEffortMax;HeteroPlayerSettings::dEffortMax714,42361
+  double dEffortMin;HeteroPlayerSettings::dEffortMin715,42441
+  double dMaximalKickDist;HeteroPlayerSettings::dMaximalKickDist717,42522
+
+SMDPAgent.h,422
+#define SMDP_AGENT33,1561
+#define MAX_STATE_VARS 35,1581
+#define MAX_ACTIONS 36,1615
+class SMDPAgent38,1650
+  int m_numFeatures;SMDPAgent::m_numFeatures40,1668
+  int m_numActions;SMDPAgent::m_numActions41,1738
+  int getNumFeatures(SMDPAgent::getNumFeatures45,1821
+  int getNumActions(SMDPAgent::getNumActions46,1870
+  SMDPAgent(SMDPAgent::SMDPAgent50,1932
+  virtual ~SMDPAgent(SMDPAgent::~SMDPAgent52,2044
+
+SoccerTypes.h,11548
+#define _SOCCERTYPES_55,2585
+#define MAX_TEAMMATES 66,2981
+#define MAX_OPPONENTS 67,3061
+#define MAX_HETERO_PLAYERS 68,3141
+#define MAX_MSG 69,3221
+#define MAX_SAY_MSG 70,3301
+#define MAX_TEAM_NAME_LENGTH 71,3381
+#define MAX_FLAGS 72,3461
+#define MAX_LINES 73,3541
+#define DEFAULT_TEAM_NAME 74,3621
+#define DEFAULT_OPPONENT_NAME 75,3701
+#define PITCH_LENGTH 76,3781
+#define PITCH_WIDTH 77,3861
+#define PITCH_MARGIN 78,3941
+#define PENALTY_AREA_LENGTH 79,4021
+#define PENALTY_AREA_WIDTH 80,4101
+#define PENALTY_X 81,4181
+const double  UnknownDoubleValue 87,4580
+const AngDeg  UnknownAngleValue 88,4660
+const int     UnknownIntValue 89,4740
+const int     UnknownTime 90,4820
+const long    UnknownMessageNr 91,4900
+enum ObjectT 101,5484
+  OBJECT_BALL,102,5521
+  OBJECT_GOAL_L,103,5581
+  OBJECT_GOAL_R,104,5655
+  OBJECT_GOAL_UNKNOWN,105,5715
+  OBJECT_LINE_L,106,5775
+  OBJECT_LINE_R,107,5849
+  OBJECT_LINE_B,108,5909
+  OBJECT_LINE_T,109,5969
+  OBJECT_FLAG_L_T,110,6029
+  OBJECT_FLAG_T_L_50,111,6103
+  OBJECT_FLAG_T_L_40,112,6163
+  OBJECT_FLAG_T_L_30,113,6223
+  OBJECT_FLAG_T_L_20,114,6283
+  OBJECT_FLAG_T_L_10,115,6343
+  OBJECT_FLAG_T_0,116,6403
+  OBJECT_FLAG_C_T,117,6463
+  OBJECT_FLAG_T_R_10,118,6523
+  OBJECT_FLAG_T_R_20,119,6583
+  OBJECT_FLAG_T_R_30,120,6643
+  OBJECT_FLAG_T_R_40,121,6703
+  OBJECT_FLAG_T_R_50,122,6763
+  OBJECT_FLAG_R_T,123,6823
+  OBJECT_FLAG_R_T_30,124,6883
+  OBJECT_FLAG_R_T_20,125,6943
+  OBJECT_FLAG_R_T_10,126,7003
+  OBJECT_FLAG_G_R_T,127,7063
+  OBJECT_FLAG_R_0,128,7123
+  OBJECT_FLAG_G_R_B,129,7183
+  OBJECT_FLAG_R_B_10,130,7243
+  OBJECT_FLAG_R_B_20,131,7303
+  OBJECT_FLAG_R_B_30,132,7363
+  OBJECT_FLAG_R_B,133,7423
+  OBJECT_FLAG_B_R_50,134,7483
+  OBJECT_FLAG_B_R_40,135,7543
+  OBJECT_FLAG_B_R_30,136,7603
+  OBJECT_FLAG_B_R_20,137,7663
+  OBJECT_FLAG_B_R_10,138,7723
+  OBJECT_FLAG_C_B,139,7783
+  OBJECT_FLAG_B_0,140,7843
+  OBJECT_FLAG_B_L_10,141,7903
+  OBJECT_FLAG_B_L_20,142,7963
+  OBJECT_FLAG_B_L_30,143,8023
+  OBJECT_FLAG_B_L_40,144,8083
+  OBJECT_FLAG_B_L_50,145,8143
+  OBJECT_FLAG_L_B,146,8203
+  OBJECT_FLAG_L_B_30,147,8263
+  OBJECT_FLAG_L_B_20,148,8323
+  OBJECT_FLAG_L_B_10,149,8383
+  OBJECT_FLAG_G_L_B,150,8443
+  OBJECT_FLAG_L_0,151,8503
+  OBJECT_FLAG_G_L_T,152,8563
+  OBJECT_FLAG_L_T_10,153,8623
+  OBJECT_FLAG_L_T_20,154,8683
+  OBJECT_FLAG_L_T_30,155,8743
+  OBJECT_FLAG_P_L_T,156,8803
+  OBJECT_FLAG_P_L_C,157,8863
+  OBJECT_FLAG_P_L_B,158,8923
+  OBJECT_FLAG_P_R_T,159,8983
+  OBJECT_FLAG_P_R_C,160,9043
+  OBJECT_FLAG_P_R_B,161,9103
+  OBJECT_FLAG_C,162,9163
+  OBJECT_TEAMMATE_1,163,9223
+  OBJECT_TEAMMATE_2,164,9302
+  OBJECT_TEAMMATE_3,165,9362
+  OBJECT_TEAMMATE_4,166,9422
+  OBJECT_TEAMMATE_5,167,9482
+  OBJECT_TEAMMATE_6,168,9542
+  OBJECT_TEAMMATE_7,169,9602
+  OBJECT_TEAMMATE_8,170,9662
+  OBJECT_TEAMMATE_9,171,9722
+  OBJECT_TEAMMATE_10,172,9782
+  OBJECT_TEAMMATE_11,173,9842
+  OBJECT_TEAMMATE_UNKNOWN,174,9902
+  OBJECT_OPPONENT_1,175,9962
+  OBJECT_OPPONENT_2,176,10041
+  OBJECT_OPPONENT_3,177,10101
+  OBJECT_OPPONENT_4,178,10161
+  OBJECT_OPPONENT_5,179,10221
+  OBJECT_OPPONENT_6,180,10281
+  OBJECT_OPPONENT_7,181,10341
+  OBJECT_OPPONENT_8,182,10401
+  OBJECT_OPPONENT_9,183,10461
+  OBJECT_OPPONENT_10,184,10521
+  OBJECT_OPPONENT_11,185,10581
+  OBJECT_OPPONENT_UNKNOWN,186,10641
+  OBJECT_PLAYER_UNKNOWN,187,10710
+  OBJECT_UNKNOWN,188,10770
+  OBJECT_TEAMMATE_GOALIE,189,10830
+  OBJECT_OPPONENT_GOALIE,190,10890
+  OBJECT_ILLEGAL,191,10950
+  OBJECT_MAX_OBJECTS 192,11010
+enum ObjectSetT197,11200
+  OBJECT_SET_TEAMMATES,199,11218
+  OBJECT_SET_OPPONENTS,200,11289
+  OBJECT_SET_PLAYERS,201,11360
+  OBJECT_SET_TEAMMATES_NO_GOALIE,202,11431
+  OBJECT_SET_FLAGS,203,11502
+  OBJECT_SET_LINES,204,11573
+  OBJECT_SET_ILLEGAL 205,11644
+enum PlayModeT 211,11893
+  PM_BEFORE_KICK_OFF,212,11910
+  PM_KICK_OFF_LEFT,213,11990
+  PM_KICK_OFF_RIGHT,214,12070
+  PM_KICK_IN_LEFT,215,12150
+  PM_KICK_IN_RIGHT,216,12230
+  PM_CORNER_KICK_LEFT,217,12310
+  PM_CORNER_KICK_RIGHT,218,12390
+  PM_GOAL_KICK_LEFT,219,12470
+  PM_GOAL_KICK_RIGHT,220,12550
+  PM_GOAL_LEFT,221,12630
+  PM_GOAL_RIGHT,222,12710
+  PM_FREE_KICK_FAULT_LEFT,223,12790
+  PM_FREE_KICK_FAULT_RIGHT,224,12870
+  PM_FREE_KICK_LEFT,225,12946
+  PM_FREE_KICK_RIGHT,226,13026
+  PM_INDIRECT_FREE_KICK_RIGHT,227,13106
+  PM_INDIRECT_FREE_KICK_LEFT,228,13186
+  PM_BACK_PASS_LEFT,229,13266
+  PM_BACK_PASS_RIGHT,230,13346
+  PM_OFFSIDE_LEFT,231,13426
+  PM_OFFSIDE_RIGHT,232,13506
+  PM_PLAY_ON,233,13586
+  PM_TIME_OVER,234,13666
+  PM_PENALTY_SETUP_LEFT,235,13746
+  PM_PENALTY_SETUP_RIGHT,236,13826
+  PM_PENALTY_READY_LEFT,237,13906
+  PM_PENALTY_READY_RIGHT,238,13986
+  PM_PENALTY_TAKEN_LEFT,239,14066
+  PM_PENALTY_TAKEN_RIGHT,240,14146
+  PM_FROZEN,241,14226
+  PM_QUIT,242,14306
+  PM_ILLEGAL 243,14386
+enum RefereeMessageT 249,14666
+  REFC_ILLEGAL,250,14689
+  REFC_BEFORE_KICK_OFF,251,14769
+  REFC_KICK_OFF_LEFT,252,14849
+  REFC_KICK_OFF_RIGHT,253,14929
+  REFC_KICK_IN_LEFT,254,15009
+  REFC_KICK_IN_RIGHT,255,15089
+  REFC_CORNER_KICK_LEFT,256,15169
+  REFC_CORNER_KICK_RIGHT,257,15249
+  REFC_GOAL_KICK_LEFT,258,15329
+  REFC_GOAL_KICK_RIGHT,259,15409
+  REFC_FREE_KICK_LEFT,260,15489
+  REFC_FREE_KICK_RIGHT,261,15569
+  REFC_INDIRECT_FREE_KICK_RIGHT,262,15649
+  REFC_INDIRECT_FREE_KICK_LEFT,263,15729
+  REFC_FREE_KICK_FAULT_LEFT,264,15809
+  REFC_FREE_KICK_FAULT_RIGHT,265,15889
+  REFC_BACK_PASS_LEFT,266,15969
+  REFC_BACK_PASS_RIGHT,267,16049
+  REFC_PLAY_ON,268,16129
+  REFC_TIME_OVER,269,16209
+  REFC_FROZEN,270,16289
+  REFC_QUIT,271,16369
+  REFC_OFFSIDE_LEFT,272,16449
+  REFC_OFFSIDE_RIGHT,273,16529
+  REFC_HALF_TIME,274,16609
+  REFC_TIME_UP,275,16689
+  REFC_TIME_UP_WITHOUT_A_TEAM,276,16769
+  REFC_TIME_EXTENDED,277,16849
+  REFC_FOUL_LEFT,278,16929
+  REFC_FOUL_RIGHT,279,17009
+  REFC_GOAL_LEFT,280,17089
+  REFC_GOAL_RIGHT,281,17169
+  REFC_DROP_BALL,282,17249
+  REFC_GOALIE_CATCH_BALL_LEFT,283,17329
+  REFC_GOALIE_CATCH_BALL_RIGHT,284,17409
+  REFC_PENALTY_SETUP_LEFT,285,17489
+  REFC_PENALTY_SETUP_RIGHT,286,17569
+  REFC_PENALTY_READY_LEFT,287,17649
+  REFC_PENALTY_READY_RIGHT,288,17729
+  REFC_PENALTY_TAKEN_LEFT,289,17809
+  REFC_PENALTY_TAKEN_RIGHT,290,17889
+  REFC_PENALTY_MISS_LEFT,291,17969
+  REFC_PENALTY_MISS_RIGHT,292,18049
+  REFC_PENALTY_SCORE_LEFT,293,18129
+  REFC_PENALTY_SCORE_RIGHT,294,18209
+  REFC_PENALTY_FOUL_LEFT,295,18289
+  REFC_PENALTY_FOUL_RIGHT,296,18369
+  REFC_PENALTY_ONFIELD_LEFT,297,18449
+  REFC_PENALTY_ONFIELD_RIGHT,298,18529
+  REFC_PENALTY_WINNER_LEFT,299,18609
+  REFC_PENALTY_WINNER_RIGHT,300,18689
+  REFC_PENALTY_DRAW,301,18769
+  REFC_TRAINING_KEEPAWAY 302,18849
+enum ViewAngleT 307,19029
+  VA_NARROW,308,19048
+  VA_NORMAL,309,19089
+  VA_WIDE,310,19130
+  VA_ILLEGAL 311,19171
+enum ViewQualityT 316,19315
+  VQ_HIGH,317,19335
+  VQ_LOW,318,19378
+  VQ_ILLEGAL 319,19421
+enum SideT 323,19519
+  SIDE_LEFT,324,19532
+  SIDE_RIGHT,325,19570
+  SIDE_ILLEGAL 326,19608
+enum CommandT 331,19755
+  CMD_ILLEGAL,332,19771
+  CMD_DASH,333,19815
+  CMD_TURN,334,19878
+  CMD_TURNNECK,335,19941
+  CMD_CHANGEVIEW,336,20004
+  CMD_CATCH,337,20067
+  CMD_KICK,338,20130
+  CMD_MOVE,339,20193
+  CMD_SENSEBODY,340,20256
+  CMD_SAY,341,20319
+  CMD_CHANGEPLAYER,342,20382
+  CMD_ATTENTIONTO,343,20445
+  CMD_TACKLE,344,20508
+  CMD_POINTTO,345,20571
+  CMD_MAX_COMMANDS 346,20634
+enum PlayerT 354,21083
+  PT_ILLEGAL,355,21098
+  PT_GOALKEEPER,356,21152
+  PT_DEFENDER_CENTRAL,357,21206
+  PT_DEFENDER_SWEEPER,358,21260
+  PT_DEFENDER_WING,359,21314
+  PT_MIDFIELDER_CENTER,360,21368
+  PT_MIDFIELDER_WING,361,21422
+  PT_ATTACKER_WING,362,21476
+  PT_ATTACKER,363,21530
+  MAX_PLAYER_TYPES364,21584
+enum PlayerSetT 369,21758
+  PS_DEFENDERS,370,21776
+  PS_MIDFIELDERS,371,21830
+  PS_ATTACKERS,372,21884
+  PS_ALL 373,21938
+enum FormationT 378,22090
+  FT_ILLEGAL,379,22108
+  FT_INITIAL,380,22182
+  FT_433_OFFENSIVE,381,22256
+  FT_334_OFFENSIVE,382,22330
+  FT_DEFENSIVE,383,22404
+  FT_OPEN_DEFENSIVE,384,22478
+  FT_343_ATTACKING,385,22552
+  MAX_FORMATION_TYPES386,22626
+enum BallStatusT 391,22789
+  BS_ILLEGAL,392,22808
+  BS_IN_FIELD,393,22865
+  BS_GOAL_LEFT,394,22922
+  BS_GOAL_RIGHT,395,22979
+  BS_OUT_OF_FIELD 396,23036
+enum ActionT 400,23169
+  ACT_ILLEGAL,401,23184
+  ACT_SEARCH_BALL,402,23264
+  ACT_KICK_BALL,403,23344
+  ACT_CATCH_BALL,404,23424
+  ACT_INTERCEPT,405,23504
+  ACT_MARK,406,23584
+  ACT_TELEPORT_TO_STRATEGIC_POSITION,407,23664
+  ACT_WATCH_BALL,408,23744
+  ACT_ANTICIPATE_BALL,409,23824
+  ACT_GOTO_STRATEGIC_POSITION,410,23904
+  ACT_TURN_BODY_TO_CENTER,411,23984
+  ACT_MOVE_TO_DEAD_BALL_POSITION,412,24064
+  ACT_INTERCEPT_SCORING_ATTEMPT,413,24144
+  ACT_DEFEND_GOALLINE,414,24224
+  ACT_TELEPORT_AFTER_CATCH,415,24304
+  ACT_TACKLE,416,24384
+  ACT_HOLD_BALL 417,24464
+enum MarkT 421,24617
+  MARK_ILLEGAL,422,24630
+  MARK_GOAL,423,24709
+  MARK_BISECTOR,424,24788
+  MARK_BALL 425,24867
+enum DribbleT 429,25025
+  DRIBBLE_ILLEGAL,430,25041
+  DRIBBLE_WITHBALL,431,25120
+  DRIBBLE_SLOW,432,25199
+  DRIBBLE_FAST 433,25278
+enum PassT 437,25433
+  PASS_ILLEGAL,438,25446
+  PASS_FAST,439,25525
+  PASS_NORMAL 440,25604
+enum ClearBallT 444,25767
+  CLEAR_BALL_ILLEGAL,445,25785
+  CLEAR_BALL_OFFENSIVE,446,25864
+  CLEAR_BALL_DEFENSIVE,447,25943
+  CLEAR_BALL_OFFENSIVE_SIDE,448,26022
+  CLEAR_BALL_GOAL 449,26101
+enum TiredNessT 454,26286
+  TIREDNESS_ILLEGAL,455,26304
+  TIREDNESS_GOOD,456,26383
+  TIREDNESS_AVERAGE,457,26462
+  TIREDNESS_BAD,458,26541
+  TIREDNESS_VERY_BAD,459,26620
+  TIREDNESS_TERRIBLE 460,26699
+enum FeatureT 469,27176
+  FEATURE_ILLEGAL,470,27192
+  FEATURE_FASTEST_OPPONENT_TO_BALL,471,27272
+  FEATURE_FASTEST_TEAMMATE_TO_BALL,472,27352
+  FEATURE_FASTEST_PLAYER_TO_BALL,473,27432
+  FEATURE_FASTEST_TEAMMATE_TO_BALL_NO_GOALIE,474,27512
+  FEATURE_INTERCEPTION_POINT_BALL,475,27592
+  FEATURE_INTERCEPT_CLOSE,476,27672
+  FEATURE_INTERCEPT_CYCLES_ME,477,27752
+  FEATURE_BEST_SCORING_POINT,478,27832
+  MAX_FEATURES479,27912
+enum DirectionT 483,28002
+  DIR_ILLEGAL,484,28020
+  DIR_NORTH,485,28100
+  DIR_NORTHWEST,486,28180
+  DIR_NORTHEAST,487,28260
+  DIR_CENTER,488,28340
+  DIR_EAST,489,28420
+  DIR_WEST,490,28500
+  DIR_SOUTHWEST,491,28580
+  DIR_SOUTHEAST,492,28660
+  DIR_SOUTH,493,28740
+  DIR_MAX 494,28820
+enum SucceedT 498,28985
+  SUCCEED_ILLEGAL,499,29002
+  SUCCEED_ALWAYS,500,29082
+  SUCCEED_DOUBTFUL,501,29162
+  SUCCEED_NEVER 502,29242
+class Time522,30402
+  int m_iTime;Time::m_iTime524,30415
+  int m_iStopped;Time::m_iStopped525,30485
+class SoccerCommand577,32839
+  ServerSettings *SS;SoccerCommand::SS579,32861
+  Time         time;SoccerCommand::time601,33778
+  CommandT     commandType;SoccerCommand::commandType602,33858
+  double       dAngle;SoccerCommand::dAngle603,33938
+  double       dPower;SoccerCommand::dPower604,34018
+  ViewQualityT vq;SoccerCommand::vq605,34098
+  ViewAngleT   va;SoccerCommand::va606,34178
+  double       dX;SoccerCommand::dX607,34258
+  double       dY;SoccerCommand::dY608,34338
+  char         str[SoccerCommand::str609,34418
+  int          iTimes;SoccerCommand::iTimes610,34498
+class Feature640,36132
+  Time          m_timeSee;Feature::m_timeSee642,36148
+  Time          m_timeSense;Feature::m_timeSense643,36228
+  Time          m_timeHear;Feature::m_timeHear644,36308
+  ObjectT       m_object;Feature::m_object645,36388
+  double        m_dInfo;Feature::m_dInfo646,36468
+  VecPosition   m_vec;Feature::m_vec647,36548
+  SoccerCommand m_soc;Feature::m_soc648,36628
+class SoccerTypes694,39488
+
+tiles2.h,422
+#define _TILES2_H_2,19
+#define MAX_NUM_VARS 9,118
+#define MAX_NUM_COORDS 10,203
+#define MaxLONGINT 11,281
+class collision_table 22,812
+    long m;collision_table::m26,898
+    long *data;collision_table::data27,910
+    int safe;collision_table::safe28,926
+    long calls;collision_table::calls29,940
+    long clearhits;collision_table::clearhits30,956
+    long collisions;collision_table::collisions31,976
+
+WorldModel.h,4930
+#define _WORLD_MODEL_55,2245
+inline double rint(84,3387
+inline double drand48(93,3680
+class WorldModel118,4938
+  ServerSettings *SS;WorldModel::SS128,5289
+  PlayerSettings *PS;WorldModel::PS129,5369
+  HeteroPlayerSettings pt[WorldModel::pt130,5449
+  Formations     *formations;WorldModel::formations131,5529
+  Time          timeLastSeeMessage;WorldModel::timeLastSeeMessage136,5713
+  Time          timeLastRecvSeeMessage;WorldModel::timeLastRecvSeeMessage137,5793
+  Time          timeLastSenseMessage;WorldModel::timeLastSenseMessage138,5873
+  Time          timeLastRecvSenseMessage;WorldModel::timeLastRecvSenseMessage139,5953
+  Time          timeLastHearMessage;WorldModel::timeLastHearMessage140,6033
+  bool          bNewInfo;WorldModel::bNewInfo141,6113
+  Time          timeLastCatch;WorldModel::timeLastCatch142,6193
+  Time          timeLastRefMessage;WorldModel::timeLastRefMessage143,6273
+  char          strTeamName[WorldModel::strTeamName146,6378
+  int           iPlayerNumber;WorldModel::iPlayerNumber147,6458
+  SideT         sideSide;WorldModel::sideSide148,6538
+  PlayModeT     playMode;WorldModel::playMode151,6642
+  int           iGoalDiff;WorldModel::iGoalDiff152,6722
+  BallObject    Ball;WorldModel::Ball158,6906
+  AgentObject   agentObject;WorldModel::agentObject159,6986
+  PlayerObject  Teammates[WorldModel::Teammates160,7066
+  PlayerObject  Opponents[WorldModel::Opponents161,7146
+  PlayerObject  UnknownPlayers[WorldModel::UnknownPlayers162,7226
+  int           iNrUnknownPlayers;WorldModel::iNrUnknownPlayers165,7444
+  FixedObject   Flags[WorldModel::Flags168,7544
+  FixedObject   Lines[WorldModel::Lines169,7624
+  static const int iNrParticlesAgent WorldModel::iNrParticlesAgent173,7786
+  static const int iNrParticlesBall WorldModel::iNrParticlesBall175,7944
+  VecPosition   particlesPosAgent[WorldModel::particlesPosAgent177,8102
+  VecPosition   particlesPosBall[WorldModel::particlesPosBall179,8260
+  VecPosition   particlesVelBall[WorldModel::particlesVelBall181,8417
+  double        dTotalVarVel;WorldModel::dTotalVarVel183,8574
+  double        dTotalVarPos;WorldModel::dTotalVarPos184,8604
+  SoccerCommand queuedCommands[WorldModel::queuedCommands188,8779
+  bool          performedCommands[WorldModel::performedCommands190,8939
+  int           iCommandCounters[WorldModel::iCommandCounters193,9175
+  Time          timeCheckBall;WorldModel::timeCheckBall200,9457
+  BallStatusT   bsCheckBall;WorldModel::bsCheckBall201,9537
+  CRITICAL_SECTION mutex_newInfo;WorldModel::mutex_newInfo205,9652
+  HANDLE           event_newInfo;WorldModel::event_newInfo206,9732
+  pthread_mutex_t  mutex_newInfo;WorldModel::mutex_newInfo208,9818
+  pthread_cond_t   cond_newInfo;WorldModel::cond_newInfo209,9898
+  bool          m_bRecvThink;WorldModel::m_bRecvThink211,9985
+  char          m_strPlayerMsg[WorldModel::m_strPlayerMsg214,10085
+  int           m_iCycleInMsg;WorldModel::m_iCycleInMsg215,10165
+  Time          m_timePlayerMsg;WorldModel::m_timePlayerMsg216,10245
+  int           m_iMessageSender;WorldModel::m_iMessageSender217,10325
+  char          m_strCommunicate[WorldModel::m_strCommunicate218,10405
+  ObjectT       m_objFocus;WorldModel::m_objFocus221,10504
+  double        m_dCommOffsideX;WorldModel::m_dCommOffsideX224,10603
+  Time          m_timeCommOffsideX;WorldModel::m_timeCommOffsideX225,10683
+  Feature       m_features[WorldModel::m_features228,10789
+  bool          m_bPerformedKick;WorldModel::m_bPerformedKick231,10881
+  set<ObjectT>  m_setSubstitutedOpp;WorldModel::m_setSubstitutedOpp234,11000
+  SoccerCommand m_changeViewCommand;WorldModel::m_changeViewCommand237,11116
+  SideT         m_sidePenalty;WorldModel::m_sidePenalty240,11229
+  bool          m_newEpisode;WorldModel::m_newEpisode243,11275
+  int           m_numKeepers;WorldModel::m_numKeepers246,11347
+  int           m_numTakers;WorldModel::m_numTakers247,11377
+  int           m_lastAction;WorldModel::m_lastAction249,11407
+  int           m_timeLastAction;WorldModel::m_timeLastAction250,11437
+  Rect          m_keepawayRect;WorldModel::m_keepawayRect253,11493
+  double        m_moveSpeed;WorldModel::m_moveSpeed254,11525
+  bool          m_bWasCollision;WorldModel::m_bWasCollision258,11565
+  Time          m_timeLastCollision;WorldModel::m_timeLastCollision259,11645
+  int           iNrHoles;WorldModel::iNrHoles262,11742
+  int           iNrOpponentsSeen;WorldModel::iNrOpponentsSeen263,11822
+  int           iNrTeammatesSeen;WorldModel::iNrTeammatesSeen264,11902
+  char          strLastSeeMessage WorldModel::strLastSeeMessage267,12011
+  char          strLastSenseMessage[WorldModel::strLastSenseMessage268,12091
+  char          strLastHearMessage WorldModel::strLastHearMessage269,12171
+  int m_iMultX;WorldModel::m_iMultX928,55258
+  int m_iMultY;WorldModel::m_iMultY933,55644
+
+WorldModelSayMsgFactory.h,883
+#define _WORLD_MODEL_SAY_MSG_FACTORY_33,1580
+class WorldModelSayMsgFactory 41,1735
+  WorldModel *WM;WorldModelSayMsgFactory::WM44,1801
+  WorldModelSayMsgFactory(WorldModelSayMsgFactory::WorldModelSayMsgFactory47,1829
+  OurPos *getOurPos(WorldModelSayMsgFactory::getOurPos52,1940
+  BallInfo *getBallInfo(WorldModelSayMsgFactory::getBallInfo54,1993
+  WeHaveBall *getWeHaveBall(WorldModelSayMsgFactory::getWeHaveBall56,2052
+  OppHasBall *getOppHasBall(WorldModelSayMsgFactory::getOppHasBall58,2117
+  PassToPlayer *getPassToPlayer(WorldModelSayMsgFactory::getPassToPlayer60,2182
+  PassToCoord *getPassToCoord(WorldModelSayMsgFactory::getPassToCoord62,2253
+  WantPass *getWantPass(WorldModelSayMsgFactory::getWantPass64,2321
+  OppPos *getOppPos(WorldModelSayMsgFactory::getOppPos66,2380
+  TeammatePos *getTeammatePos(WorldModelSayMsgFactory::getTeammatePos68,2433
+
+WorldModelSayMsgTypes.h,672
+#define _WORLD_MODEL_SAY_MSG_TYPES_33,1578
+class WMOurPos 38,1665
+  WorldModel *WM;WMOurPos::WM41,1709
+class WMBallInfo 48,1793
+  WorldModel *WM;WMBallInfo::WM51,1840
+class WMWeHaveBall 58,1926
+  WorldModel *WM;WMWeHaveBall::WM61,1978
+class WMOppHasBall 68,2066
+  WorldModel *WM;WMOppHasBall::WM71,2117
+class WMPassToPlayer 78,2205
+  WorldModel *WM;WMPassToPlayer::WM81,2260
+class WMPassToCoord 88,2350
+  WorldModel *WM;WMPassToCoord::WM91,2403
+class WMWantPass 98,2492
+  WorldModel *WM;WMWantPass::WM101,2539
+class WMOppPos 108,2625
+  WorldModel *WM;WMOppPos::WM111,2668
+class WMTeammatePos 118,2752
+  WorldModel *WM;WMTeammatePos::WM121,2806
