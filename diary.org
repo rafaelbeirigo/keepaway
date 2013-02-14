@@ -83,3 +83,12 @@ diff keepaway.sh.original keepaway.sh
 < save_rcg_log=0                   # should I save game log to .rcg file?
 ---
 > save_rcg_log=1                   # should I save game log to .rcg file?
+* 201302131649-LTI-PROJETO-TM
+3v2.
+
+Geração de pesos.
+
+Testes da nova estrutura de treinamento.
+
+Já com nova estrutura de estados, que foi feita para a transferência
+de conhecimento.

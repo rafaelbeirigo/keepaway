@@ -56,7 +56,7 @@ start_learning_after=-1           # start learning after num episodes
 # Server options                                           #
 ############################################################
 
-ka_width=20                      # Y-axis size of playing region
+ka_width=25                      # Y-axis size of playing region
 ka_length=$ka_width              # X-axis size of playing region
 
 unrestricted_vision=1            # should I use 360-degree vision instead of 90?
