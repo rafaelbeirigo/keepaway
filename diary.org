@@ -92,3 +92,8 @@ Testes da nova estrutura de treinamento.
 
 Já com nova estrutura de estados, que foi feita para a transferência
 de conhecimento.
+
+* 201302141237-LTI-PROJETO-TM
+Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
+* 201302141632-LTI-PROJETO-TM
+Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
