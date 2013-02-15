@@ -99,5 +99,14 @@ Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
 Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
 * 201302142138-LTI-PROJETO-TM
 4v3 na nova representação
-* 
+* 201302150114-LTI-PROJETO-TM
 4v3 reusando 201302141237-LTI-PROJETO-TM.
+Atentando que somente 3 dos 4 jogadores abriram weights.
+Inicialmente o desempenho é ruim (transf. negativa).
+
+Possivelmente tentar posteriormente copiar k3-weights para k4-weights
+(se eu não me engano, foi assim que o Fernandez'10 fez).
+
+O HD ficou cheio.
+
+Deletei os .cfg da pasta logs após o início do experimento.

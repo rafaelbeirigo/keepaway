@@ -41,7 +41,7 @@ taker_policy="hand"
 # Client options                                           #
 ############################################################
 
-save_weights=1                    # should I save learned weights
+save_weights=0                    # should I save learned weights
 weight_dir=$keepaway_dir/weights  # top-level weight directory
 save_client_log=0                 # should I save client logging info to a file?
 log_level="1..1000"               # range of log levels to store
