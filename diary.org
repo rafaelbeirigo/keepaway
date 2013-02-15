@@ -110,3 +110,9 @@ Possivelmente tentar posteriormente copiar k3-weights para k4-weights
 O HD ficou cheio.
 
 Deletei os .cfg da pasta logs após o início do experimento.
+* 201302151146-LTI-PROJETO-TM
+4v3 reusando 201302141237-LTI-PROJETO-TM.
+Copiado k3-weghts para k4-weights.
+Isso traz como consequencia: o quarto jogador joga da mesma forma que
+o terceiro.
+Entretanto, não corrige a negligência à ação passK4. 

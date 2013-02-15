@@ -34,7 +34,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   alpha = 0.125;
   gamma = 1.0;
   lambda = 0;
-  epsilon = 0.01;
+  epsilon = 0.1;
   minimumTrace = 0.01;
 
   epochNum = 0;
