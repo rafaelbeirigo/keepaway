@@ -18,8 +18,8 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 ############################################################
 
 num_keepers=4                    # number of keepers
-keeper_load=0                    # should I load previously learned weights?
-keeper_load_dir=201301301752-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+keeper_load=1                    # should I load previously learned weights?
+keeper_load_dir=201302141237-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 keeper_learn=1                   # should learning be turned on for keepers?
 keeper_policy="learned"          # policy followed by keepers
 #keeper_policy="hold"

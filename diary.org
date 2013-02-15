@@ -97,3 +97,7 @@ de conhecimento.
 Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
 * 201302141632-LTI-PROJETO-TM
 Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
+* 201302142138-LTI-PROJETO-TM
+4v3 na nova representação
+* 
+4v3 reusando 201302141237-LTI-PROJETO-TM.
