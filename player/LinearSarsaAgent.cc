@@ -110,14 +110,38 @@ int LinearSarsaAgent::step( double reward, double state[] )
   Q[ lastAction ] = computeQ( lastAction ); // need to redo because weights changed
   decayTraces( gamma * lambda );
 
+  // ações:
+  // 0 - hold
+  // 1 - pass_k2
+  // 2 - pass_k3
+  // 3 - pass_k4
+
+  // LIMPANDO OS TRACES
   for ( int a = 0; a < getNumActions(); a++ ) {  //clear other than F[a]
     if ( a != lastAction ) {
       for ( int j = 0; j < numTilings; j++ )
         clearTrace( tiles[ a ][ j ] );
     }
   }
+
+  // se a ação não foi a pass_k3, vai limpar para pass_k3
+  // logo, precisa limpar também para pass_k4
+  if ( lastAction != 2 ) {
+    for ( int j = 0; j < numTilings; j++ )
+      clearTrace( tiles[ 3 ][ j ] );
+  }
+
+
+  // SETANDO OS TRACES
   for ( int j = 0; j < numTilings; j++ )      //replace/set traces F[a]
     setTrace( tiles[ lastAction ][ j ], 1.0 );
+
+  // se a ação foi a pass_k3, precisa setar os traces para pass_k4
+  // também
+  if ( lastAction == 2 ) {
+    for ( int j = 0; j < numTilings; j++ )      //replace/set traces F[a]
+      setTrace( tiles[ 3 ][ j ], 1.0 );
+  }
 
   return lastAction;
 }
@@ -233,7 +257,7 @@ void LinearSarsaAgent::loadTiles( double state[] )
   /* These are the 'tiling groups'  --  play here with representations */
   /* One tiling for each state variable */
   for ( int v = 0; v < getNumFeatures(); v++ ) {
-    for ( int a = 0; a < getNumActions(); a++ ) {
+    for ( int a = 0; a < 4; a++ ) {
       GetTiles1( &(tiles[ a ][ numTilings ]), tilingsPerGroup, colTab,
 		 state[ v ] / tileWidths[ v ], a , v );
     }  

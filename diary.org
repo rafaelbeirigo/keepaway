@@ -115,4 +115,21 @@ Deletei os .cfg da pasta logs após o início do experimento.
 Copiado k3-weghts para k4-weights.
 Isso traz como consequencia: o quarto jogador joga da mesma forma que
 o terceiro.
-Entretanto, não corrige a negligência à ação passK4. 
+Entretanto, não corrige a negligência à ação passK4.
+* 
+O reuso realizado em 201302151146-LTI-PROJETO-TM não apresentou
+resultados positivos.
+
+Acredito que o problema do aprendizado está na negligência à ação
+pass_k4, que inicialmente está desprovida de pesos.
+
+Para corrigir isso, modifiquei o fonte de forma a clonar os pesos
+aprendidos para a pass_k3 diretamente em pass_k4.
+
+Dessa forma, no reuso, os jogadores valorizariam a ação pass_k4 tanto
+quanto a ação pass_k3.
+
+Com isso, espero corrigir o problema no aprendizado.
+
+Experimento realizado: aprendizado 3v2, só que aprendendo os pesos
+para a ação pass_k4.
