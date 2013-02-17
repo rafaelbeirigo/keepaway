@@ -116,7 +116,7 @@ Copiado k3-weghts para k4-weights.
 Isso traz como consequencia: o quarto jogador joga da mesma forma que
 o terceiro.
 Entretanto, não corrige a negligência à ação passK4.
-* 
+* 201302161522-LTI-PROJETO-TM
 O reuso realizado em 201302151146-LTI-PROJETO-TM não apresentou
 resultados positivos.
 
@@ -133,3 +133,8 @@ Com isso, espero corrigir o problema no aprendizado.
 
 Experimento realizado: aprendizado 3v2, só que aprendendo os pesos
 para a ação pass_k4.
+* 201302162051-LTI-PROJETO-TM
+4v3 reusando 201302161522-LTI-PROJETO-TM.
+
+Como foram aprendidos os pesos para pass_k4, espero um desempenho de
+aprendizado melhor do que o "puro".
