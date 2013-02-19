@@ -138,3 +138,6 @@ para a ação pass_k4.
 
 Como foram aprendidos os pesos para pass_k4, espero um desempenho de
 aprendizado melhor do que o "puro".
+
+RESULTADO: Positivo, pois o reuso implicou um aprendizado mais
+eficiente do que o "puro".
