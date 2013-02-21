@@ -141,3 +141,9 @@ aprendizado melhor do que o "puro".
 
 RESULTADO: Positivo, pois o reuso implicou um aprendizado mais
 eficiente do que o "puro".
+* 201302161101-LTI-PROJETO-TM
+4v3 reusando 201302161522-LTI-PROJETO-TM.
+
+Repetição de 201302162051-LTI-PROJETO-TM.
+
+RESULTADO: compatível com 201302162051-LTI-PROJETO-TM.

@@ -231,6 +231,41 @@ int main( int argc, char * argv[] )
         case 'w':
 	  strcpy( loadWeightsFile, argv[i+1] );
 	  break;
+        case 'W': // may load more than one weight file
+	  // command line option will look like:
+	  // -W 2 weight_file1.dat weight_file2.dat
+
+	  char *snum_weight_files = &argv[i+1][0];
+	  int num_weight_files = snum_weight_files;
+
+	  // allocate enough space to the weight_file paths array
+	  weightFiles = malloc(num_weight_files * sizeof(str *));
+
+	  strcpy( loadWeightsFile, argv[i+1] );
+	  break;
+
+	  char **library;
+	  library = malloc(num_policies * sizeof(char *));
+
+	  // copia caminhos para os 
+
+	  // TODO: copiar 
+          iMinLogLevel = Parse::parseFirstInt( &str );
+          while( iMinLogLevel != 0 )
+          {
+            if( *str == '.' || *str == '-') // '.' or '-' indicates range
+            {
+              *str += 1 ;
+              iMaxLogLevel = Parse::parseFirstInt( &str );
+              if( iMaxLogLevel == 0 ) iMaxLogLevel = iMinLogLevel;
+              Log.addLogRange( iMinLogLevel, iMaxLogLevel );
+            }
+            else
+              Log.addLogLevel( iMinLogLevel );
+            iMinLogLevel = Parse::parseFirstInt( &str );
+          }
+          break;
+
         case 'x':
 	  str   = &argv[i+1][0];
 	  iStopAfter = Parse::parseFirstInt( &str ); // exit after running for iStopAfter episodes
