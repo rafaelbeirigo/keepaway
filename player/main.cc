@@ -244,6 +244,7 @@ int main( int argc, char * argv[] )
 	  for (int j = 0; j < numWeightsFiles; j++) {
 	    strcpy(loadWeightsFiles[j], argv[i + 2 + j]);
 	  }
+	  i = i + numWeightsFiles;
           break;
         case 'x':
 	  str   = &argv[i+1][0];
