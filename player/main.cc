@@ -120,7 +120,7 @@ int main( int argc, char * argv[] )
   // variables used in PRQL
   char     *sNumWeightsFiles;
   int      numWeightsFiles;
-  char     loadWeightsFiles[256][256];
+  char     loadWeightsFiles[2][256];
 
   // read in all the command options and change the associated variables
   // assume every two values supplied at prompt, form a duo
@@ -236,16 +236,16 @@ int main( int argc, char * argv[] )
         case 'w':
 	  strcpy( loadWeightsFile, argv[i+1] );
 	  break;
-        case 'W': // may load more than one weight file
-	  // command line option will look like: -W 2 weight_file1.dat weight_file2.dat
-	  sNumWeightsFiles = &argv[i+1][0];
-	  numWeightsFiles = atoi(sNumWeightsFiles);
+        // case 'W': // may load more than one weight file
+	//   // command line option will look like: -W 2 weight_file1.dat weight_file2.dat
+	//   sNumWeightsFiles = &argv[i+1][0];
+	//   numWeightsFiles = atoi(sNumWeightsFiles);
 
-	  for (int j = 0; j < numWeightsFiles; j++) {
-	    strcpy(loadWeightsFiles[j], argv[i + 2 + j]);
-	  }
-	  i = i + numWeightsFiles;
-          break;
+	//   for (int j = 0; j < numWeightsFiles; j++) {
+	//     strcpy(loadWeightsFiles[j], argv[i + 2 + j]);
+	//   }
+	//   i = i + numWeightsFiles;
+        //   break;
         case 'x':
 	  str   = &argv[i+1][0];
 	  iStopAfter = Parse::parseFirstInt( &str ); // exit after running for iStopAfter episodes

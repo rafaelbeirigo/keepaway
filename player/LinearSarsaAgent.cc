@@ -15,7 +15,7 @@ extern LoggerDraw LogDraw;
 LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn,
 				    double widths[],
 				    char *loadWeightsFile, char *saveWeightsFile,
-				    int numWeightsFiles, char loadWeightsFiles[256][256] ):
+				    int numWeightsFiles, char loadWeightsFiles[10][256] ):
   SMDPAgent( numFeatures, numActions )
 {
   bLearning = bLearn;

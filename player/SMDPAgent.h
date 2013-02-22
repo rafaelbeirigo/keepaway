@@ -35,6 +35,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define MAX_STATE_VARS         64
 #define MAX_ACTIONS            10
 
+#define PRQL_MAX_POLICIES      2
+
 class SMDPAgent
 {
   int m_numFeatures; /* number of state features <= MAX_STATE_VARS */
