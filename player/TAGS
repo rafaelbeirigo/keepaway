@@ -283,24 +283,25 @@ SoccerCommand KeepawayPlayer::keeperSupport(408,14202
 ObjectT KeepawayPlayer::chooseLookObject(431,15010
 SoccerCommand KeepawayPlayer::taker(452,15527
 
-LinearSarsaAgent.cc,752
+LinearSarsaAgent.cc,801
 LinearSarsaAgent::LinearSarsaAgent(15,311
-int LinearSarsaAgent::startEpisode(61,1343
-int LinearSarsaAgent::step(83,1879
-void LinearSarsaAgent::endEpisode(125,3031
-int LinearSarsaAgent::selectAction(147,3685
-bool LinearSarsaAgent::loadWeights(162,3921
-bool LinearSarsaAgent::saveWeights(173,4230
-double LinearSarsaAgent::computeQ(183,4525
-int LinearSarsaAgent::argmaxQ(194,4765
-void LinearSarsaAgent::updateWeights(217,5229
-void LinearSarsaAgent::loadTiles(228,5551
-void LinearSarsaAgent::clearTrace(248,6203
-void LinearSarsaAgent::clearExistentTrace(257,6505
-void LinearSarsaAgent::decayTraces(268,6914
-void LinearSarsaAgent::setTrace(282,7356
-void LinearSarsaAgent::increaseMinTrace(300,8069
-void LinearSarsaAgent::setParams(311,8410
+int LinearSarsaAgent::startEpisode(65,1476
+int LinearSarsaAgent::step(87,2012
+void LinearSarsaAgent::endEpisode(153,3741
+int LinearSarsaAgent::selectAction(175,4395
+bool LinearSarsaAgent::loadWeights(190,4631
+bool LinearSarsaAgent::loadWeightsPRQL(201,4940
+bool LinearSarsaAgent::saveWeights(214,5363
+double LinearSarsaAgent::computeQ(224,5658
+int LinearSarsaAgent::argmaxQ(235,5898
+void LinearSarsaAgent::updateWeights(258,6362
+void LinearSarsaAgent::loadTiles(269,6684
+void LinearSarsaAgent::clearTrace(289,7322
+void LinearSarsaAgent::clearExistentTrace(298,7624
+void LinearSarsaAgent::decayTraces(309,8033
+void LinearSarsaAgent::setTrace(323,8475
+void LinearSarsaAgent::increaseMinTrace(341,9188
+void LinearSarsaAgent::setParams(352,9529
 
 Logger.cc,849
 Logger Log;62,2548
@@ -353,8 +354,8 @@ char* LoggerDraw::escape(420,17610
 
 main.cc,107
 int main(82,3266
-    typedef SMDPAgent* (*CreateAgent)CreateAgent298,11552
-void printOptions(358,13109
+    typedef SMDPAgent* (*CreateAgent)CreateAgent313,12059
+void printOptions(373,13616
 
 Objects.cc,4920
 Object::Object(62,2612
@@ -1182,11 +1183,11 @@ void WorldModel::setLastAction(113,3394
 int WorldModel::getLastAction(120,3563
 int WorldModel::getTimeLastAction(125,3623
 int WorldModel::keeperStateVars(130,3691
-int WorldModel::keeperStateRangesAndResolutions(220,6316
-void WorldModel::setMoveSpeed(279,7921
-double WorldModel::getMoveSpeed(284,7995
-void WorldModel::setKeepawayRect(289,8056
-Rect WorldModel::getKeepawayRect(294,8183
+int WorldModel::keeperStateRangesAndResolutions(230,6526
+void WorldModel::setMoveSpeed(299,8296
+double WorldModel::getMoveSpeed(304,8370
+void WorldModel::setKeepawayRect(309,8431
+Rect WorldModel::getKeepawayRect(314,8558
 
 WorldModelPredict.cc,999
 bool WorldModel::predictStateAfterCommand(66,3039
@@ -1389,7 +1390,7 @@ class KeepawayPlayer:KeepawayPlayer40,1778
   Time          m_timeStartEpisode;KeepawayPlayer::m_timeStartEpisode46,1993
   SMDPAgent     *SA;KeepawayPlayer::SA47,2029
 
-LinearSarsaAgent.h,1261
+LinearSarsaAgent.h,1387
 #define LINEAR_SARSA_AGENT2,27
 #define RL_MEMORY_SIZE 7,99
 #define RL_MAX_NONZERO_TRACES 8,130
@@ -1415,6 +1416,8 @@ class LinearSarsaAgent:LinearSarsaAgent11,200
   int numNonzeroTraces;LinearSarsaAgent::numNonzeroTraces36,689
   int nonzeroTracesInverse[LinearSarsaAgent::nonzeroTracesInverse37,713
   collision_table *colTab;LinearSarsaAgent::colTab39,760
+  collision_table *colTabPRQL[LinearSarsaAgent::colTabPRQL42,798
+  double weightsPRQL[LinearSarsaAgent::weightsPRQL43,834
 
 LoggerDraw.h,5335
 #define _LOGGER_DRAW_33,1564

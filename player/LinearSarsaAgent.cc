@@ -51,12 +51,19 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   int tmp[ 2 ];
   float tmpf[ 2 ];
   colTab = new collision_table( RL_MEMORY_SIZE, 1 );
+
+  for (int i = 0; i < numWeightsFiles; i++) {
+    colTabPRQL[i] = new collision_table( RL_MEMORY_SIZE, 1 );
+  }
     
   GetTiles( tmp, 1, 1, tmpf, 0 );  // A dummy call to set the hashing table    
   srand( time( NULL ) );
 
   if ( strlen( loadWeightsFile ) > 0 )
     loadWeights( loadWeightsFile );
+
+  if ( numWeightsFiles > 0 )
+    loadWeightsPRQL( numWeightsFiles, loadWeightsFiles);
 }
 
 int LinearSarsaAgent::startEpisode( double state[] )
@@ -192,6 +199,19 @@ bool LinearSarsaAgent::loadWeights( char *filename )
   colTab->restore( file );
   close( file );
   cout << "...done" << endl;
+  return true;
+}
+
+bool LinearSarsaAgent::loadWeightsPRQL( int numWeightsFiles, char filenames[256][256] )
+{
+  for (int i = 0; i < numWeightsFiles; i++) {
+    cout << "PRQL - Loading weights from " << filenames[i] << endl;
+    int file = open( filenames[i], O_RDONLY );
+    read( file, (char *) weightsPRQL[i], RL_MEMORY_SIZE * sizeof(double) );
+    colTabPRQL[i]->restore( file );
+    close( file );
+    cout << "...done" << endl;
+  }
   return true;
 }
 
