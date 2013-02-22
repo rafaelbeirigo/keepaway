@@ -300,7 +300,8 @@ int main( int argc, char * argv[] )
     // (l)earned
     sa = new LinearSarsaAgent(
       numFeatures, numActions, bLearn, resolutions,
-      loadWeightsFile, saveWeightsFile
+      loadWeightsFile, saveWeightsFile,
+      numWeightsFiles, loadWeightsFiles
     );
   } else if (!strncmp(strPolicy, "ext=", 4)) {
     // Load extension.

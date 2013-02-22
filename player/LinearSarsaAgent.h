@@ -63,7 +63,10 @@ class LinearSarsaAgent:public SMDPAgent
 				      bool   bLearn,
 				      double widths[],
 				      char   *loadWeightsFile,
-				      char   *saveWeightsFile );
+				      char   *saveWeightsFile,
+				      int    numWeightsFiles,
+				      char   loadWeightsFiles[256][256]
+);
 
   // SMDP Sarsa implementation
   int  startEpisode( double state[] );
