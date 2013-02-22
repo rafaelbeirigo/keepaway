@@ -117,6 +117,11 @@ int main( int argc, char * argv[] )
   ofstream os;
   ofstream osDraw;
 
+  // variables used in PRQL
+  char     *sNumWeightsFiles;
+  int      numWeightsFiles;
+  char     loadWeightsFiles[256][256];
+
   // read in all the command options and change the associated variables
   // assume every two values supplied at prompt, form a duo
   char * str;
@@ -232,40 +237,14 @@ int main( int argc, char * argv[] )
 	  strcpy( loadWeightsFile, argv[i+1] );
 	  break;
         case 'W': // may load more than one weight file
-	  // command line option will look like:
-	  // -W 2 weight_file1.dat weight_file2.dat
+	  // command line option will look like: -W 2 weight_file1.dat weight_file2.dat
+	  sNumWeightsFiles = &argv[i+1][0];
+	  numWeightsFiles = atoi(sNumWeightsFiles);
 
-	  char *snum_weight_files = &argv[i+1][0];
-	  int num_weight_files = snum_weight_files;
-
-	  // allocate enough space to the weight_file paths array
-	  weightFiles = malloc(num_weight_files * sizeof(str *));
-
-	  strcpy( loadWeightsFile, argv[i+1] );
-	  break;
-
-	  char **library;
-	  library = malloc(num_policies * sizeof(char *));
-
-	  // copia caminhos para os 
-
-	  // TODO: copiar 
-          iMinLogLevel = Parse::parseFirstInt( &str );
-          while( iMinLogLevel != 0 )
-          {
-            if( *str == '.' || *str == '-') // '.' or '-' indicates range
-            {
-              *str += 1 ;
-              iMaxLogLevel = Parse::parseFirstInt( &str );
-              if( iMaxLogLevel == 0 ) iMaxLogLevel = iMinLogLevel;
-              Log.addLogRange( iMinLogLevel, iMaxLogLevel );
-            }
-            else
-              Log.addLogLevel( iMinLogLevel );
-            iMinLogLevel = Parse::parseFirstInt( &str );
-          }
+	  for (int j = 0; j < numWeightsFiles; j++) {
+	    strcpy(loadWeightsFiles[j], argv[i + 2 + j]);
+	  }
           break;
-
         case 'x':
 	  str   = &argv[i+1][0];
 	  iStopAfter = Parse::parseFirstInt( &str ); // exit after running for iStopAfter episodes
@@ -413,6 +392,7 @@ void printOptions( )
    " s(erverconf) file     - use file as server conf file"           << endl <<
    " t(eamname) name       - name of your team"                      << endl <<
    " w(eights) file        - use file to load weights"               << endl <<
+   " W(eights) files       - use file to load many weights (PRQL)"   << endl <<
    " x exit after running for this many episodes"                    << endl <<
    " y enable learning after not learning for this many episodes"    << endl;
 }
