@@ -22,8 +22,14 @@ keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 
 keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
-keeper_load_PRQL_num=2           # number of weights that will be opened
-keeper_load_PRQL_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+
+keeper_load_PRQL_3v2=1           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_4v3=1           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_Abs=1           # should I load previously learned weights to use in PRQL?
+
+keeper_load_PRQL_3v2_dir=201302161522-LTI-PROJETO-TM_3v2             # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_4v3_dir=201302161522-LTI-PROJETO-TM_4v3             # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_Abs_dir=201302161522-LTI-PROJETO-TM_Abs             # sub-directory of weight_dir where weights are stored
 
 keeper_learn=1                   # should learning be turned on for keepers?
 keeper_policy="learned"          # policy followed by keepers
@@ -179,9 +185,25 @@ do
   if (( $keeper_load )); then
     kweight_opts="$kweight_opts -w $weight_dir/$keeper_load_dir/k$i-weights.dat"
   fi
+
   if (( $keeper_load_PRQL )); then
-    kweight_opts_PRQL="-W $keeper_load_PRQL_num $weight_PRQL_dir/$keeper_load_PRQL_dir/k$i-weights.dat $weight_PRQL_dir/$keeper_load_PRQL_dir/k$i-weights.dat"
+    kweight_opts_PRQL=""
+    keeper_load_PRQL_num=0
+    if (( $keeper_load_PRQL_3v2 )); then
+	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`
+	kweight_opts_PRQL="$kweight_opts_PRQL $weight_PRQL_dir/$keeper_load_PRQL_3v2_dir/k$i-weights.dat"
+    fi
+    if (( $keeper_load_PRQL_4v3 )); then
+	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`
+	kweight_opts_PRQL="$kweight_opts_PRQL $weight_PRQL_dir/$keeper_load_PRQL_4v3_dir/k$i-weights.dat"
+    fi
+    if (( $keeper_load_PRQL_Abs )); then
+	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`
+	kweight_opts_PRQL="$kweight_opts_PRQL $weight_PRQL_dir/$keeper_load_PRQL_Abs_dir/k$i-weights.dat"
+    fi
+    kweight_opts_PRQL="-W $keeper_load_PRQL_num $kweight_opts_PRQL"
   fi
+
   kcmd_line="./$client $client_opts $keeper_opts $klog_opts $kdraw_opts $kweight_opts $kweight_opts_PRQL"
   echo Starting Keeper \#$i...
   echo $kcmd_line
