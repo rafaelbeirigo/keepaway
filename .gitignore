@@ -1,6 +1,7 @@
 *.o
 *.pyc
 /logs/
+/weights/
 /player/demo_extension.so
 /player/keepaway_player
 /player/Makefile.bak
