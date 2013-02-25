@@ -15,7 +15,7 @@ extern LoggerDraw LogDraw;
 LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn,
 				    double widths[],
 				    char *loadWeightsFile, char *saveWeightsFile,
-				    int numWeightsFiles, char loadWeightsFiles[10][256] ):
+				    int numWeightsFiles, char loadWeightsFiles[2][256] ):
   SMDPAgent( numFeatures, numActions )
 {
   bLearning = bLearn;
@@ -62,8 +62,9 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   if ( strlen( loadWeightsFile ) > 0 )
     loadWeights( loadWeightsFile );
 
-  if ( numWeightsFiles > 0 )
-    loadWeightsPRQL( numWeightsFiles, loadWeightsFiles);
+  if ( numWeightsFiles > 0 ) {
+    loadWeightsPRQL( numWeightsFiles, loadWeightsFiles );
+  }
 }
 
 int LinearSarsaAgent::startEpisode( double state[] )
@@ -202,7 +203,7 @@ bool LinearSarsaAgent::loadWeights( char *filename )
   return true;
 }
 
-bool LinearSarsaAgent::loadWeightsPRQL( int numWeightsFiles, char filenames[256][256] )
+bool LinearSarsaAgent::loadWeightsPRQL( int numWeightsFiles, char filenames[2][256] )
 {
   for (int i = 0; i < numWeightsFiles; i++) {
     cout << "PRQL - Loading weights from " << filenames[i] << endl;

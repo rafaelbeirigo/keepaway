@@ -39,9 +39,9 @@ class LinearSarsaAgent:public SMDPAgent
   collision_table *colTab;
 
   // PRQL
-  collision_table *colTabPRQL[PRQL_MAX_POLICIES];
-  double weightsPRQL[PRQL_MAX_POLICIES][ RL_MEMORY_SIZE ];
-  bool loadWeightsPRQL( int numWeightsFiles, char loadWeightsFiles[PRQL_MAX_POLICIES][256] );
+  collision_table *colTabPRQL[2];
+  double weightsPRQL[2][ RL_MEMORY_SIZE ];
+  bool loadWeightsPRQL( int numWeightsFiles, char loadWeightsFiles[2][256] );
 
   // Load / Save weights from/to disk
   bool loadWeights( char *filename );

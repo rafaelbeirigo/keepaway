@@ -21,8 +21,8 @@ num_keepers=4                    # number of keepers
 keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 
-keeper_load_PRQL=0               # should I load previously learned weights to use in PRQL?
-keeper_load_PRQL_num=1           # number of weights that will be opened
+keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_num=2           # number of weights that will be opened
 keeper_load_PRQL_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 
 keeper_learn=1                   # should learning be turned on for keepers?
@@ -180,7 +180,7 @@ do
     kweight_opts="$kweight_opts -w $weight_dir/$keeper_load_dir/k$i-weights.dat"
   fi
   if (( $keeper_load_PRQL )); then
-    kweight_opts_PRQL="$kweight_opts_PRQL -W $weight_PRQL_dir/$keeper_load_PRQL_dir/k$i-weights.dat"
+    kweight_opts_PRQL="-W $keeper_load_PRQL_num $weight_PRQL_dir/$keeper_load_PRQL_dir/k$i-weights.dat $weight_PRQL_dir/$keeper_load_PRQL_dir/k$i-weights.dat"
   fi
   kcmd_line="./$client $client_opts $keeper_opts $klog_opts $kdraw_opts $kweight_opts $kweight_opts_PRQL"
   echo Starting Keeper \#$i...
