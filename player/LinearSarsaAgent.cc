@@ -230,7 +230,7 @@ double LinearSarsaAgent::computeQ( int a )
 {
   double q = 0;
   for ( int j = 0; j < numTilings; j++ ) {
-    q += weights[ tiles[ a ][ j ] ];
+    q += weightsPRQL[0][ tiles[ a ][ j ] ];
   }
 
   return q;

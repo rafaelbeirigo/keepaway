@@ -24,10 +24,10 @@ keeper_load_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of w
 keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
 
 keeper_load_PRQL_3v2=1           # should I load previously learned weights to use in PRQL?
-keeper_load_PRQL_4v3=1           # should I load previously learned weights to use in PRQL?
-keeper_load_PRQL_Abs=1           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
 
-keeper_load_PRQL_3v2_dir=201302161522-LTI-PROJETO-TM_3v2             # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_3v2_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_4v3_dir=201302161522-LTI-PROJETO-TM_4v3             # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_Abs_dir=201302161522-LTI-PROJETO-TM_Abs             # sub-directory of weight_dir where weights are stored
 
