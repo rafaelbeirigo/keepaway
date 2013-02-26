@@ -35,14 +35,14 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   alpha = 0.125;
   gamma = 1.0;
   lambda = 0.5;
-  epsilon = 0.01;
+  epsilon = 0.0;
+  epsilon_increment = 0.0001;
   minimumTrace = 0.01;
 
   psi = 1.0;
   v = 0.95;
   tau = 0.0;
   tau_increment = 0.05;
-  epsilon_increment = 0.0;
 
   epochNum = 0;
   lastAction = -1;
@@ -185,27 +185,40 @@ int LinearSarsaAgent::selectAction()
 {
   int action;
 
-  if ( policyToExploit == 0 ) {
-    // fully greedy in Pi_\Omega
-    action = argmaxQ();
+  if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
+    // Epsilon-greedy
+    if ( bLearning && drand48() < epsilon ) {     /* epsilon here means how greedy the agent is (Fernández'10: Probabilistic Policy Reuse for inter-task transfer learning) */
+      action = argmaxQ();
+    }
+    else{
+      action = rand() % getNumActions();
+    }
+
+    return action;
   }
   else {
-    if ( drand48() < psi ) {
-      // exploit past policy
+    // PRQL - will eventually reuse policies
+    if ( policyToExploit == 0 ) {
+      // fully greedy in Pi_\Omega
       action = argmaxQ();
     }
     else {
       if ( drand48() < psi ) {
-	// explore
-	action = rand() % getNumActions();
+	// exploit past policy
+	action = argmaxQ();
       }
       else {
-	// exploit new policy
-	action = argmaxQ();
+	if ( drand48() < psi ) {
+	  // explore
+	  action = rand() % getNumActions();
+	}
+	else {
+	  // exploit new policy
+	  action = argmaxQ();
+	}
       }
     }
   }
-
   return action;
 }
 

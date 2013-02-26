@@ -23,6 +23,8 @@ keeper_load_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of w
 
 keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
 
+num_keepers_reuse=3              # numbers of players that will reuse policies
+
 keeper_load_PRQL_3v2=1           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
@@ -186,8 +188,8 @@ do
     kweight_opts="$kweight_opts -w $weight_dir/$keeper_load_dir/k$i-weights.dat"
   fi
 
-  if (( $keeper_load_PRQL )); then
-    kweight_opts_PRQL=""
+  kweight_opts_PRQL=""
+  if (( $keeper_load_PRQL && $i <= $num_keepers_reuse )); then
     keeper_load_PRQL_num=0
     if (( $keeper_load_PRQL_3v2 )); then
 	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`

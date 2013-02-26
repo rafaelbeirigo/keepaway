@@ -147,3 +147,9 @@ eficiente do que o "puro".
 Repetição de 201302162051-LTI-PROJETO-TM.
 
 RESULTADO: compatível com 201302162051-LTI-PROJETO-TM.
+* 201302261429-LTI-PROJETO-TM
+Teste do módulo 'learning from scratch' para o PRQL.  Isolei o reuso
+para o caso em que há mais de uma política na biblioteca. Caso
+contrário, o aprendizado ocorre como na versão original do programa.
+
+Os resultados iniciais não sugerem nada que indique incorreção.
