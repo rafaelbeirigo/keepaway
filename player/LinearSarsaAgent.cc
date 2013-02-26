@@ -42,7 +42,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   psi = 1.0;
   v = 0.95;
   tau = 0.0;
-  tau_increment = 0.05;
+  tau_increment = 0.0005;
 
   epochNum = 0;
   lastAction = -1;
@@ -424,6 +424,7 @@ void LinearSarsaAgent::computeP()
     powers[i] = pow( M_E, tau * W[i] );
 
     std::cout << "computeP(): "
+	      << "tau: " << tau << " "
 	      << "W[" << i << "]: " << W[i] << " "
 	      << "powers[" << i << "]: " << powers[i] << " "
 	      << std::endl;

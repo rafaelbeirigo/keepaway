@@ -15,7 +15,7 @@ set title ""
 
 # Appearance
 set style data lines
-set nokey
+set key bottom right
 set border 3
 set xtics nomirror
 set ytics nomirror
@@ -25,8 +25,11 @@ set multiplot
 set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
-set yrange [-0.5:25]
+set yrange [4:13]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
-plot "./1.out"
+plot \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title 'From Scratch', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261524-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.05', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261621-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.0005'
