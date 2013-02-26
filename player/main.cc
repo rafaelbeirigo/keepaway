@@ -119,7 +119,7 @@ int main( int argc, char * argv[] )
 
   // variables used in PRQL
   char     *sNumWeightsFilesPRQL;
-  int      numWeightsFilesPRQL;
+  int      numWeightsFilesPRQL = 0;
   char     **loadWeightsFilesPRQL;
 
   // read in all the command options and change the associated variables
