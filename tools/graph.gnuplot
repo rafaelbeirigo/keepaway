@@ -25,11 +25,14 @@ set multiplot
 set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
-set yrange [4:13]
+set yrange [-0.5:13]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title 'From Scratch', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261524-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.05', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261621-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.0005'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261621-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.0005', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261709-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.00005', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261722-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.00025', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out" title 'From Scratch - epsilon Fernandez' linecolor rgb "black"

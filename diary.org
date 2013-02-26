@@ -156,7 +156,15 @@ Teste PRQL. 4v3 reusando 3v2
 
 PROBLEMA: Os valores utilizados no cálculo de Boltzmann ficavam muito grandes
 muito rápido.
-* 
+* 201302261621-LTI-PROJETO-TM
 Teste PRQL. 4v3 reusando 3v2
 
 Modificado tau_increment de 0.05 para 0.0005.
+* 201302261709-LTI-PROJETO-TM
+Teste PRQL. 4v3 reusando 3v2
+
+Modificado tau_increment=0.00005'
+* 201302261807-LTI-PROJETO-TM
+Aprendizado from scratch 4v3.
+Utilizando epsilon e epsilon_increment de acordo com Fernandez'10.
+Será utilizado para comparação com reuso.
