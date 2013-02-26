@@ -39,9 +39,19 @@ class LinearSarsaAgent:public SMDPAgent
   collision_table *colTab;
 
   // PRQL
-  collision_table *colTabPRQL[2];
-  double weightsPRQL[2][ RL_MEMORY_SIZE ];
-  bool loadWeightsPRQL( int numWeightsFiles, char loadWeightsFiles[2][256] );
+  double **weightsPRQL;
+  bool loadWeightsPRQL( int numWeightsFiles, char **loadWeightsFiles );
+  int numberOfPolicies;
+  int policyToExploit;
+  double *W;
+  double *P;
+  double psi;
+  double v;
+  double tau;
+  double tau_increment;
+  double epsilon_increment;
+  int stepNum;
+  double sum_gamma_r_k_h;
 
   // Load / Save weights from/to disk
   bool loadWeights( char *filename );
@@ -62,6 +72,10 @@ class LinearSarsaAgent:public SMDPAgent
   void setTrace( int f, float newTraceValue );
   void increaseMinTrace();
 
+  // PRQL
+  void computeP();
+  int getPolicyToExploit();
+
  public:
   LinearSarsaAgent                  ( int    numFeatures,
 				      int    numActions,
@@ -70,7 +84,7 @@ class LinearSarsaAgent:public SMDPAgent
 				      char   *loadWeightsFile,
 				      char   *saveWeightsFile,
 				      int    numWeightsFiles,
-				      char   loadWeightsFiles[256][256]
+				      char   **loadWeightsFiles
 );
 
   // SMDP Sarsa implementation
