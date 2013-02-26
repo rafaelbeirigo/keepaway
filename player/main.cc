@@ -118,9 +118,9 @@ int main( int argc, char * argv[] )
   ofstream osDraw;
 
   // variables used in PRQL
-  char     *sNumWeightsFiles;
-  int      numWeightsFiles;
-  char     loadWeightsFiles[2][256];
+  char     *sNumWeightsFilesPRQL;
+  int      numWeightsFilesPRQL;
+  char     **loadWeightsFilesPRQL;
 
   // read in all the command options and change the associated variables
   // assume every two values supplied at prompt, form a duo
@@ -238,13 +238,15 @@ int main( int argc, char * argv[] )
 	  break;
         case 'W': // may load more than one weight file
 	  // command line option will look like: -W 2 weight_file1.dat weight_file2.dat
-	  sNumWeightsFiles = &argv[i+1][0];
-	  numWeightsFiles = atoi(sNumWeightsFiles);
+	  sNumWeightsFilesPRQL = &argv[i+1][0];
+	  numWeightsFilesPRQL = atoi(sNumWeightsFilesPRQL);
 
-	  for (int j = 0; j < numWeightsFiles; j++) {
-	    strcpy(loadWeightsFiles[j], argv[i + 2 + j]);
+	  loadWeightsFilesPRQL = (char **) malloc( numWeightsFilesPRQL * sizeof( char * ) );
+	  for (int j = 0; j < numWeightsFilesPRQL; j++) {
+	    loadWeightsFilesPRQL[j] = (char *) malloc( 256 * sizeof ( char ) );
+	    strcpy(loadWeightsFilesPRQL[j], argv[i + 2 + j]);
 	  }
-	  i = i + numWeightsFiles;
+	  i = i + numWeightsFilesPRQL;
           break;
         case 'x':
 	  str   = &argv[i+1][0];
@@ -302,7 +304,7 @@ int main( int argc, char * argv[] )
     sa = new LinearSarsaAgent(
       numFeatures, numActions, bLearn, resolutions,
       loadWeightsFile, saveWeightsFile,
-      numWeightsFiles, loadWeightsFiles
+      numWeightsFilesPRQL, loadWeightsFilesPRQL
     );
   } else if (!strncmp(strPolicy, "ext=", 4)) {
     // Load extension.

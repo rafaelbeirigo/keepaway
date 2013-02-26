@@ -283,25 +283,27 @@ SoccerCommand KeepawayPlayer::keeperSupport(408,14202
 ObjectT KeepawayPlayer::chooseLookObject(431,15010
 SoccerCommand KeepawayPlayer::taker(452,15527
 
-LinearSarsaAgent.cc,801
+LinearSarsaAgent.cc,899
 LinearSarsaAgent::LinearSarsaAgent(15,311
-int LinearSarsaAgent::startEpisode(65,1476
-int LinearSarsaAgent::step(87,2012
-void LinearSarsaAgent::endEpisode(153,3741
-int LinearSarsaAgent::selectAction(175,4395
-bool LinearSarsaAgent::loadWeights(190,4631
-bool LinearSarsaAgent::loadWeightsPRQL(201,4940
-bool LinearSarsaAgent::saveWeights(214,5363
-double LinearSarsaAgent::computeQ(224,5658
-int LinearSarsaAgent::argmaxQ(235,5898
-void LinearSarsaAgent::updateWeights(258,6362
-void LinearSarsaAgent::loadTiles(269,6684
-void LinearSarsaAgent::clearTrace(289,7322
-void LinearSarsaAgent::clearExistentTrace(298,7624
-void LinearSarsaAgent::decayTraces(309,8033
-void LinearSarsaAgent::setTrace(323,8475
-void LinearSarsaAgent::increaseMinTrace(341,9188
-void LinearSarsaAgent::setParams(352,9529
+int LinearSarsaAgent::startEpisode(81,1875
+int LinearSarsaAgent::step(109,2563
+void LinearSarsaAgent::endEpisode(163,3951
+int LinearSarsaAgent::selectAction(190,4802
+bool LinearSarsaAgent::loadWeights(218,5242
+bool LinearSarsaAgent::loadWeightsPRQL(229,5551
+bool LinearSarsaAgent::saveWeights(243,6095
+double LinearSarsaAgent::computeQ(253,6390
+int LinearSarsaAgent::argmaxQ(267,6735
+void LinearSarsaAgent::updateWeights(290,7199
+void LinearSarsaAgent::loadTiles(301,7521
+void LinearSarsaAgent::clearTrace(321,8173
+void LinearSarsaAgent::clearExistentTrace(330,8475
+void LinearSarsaAgent::decayTraces(341,8884
+void LinearSarsaAgent::setTrace(355,9326
+void LinearSarsaAgent::increaseMinTrace(373,10039
+void LinearSarsaAgent::setParams(384,10380
+int LinearSarsaAgent::getPolicyToExploit(389,10498
+void LinearSarsaAgent::computeP(408,10850
 
 Logger.cc,849
 Logger Log;62,2548
@@ -354,8 +356,8 @@ char* LoggerDraw::escape(420,17610
 
 main.cc,107
 int main(82,3266
-    typedef SMDPAgent* (*CreateAgent)CreateAgent313,12059
-void printOptions(373,13616
+    typedef SMDPAgent* (*CreateAgent)CreateAgent316,12282
+void printOptions(376,13839
 
 Objects.cc,4920
 Object::Object(62,2612
@@ -1390,7 +1392,7 @@ class KeepawayPlayer:KeepawayPlayer40,1778
   Time          m_timeStartEpisode;KeepawayPlayer::m_timeStartEpisode46,1993
   SMDPAgent     *SA;KeepawayPlayer::SA47,2029
 
-LinearSarsaAgent.h,1387
+LinearSarsaAgent.h,1910
 #define LINEAR_SARSA_AGENT2,27
 #define RL_MEMORY_SIZE 7,99
 #define RL_MAX_NONZERO_TRACES 8,130
@@ -1416,8 +1418,18 @@ class LinearSarsaAgent:LinearSarsaAgent11,200
   int numNonzeroTraces;LinearSarsaAgent::numNonzeroTraces36,689
   int nonzeroTracesInverse[LinearSarsaAgent::nonzeroTracesInverse37,713
   collision_table *colTab;LinearSarsaAgent::colTab39,760
-  collision_table *colTabPRQL[LinearSarsaAgent::colTabPRQL42,798
-  double weightsPRQL[LinearSarsaAgent::weightsPRQL43,834
+  double **weightsPRQL;LinearSarsaAgent::weightsPRQL42,798
+  int numberOfPolicies;LinearSarsaAgent::numberOfPolicies44,894
+  int policyToExploit;LinearSarsaAgent::policyToExploit45,918
+  double *W;LinearSarsaAgent::W46,941
+  double *P;LinearSarsaAgent::P47,954
+  double psi;LinearSarsaAgent::psi48,967
+  double v;LinearSarsaAgent::v49,981
+  double tau;LinearSarsaAgent::tau50,993
+  double tau_increment;LinearSarsaAgent::tau_increment51,1007
+  double epsilon_increment;LinearSarsaAgent::epsilon_increment52,1031
+  int stepNum;LinearSarsaAgent::stepNum53,1059
+  double sum_gamma_r_k_h;LinearSarsaAgent::sum_gamma_r_k_h54,1074
 
 LoggerDraw.h,5335
 #define _LOGGER_DRAW_33,1564
@@ -2052,17 +2064,18 @@ class HeteroPlayerSettings690,40725
   double dEffortMin;HeteroPlayerSettings::dEffortMin715,42441
   double dMaximalKickDist;HeteroPlayerSettings::dMaximalKickDist717,42522
 
-SMDPAgent.h,422
+SMDPAgent.h,457
 #define SMDP_AGENT33,1561
 #define MAX_STATE_VARS 35,1581
 #define MAX_ACTIONS 36,1615
-class SMDPAgent38,1650
-  int m_numFeatures;SMDPAgent::m_numFeatures40,1668
-  int m_numActions;SMDPAgent::m_numActions41,1738
-  int getNumFeatures(SMDPAgent::getNumFeatures45,1821
-  int getNumActions(SMDPAgent::getNumActions46,1870
-  SMDPAgent(SMDPAgent::SMDPAgent50,1932
-  virtual ~SMDPAgent(SMDPAgent::~SMDPAgent52,2044
+#define PRQL_MAX_POLICIES 38,1650
+class SMDPAgent40,1684
+  int m_numFeatures;SMDPAgent::m_numFeatures42,1702
+  int m_numActions;SMDPAgent::m_numActions43,1772
+  int getNumFeatures(SMDPAgent::getNumFeatures47,1855
+  int getNumActions(SMDPAgent::getNumActions48,1904
+  SMDPAgent(SMDPAgent::SMDPAgent52,1966
+  virtual ~SMDPAgent(SMDPAgent::~SMDPAgent54,2078
 
 SoccerTypes.h,11548
 #define _SOCCERTYPES_55,2585
