@@ -213,8 +213,19 @@ int LinearSarsaAgent::selectAction()
 	  action = rand() % getNumActions();
 	}
 	else {
-	  // exploit new policy
+	  // exploit 'new' policy (the one being learned)
+	  int bkp = policyToExploit;
+	  policyToExploit = 0; // consider the 'new' weights
+	  for ( int a = 0; a < getNumActions(); a++ ) {
+	    Q[ a ] = computeQ( a );
+	  }
+
 	  action = argmaxQ();
+
+	  policyToExploit = bkp; // return to the previous weights
+	  for ( int a = 0; a < getNumActions(); a++ ) {
+	    Q[ a ] = computeQ( a );
+	  }
 	}
       }
     }
