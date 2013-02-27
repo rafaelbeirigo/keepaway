@@ -35,4 +35,5 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261621-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.0005', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261709-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.00005', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261722-LTI-PROJETO-TM.kwy.out" title 'PRQL-tau_increment=0.00025', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out" title 'From Scratch - epsilon Fernandez' linecolor rgb "black"
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out" title 'From Scratch - epsilon Fernandez 1', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261847-toulon.kwy.out"         title 'From Scratch - epsilon Fernandez 2'
