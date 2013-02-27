@@ -42,7 +42,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   psi = 1.0;
   v = 0.95;
   tau = 0.0;
-  tau_increment = 0.00025;
+  tau_increment = 0.05;
 
   epochNum = 0;
   lastAction = -1;
@@ -213,8 +213,19 @@ int LinearSarsaAgent::selectAction()
 	  action = rand() % getNumActions();
 	}
 	else {
-	  // exploit new policy
+	  // exploit 'new' policy (the one being learned)
+	  int bkp = policyToExploit;
+	  policyToExploit = 0; // consider the 'new' weights
+	  for ( int a = 0; a < getNumActions(); a++ ) {
+	    Q[ a ] = computeQ( a );
+	  }
+
 	  action = argmaxQ();
+
+	  policyToExploit = bkp; // return to the previous weights
+	  for ( int a = 0; a < getNumActions(); a++ ) {
+	    Q[ a ] = computeQ( a );
+	  }
 	}
       }
     }

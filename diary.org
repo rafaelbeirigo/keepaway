@@ -168,3 +168,6 @@ Modificado tau_increment=0.00005'
 Aprendizado from scratch 4v3.
 Utilizando epsilon e epsilon_increment de acordo com Fernandez'10.
 Será utilizado para comparação com reuso.
+* 201302270305-LTI-PROJETO-TM
+4v3 reusando 3v2 após correção de bug que fazia com que a política que
+estava sendo aprendida não fosse explotada no reuso.
