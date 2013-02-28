@@ -168,6 +168,30 @@ Modificado tau_increment=0.00005'
 Aprendizado from scratch 4v3.
 Utilizando epsilon e epsilon_increment de acordo com Fernandez'10.
 Será utilizado para comparação com reuso.
-* 201302270305-LTI-PROJETO-TM
+* 201302270325-LTI-PROJETO-TM
 4v3 reusando 3v2 após correção de bug que fazia com que a política que
 estava sendo aprendida não fosse explotada no reuso.
+
+tau_increment 0.025
+
+Resultado: aprendeu muito lentamente.
+* 201302271649-LTI-PROJETO-TM
+Repetição do 201302270325-LTI-PROJETO-TM.
+Modificado tau_increment para 0.05 (o mesmo do artigo).
+* 201302272034-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.005.
+* 201302272101-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.00008.
+* 201302281201-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.0000008.
+* 201302281304-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.000008.
+* 201302281357-LTI-PROJETO-TM
+Reverti a selectAction para o jeito antigo para ver se o resultado é o
+mesmo de antes.
+
+Parâmetros exatamente iguais aos do Fernandez'10.

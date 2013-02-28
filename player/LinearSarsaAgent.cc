@@ -42,7 +42,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   psi = 1.0;
   v = 0.95;
   tau = 0.0;
-  tau_increment = 0.05;
+  tau_increment = 0.00005;
 
   epochNum = 0;
   lastAction = -1;
@@ -214,18 +214,18 @@ int LinearSarsaAgent::selectAction()
 	}
 	else {
 	  // exploit 'new' policy (the one being learned)
-	  int bkp = policyToExploit;
-	  policyToExploit = 0; // consider the 'new' weights
-	  for ( int a = 0; a < getNumActions(); a++ ) {
-	    Q[ a ] = computeQ( a );
-	  }
+	  // int bkp = policyToExploit;
+	  // policyToExploit = 0; // consider the 'new' weights
+	  // for ( int a = 0; a < getNumActions(); a++ ) {
+	  //   Q[ a ] = computeQ( a );
+	  // }
 
 	  action = argmaxQ();
 
-	  policyToExploit = bkp; // return to the previous weights
-	  for ( int a = 0; a < getNumActions(); a++ ) {
-	    Q[ a ] = computeQ( a );
-	  }
+	  // policyToExploit = bkp; // return to the previous weights
+	  // for ( int a = 0; a < getNumActions(); a++ ) {
+	  //   Q[ a ] = computeQ( a );
+	  // }
 	}
       }
     }
@@ -438,6 +438,7 @@ void LinearSarsaAgent::computeP()
 	      << "tau: " << tau << " "
 	      << "W[" << i << "]: " << W[i] << " "
 	      << "powers[" << i << "]: " << powers[i] << " "
+	      << "epochNum: " << epochNum << " "
 	      << std::endl;
 
     sum_powers += powers[i];
