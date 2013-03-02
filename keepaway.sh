@@ -267,5 +267,6 @@ if (( $use_trainer )); then
 fi
 
 if (( $git_commit )); then
-  git commit -a -m 'Experimento: $proc_name'
+  message="Experimento: $proc_name"
+  git commit -a -m $message
 fi
