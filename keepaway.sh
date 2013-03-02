@@ -29,7 +29,7 @@ keeper_load_PRQL_3v2=1           # should I load previously learned weights to u
 keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
 
-keeper_load_PRQL_3v2_dir=201302161522-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_3v2_dir=201301302106-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_4v3_dir=201302161522-LTI-PROJETO-TM_4v3             # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_Abs_dir=201302161522-LTI-PROJETO-TM_Abs             # sub-directory of weight_dir where weights are stored
 
@@ -96,6 +96,16 @@ use_trainer=0                    # should I use a trainer instead of server refe
 save_trainer_log=0               # should I save cycle queue to a file?
 launch_trainer_monitor=0         # should I launch trainer monitor on startup?
 trainer="rcssjava.trainer.Trainer"   # name of trainer class
+
+############################################################
+#                                                          #
+############################################################
+
+###########################################################
+# Git options                                             #
+###########################################################
+
+git_commit=1                    # should I commit?
 
 ############################################################
 #                                                          #
@@ -254,4 +264,8 @@ fi
 if (( $use_trainer )); then
   wait $trainer_pid
   kill -INT $server_pid
+fi
+
+if (( $git_commit )); then
+  git commit -a -m 'Experimento: $proc_name'
 fi
