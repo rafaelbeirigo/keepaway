@@ -176,6 +176,11 @@ void LinearSarsaAgent::endEpisode( double reward )
   tau += tau_increment;
   epsilon += epsilon_increment;
 
+  std::cout << std::endl
+            << "policyToExploit: " << policyToExploit << std::endl
+	    << "epochNum: " << epochNum << std::endl
+	    <<"sum_gamma_r_k_h: " << sum_gamma_r_k_h << std::endl;
+
   W[policyToExploit] = ( ( epochNum - 1 ) * W[policyToExploit] )  +  sum_gamma_r_k_h;
   W[policyToExploit] = W[policyToExploit] / epochNum;
 }
