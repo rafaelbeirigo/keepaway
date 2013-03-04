@@ -439,7 +439,7 @@ void LinearSarsaAgent::computeP()
 
   // Obtain constant to subtract from exponents
   K = 0;
-  for ( int i = 0; i < numberOfPolicies; i++ ) {
+  for ( int i = 0; i < numberOfPolicies; i++ )
     if ( tau * W[i] > K )
       K = tau * W[i];
 

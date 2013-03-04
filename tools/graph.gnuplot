@@ -34,7 +34,7 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out" title 'From Scratch - epsilon Fernandez 1 - 201302261807-LTI-PROJETO', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261847-toulon.kwy.out"         title 'From Scratch - epsilon Fernandez 2 - 201302261847-toulon', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303041822-LTI-PROJETO-TM.kwy.out" title 'Apos varias correcoes', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303041841-LTI-PROJETO-TM.kwy.out" title 'K=700'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303041854-LTI-PROJETO-TM.kwy.out" title 'K elegante
 
 
 
