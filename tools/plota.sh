@@ -23,5 +23,5 @@ plot () {
 }
 
 plot &
-#gv --watch $EPS_FILE
-#pkill plota.sh
+gv --watch $EPS_FILE
+pkill plota.sh
