@@ -61,6 +61,7 @@ class LinearSarsaAgent:public SMDPAgent
   int  selectAction();
   void initializeTileWidths( int numK, int numT );
   double computeQ( int a );
+  double computeQ_PRQL( int a );
   int  argmaxQ();
   void updateWeights( double delta );
   void loadTiles( double state[] );
