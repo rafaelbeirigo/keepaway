@@ -109,11 +109,11 @@ int LinearSarsaAgent::step( double reward, double state[] )
   stepNum++;
   double delta = reward - Q[ lastAction ];
   loadTiles( state );
-  for ( int a = 0; a < getNumActions(); a++ ) {
-    Q[ a ] = computeQ( a );
-  }
 
-  lastAction = selectAction();
+  for ( int a = 0; a < getNumActions(); a++ )
+    Q[ a ] = computeQ( a );
+
+  lastAction = selectAction(); // TODO: computar Q[] internamente
 
   char buffer[128];
   sprintf( buffer, "Q[%d] = %.2f", lastAction, Q[lastAction] );
@@ -133,8 +133,7 @@ int LinearSarsaAgent::step( double reward, double state[] )
   delta += Q[ lastAction ];
   updateWeights( delta );
 
-  if ( policyToExploit == 0 )
-    Q[ lastAction ] = computeQ( lastAction ); // need to redo because weights changed
+  Q[ lastAction ] = computeQ( lastAction ); // need to redo because weights changed
 
   decayTraces( gamma * lambda );
 
@@ -187,7 +186,9 @@ int LinearSarsaAgent::selectAction()
 
   if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
     // Epsilon-greedy
-    if ( bLearning && drand48() < epsilon ) {     /* epsilon here means how greedy the agent is (Fernández'10: Probabilistic Policy Reuse for inter-task transfer learning) */
+    if ( bLearning && drand48() < epsilon ) {     /* epsilon here
+						     means how greedy
+						     the agent is */
       action = argmaxQ();
     }
     else{
@@ -199,29 +200,26 @@ int LinearSarsaAgent::selectAction()
   else {
     // PRQL - will eventually reuse policies
     if ( policyToExploit == 0 ) {
-      // fully greedy in Pi_\Omega
+      // fully greedy
       action = argmaxQ();
     }
     else {
       if ( drand48() < psi ) {
 	// exploit past policy
+	for ( int a = 0; a < getNumActions(); a++ )
+	  Q[ a ] = computeQ_PRQL( a );
+
 	action = argmaxQ();
+
+	for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
+						       the correct
+						       values */
+	  Q[ a ] = computeQ( a );
       }
       else {
  	if ( drand48() < 1 - psi ) { // greedy
 	  // exploit 'new' policy (the one being learned)
-	  int bkp = policyToExploit;
-	  policyToExploit = 0; // consider the 'new' weights
-	  for ( int a = 0; a < getNumActions(); a++ ) {
-	    Q[ a ] = computeQ( a );
-	  }
-
 	  action = argmaxQ();
-
-	  policyToExploit = bkp; // return to the previous weights
-	  for ( int a = 0; a < getNumActions(); a++ ) {
-	    Q[ a ] = computeQ( a );
-	  }
 	}
 	else {
 	  // explore
@@ -268,15 +266,21 @@ bool LinearSarsaAgent::saveWeights( char *filename )
 }
 
 // Compute an action value from current F and theta    
-double LinearSarsaAgent::computeQ( int a )
+double LinearSarsaAgent::computeQ( int a, int policy )
 {
   double q = 0;
-  for ( int j = 0; j < numTilings; j++ ) {
-    if ( policyToExploit == 0 )
-      q += weights[ tiles[ a ][ j ] ];
-    else
-      q += weightsPRQL[policyToExploit-1][ tiles[ a ][ j ] ];
-  }
+  for ( int j = 0; j < numTilings; j++ )
+    q += weights[ tiles[ a ][ j ] ];
+
+  return q;
+}
+
+// Compute an action value from current F and theta    
+double LinearSarsaAgent::computeQ_PRQL( int a, int policy )
+{
+  double q = 0;
+  for ( int j = 0; j < numTilings; j++ )
+    q += weightsPRQL[policyToExploit-1][ tiles[ a ][ j ] ];
 
   return q;
 }
