@@ -123,9 +123,7 @@ if (( $git_commit )); then
   echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
   pwd
   message="Experimento: $proc_name"
-  git_command="git commit -a -m '$message'"
-  echo $git_command
-  $git_command
+  git commit -a -m "$message"
   exit
 fi
 
