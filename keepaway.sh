@@ -118,13 +118,6 @@ proc_name=$date-$machine
 save_dir=$weight_dir/$proc_name
 log_save_dir=$client_log_dir/$proc_name
 
-git_commit=1
-if (( $git_commit )); then
-  message="$proc_name"
-  git commit -a -m "$message"
-  exit
-fi
-
 keepaway_mode=$[!use_trainer]
 
 s="server"
@@ -271,4 +264,8 @@ fi
 if (( $use_trainer )); then
   wait $trainer_pid
   kill -INT $server_pid
+fi
+
+if (( $git_commit )); then
+  git commit -a -m "$proc_name"
 fi
