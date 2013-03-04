@@ -120,9 +120,7 @@ log_save_dir=$client_log_dir/$proc_name
 
 git_commit=1
 if (( $git_commit )); then
-  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-  pwd
-  message="Experimento: $proc_name"
+  message="$proc_name"
   git commit -a -m "$message"
   exit
 fi
