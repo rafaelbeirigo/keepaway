@@ -431,7 +431,7 @@ void LinearSarsaAgent::computeP()
 {
   long double *powers;
   long double sum_powers;
-  long double K = 500; // subtracted from exponents to prevent overflow
+  long double K = 700; // subtracted from exponents to prevent overflow
 
   powers = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
   sum_powers = 0.0;
