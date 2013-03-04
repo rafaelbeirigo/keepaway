@@ -43,12 +43,12 @@ class LinearSarsaAgent:public SMDPAgent
   bool loadWeightsPRQL( int numWeightsFiles, char **loadWeightsFiles );
   int numberOfPolicies;
   int policyToExploit;
-  double *W;
-  double *P;
-  double psi;
-  double v;
-  double tau;
-  double tau_increment;
+  long double *W;
+  long double *P;
+  long double psi;
+  long double v;
+  long double tau;
+  long double tau_increment;
   double epsilon_increment;
   int stepNum;
   double sum_gamma_r_k_h;
