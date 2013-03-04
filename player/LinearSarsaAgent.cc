@@ -266,7 +266,7 @@ bool LinearSarsaAgent::saveWeights( char *filename )
 }
 
 // Compute an action value from current F and theta    
-double LinearSarsaAgent::computeQ( int a, int policy )
+double LinearSarsaAgent::computeQ( int a )
 {
   double q = 0;
   for ( int j = 0; j < numTilings; j++ )
@@ -276,7 +276,7 @@ double LinearSarsaAgent::computeQ( int a, int policy )
 }
 
 // Compute an action value from current F and theta    
-double LinearSarsaAgent::computeQ_PRQL( int a, int policy )
+double LinearSarsaAgent::computeQ_PRQL( int a )
 {
   double q = 0;
   for ( int j = 0; j < numTilings; j++ )
