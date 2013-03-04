@@ -431,11 +431,18 @@ void LinearSarsaAgent::computeP()
 {
   long double *powers;
   long double sum_powers;
-  long double K = 700; // subtracted from exponents to prevent overflow
+  long double K = 0; // subtracted from exponents to prevent overflow
 
   powers = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
   sum_powers = 0.0;
   std::cout << std::endl;
+
+  // Obtain constant to subtract from exponents
+  K = 0;
+  for ( int i = 0; i < numberOfPolicies; i++ ) {
+    if ( tau * W[i] > K )
+      K = tau * W[i];
+
   for ( int i = 0; i < numberOfPolicies; i++ ) {
     powers[i] = pow( M_E, tau * W[i]  - K);
 
