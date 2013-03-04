@@ -208,11 +208,7 @@ int LinearSarsaAgent::selectAction()
 	action = argmaxQ();
       }
       else {
-	if ( drand48() < psi ) {
-	  // explore
-	  action = rand() % getNumActions();
-	}
-	else {
+ 	if ( drand48() < 1 - psi ) { // greedy
 	  // exploit 'new' policy (the one being learned)
 	  int bkp = policyToExploit;
 	  policyToExploit = 0; // consider the 'new' weights
@@ -226,6 +222,10 @@ int LinearSarsaAgent::selectAction()
 	  for ( int a = 0; a < getNumActions(); a++ ) {
 	    Q[ a ] = computeQ( a );
 	  }
+	}
+	else {
+	  // explore
+	  action = rand() % getNumActions();
 	}
       }
     }
