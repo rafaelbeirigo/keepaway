@@ -33,8 +33,9 @@ set ylabel "Episode Duration (seconds)"
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out" title 'From Scratch - epsilon Fernandez 1 - 201302261807-LTI-PROJETO', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261847-toulon.kwy.out"         title 'From Scratch - epsilon Fernandez 2 - 201302261847-toulon', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303021838-LTI-PROJETO-TM.kwy.out" title 'Reuso sem clonagem de pesos' with points
-
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303021838-LTI-PROJETO-TM.kwy.out" title 'Reuso sem clonagem de pesos', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303030229-LTI-PROJETO-TM.kwy.out" title 'Reuso sem clonagem de pesos - bug corrigido - 201303030229-LTI-PROJETO-TM' with points, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303041437-LTI-PROJETO-TM.kwy.out" title 'Reuso sem clonagem de pesos - long double - 201303030229-LTI-PROJETO-TM' with points
 
 
 

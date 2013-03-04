@@ -195,3 +195,17 @@ Reverti a selectAction para o jeito antigo para ver se o resultado é o
 mesmo de antes.
 
 Parâmetros exatamente iguais aos do Fernandez'10.
+* 201303021838-LTI-PROJETO-TM
+4v3 PRQL 3v2 só que os pesos não sofreram o clone do Taylor.
+tau_increment 0.005
+
+BUG: a parte que explota a política que está sendo aprendida estava
+comentada (a parte que corrigia isso...).
+* 201303030229-LTI-PROJETO-TM
+Percebi que havia um bug: a parte que explota a política que está
+sendo aprendida estava comentada (a parte que corrigia isso...).
+
+tau_increment 0.05
+
+PROBLEMA: valores de e^tau*W ficam muito altos, chegam a infinito, e o
+sistema acaba escolhendo a política errada para explotar.
