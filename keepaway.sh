@@ -266,7 +266,8 @@
 #   kill -INT $server_pid
 # fi
 
-# if (( $git_commit )); then
+git_commit=1
+if (( $git_commit )); then
   message="Experimento: $proc_name"
   git commit -a -m $message
-# fi
+fi
