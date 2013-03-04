@@ -70,8 +70,8 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
   numberOfPolicies = 1 + numWeightsFiles;
 
-  W = (double *)malloc( numberOfPolicies * sizeof( double ) );
-  P = (double *)malloc( numberOfPolicies * sizeof( double ) );
+  W = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
+  P = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
 
   for (int i = 0; i < numberOfPolicies; i++)
     W[i] = 0.0;
@@ -429,11 +429,11 @@ int LinearSarsaAgent::getPolicyToExploit()
 
 void LinearSarsaAgent::computeP()
 {
-  double *powers;
-  double sum_powers;
-  double K = 1000; // subtracted from exponents to prevent overflow
+  long double *powers;
+  long double sum_powers;
+  long double K = 1000; // subtracted from exponents to prevent overflow
 
-  powers = (double *)malloc( numberOfPolicies * sizeof( double ) );
+  powers = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
   sum_powers = 0.0;
   std::cout << std::endl;
   for ( int i = 0; i < numberOfPolicies; i++ ) {
@@ -449,7 +449,7 @@ void LinearSarsaAgent::computeP()
     sum_powers += powers[i];
   }
 
-  P = (double *)malloc( numberOfPolicies * sizeof( double ) );
+  P = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
 
   P[0] = powers[0] / sum_powers;
   for ( int i = 1; i < numberOfPolicies - 1; i++ ) {
