@@ -4,6 +4,7 @@ KWY_FILE=$1
 OUT_FILE=$KWY_FILE.out
 EPS_FILE=$KWY_FILE.eps
 JPG_FILE=$EPS_FILE.jpg;
+PNG_FILE=$EPS_FILE.png
 
 get_eps () {
     echo 'Cating...'
@@ -20,25 +21,28 @@ get_jpg () {
     gs -sDEVICE=jpeg -dJPEGQ=100 -dNOPAUSE -dBATCH -dSAFER -r300 -sOutputFile=$JPG_FILE $EPS_FILE
 }
 
+get_png () {
+    convert -density 300 $EPS_FILE -flatten $PNG_FILE
+}
 publish () {
-    scp -rv $JPG_FILE 143.107.165.124:public_html/a.jpg
+    scp -rv $PNG_FILE 143.107.165.124:public_html/a.png
 }
 
 plot () {
     i=0
-    # while [ true ]
-    # do
+    while [ true ]
+    do
 	i=`expr $i + 1`
 	echo $i
 	echo 'Getting eps file...'
 	get_eps
-	# echo 'Getting jpg file...'
-	# get_jpg
-	# echo 'Publishing jpg file...'
-	# publish
+	echo 'Getting image file...'
+	get_png
+	echo 'Publishing image file...'
+	publish
 	echo 'Done.'
 	sleep 1
-    # done
+    done
 }
 
 plot

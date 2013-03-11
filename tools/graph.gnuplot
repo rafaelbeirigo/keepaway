@@ -26,14 +26,14 @@ set multiplot
 set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
-set yrange [3:25]
+set yrange [3:11]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "./1.out"
+     "./1.out", \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch'
 
-     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201301301752-LTI-PROJETO-TM.kwy.out" title '201301301752-LTI-PROJETO-TM', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302131649-LTI-PROJETO-TM.kwy.out" title '201302141237-LTI-PROJETO-TM', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302141237-LTI-PROJETO-TM.kwy.out" title '201301301752-LTI-PROJETO-TM'
 
