@@ -42,7 +42,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   psi = 1.0;
   v = 0.95;
   tau = 0.0;
-  tau_increment = 0.009;
+  tau_increment = 0.05;
 
   epochNum = 0;
   lastAction = -1;
@@ -176,13 +176,14 @@ void LinearSarsaAgent::endEpisode( double reward )
 
     W[policyToExploit] = ( ( epochNum - 1 ) * W[policyToExploit] )  +  sum_gamma_r_k_h;
     W[policyToExploit] = W[policyToExploit] / epochNum;
+
+    tau += tau_increment;
+    epsilon += epsilon_increment;
   }
   if ( bLearning && bSaveWeights && rand() % 200 == 0 ) {
     saveWeights( weightsFile );
   }
   lastAction = -1;
-  tau += tau_increment;
-  epsilon += epsilon_increment;
 }
 
 int LinearSarsaAgent::selectAction()

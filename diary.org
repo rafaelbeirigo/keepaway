@@ -92,6 +92,10 @@ Testes da nova estrutura de treinamento.
 Já com nova estrutura de estados, que foi feita para a transferência
 de conhecimento.
 
+Nessa representação, as novas features presentes em 4v3 são alocadas
+ao final do vetor.
+
+Não há clonagem de pesos para a ação /passK4/ nesse aprendizado.
 * 201302141237-LTI-PROJETO-TM
 Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
 * 201302141632-LTI-PROJETO-TM
@@ -209,3 +213,42 @@ tau_increment 0.05
 
 PROBLEMA: valores de e^tau*W ficam muito altos, chegam a infinito, e o
 sistema acaba escolhendo a política errada para explotar.
+* 201303042104-LTI-PROJETO-TM
+Depois de várias correções no código.
+
+Rodando com os parâmetros do Fernández'10.
+
+Inicialmente obteve desempenho similar ao aprendizado cru.
+Posteriormente (~12h de treino) obteve desempenho inferior ao
+aprendizado cru.
+* 201303042241-LTI-PROJETO-TM
+Modifiquei o tau_increment para 0.009 para ver se melhorava.
+
+Obteve desempenho similar ao aprendizado cru no início, entretanto
+PIOR do que utilizando tau_increment = 0.05.
+
+Outra coisa que observei foi que, após um período considerável de
+tempo, a probabilidade de reuso da política 0, ou seja, a que está
+sendo aprendida, fica muito próxima ou igual a zero.
+
+IDEIA: Acho que uma boa seria plotar as quantidades envolvidas,
+pricipalmente os valores relacionados à escolha da política a ser
+explotada.
+
+Isso auxiliaria na verificação do comportamento do reuso. 
+
+IDEIA: fazer ele só reusar. Teoricamente, deve ter um desempenho
+inicial melhor do que o cru, porque já aprendeu algo. (Mas há outros
+componentes... Eles não contariam?)
+
+IDEIA: Reusar a política 3v2 em um jogo 3v2.
+
+IDEIA: O erro não está nos parâmetros, mas na sua evolução. E isso
+pode ser decorrente do meu código.
+
+IDEIA: O gráfico do Fernández'10 foi plotado de forma diferente.
+
+IDEIA: O meu cru não tá igual ao dele. Ele chega em ~12s após 50h de
+treino e eu chego somente em ~10 e ~11. Rodar o aprendizado cru na
+versão original do tjpalmer e com todos aprendendo from scratch na
+minha versão mais atual.
