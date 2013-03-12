@@ -119,7 +119,7 @@ int LinearSarsaAgent::step( double reward, double state[] )
   for ( int a = 0; a < getNumActions(); a++ )
     Q[ a ] = computeQ( a );
 
-  lastAction = selectAction(); // TODO: computar Q[] internamente
+  lastAction = selectAction();
 
   char buffer[128];
   sprintf( buffer, "Q[%d] = %.2f", lastAction, Q[lastAction] );
@@ -180,7 +180,6 @@ void LinearSarsaAgent::endEpisode( double reward )
     // 	      << "epochNum: " << epochNum << std::endl
     // 	      <<"sum_gamma_r_k_h: " << sum_gamma_r_k_h << std::endl;
 
-    // TODO: corrigir fórmula: usar contador no lugar de epochNum
     W[policyToExploit] = ( (long double)( reuseCounter[policyToExploit] - 1 )
                            * W[policyToExploit] )
                          +  sum_gamma_r_k_h;
