@@ -23,16 +23,18 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:50]
+set xrange [-0.5:200]
 set xlabel "Training Time (hours)"
 
-set yrange [3:11]
+set yrange [4.7:13]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "./1.out", \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303111741-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.009', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303111822-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121004-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05'
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302131649-LTI-PROJETO-TM.kwy.out" title '201302141237-LTI-PROJETO-TM', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302141237-LTI-PROJETO-TM.kwy.out" title '201301301752-LTI-PROJETO-TM'

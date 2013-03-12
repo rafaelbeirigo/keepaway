@@ -268,3 +268,22 @@ IDEIA: O meu cru não tá igual ao dele. Ele chega em ~12s após 50h de
 treino e eu chego somente em ~10 e ~11. Rodar o aprendizado cru na
 versão original do tjpalmer e com todos aprendendo from scratch na
 minha versão mais atual.
+* 201303111741-LTI-PROJETO-TM
+Experimentos de PRQL após correção de bugs.
+
+tau_increment = 0.009
+* 201303111822-LTI-PROJETO-TM
+Idem.
+
+tau_increment = 0.05
+* 201303121004-LTI-PROJETO-TM
+Idem.
+
+PERCEBI QUE A REFERÊNCIA QUE ESTOU UTILIZANDO PARA O APRENDIZADO "FROM
+SCRATCH" PODE NÃO SER A CORRETA.
+
+ISSO PORQUE ESSE APRENDIZADO FOI REALIZADO POSSIVELMENTE DE UMA
+MANEIRA DISTINTA DO REALIZADO POR FERNÁNDEZ.
+
+Uma característica dos resulados que está intrigante é a diferença
+marcante de resultados em experimentos diferentes.
