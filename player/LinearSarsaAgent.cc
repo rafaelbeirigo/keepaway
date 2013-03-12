@@ -6,6 +6,8 @@
 #include <time.h>
 #include "LinearSarsaAgent.h"
 #include "LoggerDraw.h"
+#include <iostream>
+#include <fstream>
 
 // If all is well, there should be no mention of anything keepaway- or soccer-
 // related in this file. 
@@ -72,9 +74,12 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
   W = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
   P = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
+  reuseCounter = (int *)malloc( numberOfPolicies * sizeof( int ) );
 
-  for (int i = 0; i < numberOfPolicies; i++)
+  for (int i = 0; i < numberOfPolicies; i++) {
     W[i] = 0.0;
+    reuseCounter[i] = 0;
+  }
 }
 
 int LinearSarsaAgent::startEpisode( double state[] )
@@ -86,6 +91,7 @@ int LinearSarsaAgent::startEpisode( double state[] )
   loadTiles( state );
 
   policyToExploit = getPolicyToExploit();
+  reuseCounter[policyToExploit] += 1;
 
   for ( int a = 0; a < getNumActions(); a++ ) {
     Q[ a ] = computeQ( a );
@@ -174,8 +180,11 @@ void LinearSarsaAgent::endEpisode( double reward )
     // 	      << "epochNum: " << epochNum << std::endl
     // 	      <<"sum_gamma_r_k_h: " << sum_gamma_r_k_h << std::endl;
 
-    W[policyToExploit] = ( ( epochNum - 1 ) * W[policyToExploit] )  +  sum_gamma_r_k_h;
-    W[policyToExploit] = W[policyToExploit] / epochNum;
+    // TODO: corrigir fórmula: usar contador no lugar de epochNum
+    W[policyToExploit] = ( (long double)( reuseCounter[policyToExploit] - 1 )
+                           * W[policyToExploit] )
+                         +  sum_gamma_r_k_h;
+    W[policyToExploit] = W[policyToExploit] / reuseCounter[policyToExploit];
 
     tau += tau_increment;
     epsilon += epsilon_increment;
@@ -462,8 +471,6 @@ void LinearSarsaAgent::computeP()
 
     sum_powers += powers[i];
   }
-
-  P = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
 
   P[0] = powers[0] / sum_powers;
   for ( int i = 1; i < numberOfPolicies - 1; i++ ) {

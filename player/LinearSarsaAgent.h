@@ -44,6 +44,7 @@ class LinearSarsaAgent:public SMDPAgent
   int numberOfPolicies;
   int policyToExploit;
   long double *W;
+  int *reuseCounter;
   long double *P;
   long double psi;
   long double v;
