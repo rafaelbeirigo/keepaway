@@ -23,7 +23,7 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:200]
+set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
 set yrange [4.7:13]
