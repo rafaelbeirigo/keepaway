@@ -107,6 +107,9 @@ int LinearSarsaAgent::startEpisode( double state[] )
 int LinearSarsaAgent::step( double reward, double state[] )
 {
   stepNum++;
+  std::cout << "step(): "
+	    << "stepNum: " << stepNum << " "
+	    << std::endl;
   double delta = reward - Q[ lastAction ];
   loadTiles( state );
 
