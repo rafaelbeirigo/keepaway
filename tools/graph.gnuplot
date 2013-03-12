@@ -36,7 +36,8 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303111741-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.009', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303111822-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121004-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121058-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121058-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121504-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05-bug corrigido'
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302131649-LTI-PROJETO-TM.kwy.out" title '201302141237-LTI-PROJETO-TM', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302141237-LTI-PROJETO-TM.kwy.out" title '201301301752-LTI-PROJETO-TM'
