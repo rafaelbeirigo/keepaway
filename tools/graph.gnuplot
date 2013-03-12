@@ -31,7 +31,8 @@ set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302142138-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch - versao antiga', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121201-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303111741-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.009', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303111822-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121004-LTI-PROJETO-TM.kwy.out" title 'PRQL-0.05', \

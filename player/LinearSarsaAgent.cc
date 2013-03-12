@@ -457,6 +457,7 @@ void LinearSarsaAgent::computeP()
 	      << "W[" << i << "]: " << W[i] << " "
 	      << "powers[" << i << "]: " << powers[i] << " "
 	      << "epochNum: " << epochNum << " "
+	      << "stepNum: " << stepNum << " "
 	      << std::endl;
 
     sum_powers += powers[i];
