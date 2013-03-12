@@ -21,7 +21,7 @@ num_keepers=4                    # number of keepers
 keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
 
-keeper_load_PRQL=0               # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
 
 num_keepers_reuse=3              # numbers of players that will reuse policies
 
