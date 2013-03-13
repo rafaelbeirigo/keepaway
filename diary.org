@@ -287,11 +287,3 @@ MANEIRA DISTINTA DO REALIZADO POR FERNÁNDEZ.
 
 Uma característica dos resulados que está intrigante é a diferença
 marcante de resultados em experimentos diferentes.
-* 
-Aprendizado 'From Scratch' utilizando a estrutura do PRQL.
-
-Não foram carregadas políticas para reuso para nenhum keeper.
-
-Isso forçaria o sistema a realizar o aprendizado com o Sarsa(lambda)
-da forma original, mas utilizando o esquema de epsilon-greedy do
-Fernández.
