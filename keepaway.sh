@@ -81,7 +81,7 @@ save_rcg_log=0                   # should I save game log to .rcg file?
 save_rcl_log=0                   # should I save message lof to .rcl file?
 log_dir=$keepaway_dir/logs       # directory to store kwy, rcg, and rcl logs
 
-port=5800                        # server port used by players and monitor
+port=6000                        # server port used by players and monitor
 coach_port=$[port + 1]           # server port used by offline trainer
 olcoach_port=$[port + 2]         # server port used by online coach
 sleep_time=8                     # time (in seconds) before starting PlayOn mode
