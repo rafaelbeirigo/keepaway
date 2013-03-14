@@ -25,7 +25,7 @@ get_png () {
     convert -density 300 $EPS_FILE -flatten $PNG_FILE
 }
 publish () {
-    scp -rv $PNG_FILE 143.107.165.124:public_html/a.png
+    scp $PNG_FILE 143.107.165.124:public_html/a.png
 }
 
 plot () {
