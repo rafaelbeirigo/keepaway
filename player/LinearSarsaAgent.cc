@@ -44,7 +44,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   psi = 1.0;
   v = 0.95;
   tau = 0.0;
-  tau_increment = 0.0025;
+  tau_increment = 0.005;
 
   epochNum = 0;
   lastAction = -1;
