@@ -33,12 +33,16 @@ set ylabel "Episode Duration (seconds)"
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121201-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121238-LTI-PROJETO-TM.kwy.out" title '4v3 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303140117-LTI-PROJETO-TM.kwy.out" title 'delta; 0.05', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303141359-LTI-PROJETO-TM.kwy.out" title 'delta; 0.05', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303142007-LTI-PROJETO-TM.kwy.out" title 'delta; 0.009', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303142049-LTI-PROJETO-TM.kwy.out" title 'delta; 0.009', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303142135-LTI-PROJETO-TM.kwy.out" title 'delta; 0.005', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151005-LTI-PROJETO-TM.kwy.out" title 'delta; 0.005'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151136-LTI-PROJETO-TM.kwy.out" title 'delta; 0.005'
+
+
+
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303140117-LTI-PROJETO-TM.kwy.out" title 'delta; 0.05', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303141359-LTI-PROJETO-TM.kwy.out" title 'delta; 0.05', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303142007-LTI-PROJETO-TM.kwy.out" title 'delta; 0.009', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303142049-LTI-PROJETO-TM.kwy.out" title 'delta; 0.009', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303142135-LTI-PROJETO-TM.kwy.out" title 'delta; 0.005', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151005-LTI-PROJETO-TM.kwy.out" title 'delta; 0.005', \
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302131649-LTI-PROJETO-TM.kwy.out" title '201302141237-LTI-PROJETO-TM', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302141237-LTI-PROJETO-TM.kwy.out" title '201301301752-LTI-PROJETO-TM'

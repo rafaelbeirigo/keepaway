@@ -428,11 +428,11 @@ int LinearSarsaAgent::getPolicyToExploit()
   double p = drand48();
 
   for ( int i = 0; i < numberOfPolicies; i++ ) {
-    std::cout << "getPolicyToExploit: "
-	      << "i: " << i << " "
-	      << "p: " << p << " "
-	      << "P[" << i << "]: " << P[i] << " "
-	      << std::endl;
+    // std::cout << "getPolicyToExploit: "
+    // 	      << "i: " << i << " "
+    // 	      << "p: " << p << " "
+    // 	      << "P[" << i << "]: " << P[i] << " "
+    // 	      << std::endl;
 
     if ( p < P[i] )
       return i;
@@ -449,7 +449,7 @@ void LinearSarsaAgent::computeP()
 
   powers = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
   sum_powers = 0.0;
-  std::cout << std::endl;
+  // std::cout << std::endl;
 
   // Obtain constant to subtract from exponents
   K = 0;
@@ -460,13 +460,13 @@ void LinearSarsaAgent::computeP()
   for ( int i = 0; i < numberOfPolicies; i++ ) {
     powers[i] = pow( M_E, tau * W[i]  - K);
 
-    std::cout << "computeP(): "
-	      << "tau: " << tau << " "
-	      << "W[" << i << "]: " << W[i] << " "
-	      << "powers[" << i << "]: " << powers[i] << " "
-	      << "epochNum: " << epochNum << " "
-	      << "stepNum: " << stepNum << " "
-	      << std::endl;
+    // std::cout << "computeP(): "
+    // 	      << "tau: " << tau << " "
+    // 	      << "W[" << i << "]: " << W[i] << " "
+    // 	      << "powers[" << i << "]: " << powers[i] << " "
+    // 	      << "epochNum: " << epochNum << " "
+    // 	      << "stepNum: " << stepNum << " "
+    // 	      << std::endl;
 
     sum_powers += powers[i];
   }
