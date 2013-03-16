@@ -23,7 +23,7 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:50]
+set xrange [-0.5:200]
 set xlabel "Training Time (hours)"
 
 set yrange [4:35]
@@ -35,7 +35,8 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151446-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303152232-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161129-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161129-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161528-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL'
 
 
 
