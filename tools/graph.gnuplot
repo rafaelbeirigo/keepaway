@@ -37,7 +37,8 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303152232-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161129-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161528-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303162058-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303162058-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.005', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303162151-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05'
 
 
 
