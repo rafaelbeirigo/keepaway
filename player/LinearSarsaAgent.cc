@@ -176,11 +176,6 @@ void LinearSarsaAgent::endEpisode( double reward )
     double delta = reward - Q[ lastAction ];
     updateWeights( delta );
 
-    ofstream myfile;
-    myfile.open (strcat(weightsFile, "_log_reused_policy.log"));
-    myfile << epochNum << " " << policyToExploit << std::endl;
-    myfile.close();
-
     W[policyToExploit] = ( (long double)( reuseCounter[policyToExploit] - 1 )
                            * W[policyToExploit] )
                          +  sum_gamma_r_k_h;
@@ -188,6 +183,21 @@ void LinearSarsaAgent::endEpisode( double reward )
 
     tau += tau_increment;
     epsilon += epsilon_increment;
+
+
+
+    // Policy reuse logging
+    ofstream myfile;
+    char log_reused_policy_file[1000];
+    strcpy(log_reused_policy_file, weightsFile);
+    strcat(log_reused_policy_file, "_log_reused_policy.log");
+    myfile.open (log_reused_policy_file);
+    myfile << epochNum << " " << policyToExploit << std::endl;
+    myfile.close();
+
+
+
+
   }
   if ( bLearning && bSaveWeights && rand() % 200 == 0 ) {
     saveWeights( weightsFile );
