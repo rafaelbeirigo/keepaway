@@ -193,11 +193,6 @@ void LinearSarsaAgent::endEpisode( double reward )
     saveWeights( weightsFile );
   }
   lastAction = -1;
-
-  ofstream myfile;
-  myfile.open ("example.txt");
-  myfile << "Writing this to a file.\n";
-  myfile.close();
 }
 
 int LinearSarsaAgent::selectAction()
