@@ -305,3 +305,8 @@ só que dessa vez com a biblioteca vazia, pra ver se a biblioteca de
 weights faz mesmo alguma diferença
 
 (é o que tá rodando agora)
+* 
+um mostrando estatísticas:
+
+- qual política foi reusada a cada episódio
+- os valores dos Ps das políticas a cada episódio

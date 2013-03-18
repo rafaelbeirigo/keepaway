@@ -107,6 +107,7 @@ int LinearSarsaAgent::startEpisode( double state[] )
 
   for ( int j = 0; j < numTilings; j++ )
     setTrace( tiles[ lastAction ][ j ], 1.0 );
+
   return lastAction;
 }
 
@@ -175,10 +176,10 @@ void LinearSarsaAgent::endEpisode( double reward )
     double delta = reward - Q[ lastAction ];
     updateWeights( delta );
 
-    // std::cout << std::endl
-    // 	      << "policyToExploit: " << policyToExploit << std::endl
-    // 	      << "epochNum: " << epochNum << std::endl
-    // 	      <<"sum_gamma_r_k_h: " << sum_gamma_r_k_h << std::endl;
+    ofstream myfile;
+    myfile.open (strcat(weightsFile, "_log_reused_policy.log"));
+    myfile << epochNum << " " << policyToExploit << std::endl;
+    myfile.close();
 
     W[policyToExploit] = ( (long double)( reuseCounter[policyToExploit] - 1 )
                            * W[policyToExploit] )
@@ -192,46 +193,39 @@ void LinearSarsaAgent::endEpisode( double reward )
     saveWeights( weightsFile );
   }
   lastAction = -1;
+
+  ofstream myfile;
+  myfile.open ("example.txt");
+  myfile << "Writing this to a file.\n";
+  myfile.close();
 }
 
 int LinearSarsaAgent::selectAction()
 {
   int action;
 
-  // if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
-  //   // Epsilon-greedy
-  //   if ( bLearning && drand48() < epsilon ) {     /* epsilon here
-  // 						     means how greedy
-  // 						     the agent is */
-  //     action = argmaxQ();
-  //   }
-  //   else{
-  //     action = rand() % getNumActions();
-  //   }
+  if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
+    // Epsilon-greedy
+    if ( bLearning && drand48() < epsilon ) {     /* epsilon here
+  						     means how greedy
+  						     the agent is */
+      action = argmaxQ();
+    }
+    else{
+      action = rand() % getNumActions();
+    }
 
-  //   return action;
-  // }
-  // else {
-  //   // PRQL - will eventually reuse policies
-  //   if ( policyToExploit == 0 ) {
-  //     // fully greedy
-  //     action = argmaxQ();
-  //   }
-  //   else {
-  //     if ( drand48() < psi ) {
+    return action;
+  }
+  else {
+    // PRQL - will eventually reuse policies
+    if ( policyToExploit == 0 ) {
+      // fully greedy
+      action = argmaxQ();
+    }
+    else {
+      if ( drand48() < psi ) {
   	// exploit past policy
-      
-
-
-
-
-        policyToExploit = 1;
-
-
-
-
-
-
   	for ( int a = 0; a < getNumActions(); a++ )
   	  Q[ a ] = computeQ_PRQL( a );
 
@@ -241,19 +235,19 @@ int LinearSarsaAgent::selectAction()
   						       the correct
   						       values */
   	  Q[ a ] = computeQ( a );
-  //     }
-  //     else {
-  // 	if ( drand48() < 1 - psi ) { // greedy
-  // 	  // exploit 'new' policy (the one being learned)
-  // 	  action = argmaxQ();
-  // 	}
-  // 	else {
-  // 	  // explore
-  // 	  action = rand() % getNumActions();
-  // 	}
-  //     }
-  //   }
-  // }
+      }
+      else {
+  	if ( drand48() < 1 - psi ) { // greedy
+  	  // exploit 'new' policy (the one being learned)
+  	  action = argmaxQ();
+  	}
+  	else {
+  	  // explore
+  	  action = rand() % getNumActions();
+  	}
+      }
+    }
+  }
   return action;
 }
 
