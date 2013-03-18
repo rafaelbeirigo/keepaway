@@ -176,10 +176,10 @@ void LinearSarsaAgent::endEpisode( double reward )
     double delta = reward - Q[ lastAction ];
     updateWeights( delta );
 
-    ofstream myfile;
-    myfile.open (strcat(weightsFile, "_log_reused_policy.log"));
-    myfile << epochNum << " " << policyToExploit << std::endl;
-    myfile.close();
+    // ofstream myfile;
+    // myfile.open (strcat(weightsFile, "_log_reused_policy.log"));
+    // myfile << epochNum << " " << policyToExploit << std::endl;
+    // myfile.close();
 
     W[policyToExploit] = ( (long double)( reuseCounter[policyToExploit] - 1 )
                            * W[policyToExploit] )
