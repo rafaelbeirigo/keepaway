@@ -184,20 +184,32 @@ void LinearSarsaAgent::endEpisode( double reward )
     tau += tau_increment;
     epsilon += epsilon_increment;
 
-
-
     // Policy reuse logging
     ofstream myfile;
-    char log_reused_policy_file[1000];
-    strcpy(log_reused_policy_file, weightsFile);
-    strcat(log_reused_policy_file, "_log_reused_policy.log");
-    myfile.open (log_reused_policy_file, ios::app);
+    char log_file[1000];
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_reused_policy.log");
+    myfile.open (log_file, ios::app);
     myfile << epochNum << " " << policyToExploit << std::endl;
     myfile.close();
 
+    // W logging
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_W.log");
+    myfile.open (log_file, ios::app);
+    for (int i = 0; i < numberOfPolicies; i++)
+      myfile << W[i] << " " << policyToExploit;
+    myfile << std::endl;
+    myfile.close();
 
-
-
+    // P logging
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_P.log");
+    myfile.open (log_file, ios::app);
+    for (int i = 0; i < numberOfPolicies; i++)
+      myfile << P[i] << " " << policyToExploit;
+    myfile << std::endl;
+    myfile.close();
   }
   if ( bLearning && bSaveWeights && rand() % 200 == 0 ) {
     saveWeights( weightsFile );
