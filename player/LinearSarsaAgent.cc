@@ -191,7 +191,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     char log_reused_policy_file[1000];
     strcpy(log_reused_policy_file, weightsFile);
     strcat(log_reused_policy_file, "_log_reused_policy.log");
-    myfile.open (log_reused_policy_file);
+    myfile.open (log_reused_policy_file, ios::app);
     myfile << epochNum << " " << policyToExploit << std::endl;
     myfile.close();
 
