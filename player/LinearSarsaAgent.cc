@@ -198,50 +198,62 @@ int LinearSarsaAgent::selectAction()
 {
   int action;
 
-  if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
-    // Epsilon-greedy
-    if ( bLearning && drand48() < epsilon ) {     /* epsilon here
-						     means how greedy
-						     the agent is */
-      action = argmaxQ();
-    }
-    else{
-      action = rand() % getNumActions();
-    }
+  // if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
+  //   // Epsilon-greedy
+  //   if ( bLearning && drand48() < epsilon ) {     /* epsilon here
+  // 						     means how greedy
+  // 						     the agent is */
+  //     action = argmaxQ();
+  //   }
+  //   else{
+  //     action = rand() % getNumActions();
+  //   }
 
-    return action;
-  }
-  else {
-    // PRQL - will eventually reuse policies
-    if ( policyToExploit == 0 ) {
-      // fully greedy
-      action = argmaxQ();
-    }
-    else {
-      if ( drand48() < psi ) {
-	// exploit past policy
-	for ( int a = 0; a < getNumActions(); a++ )
-	  Q[ a ] = computeQ_PRQL( a );
+  //   return action;
+  // }
+  // else {
+  //   // PRQL - will eventually reuse policies
+  //   if ( policyToExploit == 0 ) {
+  //     // fully greedy
+  //     action = argmaxQ();
+  //   }
+  //   else {
+  //     if ( drand48() < psi ) {
+  	// exploit past policy
+      
 
-	action = argmaxQ();
 
-	for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
-						       the correct
-						       values */
-	  Q[ a ] = computeQ( a );
-      }
-      else {
- 	if ( drand48() < 1 - psi ) { // greedy
-	  // exploit 'new' policy (the one being learned)
-	  action = argmaxQ();
-	}
-	else {
-	  // explore
-	  action = rand() % getNumActions();
-	}
-      }
-    }
-  }
+
+
+        policyToExploit = 1;
+
+
+
+
+
+
+  	for ( int a = 0; a < getNumActions(); a++ )
+  	  Q[ a ] = computeQ_PRQL( a );
+
+  	action = argmaxQ();
+
+  	for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
+  						       the correct
+  						       values */
+  	  Q[ a ] = computeQ( a );
+  //     }
+  //     else {
+  // 	if ( drand48() < 1 - psi ) { // greedy
+  // 	  // exploit 'new' policy (the one being learned)
+  // 	  action = argmaxQ();
+  // 	}
+  // 	else {
+  // 	  // explore
+  // 	  action = rand() % getNumActions();
+  // 	}
+  //     }
+  //   }
+  // }
   return action;
 }
 
