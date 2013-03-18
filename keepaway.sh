@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Keepaway startup script
 # 
 # No commandline parameters.  All options are set in this file.
@@ -29,7 +28,7 @@ keeper_load_PRQL_3v2=1           # should I load previously learned weights to u
 keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
 
-keeper_load_PRQL_3v2_dir=201303151446-LTI-PROJETO-TM                                            # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_3v2_dir=                                            # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_4v3_dir=                                            # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_Abs_dir=                                            # sub-directory of weight_dir where weights are stored
 
