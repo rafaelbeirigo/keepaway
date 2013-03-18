@@ -198,7 +198,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     strcat(log_file, "_W.log");
     myfile.open (log_file, ios::app);
     for (int i = 0; i < numberOfPolicies; i++)
-      myfile << W[i] << " " << policyToExploit;
+      myfile << epochNum << W[i] << " " << policyToExploit;
     myfile << std::endl;
     myfile.close();
 
@@ -207,7 +207,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     strcat(log_file, "_P.log");
     myfile.open (log_file, ios::app);
     for (int i = 0; i < numberOfPolicies; i++)
-      myfile << P[i] << " " << policyToExploit;
+      myfile << epochNum << P[i] << " " << policyToExploit;
     myfile << std::endl;
     myfile.close();
   }
