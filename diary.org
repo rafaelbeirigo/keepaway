@@ -287,3 +287,21 @@ MANEIRA DISTINTA DO REALIZADO POR FERNÁNDEZ.
 
 Uma característica dos resulados que está intrigante é a diferença
 marcante de resultados em experimentos diferentes.
+* 
+vários pra ver como o aprendizado em 3v2 é "estocástico"
+* 
+um pra reusar 3v2 em 3v2 com tau_increment=0.005 (menor do que o do
+F.)
+* 
+dois pra reusar 3v2 em 3v2 com tau_increment=0.05 (igual ao do F.)
+* 
+um reusando uma biblioteca vazia pra ver se ele tava mesmo carregando
+direito os weights
+* 
+um reusando, só que só explotando, pra ver se ele consegue explotar
+* 
+um reusando, só que só explotando, pra ver se ele consegue explotar,
+só que dessa vez com a biblioteca vazia, pra ver se a biblioteca de
+weights faz mesmo alguma diferença
+
+(é o que tá rodando agora)
