@@ -43,6 +43,7 @@ class LinearSarsaAgent:public SMDPAgent
   bool loadWeightsPRQL( int numWeightsFiles, char **loadWeightsFiles );
   int numberOfPolicies;
   int policyToExploit;
+  int exploitedPolicy;
   long double *W;
   int *reuseCounter;
   long double *P;

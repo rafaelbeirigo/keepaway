@@ -7,6 +7,7 @@
 #include "LinearSarsaAgent.h"
 #include "LoggerDraw.h"
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 
 // If all is well, there should be no mention of anything keepaway- or soccer-
@@ -190,7 +191,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     strcpy(log_file, weightsFile);
     strcat(log_file, "_reused_policy.log");
     myfile.open (log_file, ios::app);
-    myfile << epochNum << " " << policyToExploit << std::endl;
+    myfile << epochNum << " " << policyToExploit <<  << " " << exploitedPolicy << std::endl;
     myfile.close();
 
     // W logging
@@ -199,7 +200,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     myfile.open (log_file, ios::app);
     myfile << epochNum;
     for (int i = 0; i < numberOfPolicies; i++)
-      myfile << " " << W[i];
+      myfile << " " << setiosflags(ios::fixed) << setprecision(4) << W[i];
     myfile << std::endl;
     myfile.close();
 
@@ -209,7 +210,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     myfile.open (log_file, ios::app);
     myfile << epochNum;
     for (int i = 0; i < numberOfPolicies; i++)
-      myfile << " " << P[i];
+      myfile << " " << setiosflags(ios::fixed) << setprecision(4) << P[i];
     myfile << std::endl;
     myfile.close();
   }
@@ -241,6 +242,7 @@ int LinearSarsaAgent::selectAction()
     if ( policyToExploit == 0 ) {
       // fully greedy
       action = argmaxQ();
+      exploitedPolicy = 0;
     }
     else {
       if ( drand48() < psi ) {
@@ -254,15 +256,19 @@ int LinearSarsaAgent::selectAction()
   						       the correct
   						       values */
   	  Q[ a ] = computeQ( a );
+
+	exploitedPolicy = policyToExploit;
       }
       else {
   	if ( drand48() < 1 - psi ) { // greedy
   	  // exploit 'new' policy (the one being learned)
   	  action = argmaxQ();
+	  exploitedPolicy = 0;
   	}
   	else {
   	  // explore
   	  action = rand() % getNumActions();
+	  exploitedPolicy = -1;
   	}
       }
     }
