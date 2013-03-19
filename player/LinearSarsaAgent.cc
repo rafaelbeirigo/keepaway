@@ -263,12 +263,12 @@ int LinearSarsaAgent::selectAction()
   	if ( drand48() < 1 - psi ) { // greedy
   	  // exploit 'new' policy (the one being learned)
   	  action = argmaxQ();
-	  exploitedPolicy = 0;
+	  exploitedPolicy = -1;
   	}
   	else {
   	  // explore
   	  action = rand() % getNumActions();
-	  exploitedPolicy = -1;
+	  exploitedPolicy = -2;
   	}
       }
     }

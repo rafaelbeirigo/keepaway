@@ -310,3 +310,7 @@ um mostrando estatísticas:
 
 - qual política foi reusada a cada episódio
 - os valores dos Ps das políticas a cada episódio
+* 
+outro mostrando as mesmas estatísticas, só que para
+tau_increment=0.005.
+(é o que tá rodando agora)
