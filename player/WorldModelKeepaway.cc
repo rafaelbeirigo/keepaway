@@ -205,18 +205,42 @@ int WorldModel::keeperStateVars( double state[] )
       std::cout << "state[" << j << "] = WB_dist_to_K[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_K[ i ];
     }
+
+
+
+
+    ////////////////////////////////////////////////////////////////
     for ( int i = 0 + tInc; i < nT; i++ ) {
       std::cout << "state[" << j << "] = WB_dist_to_T[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_T[ i ];
     }
+    ////////////////////////////////////////////////////////////////
+
+
+
+
+
+
     for ( int i = 1 + kInc; i < nK; i++ ) {
       std::cout << "state[" << j << "] = dist_to_C_K[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_K[ i ];
     }
+
+
+
+
+
+    ////////////////////////////////////////////////////////////////
     for ( int i = 0 + tInc; i < nT; i++ ) {
       std::cout << "state[" << j << "] = dist_to_C_T[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_T[ i ];
     }
+    ////////////////////////////////////////////////////////////////
+
+
+
+
+
     for ( int i = 1 + kInc; i < nK; i++ ) {
       std::cout << "state[" << j << "] = nearest_Opp_dist_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_dist_K[ i ];
@@ -226,7 +250,7 @@ int WorldModel::keeperStateVars( double state[] )
       state[ j++ ] = nearest_Opp_ang_K[ i ];
     }
 
-    kInc = nK - 1; tInc = nT - 1;
+    kInc = nK - 1; tInc = nT;
   }
 
   return j;
