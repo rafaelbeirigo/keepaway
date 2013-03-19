@@ -297,6 +297,26 @@ int main( int argc, char * argv[] )
   double resolutions[ MAX_STATE_VARS ];
   int numFeatures = wm.keeperStateRangesAndResolutions( ranges, minValues, resolutions, 
 							iNumKeepers, iNumTakers );
+
+
+
+
+
+
+
+  // GAMBIARRA !!!!!!!!!!!!!!!!
+  // se um 4v3 estiver reusando, só considera 13 features
+  if ( numWeightsFilesPRQL > 0 ) numFeatures = 13;
+
+
+
+
+
+
+
+
+
+
   int numActions = iNumKeepers;
 
   if ( strlen( strPolicy ) > 0 && strPolicy[0] == 'l' ) {

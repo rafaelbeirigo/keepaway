@@ -42,7 +42,8 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303170855-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303181255-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05 - bib vazia', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303181533-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05 - so explota', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303181636-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05 - so explota - bib vazia'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303181636-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05 - so explota - bib vazia', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303182254-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05'
 
 
 

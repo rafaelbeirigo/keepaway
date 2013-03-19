@@ -242,7 +242,7 @@ int LinearSarsaAgent::selectAction()
     if ( policyToExploit == 0 ) {
       // fully greedy
       action = argmaxQ();
-      exploitedPolicy = 0;
+      exploitedPolicy = -1;
     }
     else {
       if ( drand48() < psi ) {
@@ -263,12 +263,12 @@ int LinearSarsaAgent::selectAction()
   	if ( drand48() < 1 - psi ) { // greedy
   	  // exploit 'new' policy (the one being learned)
   	  action = argmaxQ();
-	  exploitedPolicy = -1;
+	  exploitedPolicy = -2;
   	}
   	else {
   	  // explore
   	  action = rand() % getNumActions();
-	  exploitedPolicy = -2;
+	  exploitedPolicy = -3;
   	}
       }
     }

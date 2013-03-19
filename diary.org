@@ -313,4 +313,24 @@ um mostrando estatísticas:
 * 
 outro mostrando as mesmas estatísticas, só que para
 tau_increment=0.005.
-(é o que tá rodando agora)
+
+o que posso testar
+- se tá certa a implementação
+- rodar com vários valores para tau_increment e ver se é esse o problema
+- se distribuição de boltzmann está funcionando
+
+o que percebi é que o k2 não se "liberta do passado": o P[0] dele cai
+pra zero à medida que o experimento prossegue.
+
+Isso pode ser devido a uma baixa qualidade dos pesos aprendidos pelo
+k2.
+
+Eu vejo duas formas de resolver isso:
+1. Fazer todos os jogadores reusarem o mesmo peso (um que tenha "dado
+   certo")
+2. Utilizar pesos de um treinamento 3v2 que tenha durado mais. Isso
+   poderia implicar que os pesos aprendidos possuem uma "maior"
+   qualidade
+3. Verificar se a "eliminação" de features que não mapeiam significa
+   mesmo que essas features não são utilizadas no aprendizado
+
