@@ -156,7 +156,7 @@ int LinearSarsaAgent::step( double reward, double state[] )
     setTrace( tiles[ lastAction ][ j ], 1.0 );
 
   psi = psi * v;
-  sum_gamma_r_k_h += pow ( gamma, stepNum ) * delta;
+  sum_gamma_r_k_h += pow ( gamma, stepNum ) * reward;
 
   return lastAction;
 }

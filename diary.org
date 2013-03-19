@@ -325,14 +325,14 @@ pra zero à medida que o experimento prossegue.
 Isso pode ser devido a uma baixa qualidade dos pesos aprendidos pelo
 k2.
 
-Eu vejo duas formas de resolver isso:
+Eu vejo algumas formas de resolver isso:
 1. Fazer todos os jogadores reusarem o mesmo peso (um que tenha "dado
    certo")
 2. Utilizar pesos de um treinamento 3v2 que tenha durado mais. Isso
    poderia implicar que os pesos aprendidos possuem uma "maior"
    qualidade
-3. Verificar se a "eliminação" de features que não mapeiam significa
-   mesmo que essas features não são utilizadas no aprendizado (É O QUE
-   TÁ RODANDO AGORA)
+3. Verificar se a *ELIMINAÇÃO*" de features que não mapeiam significa
+   mesmo que essas features não são utilizadas no aprendizado 
 4. Depois ver se a forma como eu calculo lá o negócio que é usado no
-   cálculo de W médio tem alguma interferência no aprendizado.
+   cálculo de W médio tem alguma interferência no aprendizado. (É O QUE
+   TÁ RODANDO AGORA)
