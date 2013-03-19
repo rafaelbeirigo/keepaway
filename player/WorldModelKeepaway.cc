@@ -190,6 +190,9 @@ int WorldModel::keeperStateVars( double state[] )
   }
 
   int j = 0;
+  std::cout << "################ Features ################" << std::endl;
+
+  std::cout << "state[" << j << "]: WB_dist_to_C" << std::endl;
   state[ j++ ] = WB_dist_to_C;
 
   int nK;
@@ -198,18 +201,30 @@ int WorldModel::keeperStateVars( double state[] )
   int tInc = 0;
 
   for (nK = 3, nT = 2; nK <= numK && nT <= numT; nK++, nT++) {
-    for ( int i = 1 + kInc; i < nK; i++ )
+    for ( int i = 1 + kInc; i < nK; i++ ) {
+      std::cout << "state[" << j << "] = WB_dist_to_K[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_K[ i ];
-    for ( int i = 0 + tInc; i < nT; i++ )
+    }
+    for ( int i = 0 + tInc; i < nT; i++ ) {
+      std::cout << "state[" << j << "] = WB_dist_to_T[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_T[ i ];
-    for ( int i = 1 + kInc; i < nK; i++ )
+    }
+    for ( int i = 1 + kInc; i < nK; i++ ) {
+      std::cout << "state[" << j << "] = dist_to_C_K[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_K[ i ];
-    for ( int i = 0 + tInc; i < nT; i++ )
+    }
+    for ( int i = 0 + tInc; i < nT; i++ ) {
+      std::cout << "state[" << j << "] = dist_to_C_T[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_T[ i ];
-    for ( int i = 1 + kInc; i < nK; i++ )
+    }
+    for ( int i = 1 + kInc; i < nK; i++ ) {
+      std::cout << "state[" << j << "] = nearest_Opp_dist_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_dist_K[ i ];
-    for ( int i = 1 + kInc; i < nK; i++ )
+    }
+    for ( int i = 1 + kInc; i < nK; i++ ) {
+      std::cout << "state[" << j << "] = nearest_Opp_ang_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_ang_K[ i ];
+    }
 
     kInc = nK - 1; tInc = nT - 1;
   }

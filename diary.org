@@ -336,3 +336,10 @@ Eu vejo algumas formas de resolver isso:
 4. Depois ver se a forma como eu calculo lá o negócio que é usado no
    cálculo de W médio tem alguma interferência no aprendizado. (É O QUE
    TÁ RODANDO AGORA)
+
+
+
+PROBLEMAÇO: pedi para printar o valor obtido com getNumFeatures() e os
+que estavam reusando printaram 13, mas o que estava aprendendo from
+scratch printou 21.
+
