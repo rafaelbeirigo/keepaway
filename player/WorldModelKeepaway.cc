@@ -192,7 +192,7 @@ int WorldModel::keeperStateVars( double state[] )
   int j = 0;
   std::cout << "################ Features ################" << std::endl;
 
-  std::cout << "state[" << j << "]: WB_dist_to_C" << std::endl;
+  std::cout << "state[" << j << "] = WB_dist_to_C" << std::endl;
   state[ j++ ] = WB_dist_to_C;
 
   int nK;
