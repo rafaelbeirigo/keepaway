@@ -304,6 +304,7 @@ int main( int argc, char * argv[] )
 
 
 
+
   // GAMBIARRA !!!!!!!!!!!!!!!!
   // se um 4v3 estiver reusando, só considera 13 features
   if ( numWeightsFilesPRQL > 0 ) numFeatures = 13;

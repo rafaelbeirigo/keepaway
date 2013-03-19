@@ -16,7 +16,7 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 # Keeper options                                           #
 ############################################################
 
-num_keepers=5                    # number of keepers
+num_keepers=4                    # number of keepers
 keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
 
@@ -42,7 +42,7 @@ keeper_policy="learned"          # policy followed by keepers
 # Taker options                                            #
 ############################################################
 
-num_takers=4                     # number of takers
+num_takers=3                     # number of takers
 taker_load=0                     # should I load previously learned weights?
 taker_load_dir=                  # sub-directory of weight_dir where weights are stored
 taker_learn=0                    # should learning be turned on for takers?

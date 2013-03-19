@@ -190,9 +190,9 @@ int WorldModel::keeperStateVars( double state[] )
   }
 
   int j = 0;
-  std::cout << "################ Features ################" << std::endl;
+  // std::cout << "################ Features ################" << std::endl;
 
-  std::cout << "state[" << j << "] = WB_dist_to_C" << std::endl;
+  // std::cout << "state[" << j << "] = WB_dist_to_C" << std::endl;
   state[ j++ ] = WB_dist_to_C;
 
   int nK;
@@ -202,51 +202,27 @@ int WorldModel::keeperStateVars( double state[] )
 
   for (nK = 3, nT = 2; nK <= numK && nT <= numT; nK++, nT++) {
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = WB_dist_to_K[" << i << "]" << std::endl;
+      // std::cout << "state[" << j << "] = WB_dist_to_K[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_K[ i ];
     }
-
-
-
-
-    ////////////////////////////////////////////////////////////////
     for ( int i = 0 + tInc; i < nT; i++ ) {
-      std::cout << "state[" << j << "] = WB_dist_to_T[" << i << "]" << std::endl;
+      // std::cout << "state[" << j << "] = WB_dist_to_T[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_T[ i ];
     }
-    ////////////////////////////////////////////////////////////////
-
-
-
-
-
-
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = dist_to_C_K[" << i << "]" << std::endl;
+      // std::cout << "state[" << j << "] = dist_to_C_K[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_K[ i ];
     }
-
-
-
-
-
-    ////////////////////////////////////////////////////////////////
     for ( int i = 0 + tInc; i < nT; i++ ) {
-      std::cout << "state[" << j << "] = dist_to_C_T[" << i << "]" << std::endl;
+      // std::cout << "state[" << j << "] = dist_to_C_T[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_T[ i ];
     }
-    ////////////////////////////////////////////////////////////////
-
-
-
-
-
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = nearest_Opp_dist_K[" << i << "]" << std::endl;
+      // std::cout << "state[" << j << "] = nearest_Opp_dist_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_dist_K[ i ];
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = nearest_Opp_ang_K[" << i << "]" << std::endl;
+      // std::cout << "state[" << j << "] = nearest_Opp_ang_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_ang_K[ i ];
     }
 
@@ -289,7 +265,7 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
 			  
   ranges[ j ] = maxRange / 2.0;        // WB_dist_to_center           
   minValues[ j ] = 0;
-  resolutions[ j++ ] = 2.0; 
+  resolutions[ j++ ] = 3.0;
 
   int nK;
   int nT;
@@ -298,37 +274,31 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
 
   for (nK = 3, nT = 2; nK <= numK && nT <= numT; nK++, nT++) {
     for ( int i = 1 + kInc; i < nK; i++ ) {     // WB_dist_to_T          
-      ranges[ j ] = maxRange;
-      minValues[ j ] = 0;
+      ranges[ j ] = maxRange;      minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 0 + tInc; i < nT; i++ ) {     // WB_dist_to_O
-      ranges[ j ] = maxRange;
-      minValues[ j ] = 0;
+      ranges[ j ] = maxRange;      minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {     // dist_to_center_T    
-      ranges[ j ] = maxRange / 2.0;
-      minValues[ j ] = 0;
+      ranges[ j ] = maxRange / 2.0;      minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 0 + tInc; i < nT; i++ ) {     // dist_to_center_O  
-      ranges[ j ] = maxRange / 2.0;
-      minValues[ j ] = 0;
+      ranges[ j ] = maxRange / 2.0;      minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_dist_T 
-      ranges[ j ] = maxRange / 2.0;
-      minValues[ j ] = 0;
+      ranges[ j ] = maxRange;      minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_ang_T  
-      ranges[ j ] = 180;
-      minValues[ j ] = 0;
+      ranges[ j ] = 180;      minValues[ j ] = 0;
       resolutions[ j++ ] = 10.0;
     }
 
-    kInc = nK - 1; tInc = nT - 1;
+    kInc = nK - 1; tInc = nT;
   }
 
   return j;
