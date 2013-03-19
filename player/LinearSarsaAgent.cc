@@ -81,6 +81,10 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
     W[i] = 0.0;
     reuseCounter[i] = 0;
   }
+
+  std::cout << "numWeightsFiles: " << numWeightsFiles
+	    << "getNumFeatures(): " << getNumFeatures()
+	    << std::endl;
 }
 
 int LinearSarsaAgent::startEpisode( double state[] )

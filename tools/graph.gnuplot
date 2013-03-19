@@ -31,15 +31,20 @@ set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121201-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121201-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121238-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303182254-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191340-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.005 - 13 features', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191441-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features' with points
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - ANTIGO', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191441-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - delta', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191451-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward'
 
 
 
+
+
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191340-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.005 - 13 features - delta', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121238-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121201-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121201-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
+
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303182254-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05', \
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151446-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
