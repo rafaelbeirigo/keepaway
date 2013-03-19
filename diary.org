@@ -332,5 +332,7 @@ Eu vejo duas formas de resolver isso:
    poderia implicar que os pesos aprendidos possuem uma "maior"
    qualidade
 3. Verificar se a "eliminação" de features que não mapeiam significa
-   mesmo que essas features não são utilizadas no aprendizado
-
+   mesmo que essas features não são utilizadas no aprendizado (É O QUE
+   TÁ RODANDO AGORA)
+4. Depois ver se a forma como eu calculo lá o negócio que é usado no
+   cálculo de W médio tem alguma interferência no aprendizado.
