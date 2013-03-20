@@ -188,15 +188,8 @@ void LinearSarsaAgent::endEpisode( double reward )
     tau += tau_increment;
     epsilon += epsilon_increment;
 
-    // Policy reuse logging
     ofstream myfile;
     char log_file[1000];
-    strcpy(log_file, weightsFile);
-    strcat(log_file, "_reused_policy.log");
-    myfile.open (log_file, ios::app);
-    myfile << epochNum << " " << policyToExploit << " " << exploitedPolicy << std::endl;
-    myfile.close();
-
     // W logging
     strcpy(log_file, weightsFile);
     strcat(log_file, "_W.log");
@@ -276,6 +269,20 @@ int LinearSarsaAgent::selectAction()
       }
     }
   }
+
+  // Policy reuse logging
+  ofstream myfile;
+  char log_file[1000];
+  strcpy(log_file, weightsFile);
+  strcat(log_file, "_reused_policy.log");
+  myfile.open (log_file, ios::app);
+  myfile << epochNum << " "
+	 << policyToExploit << " "
+	 << psi << " "
+	 << exploitedPolicy
+	 << std::endl;
+  myfile.close();
+
   return action;
 }
 
