@@ -343,3 +343,23 @@ PROBLEMAÇO: pedi para printar o valor obtido com getNumFeatures() e os
 que estavam reusando printaram 13, mas o que estava aprendendo from
 scratch printou 21.
 
+OUTRO PROBLEMAÇO: intervalos e valores máximos para algumas features
+estavam ERRADOS. Isso implica ter que refazer o aprendizado dos pesos
+que serão reusados.
+* 201303191805-LTI-PROJETO-TM
+Após corrigir
+- eliminação de features
+- utilização de reward para cálculo de W
+- mapeamento de features
+- ranges
+- resolutions,
+
+rodei um reuso de 3v2 em 4v3.
+
+O resultado foi ruim.
+
+Isso pode ter ocorrido devido ao fato de os pesos aprendidos em 3v2
+terem sofrido impacto dos ranges e resolutions errados.
+
+Vou realizar o aprendizado em 3v2 com a versão corrigida e reusar
+esses pesos em 4v3.

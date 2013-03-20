@@ -16,19 +16,19 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 # Keeper options                                           #
 ############################################################
 
-num_keepers=4                    # number of keepers
+num_keepers=3                    # number of keepers
 keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
 
-keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL=0               # should I load previously learned weights to use in PRQL?
 
-num_keepers_reuse=3              # numbers of players that will reuse policies
+num_keepers_reuse=0              # numbers of players that will reuse policies
 
-keeper_load_PRQL_3v2=1           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_3v2=0           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
 
-keeper_load_PRQL_3v2_dir=201303151446-LTI-PROJETO-TM                                            # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_3v2_dir=                                            # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_4v3_dir=                                            # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_Abs_dir=                                            # sub-directory of weight_dir where weights are stored
 
@@ -42,7 +42,7 @@ keeper_policy="learned"          # policy followed by keepers
 # Taker options                                            #
 ############################################################
 
-num_takers=3                     # number of takers
+num_takers=2                     # number of takers
 taker_load=0                     # should I load previously learned weights?
 taker_load_dir=                  # sub-directory of weight_dir where weights are stored
 taker_learn=0                    # should learning be turned on for takers?

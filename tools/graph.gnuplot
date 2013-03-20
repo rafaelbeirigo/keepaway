@@ -33,7 +33,8 @@ set ylabel "Episode Duration (seconds)"
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - ANTIGO', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191441-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - delta', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191451-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191451-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191805-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward - mapeamento - ranges - resolutions'
 
 
 
