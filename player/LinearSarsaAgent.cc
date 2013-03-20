@@ -42,7 +42,6 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   epsilon_increment = 0.0001;
   minimumTrace = 0.01;
 
-  psi = 1.0;
   v = 0.95;
   tau = 0.0;
   tau_increment = 0.05;
@@ -88,6 +87,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
 int LinearSarsaAgent::startEpisode( double state[] )
 {
+  psi = 1.0;
   epochNum++;
   stepNum = 0;
   sum_gamma_r_k_h = 0.0;

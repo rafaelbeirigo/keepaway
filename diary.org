@@ -426,3 +426,6 @@ Realizei o aprendizado em 3v2 com a versão corrigida e reusar
 esses pesos em 4v3.
 * 201303201509-LTI-PROJETO-TM
 Reuso de 3v2 em 3v2.
+* 
+SUPER ULTRA PROBLEMAÇO !!!!!!!!
+Descobri que não reinicializava \psi a cada episódio!
