@@ -54,6 +54,9 @@ class LinearSarsaAgent:public SMDPAgent
   double epsilon_increment;
   int stepNum;
   double sum_gamma_r_k_h;
+  int exploitedNew;
+  int exploitedPast;
+  int explored;
 
   // Load / Save weights from/to disk
   bool loadWeights( char *filename );

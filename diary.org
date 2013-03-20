@@ -424,5 +424,5 @@ terem sofrido impacto dos ranges e resolutions errados.
 * 201303201040-LTI-PROJETO-TM
 Realizei o aprendizado em 3v2 com a versão corrigida e reusar
 esses pesos em 4v3.
-* 201303201450-LTI-PROJETO-TM
+* 201303201509-LTI-PROJETO-TM
 Reuso de 3v2 em 3v2.

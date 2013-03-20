@@ -94,6 +94,11 @@ int LinearSarsaAgent::startEpisode( double state[] )
   decayTraces( 0 );
   loadTiles( state );
 
+  // control of reuse
+  exploitedNew = 0;
+  exploitedPast = 0;
+  explored = 0;
+
   policyToExploit = getPolicyToExploit();
   reuseCounter[policyToExploit] += 1;
 
@@ -209,6 +214,22 @@ void LinearSarsaAgent::endEpisode( double reward )
       myfile << " " << setiosflags(ios::fixed) << setprecision(4) << P[i];
     myfile << std::endl;
     myfile.close();
+
+    // Reuse logging
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_reuse.log");
+    myfile.open (log_file, ios::app);
+    int totalCount = exploitedPast + exploitedNew + explored;
+    double percentExploitedPast = (double)exploitedPast / totalCount;
+    double percentExploitedNew  = (double)exploitedNew  / totalCount  + percentExploitedPast;
+    double percentExplored      = (double)explored      / totalCount  + percentExploitedNew;
+
+    myfile << epochNum << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedPast << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedNew << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedPast << " "
+           << std::endl;
+    myfile.close();
   }
   if ( bLearning && bSaveWeights && rand() % 200 == 0 ) {
     saveWeights( weightsFile );
@@ -239,6 +260,7 @@ int LinearSarsaAgent::selectAction()
       // fully greedy
       action = argmaxQ();
       exploitedPolicy = -1;
+      exploitedNew++;
     }
     else {
       if ( drand48() < psi ) {
@@ -254,17 +276,20 @@ int LinearSarsaAgent::selectAction()
   	  Q[ a ] = computeQ( a );
 
 	exploitedPolicy = policyToExploit;
+	exploitedPast++;
       }
       else {
   	if ( drand48() < 1 - psi ) { // greedy
   	  // exploit 'new' policy (the one being learned)
   	  action = argmaxQ();
 	  exploitedPolicy = -2;
+	  exploitedNew++;
   	}
   	else {
   	  // explore
   	  action = rand() % getNumActions();
 	  exploitedPolicy = -3;
+	  explored++;
   	}
       }
     }

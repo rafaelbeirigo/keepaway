@@ -33,7 +33,7 @@ set ylabel "Episode Duration (seconds)"
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201040-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL - super correcoes', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201450-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201509-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes'
 
 
 
