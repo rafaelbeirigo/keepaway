@@ -343,6 +343,67 @@ PROBLEMAÇO: pedi para printar o valor obtido com getNumFeatures() e os
 que estavam reusando printaram 13, mas o que estava aprendendo from
 scratch printou 21.
 
+como estava:
+|-----------+-----------------------+-----+-----------------------+-----|
+| vetor     | 3v2                   | sit | 4v3                   | sit |
+|-----------+-----------------------+-----+-----------------------+-----|
+| state[0]  | WB_dist_to_C          |     | WB_dist_to_C          | OK  |
+| state[1]  | WB_dist_to_K[1]       |     | WB_dist_to_K[1]       | OK  |
+| state[2]  | WB_dist_to_K[2]       |     | WB_dist_to_K[2]       | OK  |
+| state[3]  | WB_dist_to_T[0]       |     | WB_dist_to_T[0]       | OK  |
+| state[4]  | WB_dist_to_T[1]       |     | WB_dist_to_T[1]       | OK  |
+| state[5]  | dist_to_C_K[1]        |     | dist_to_C_K[1]        | OK  |
+| state[6]  | dist_to_C_K[2]        |     | dist_to_C_K[2]        | OK  |
+| state[7]  | dist_to_C_T[0]        |     | dist_to_C_T[0]        | OK  |
+| state[8]  | dist_to_C_T[1]        |     | dist_to_C_T[1]        | OK  |
+| state[9]  | nearest_Opp_dist_K[1] |     | nearest_Opp_dist_K[1] | OK  |
+| state[10] | nearest_Opp_dist_K[2] |     | nearest_Opp_dist_K[2] | OK  |
+| state[11] | nearest_Opp_ang_K[1]  |     | nearest_Opp_ang_K[1]  | OK  |
+| state[12] | nearest_Opp_ang_K[2]  |     | nearest_Opp_ang_K[2]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----|
+|           |                       |     | WB_dist_to_K[3]       | OK  |
+|           |                       |     | WB_dist_to_T[1]       | REP |
+|           |                       |     | WB_dist_to_T[2]       | OK  |
+|           |                       |     | dist_to_C_K[3]        | OK  |
+|           |                       |     | dist_to_C_T[1]        | REP |
+|           |                       |     | dist_to_C_T[2]        | OK  |
+|           |                       |     | nearest_Opp_dist_K[3] | OK  |
+|           |                       |     | nearest_Opp_ang_K[3]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----|
+
+como ficou depois de corrigido:
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+|           | 3v2                   | sit | 4v3                   | sit | 5v3                   | sit |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+| state[0]  | WB_dist_to_C          |     | WB_dist_to_C          | OK  | WB_dist_to_C          | OK  |
+| state[1]  | WB_dist_to_K[1]       |     | WB_dist_to_K[1]       | OK  | WB_dist_to_K[1]       | OK  |
+| state[2]  | WB_dist_to_K[2]       |     | WB_dist_to_K[2]       | OK  | WB_dist_to_K[2]       | OK  |
+| state[3]  | WB_dist_to_T[0]       |     | WB_dist_to_T[0]       | OK  | WB_dist_to_T[0]       | OK  |
+| state[4]  | WB_dist_to_T[1]       |     | WB_dist_to_T[1]       | OK  | WB_dist_to_T[1]       | OK  |
+| state[5]  | dist_to_C_K[1]        |     | dist_to_C_K[1]        | OK  | dist_to_C_K[1]        | OK  |
+| state[6]  | dist_to_C_K[2]        |     | dist_to_C_K[2]        | OK  | dist_to_C_K[2]        | OK  |
+| state[7]  | dist_to_C_T[0]        |     | dist_to_C_T[0]        | OK  | dist_to_C_T[0]        | OK  |
+| state[8]  | dist_to_C_T[1]        |     | dist_to_C_T[1]        | OK  | dist_to_C_T[1]        | OK  |
+| state[9]  | nearest_Opp_dist_K[1] |     | nearest_Opp_dist_K[1] | OK  | nearest_Opp_dist_K[1] | OK  |
+| state[10] | nearest_Opp_dist_K[2] |     | nearest_Opp_dist_K[2] | OK  | nearest_Opp_dist_K[2] | OK  |
+| state[11] | nearest_Opp_ang_K[1]  |     | nearest_Opp_ang_K[1]  | OK  | nearest_Opp_ang_K[1]  | OK  |
+| state[12] | nearest_Opp_ang_K[2]  |     | nearest_Opp_ang_K[2]  | OK  | nearest_Opp_ang_K[2]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+|           |                       |     | WB_dist_to_K[3]       |     | WB_dist_to_K[3]       | OK  |
+|           |                       |     | WB_dist_to_T[2]       |     | WB_dist_to_T[2]       | OK  |
+|           |                       |     | dist_to_C_K[3]        |     | dist_to_C_K[3]        | OK  |
+|           |                       |     | dist_to_C_T[2]        |     | dist_to_C_T[2]        | OK  |
+|           |                       |     | nearest_Opp_dist_K[3] |     | nearest_Opp_dist_K[3] | OK  |
+|           |                       |     | nearest_Opp_ang_K[3]  |     | nearest_Opp_ang_K[3]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+|           |                       |     |                       |     | WB_dist_to_K[4]       |     |
+|           |                       |     |                       |     | WB_dist_to_T[3]       |     |
+|           |                       |     |                       |     | dist_to_C_K[4]        |     |
+|           |                       |     |                       |     | dist_to_C_T[3]        |     |
+|           |                       |     |                       |     | nearest_Opp_dist_K[4] |     |
+|           |                       |     |                       |     | nearest_Opp_ang_K[4]  |     |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+
 OUTRO PROBLEMAÇO: intervalos e valores máximos para algumas features
 estavam ERRADOS. Isso implica ter que refazer o aprendizado dos pesos
 que serão reusados.
@@ -360,6 +421,8 @@ O resultado foi ruim.
 
 Isso pode ter ocorrido devido ao fato de os pesos aprendidos em 3v2
 terem sofrido impacto dos ranges e resolutions errados.
-
-Vou realizar o aprendizado em 3v2 com a versão corrigida e reusar
+* 201303201040-LTI-PROJETO-TM
+Realizei o aprendizado em 3v2 com a versão corrigida e reusar
 esses pesos em 4v3.
+* 
+Reuso de 3v2 em 3v2.

@@ -23,22 +23,25 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:50]
+set xrange [-0.5:60]
 set xlabel "Training Time (hours)"
 
-set yrange [4:13]
+set yrange [4:30]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - ANTIGO', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191441-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - delta', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191451-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191805-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward - mapeamento - ranges - resolutions'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201040-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL - super correcoes'
 
 
 
 
+
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - ANTIGO', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191441-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - delta', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191451-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191805-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - reward - mapeamento - ranges - resolutions'
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191340-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.005 - 13 features - delta', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121238-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
@@ -47,11 +50,6 @@ plot \
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303182254-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05', \
 
-     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151446-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303152232-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161129-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303161528-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303162058-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.005', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303162151-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303170855-LTI-PROJETO-TM.kwy.out"    title '3v2 Reuse - PRQL - 0.05', \
