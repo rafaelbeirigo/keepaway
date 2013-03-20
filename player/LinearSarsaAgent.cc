@@ -227,7 +227,7 @@ void LinearSarsaAgent::endEpisode( double reward )
     myfile << epochNum << " "
 	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedPast << " "
 	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedNew << " "
-	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedPast << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExplored << " "
            << std::endl;
     myfile.close();
   }
