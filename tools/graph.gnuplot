@@ -23,24 +23,25 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:200]
+set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
-set yrange [4:8]
+set yrange [4:13]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201040-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL - super correcoes', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201509-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201634-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303202028-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log - psi renovado', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303121238-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303211224-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - super correcoes - novo log - psi renovado', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303202228-LTI-PROJETO-TM.kwy.out"    title '4v3 reusando 3v2 - super correcoes - novo log - psi renovado'
 
 
 
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201040-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL - super correcoes', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201509-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201634-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303202028-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log - psi renovado', \
 
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - ANTIGO', \
