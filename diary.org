@@ -429,3 +429,11 @@ Reuso de 3v2 em 3v2.
 * 
 SUPER ULTRA PROBLEMAÇO !!!!!!!!
 Descobri que não reinicializava \psi a cada episódio!
+
+Tá rodando. No começo é melhor que sem reuso, mas aprende mais
+devagar.
+
+Essa vagarosidade pode ser devida à uma inadequação dos parâmetros.
+
+Isso porque esse reuso é qualitativamente diferente do 3v2->4v3,
+porque as políticas reusadas são muito melhores.
