@@ -437,3 +437,9 @@ Essa vagarosidade pode ser devida à uma inadequação dos parâmetros.
 
 Isso porque esse reuso é qualitativamente diferente do 3v2->4v3,
 porque as políticas reusadas são muito melhores.
+
+Esse usou reward pra calcular W.
+
+Posso rodar outro usando delta e ver a diferença.
+* 
+Agora vou rodar um 4v3 from scratch pra comparar depois.
