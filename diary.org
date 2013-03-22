@@ -473,9 +473,15 @@ tá tão bostanhenta???
 * 
 A explotação exclusiva implicou em um desempenho extremamente baixo.
 
+O resultado está nitidamente diferente do obtido na primeira vez em
+que esse experimento foi executado.
+
 Isso pode ter sido devido a alguma modificação intermediária não
 levada em consideração no momento, ou a uma alta estocasticidade do
 framework na situação atual.
 
 Para verificar se a última hipótese é verdadeira, vou repetir o
 experimento mais uma vez.
+* 
+To voltando a versão para repetir o experimento de reuso que deu mais
+ou menos certo.
