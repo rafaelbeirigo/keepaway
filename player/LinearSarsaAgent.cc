@@ -38,8 +38,8 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   alpha = 0.125;
   gamma = 1.0;
   lambda = 0.5;
-  epsilon = 0.0;
-  epsilon_increment = 0.0001;
+  epsilon = 1.0;
+  epsilon_increment = 0.0;
   minimumTrace = 0.01;
 
   v = 0.95;
@@ -63,8 +63,13 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   GetTiles( tmp, 1, 1, tmpf, 0 );  // A dummy call to set the hashing table    
   srand( time( NULL ) );
 
-  if ( strlen( loadWeightsFile ) > 0 )
+  if ( strlen( loadWeightsFile ) > 0 ) {
     loadWeights( loadWeightsFile );
+    itLoadedWeights = 1;
+  }
+  else {
+    itLoadedWeights = 0;
+  }
 
   if ( numWeightsFiles > 0 ) {
     loadWeightsPRQL( numWeightsFiles, loadWeightsFiles );
@@ -243,7 +248,8 @@ int LinearSarsaAgent::selectAction()
 
   if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
     // Epsilon-greedy
-    if ( bLearning && drand48() < epsilon ) {     /* epsilon here
+    if ( ( bLearning || itLoadedWeights )
+         && drand48() < epsilon ) {     /* epsilon here
   						     means how greedy
   						     the agent is */
       action = argmaxQ();

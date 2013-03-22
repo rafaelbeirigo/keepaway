@@ -39,7 +39,8 @@ set ylabel "Episode Duration (seconds)"
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title  'Gerar pesos subotimos p_so para 4v3', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221615-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Sem PRQL'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221615-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Sem PRQL', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221632-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Sem PRQL'
 
 
 
