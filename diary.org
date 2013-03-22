@@ -448,4 +448,9 @@ Idem
 * 
 Reuso de 3v2 em 4v3 utilizando delta.
 
-Rodar depois de novo repetições desse e do que usa reward para comparar.
+Rodar depois de novo repetições desse e do que usa reward para
+comparar.
+
+Ficou uma bosta com delta.
+* 
+To rodando de novo com reward pra ver se não foi sorte de iniciante.
