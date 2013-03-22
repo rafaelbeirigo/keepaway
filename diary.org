@@ -441,5 +441,11 @@ porque as políticas reusadas são muito melhores.
 Esse usou reward pra calcular W.
 
 Posso rodar outro usando delta e ver a diferença.
+* 201303211224-LTI-PROJETO-TM
+Aprendizado 4v3 from scratch depois de todas as correções.
+* 201303211649-LTI-PROJETO-TM
+Idem
 * 
-Agora vou rodar um 4v3 from scratch pra comparar depois.
+Reuso de 3v2 em 4v3 utilizando delta.
+
+Rodar depois de novo repetições desse e do que usa reward para comparar.
