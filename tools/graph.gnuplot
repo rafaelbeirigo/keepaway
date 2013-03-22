@@ -15,31 +15,39 @@ set output "./graph.eps"
 set title ""
 
 # Appearance
+set arrow from 20, graph 0 to 20.1976, graph 1 nohead
+
 set style data lines
 set key bottom right
 set border 3
+set xtics 1
 set xtics nomirror
+set ytics .2
+set grid ytics
 set ytics nomirror
 set multiplot
 
+# set arrow 5 10 nohead
+
 # Axes
-set xrange [-0.5:60]
+set xrange [-0.5:21]
 set xlabel "Training Time (hours)"
 
-set yrange [4:30]
+set yrange [4.9:9.4]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201040-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL - super correcoes', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201509-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201634-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303202028-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log - psi renovado'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title  'Gerar pesos subotimos p_so para 4v3'
 
 
 
 
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201040-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL - super correcoes', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201509-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303201634-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303202028-LTI-PROJETO-TM.kwy.out"    title '3v2 reusando 3v2 - super correcoes - novo log - psi renovado'
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302261807-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - ANTIGO', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303191441-LTI-PROJETO-TM.kwy.out"    title '4v3 Reuse - PRQL - 0.05 - 13 features - delta', \
@@ -76,3 +84,7 @@ plot \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201302161522-LTI-PROJETO-TM.kwy.out" title '3v2 (pesos reusados)', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303042104-LTI-PROJETO-TM.kwy.out" title '', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303042241-LTI-PROJETO-TM.kwy.out" title ''
+
+
+
+
