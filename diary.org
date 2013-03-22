@@ -456,11 +456,26 @@ Ficou uma bosta com delta.
 To rodando de novo com reward pra ver se não foi sorte de iniciante.
 
 ficou quase tão bosta quanto o que usava delta.
+
+Não consegui reproduzir os resultados obtidos da primeira vez que
+rodei o reuso com reward. Eu de fato reusei a mesma política?
 * 
-parei no meio e vou rodar um que SÓ EXPLOTA A PORRA DA 3v2, pra ver se
+Parei no meio e vou rodar um que SÓ EXPLOTA A PORRA DA 3v2, pra ver se
 e quanto essa merda ajudaria no 4v3.
 
-depois eu até posso colocar as 19 features pra ver o quanto isso
+Depois eu até posso colocar as 19 features pra ver o quanto isso
 atrapalharia.
 
 PERGUNTA: tem que ignorar a pass_k4 pra quem tá reusando??
+
+OTRA PERGUNTA: por que a explotação exclusiva da política 3v2 em 4v3
+tá tão bostanhenta???
+* 
+A explotação exclusiva implicou em um desempenho extremamente baixo.
+
+Isso pode ter sido devido a alguma modificação intermediária não
+levada em consideração no momento, ou a uma alta estocasticidade do
+framework na situação atual.
+
+Para verificar se a última hipótese é verdadeira, vou repetir o
+experimento mais uma vez.
