@@ -38,8 +38,8 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   alpha = 0.125;
   gamma = 1.0;
   lambda = 0.5;
-  epsilon = 1.0;
-  epsilon_increment = 0.0;
+  epsilon = 0.0;
+  epsilon_increment = 0.0001;
   minimumTrace = 0.01;
 
   v = 0.95;

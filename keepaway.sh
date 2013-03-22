@@ -17,22 +17,22 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 ############################################################
 
 num_keepers=4                    # number of keepers
-keeper_load=1                    # should I load previously learned weights?
-keeper_load_dir=201303221353-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+keeper_load=0                    # should I load previously learned weights?
+keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
 
-keeper_load_PRQL=0               # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL=1               # should I load previously learned weights to use in PRQL?
 
-num_keepers_reuse=0              # numbers of players that will reuse policies
+num_keepers_reuse=4              # numbers of players that will reuse policies
 
 keeper_load_PRQL_3v2=0           # should I load previously learned weights to use in PRQL?
-keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_4v3=1           # should I load previously learned weights to use in PRQL?
 keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
 
 keeper_load_PRQL_3v2_dir=                                            # sub-directory of weight_dir where weights are stored
-keeper_load_PRQL_4v3_dir=                                            # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_4v3_dir=201303221353-LTI-PROJETO-TM                                            # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_Abs_dir=                                            # sub-directory of weight_dir where weights are stored
 
-keeper_learn=0                   # should learning be turned on for keepers?
+keeper_learn=1                   # should learning be turned on for keepers?
 keeper_policy="learned"          # policy followed by keepers
 #keeper_policy="hold"
 #keeper_policy="hand"
