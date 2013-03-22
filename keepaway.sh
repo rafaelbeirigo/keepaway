@@ -3,7 +3,7 @@
 # 
 # No commandline parameters.  All options are set in this file.
 #
-
+#
 # Top-level keepaway directory
 keepaway_dir=`pwd`
 # Top-level rcssjava directory ** SET THIS OPTION **
