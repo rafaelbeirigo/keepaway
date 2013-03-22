@@ -454,3 +454,13 @@ comparar.
 Ficou uma bosta com delta.
 * 
 To rodando de novo com reward pra ver se não foi sorte de iniciante.
+
+ficou quase tão bosta quanto o que usava delta.
+* 
+parei no meio e vou rodar um que SÓ EXPLOTA A PORRA DA 3v2, pra ver se
+e quanto essa merda ajudaria no 4v3.
+
+depois eu até posso colocar as 19 features pra ver o quanto isso
+atrapalharia.
+
+PERGUNTA: tem que ignorar a pass_k4 pra quem tá reusando??

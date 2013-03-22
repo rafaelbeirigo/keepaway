@@ -35,6 +35,7 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303211224-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - super correcoes - novo log - psi renovado', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303211649-LTI-PROJETO-TM.kwy.out"    title '4v3 From Scratch - PRQL - super correcoes - novo log - psi renovado', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303202228-LTI-PROJETO-TM.kwy.out"    title '4v3 reusando 3v2 - super correcoes - novo log - psi renovado - reward', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303212317-LTI-PROJETO-TM.kwy.out"    title '4v3 reusando 3v2 - super correcoes - novo log - psi renovado - reward', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303212228-LTI-PROJETO-TM.kwy.out"    title '4v3 reusando 3v2 - super correcoes - novo log - psi renovado - delta'
 
 
