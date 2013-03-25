@@ -457,4 +457,112 @@ void LinearSarsaAgent::clearExistentTrace( int f, int loc )
     cerr << "ClearExistentTrace: f out of range " << f << endl;
   traces[ f ] = 0.0;
   numNonzeroTraces--;
-  non
+  nonzeroTraces[ loc ] = nonzeroTraces[ numNonzeroTraces ];
+  nonzeroTracesInverse[ nonzeroTraces[ loc ] ] = loc;
+}
+
+// Decays all the (nonzero) traces by decay_rate, removing those below minimum_trace 
+void LinearSarsaAgent::decayTraces( double decayRate )
+{
+  int f;
+  for ( int loc = numNonzeroTraces - 1; loc >= 0; loc-- ) {
+    f = nonzeroTraces[ loc ];
+    if ( f > RL_MEMORY_SIZE || f < 0 )
+      cerr << "DecayTraces: f out of range " << f << endl;
+    traces[ f ] *= decayRate;
+    if ( traces[ f ] < minimumTrace )
+      clearExistentTrace( f, loc );
+  }
+}
+
+// Set the trace for feature f to the given value, which must be positive   
+void LinearSarsaAgent::setTrace( int f, float newTraceValue )
+{
+  if ( f > RL_MEMORY_SIZE || f < 0 )
+    cerr << "SetTraces: f out of range " << f << endl;
+  if ( traces[ f ] >= minimumTrace )
+    traces[ f ] = newTraceValue;         // trace already exists              
+  else {
+    while ( numNonzeroTraces >= RL_MAX_NONZERO_TRACES )
+      increaseMinTrace(); // ensure room for new trace              
+    traces[ f ] = newTraceValue;
+    nonzeroTraces[ numNonzeroTraces ] = f;
+    nonzeroTracesInverse[ f ] = numNonzeroTraces;
+    numNonzeroTraces++;
+  }
+}
+
+// Try to make room for more traces by incrementing minimum_trace by 10%,
+// culling any traces that fall below the new minimum                      
+void LinearSarsaAgent::increaseMinTrace()
+{
+  minimumTrace *= 1.1;
+  cerr << "Changing minimum_trace to " << minimumTrace << endl;
+  for ( int loc = numNonzeroTraces - 1; loc >= 0; loc-- ) { // necessary to loop downwards    
+    int f = nonzeroTraces[ loc ];
+    if ( traces[ f ] < minimumTrace )
+      clearExistentTrace( f, loc );
+  }
+}
+
+void LinearSarsaAgent::setParams(int iCutoffEpisodes, int iStopLearningEpisodes)
+{
+  /* set learning parameters */
+}
+
+int LinearSarsaAgent::getPolicyToExploit()
+{
+  computeP();
+  double p = drand48();
+
+  for ( int i = 0; i < numberOfPolicies; i++ ) {
+    // std::cout << "getPolicyToExploit: "
+    // 	      << "i: " << i << " "
+    // 	      << "p: " << p << " "
+    // 	      << "P[" << i << "]: " << P[i] << " "
+    // 	      << std::endl;
+
+    if ( p < P[i] )
+      return i;
+  }
+
+  return -1;
+}
+
+void LinearSarsaAgent::computeP()
+{
+  long double *powers;
+  long double sum_powers;
+  long double K = 0; // subtracted from exponents to prevent overflow
+
+  powers = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
+  sum_powers = 0.0;
+  // std::cout << std::endl;
+
+  // Obtain constant to subtract from exponents
+  K = 0;
+  for ( int i = 0; i < numberOfPolicies; i++ )
+    if ( tau * W[i] > K )
+      K = tau * W[i];
+
+  for ( int i = 0; i < numberOfPolicies; i++ ) {
+    powers[i] = pow( M_E, tau * W[i]  - K);
+
+    // std::cout << "computeP(): "
+    // 	      << "tau: " << tau << " "
+    // 	      << "W[" << i << "]: " << W[i] << " "
+    // 	      << "powers[" << i << "]: " << powers[i] << " "
+    // 	      << "epochNum: " << epochNum << " "
+    // 	      << "stepNum: " << stepNum << " "
+    // 	      << std::endl;
+
+    sum_powers += powers[i];
+  }
+
+  P[0] = powers[0] / sum_powers;
+  for ( int i = 1; i < numberOfPolicies - 1; i++ ) {
+    // cummulative sum
+    P[i] = ( powers[i] / sum_powers ) + powers[i-1];
+  }
+  P[numberOfPolicies - 1] = 1.0;
+}
