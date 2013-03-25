@@ -171,6 +171,27 @@ int LinearSarsaAgent::step( double reward, double state[] )
   psi = psi * v;
   sum_gamma_r_k_h += pow ( gamma, stepNum ) * reward;
 
+  ofstream myfile;
+  char log_file[1000];
+  // Reward-related values logging
+  strcpy(log_file, weightsFile);
+  strcat(log_file, "_r_values.log");
+  myfile.open (log_file, ios::app);
+
+  myfile << epochNum;
+  for (int i = 0; i < numberOfPolicies; i++)
+    myfile << " " << setiosflags(ios::fixed) << setprecision(4) << W[i];
+  myfile << std::endl;
+
+  myfile << epochNum << " "
+         << stepNum << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << reward << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << Q[lastAction] << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << delta << " "
+	 << std::endl;
+
+  myfile.close();
+
   return lastAction;
 }
 
@@ -309,7 +330,7 @@ int LinearSarsaAgent::selectAction()
   myfile.open (log_file, ios::app);
   myfile << epochNum << " "
 	 << policyToExploit << " "
-	 << psi << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << psi << " "
 	 << exploitedPolicy
 	 << std::endl;
   myfile.close();
