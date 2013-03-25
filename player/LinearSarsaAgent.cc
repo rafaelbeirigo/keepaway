@@ -211,7 +211,8 @@ void LinearSarsaAgent::endEpisode( double reward )
                          +  sum_gamma_r_k_h;
     W[policyToExploit] = W[policyToExploit] / reuseCounter[policyToExploit];
 
-    tau += tau_increment;
+    if ( epochNum > 900 )
+      tau += tau_increment;
     epsilon += epsilon_increment;
 
     ofstream myfile;
