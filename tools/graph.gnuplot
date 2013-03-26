@@ -20,7 +20,7 @@ set arrow from 20, graph 0 to 20.1976, graph 1 nohead
 set style data lines
 set key bottom right
 set border 3
-set xtics 1
+set xtics 10
 set xtics nomirror
 set ytics .2
 set grid ytics
@@ -30,10 +30,10 @@ set multiplot
 # set arrow 5 10 nohead
 
 # Axes
-set xrange [-0.5:50]
+set xrange [-0.5:60]
 set xlabel "Training Time (hours)"
 
-set yrange [4.7:13]
+set yrange [4.7:11]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
@@ -45,7 +45,8 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221916-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251441-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251919-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303252048-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment apos 900'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303252048-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment apos 900', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261154-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 1000 vezes menor'
 
 
 
