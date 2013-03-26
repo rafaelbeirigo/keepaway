@@ -30,10 +30,10 @@ set multiplot
 # set arrow 5 10 nohead
 
 # Axes
-set xrange [-0.5:21]
+set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
-set yrange [4.7:9.4]
+set yrange [4.7:13]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
@@ -44,7 +44,8 @@ plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221843-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Com PRQL - 19 features', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221916-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251441-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251919-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251919-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303252048-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment apos 900'
 
 
 

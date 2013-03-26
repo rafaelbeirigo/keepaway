@@ -44,7 +44,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
   v = 0.95;
   tau = 0.0;
-  tau_increment = 0.05;
+  tau_increment = 0.00005;
 
   epochNum = 0;
   lastAction = -1;
@@ -211,8 +211,7 @@ void LinearSarsaAgent::endEpisode( double reward )
                          +  sum_gamma_r_k_h;
     W[policyToExploit] = W[policyToExploit] / reuseCounter[policyToExploit];
 
-    if ( epochNum > 900 )
-      tau += tau_increment;
+    tau += tau_increment;
     epsilon += epsilon_increment;
 
     ofstream myfile;
