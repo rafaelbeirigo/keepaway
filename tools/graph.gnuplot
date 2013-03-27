@@ -33,25 +33,26 @@ set multiplot
 set xrange [-0.5:60]
 set xlabel "Training Time (hours)"
 
-set yrange [4.7:11]
+set yrange [4.7:10]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title  'Gerar pesos subotimos p_so para 4v3', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221702-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Sem PRQL', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221821-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Com PRQL - 13 features', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221843-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Com PRQL - 19 features', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221916-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251441-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251919-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303252048-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment apos 900', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261154-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 1000 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261154-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 1000 vezes menor' , \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261729-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 100 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303262219-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 10 vezes menor'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303262219-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 10 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 500 vezes menor' with points
 
 
 
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221702-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Sem PRQL', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221821-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Com PRQL - 13 features', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221843-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Com PRQL - 19 features', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221916-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251441-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303251919-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam', \
 
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303151846-LTI-PROJETO-TM.kwy.out"    title '3v2 From Scratch - PRQL', \
