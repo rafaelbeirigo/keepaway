@@ -18,6 +18,7 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 
 num_keepers=4                    # number of keepers
 keeper_load=1                    # should I load previously learned weights?
+num_keepers_load=3
 keeper_load_dir=201303201040-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
 
 keeper_load_PRQL=0               # should I load previously learned weights to use in PRQL?
@@ -193,7 +194,7 @@ do
   if (( $save_weights && $keeper_learn )); then
     kweight_opts="-f $save_dir/k$i-weights.dat"
   fi
-  if (( $keeper_load )); then
+  if (( $keeper_load and i <=$num_keepers_load)); then
     kweight_opts="$kweight_opts -w $weight_dir/$keeper_load_dir/k$i-weights.dat"
   fi
 
