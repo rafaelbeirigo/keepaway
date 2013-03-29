@@ -269,6 +269,7 @@ int LinearSarsaAgent::selectAction()
   						     means how greedy
   						     the agent is */
       action = argmaxQ();
+      printf("explotei!\n");
     }
     else{
       action = rand() % getNumActions();
