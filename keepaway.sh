@@ -194,7 +194,7 @@ do
   if (( $save_weights && $keeper_learn )); then
     kweight_opts="-f $save_dir/k$i-weights.dat"
   fi
-  if (( $keeper_load and i <=$num_keepers_load)); then
+  if (( $keeper_load && $i <= $num_keepers_load)); then
     kweight_opts="$kweight_opts -w $weight_dir/$keeper_load_dir/k$i-weights.dat"
   fi
 
