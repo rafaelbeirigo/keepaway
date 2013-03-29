@@ -191,6 +191,7 @@ do
   if (( $save_client_draw_log )); then
     kdraw_opts="-d 1 -a $log_save_dir/k$i-draw.log"
   fi
+  kweight_opts=""
   if (( $save_weights && $keeper_learn )); then
     kweight_opts="-f $save_dir/k$i-weights.dat"
   fi
