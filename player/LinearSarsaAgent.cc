@@ -66,6 +66,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   if ( strlen( loadWeightsFile ) > 0 ) {
     loadWeights( loadWeightsFile );
     itLoadedWeights = 1;
+    printf("abri os pesos!\n");
   }
   else {
     itLoadedWeights = 0;
