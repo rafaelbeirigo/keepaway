@@ -38,8 +38,8 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   alpha = 0.125;
   gamma = 1.0;
   lambda = 0.5;
-  epsilon = 0.0;
-  epsilon_increment = 0.0001;
+  epsilon = 1.0;
+  epsilon_increment = 0.0;
   minimumTrace = 0.01;
 
   v = 0.95;
@@ -66,7 +66,6 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   if ( strlen( loadWeightsFile ) > 0 ) {
     loadWeights( loadWeightsFile );
     itLoadedWeights = 1;
-    printf("abri os pesos!\n");
   }
   else {
     itLoadedWeights = 0;
@@ -270,7 +269,6 @@ int LinearSarsaAgent::selectAction()
   						     means how greedy
   						     the agent is */
       action = argmaxQ();
-      printf("explotei!\n");
     }
     else{
       action = rand() % getNumActions();
