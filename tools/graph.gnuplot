@@ -30,22 +30,23 @@ set multiplot
 # set arrow 5 10 nohead
 
 # Axes
-set xrange [-0.5:60]
+set xrange [-0.5:50]
 set xlabel "Training Time (hours)"
 
-set yrange [4.7:10]
+set yrange [4.7:13]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title  'Gerar pesos subotimos p_so para 4v3', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303252048-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment apos 900', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261154-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 1000 vezes menor' , \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261729-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 100 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303262219-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 10 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 500 vezes menor' with points
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303291056-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 3v2->4v34v3 - Com aprendizado - Com PRQL - 3 reusam - Reuso:13/19 - tau_increment 500 vezes menor'
 
 
+
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261154-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 1000 vezes menor' , \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261729-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 100 vezes menor', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303262219-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 10 vezes menor', \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 13 features - 4 reusam - tau_increment 500 vezes menor' with points
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221702-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Sem PRQL', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221821-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Sem aprendizado - Com PRQL - 13 features', \
