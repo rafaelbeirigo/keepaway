@@ -42,7 +42,7 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
   numNonzeroTraces = 0;
   for ( int i = 0; i < RL_MEMORY_SIZE; i++ ) {
-    weights[ i ] = 0;
+    weights[ i ] = 10;
     traces[ i ] = 0;
   }
 

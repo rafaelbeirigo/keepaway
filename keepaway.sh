@@ -20,11 +20,11 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 num_keepers=3                    # number of keepers
 keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
-keeper_learn=0                   # should learning be turned on for keepers?
-#keeper_policy="learned"         # policy followed by keepers
+keeper_learn=1                   # should learning be turned on for keepers?
+keeper_policy="learned"         # policy followed by keepers
 #keeper_policy="hold"
 #keeper_policy="hand"
-keeper_policy="rand"
+#keeper_policy="rand"
 
 ############################################################
 # Taker options                                            #
@@ -49,18 +49,18 @@ save_client_draw_log=0            # should I save client logged shape info to a 
 client_log_dir=$keepaway_dir/logs # top-level client log directory
 client_dir=$keepaway_dir/player   # directory containing player binary
 client=keepaway_player            # name of player binary
-stop_after=-1                     # stop after num episodes
+stop_after=5000                   # stop after num episodes
 start_learning_after=-1           # start learning after num episodes
 
 ############################################################
 # Server options                                           #
 ############################################################
 
-ka_width=20                      # Y-axis size of playing region
+ka_width=25                      # Y-axis size of playing region
 ka_length=$ka_width              # X-axis size of playing region
 
 unrestricted_vision=1            # should I use 360-degree vision instead of 90?
-synch_mode=0                     # should I speed up with synchronous mode?
+synch_mode=1                     # should I speed up with synchronous mode?
 
 save_kwy_log=1                   # should I save episode info to .kwy file?
 save_rcg_log=0                   # should I save game log to .rcg file?

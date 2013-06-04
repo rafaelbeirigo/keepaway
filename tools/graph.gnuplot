@@ -22,11 +22,17 @@ set ytics nomirror
 set multiplot
 
 # Axes
-set xrange [-0.5:36]
+set xrange [-0.5:400]
 set xlabel "Training Time (hours)"
 
-set yrange [5.5:13.5]
+set yrange [5.5:30]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
-plot "./1.out"
+plot "./1.out", "../logs/201304161620-LTI-PROJETO-TM.kwy.out"
+
+# valores utilizados para inicializar weights[i]:
+# 0.0 (inicial)
+# 1.0
+# 0.5
+# 10.0
