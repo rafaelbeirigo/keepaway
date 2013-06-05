@@ -300,7 +300,7 @@ int LinearSarsaAgent::selectAction()
 	Q_prob[ 0 ] = Q[ 0 ] / sum_Q;
 	for ( int i = 1; i < getNumActions() - 1; i++ ) {
 	  // cummulative sum
-	  Q_prob[ i ] = ( Q[ i ] / sum_Q ) + Q[ i-1 ];
+	  Q_prob[ i ] = ( Q[ i ] / sum_Q ) + Q_prob[ i-1 ];
 	}
 	Q_prob[ getNumActions() - 1 ] = 1.0;
 
@@ -318,6 +318,8 @@ int LinearSarsaAgent::selectAction()
 	std::cout << "p: " << p << "; "
 		  << "action: " << action
 		  << std::endl;
+
+	free(Q_prob);
 
   	for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
   						       the correct
@@ -586,10 +588,10 @@ void LinearSarsaAgent::computeP()
     sum_powers += powers[i];
   }
 
-  P[0] = powers[0] / sum_powers;
+  P[ 0 ] = powers[ 0 ] / sum_powers;
   for ( int i = 1; i < numberOfPolicies - 1; i++ ) {
     // cummulative sum
-    P[i] = ( powers[i] / sum_powers ) + powers[i-1];
+    P[ i ] = ( powers[ i ] / sum_powers ) + P[ i-1 ];
   }
-  P[numberOfPolicies - 1] = 1.0;
+  P[ numberOfPolicies - 1 ] = 1.0;
 }
