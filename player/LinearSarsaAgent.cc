@@ -315,9 +315,9 @@ int LinearSarsaAgent::selectAction()
 	  }
 	}
 
-	for ( int i = 0; i < getNumActions(); i++ )
-	  std::cout << "Q[ " << i << " ]: " << Q[ i ] << "; "
-		    << std::endl;
+	// for ( int i = 0; i < getNumActions(); i++ )
+	//   std::cout << "Q[ " << i << " ]: " << Q[ i ] << "; "
+	// 	    << std::endl;
 
 	if ( num_positive_Qs > 0 ) {
 	  // Obtain probabilities for the actions based on the Q values
@@ -331,12 +331,12 @@ int LinearSarsaAgent::selectAction()
 	  }
 	  Q_positive_prob[ num_positive_Qs - 1 ] = 1.0;
 
-	  std::cout << "num_positive_Qs: " << num_positive_Qs << std::endl;
-	  for ( int i = 0; i < num_positive_Qs; i++ )
-	    std::cout << "Q_positive_prob[ " << i << " ]: " << Q_positive_prob[ i ]
-		      << std::endl
-		      << "actionQ_positive[ " << i << " ]: " << actionQ_positive[ i ]
-		      << std::endl;
+	  // std::cout << "num_positive_Qs: " << num_positive_Qs << std::endl;
+	  // for ( int i = 0; i < num_positive_Qs; i++ )
+	  //   std::cout << "Q_positive_prob[ " << i << " ]: " << Q_positive_prob[ i ]
+	  // 	      << std::endl
+	  // 	      << "actionQ_positive[ " << i << " ]: " << actionQ_positive[ i ]
+	  // 	      << std::endl;
 
 	  // Obtain action based on the calculated probabilities
 	  double p = drand48();
@@ -347,9 +347,9 @@ int LinearSarsaAgent::selectAction()
 	    }
 	  }
 
-	  std::cout << "p: " << p << "; "
-		    << "action: " << action
-		    << std::endl;
+	  // std::cout << "p: " << p << "; "
+	  // 	    << "action: " << action
+	  // 	    << std::endl;
 
 	  free(Q_positive_prob);
 	}
