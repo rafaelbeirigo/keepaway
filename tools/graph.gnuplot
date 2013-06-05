@@ -39,11 +39,21 @@ set ylabel "Episode Duration (seconds)"
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title 'Gerar pesos subotimos p_so para 4v3', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title   'Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041448-LTI-PROJETO-TM.kwy.out"    title '1 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041654-LTI-PROJETO-TM.kwy.out"    title '2 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041919-LTI-PROJETO-TM.kwy.out"    title '3 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303271632-LTI-PROJETO-TM.kwy.out"    title   'Explotar - 4v3 - Com aprendizado - Com PRQL - 3 reusam - Reuso:13/19 - tau_increment 500 vezes menor'
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title    'Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041448-LTI-PROJETO-TM.kwy.out"    title '1  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041654-LTI-PROJETO-TM.kwy.out"    title '2  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041919-LTI-PROJETO-TM.kwy.out"    title '3  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041919-LTI-PROJETO-TM.kwy.out"    title '4  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306042116-LTI-PROJETO-TM.kwy.out"    title '5  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306042317-LTI-PROJETO-TM.kwy.out"    title '6  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306050117-LTI-PROJETO-TM.kwy.out"    title '7  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306050317-LTI-PROJETO-TM.kwy.out"    title '8  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306050517-LTI-PROJETO-TM.kwy.out"    title '9  Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306050718-LTI-PROJETO-TM.kwy.out"    title '10 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306050918-LTI-PROJETO-TM.kwy.out"    title '11 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306051118-LTI-PROJETO-TM.kwy.out"    title '12 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306051318-LTI-PROJETO-TM.kwy.out"    title '13 Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 500 vezes menor', \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303271632-LTI-PROJETO-TM.kwy.out"    title    'Explotar - 4v3 - Com aprendizado - Com PRQL - 3 reusam - Reuso:13/19 - tau_increment 500 vezes menor'
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303261729-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment 100 vezes menor', \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303252048-LTI-PROJETO-TM.kwy.out"    title  'Explotar - 4v3 - Com aprendizado - Com PRQL - 4 reusam - 13 features - tau_increment apos 900', \

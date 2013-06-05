@@ -286,11 +286,38 @@ int LinearSarsaAgent::selectAction()
     }
     else {
       if ( drand48() < psi ) {
+	double sum_Q = 0.0;
   	// exploit past policy
-  	for ( int a = 0; a < getNumActions(); a++ )
+  	for ( int a = 0; a < getNumActions(); a++ ) {
   	  Q[ a ] = computeQ_PRQL( a );
+	  sum_Q += Q [ a ];
+	}
 
-  	action = argmaxQ();
+	// Obtain probabilities for the actions based on the Q values
+	double *Q_prob;
+	Q_prob = (double *)malloc( getNumActions() * sizeof( double ) );
+	
+	Q_prob[ 0 ] = Q[ 0 ] / sum_Q;
+	for ( int i = 1; i < getNumActions() - 1; i++ ) {
+	  // cummulative sum
+	  Q_prob[ i ] = ( Q[ i ] / sum_Q ) + Q[ i-1 ];
+	}
+	Q_prob[ getNumActions() - 1 ] = 1.0;
+
+	for ( int i = 1; i < getNumActions() - 1; i++ )
+	  std::cout << "Q[ " << i << " ]: " << Q[ i ] << "; "
+		    << "Q_prob[ " << i << " ]: " << Q_prob[ i ]
+		    << std::endl;
+
+	// Obtain action based on the calculated probabilities
+	double p = drand48();
+	for ( int i = 0; i < getNumActions(); i++ )
+	  if ( p < Q_prob[ i ] )
+	    action =  i;
+
+	std::cout << "p: " << p << "; "
+		  << "action: " << action
+		  << std::endl;
 
   	for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
   						       the correct
