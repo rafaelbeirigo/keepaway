@@ -304,7 +304,7 @@ int LinearSarsaAgent::selectAction()
 	}
 	Q_prob[ getNumActions() - 1 ] = 1.0;
 
-	for ( int i = 1; i < getNumActions() - 1; i++ )
+	for ( int i = 0; i < getNumActions(); i++ )
 	  std::cout << "Q[ " << i << " ]: " << Q[ i ] << "; "
 		    << "Q_prob[ " << i << " ]: " << Q_prob[ i ]
 		    << std::endl;
