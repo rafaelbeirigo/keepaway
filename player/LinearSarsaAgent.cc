@@ -334,6 +334,7 @@ int LinearSarsaAgent::selectAction()
 	  std::cout << "num_positive_Qs: " << num_positive_Qs << std::endl;
 	  for ( int i = 0; i < num_positive_Qs; i++ )
 	    std::cout << "Q_positive_prob[ " << i << " ]: " << Q_positive_prob[ i ]
+		      << std::endl
 		      << "actionQ_positive[ " << i << " ]: " << actionQ_positive[ i ]
 		      << std::endl;
 
