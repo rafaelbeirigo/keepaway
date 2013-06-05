@@ -311,9 +311,12 @@ int LinearSarsaAgent::selectAction()
 
 	// Obtain action based on the calculated probabilities
 	double p = drand48();
-	for ( int i = 0; i < getNumActions(); i++ )
-	  if ( p < Q_prob[ i ] )
+	for ( int i = 0; i < getNumActions(); i++ ) {
+	  if ( p < Q_prob[ i ] ) {
 	    action =  i;
+	    break;
+	  }
+	}
 
 	std::cout << "p: " << p << "; "
 		  << "action: " << action
