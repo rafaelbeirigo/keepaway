@@ -30,16 +30,17 @@ set multiplot
 # set arrow 5 10 nohead
 
 # Axes
-set xrange [-0.5:17]
+set xrange [-0.5:21]
 set xlabel "Training Time (hours)"
 
-set yrange [4.7:8.6]
+set yrange [4.7:10]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title 'From scratch' lc 2 with points, \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306061637-LTI-PROJETO-TM.kwy.out"    title '1  PP PRQL - 3 reuse' lc 1, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306061838-LTI-PROJETO-TM.kwy.out"    title '2  PP PRQL - 3 reuse' lc 1, \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303271632-LTI-PROJETO-TM.kwy.out"    title       'PRQL - 3 reuse' lc 3
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title    'PRQL - 4 reuse' lc 3, \
