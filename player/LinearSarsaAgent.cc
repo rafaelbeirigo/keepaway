@@ -369,18 +369,18 @@ int LinearSarsaAgent::selectAction()
 	free( actionQ_positive );
       }
       else {
-  	if ( drand48() < 1 - psi ) { // greedy
+  	// if ( drand48() < 1 - psi ) { // greedy
   	  // exploit 'new' policy (the one being learned)
-  	  action = argmaxQ();
-	  exploitedPolicy = -2;
-	  exploitedNew++;
-  	}
-  	else {
-  	  // explore
-  	  action = rand() % getNumActions();
-	  exploitedPolicy = -3;
-	  explored++;
-  	}
+	action = argmaxQ();
+	exploitedPolicy = -2;
+	exploitedNew++;
+  	// }
+  	// else {
+  	//   // explore
+  	//   action = rand() % getNumActions();
+	//   exploitedPolicy = -3;
+	//   explored++;
+  	// }
       }
     }
   }
