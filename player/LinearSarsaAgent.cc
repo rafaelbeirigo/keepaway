@@ -362,8 +362,6 @@ int LinearSarsaAgent::selectAction()
       // exploit
       action = argmaxQ();
     }
-
-    return action;
   }
 
   // Policy reuse logging
