@@ -60,6 +60,12 @@ class LinearSarsaAgent:public SMDPAgent
   int exploitedPast;
   int explored;
 
+  // SARA
+  double epsilon_1;
+  double epsilon_2;
+  double epsilon_1_increment;
+  double epsilon_2_increment;
+
   // Load / Save weights from/to disk
   bool loadWeights( char *filename );
   bool saveWeights( char *filename );

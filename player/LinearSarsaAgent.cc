@@ -39,6 +39,10 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   gamma = 1.0;
   lambda = 0.5;
   epsilon = 0.0;
+  epsilon_1 = 1.0;
+  epsilon_2 = 1.0;
+  epsilon_1_increment = -0.0001;
+  epsilon_2_increment = -0.0001;
   epsilon_increment = 0.0001;
   minimumTrace = 0.01;
 
@@ -213,6 +217,8 @@ void LinearSarsaAgent::endEpisode( double reward )
 
     tau += tau_increment;
     epsilon += epsilon_increment;
+    epsilon_1 += epsilon_1_increment;
+    epsilon_2 += epsilon_2_increment;
 
     ofstream myfile;
     char log_file[1000];
