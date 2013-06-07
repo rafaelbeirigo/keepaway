@@ -39,18 +39,20 @@ set ylabel "Episode Duration (seconds)"
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title 'From scratch' lc 2 with points, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306061637-LTI-PROJETO-TM.kwy.out"    title '1  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306061838-LTI-PROJETO-TM.kwy.out"    title '2  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306062238-LTI-PROJETO-TM.kwy.out"    title '3  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070038-LTI-PROJETO-TM.kwy.out"    title '4  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070239-LTI-PROJETO-TM.kwy.out"    title '5  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070439-LTI-PROJETO-TM.kwy.out"    title '6  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070639-LTI-PROJETO-TM.kwy.out"    title '7  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070840-LTI-PROJETO-TM.kwy.out"    title '8  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306071040-LTI-PROJETO-TM.kwy.out"    title '9  PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306071240-LTI-PROJETO-TM.kwy.out"    title '10 PP PRQL - 3 reuse' lc 1, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306062038-LTI-PROJETO-TM.kwy.out"    title '11 PP PRQL - 3 reuse' lc 1, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306071546-LTI-PROJETO-TM.kwy.out"    title '1  PP PRQL - 3 reuse - no exploration' lc 1, \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303271632-LTI-PROJETO-TM.kwy.out"    title       'PRQL - 3 reuse' lc 3
+
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306061637-LTI-PROJETO-TM.kwy.out"    title '1  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306061838-LTI-PROJETO-TM.kwy.out"    title '2  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306062238-LTI-PROJETO-TM.kwy.out"    title '3  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070038-LTI-PROJETO-TM.kwy.out"    title '4  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070239-LTI-PROJETO-TM.kwy.out"    title '5  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070439-LTI-PROJETO-TM.kwy.out"    title '6  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070639-LTI-PROJETO-TM.kwy.out"    title '7  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306070840-LTI-PROJETO-TM.kwy.out"    title '8  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306071040-LTI-PROJETO-TM.kwy.out"    title '9  PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306071240-LTI-PROJETO-TM.kwy.out"    title '10 PP PRQL - 3 reuse' lc 1, \
+     # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306062038-LTI-PROJETO-TM.kwy.out"    title '11 PP PRQL - 3 reuse' lc 1, \
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title    'PRQL - 4 reuse' lc 3, \
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041448-LTI-PROJETO-TM.kwy.out"    title '1  PRQL - 4 reuse' lc 3, \

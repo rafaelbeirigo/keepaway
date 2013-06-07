@@ -277,15 +277,9 @@ int LinearSarsaAgent::selectAction()
     return action;
   }
   else {
-    // PRQL - will eventually reuse policies
-    if ( policyToExploit == 0 ) {
-      // fully greedy
-      action = argmaxQ();
-      exploitedPolicy = -1;
-      exploitedNew++;
-    }
-    else {
-      if ( drand48() < psi ) { // exploit past policy
+    if ( drand48() < epsilon_1 ) {
+      if ( drand48() < epsilon_2 ) {
+	// reuse
 	// to deal with nonpositives values of Q
 	double sum_Q_positive;
 	int i_Q_positive;
@@ -315,10 +309,6 @@ int LinearSarsaAgent::selectAction()
 	  }
 	}
 
-	// for ( int i = 0; i < getNumActions(); i++ )
-	//   std::cout << "Q[ " << i << " ]: " << Q[ i ] << "; "
-	// 	    << std::endl;
-
 	if ( num_positive_Qs > 0 ) {
 	  // Obtain probabilities for the actions based on the Q values
 	  double *Q_positive_prob;
@@ -331,13 +321,6 @@ int LinearSarsaAgent::selectAction()
 	  }
 	  Q_positive_prob[ num_positive_Qs - 1 ] = 1.0;
 
-	  // std::cout << "num_positive_Qs: " << num_positive_Qs << std::endl;
-	  // for ( int i = 0; i < num_positive_Qs; i++ )
-	  //   std::cout << "Q_positive_prob[ " << i << " ]: " << Q_positive_prob[ i ]
-	  // 	      << std::endl
-	  // 	      << "actionQ_positive[ " << i << " ]: " << actionQ_positive[ i ]
-	  // 	      << std::endl;
-
 	  // Obtain action based on the calculated probabilities
 	  double p = drand48();
 	  for ( int i = 0; i < num_positive_Qs; i++ ) {
@@ -346,10 +329,6 @@ int LinearSarsaAgent::selectAction()
 	      break;
 	    }
 	  }
-
-	  // std::cout << "p: " << p << "; "
-	  // 	    << "action: " << action
-	  // 	    << std::endl;
 
 	  free(Q_positive_prob);
 	}
@@ -369,20 +348,16 @@ int LinearSarsaAgent::selectAction()
 	free( actionQ_positive );
       }
       else {
-  	// if ( drand48() < 1 - psi ) { // greedy
-  	  // exploit 'new' policy (the one being learned)
-	action = argmaxQ();
-	exploitedPolicy = -2;
-	exploitedNew++;
-  	// }
-  	// else {
-  	//   // explore
-  	//   action = rand() % getNumActions();
-	//   exploitedPolicy = -3;
-	//   explored++;
-  	// }
+	// explore
+	action = rand() % getNumActions();
       }
     }
+    else {
+      // exploit
+      action = argmaxQ();
+    }
+
+    return action;
   }
 
   // Policy reuse logging
