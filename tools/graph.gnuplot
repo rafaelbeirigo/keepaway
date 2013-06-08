@@ -30,18 +30,20 @@ set multiplot
 # set arrow 5 10 nohead
 
 # Axes
-set xrange [-0.5:22]
+set xrange [-0.5:10]
 set xlabel "Training Time (hours)"
 
-set yrange [4.7:12]
+set yrange [4.7:6.8]
 set ylabel "Episode Duration (seconds)"
 
 # Plot Data
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title 'Gerar pesos subotimos p_so para 4v3' lc 2 with points, \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title    'PRQL - 4 reuse' lc 3 with points, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306072209-LTI-PROJETO-TM.kwy.out"    title    'PP PRQL - avaliacao' lc 3 with points, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306080035-LTI-PROJETO-TM.kwy.out"    title    'Pdet PRQL - avaliacao' lc 3
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306072209-LTI-PROJETO-TM.kwy.out"    title    'PP PRQL - avaliacao' lc 3, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306080035-LTI-PROJETO-TM.kwy.out"    title    'Pdet PRQL - avaliacao' lc 2, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306081604-LTI-PROJETO-TM.kwy.out"    title    'rand - avaliacao' lc 1, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306081705-LTI-PROJETO-TM.kwy.out"    title    'rand2- avaliacao' lc 1
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303271632-LTI-PROJETO-TM.kwy.out"    title 'Explotar - 4v3 - Com aprendizado - Com PRQL - 3 reusam - Reuso:13/19 - tau_increment 500 vezes menor' lc 4
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041448-LTI-PROJETO-TM.kwy.out"    title '1  PRQL - 4 reuse' lc 3, \
