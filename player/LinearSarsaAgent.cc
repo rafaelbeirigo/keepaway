@@ -277,6 +277,8 @@ int LinearSarsaAgent::selectAction()
     return action;
   }
   else {
+    policyToExploit = 1;
+
     // to deal with nonpositives values of Q
     double sum_Q_positive;
     int i_Q_positive;
@@ -327,7 +329,7 @@ int LinearSarsaAgent::selectAction()
 	}
       }
 
-      // free(Q_positive_prob);
+      free(Q_positive_prob);
     }
     else {
       action = argmaxQ();
@@ -338,25 +340,9 @@ int LinearSarsaAgent::selectAction()
 						   values */
       Q[ a ] = computeQ( a );
 
-    exploitedPolicy = policyToExploit;
-    exploitedPast++;
-
-    // free( Q_positive );
-    // free( actionQ_positive );
+    free( Q_positive );
+    free( actionQ_positive );
   }
-
-  // Policy reuse logging
-  ofstream myfile;
-  char log_file[1000];
-  strcpy(log_file, weightsFile);
-  strcat(log_file, "_reused_policy.log");
-  myfile.open (log_file, ios::app);
-  myfile << epochNum << " "
-	 << policyToExploit << " "
-	 << setiosflags(ios::fixed) << setprecision(4) << psi << " "
-	 << exploitedPolicy
-	 << std::endl;
-  myfile.close();
 
   return action;
 }
