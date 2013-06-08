@@ -73,7 +73,7 @@ ka_width=25                      # Y-axis size of playing region
 ka_length=$ka_width              # X-axis size of playing region
 
 unrestricted_vision=1            # should I use 360-degree vision instead of 90?
-synch_mode=1                     # should I speed up with synchronous mode?
+synch_mode=0                     # should I speed up with synchronous mode?
 
 save_kwy_log=1                   # should I save episode info to .kwy file?
 save_rcg_log=0                   # should I save game log to .rcg file?
