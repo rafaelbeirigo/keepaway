@@ -267,7 +267,8 @@ int LinearSarsaAgent::selectAction()
   }
   else {
     policyToExploit = 1;
-    Q[ a ] = computeQ_PRQL( a );
+    for ( int a = 0; a < getNumActions(); a++ )
+      Q[ a ] = computeQ_PRQL( a );
 
     action = argmaxQ();
   }
