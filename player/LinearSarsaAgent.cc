@@ -264,15 +264,15 @@ int LinearSarsaAgent::selectAction()
 
   if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
     // Epsilon-greedy
-    if ( ( bLearning || itLoadedWeights )
-         && drand48() < epsilon ) {     /* epsilon here
-  						     means how greedy
-  						     the agent is */
-      action = argmaxQ();
-    }
-    else{
+    // if ( ( bLearning || itLoadedWeights )
+    //      && drand48() < epsilon ) {     /* epsilon here
+    // 						     means how greedy
+    // 						     the agent is */
+    //   action = argmaxQ();
+    // }
+    // else{
       action = rand() % getNumActions();
-    }
+    // }
 
     return action;
   }
