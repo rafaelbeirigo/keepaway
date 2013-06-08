@@ -40,7 +40,8 @@ set ylabel "Episode Duration (seconds)"
 plot \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303221353-LTI-PROJETO-TM.kwy.out"    title 'Gerar pesos subotimos p_so para 4v3' lc 2 with points, \
      "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303270042-LTI-PROJETO-TM.kwy.out"    title    'PRQL - 4 reuse' lc 3 with points, \
-     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306072209-LTI-PROJETO-TM.kwy.out"    title    'PP PRQL - avaliacao' lc 3 with points
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306072209-LTI-PROJETO-TM.kwy.out"    title    'PP PRQL - avaliacao' lc 3 with points, \
+     "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306072307-LTI-PROJETO-TM.kwy.out"    title    'Pdet PRQL - avaliacao' lc 3 with points
 
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201303271632-LTI-PROJETO-TM.kwy.out"    title 'Explotar - 4v3 - Com aprendizado - Com PRQL - 3 reusam - Reuso:13/19 - tau_increment 500 vezes menor' lc 4
      # "/home/rafaelbeirigo/ciencia/rcss/keepaway/logs/201306041448-LTI-PROJETO-TM.kwy.out"    title '1  PRQL - 4 reuse' lc 3, \
