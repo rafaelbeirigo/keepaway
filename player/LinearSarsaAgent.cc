@@ -277,112 +277,73 @@ int LinearSarsaAgent::selectAction()
     return action;
   }
   else {
-    // // PRQL - will eventually reuse policies
-    // if ( policyToExploit == 0 ) {
-    //   // fully greedy
-    //   action = argmaxQ();
-    //   exploitedPolicy = -1;
-    //   exploitedNew++;
+    action = rand() % getNumActions();
+    // // to deal with nonpositives values of Q
+    // double sum_Q_positive;
+    // int i_Q_positive;
+    // int num_positive_Qs;
+
+    // // copy only positive values from Q in Q_positive and each
+    // // corresponding action in actionQ_positive
+    // double *Q_positive;
+    // Q_positive = (double *)malloc( getNumActions() * sizeof( double ) );
+    // int *actionQ_positive;
+    // actionQ_positive = (int *)malloc( getNumActions() * sizeof( int ) );
+
+    // num_positive_Qs = 0;
+    // i_Q_positive = 0;
+    // sum_Q_positive = 0.0;
+    // for ( int a = 0; a < getNumActions(); a++ ) {
+    //   Q[ a ] = computeQ_PRQL( a );
+
+    //   if ( Q[ a ] > 0 ) {
+    // 	num_positive_Qs++;
+
+    // 	Q_positive[ i_Q_positive ] = Q[ a ];
+    // 	actionQ_positive[ i_Q_positive ] = a;
+    // 	i_Q_positive++;
+
+    // 	sum_Q_positive += Q [ a ];
+    //   }
+    // }
+
+    // if ( num_positive_Qs > 0 ) {
+    //   // Obtain probabilities for the actions based on the Q values
+    //   double *Q_positive_prob;
+    //   Q_positive_prob = (double *)malloc( num_positive_Qs * sizeof( double ) );
+	
+    //   Q_positive_prob[ 0 ] = Q_positive[ 0 ] / sum_Q_positive;
+    //   for ( int i = 1; i < num_positive_Qs - 1; i++ ) {
+    // 	// cummulative sum
+    // 	Q_positive_prob[ i ] = ( Q_positive[ i ] / sum_Q_positive ) + Q_positive_prob[ i-1 ];
+    //   }
+    //   Q_positive_prob[ num_positive_Qs - 1 ] = 1.0;
+
+    //   // Obtain action based on the calculated probabilities
+    //   double p = drand48();
+    //   for ( int i = 0; i < num_positive_Qs; i++ ) {
+    // 	if ( p < Q_positive_prob[ i ] ) {
+    // 	  action =  actionQ_positive[ i ];
+    // 	  break;
+    // 	}
+    //   }
+
+    //   free(Q_positive_prob);
     // }
     // else {
-    //   if ( drand48() < psi ) { // exploit past policy
-	// to deal with nonpositives values of Q
-	double sum_Q_positive;
-	int i_Q_positive;
-	int num_positive_Qs;
-
-	// copy only positive values from Q in Q_positive and each
-	// corresponding action in actionQ_positive
-	double *Q_positive;
-	Q_positive = (double *)malloc( getNumActions() * sizeof( double ) );
-	int *actionQ_positive;
-	actionQ_positive = (int *)malloc( getNumActions() * sizeof( int ) );
-
-	num_positive_Qs = 0;
-	i_Q_positive = 0;
-	sum_Q_positive = 0.0;
-  	for ( int a = 0; a < getNumActions(); a++ ) {
-  	  Q[ a ] = computeQ_PRQL( a );
-
-	  if ( Q[ a ] > 0 ) {
-	    num_positive_Qs++;
-
-	    Q_positive[ i_Q_positive ] = Q[ a ];
-	    actionQ_positive[ i_Q_positive ] = a;
-	    i_Q_positive++;
-
-	    sum_Q_positive += Q [ a ];
-	  }
-	}
-
-	// for ( int i = 0; i < getNumActions(); i++ )
-	//   std::cout << "Q[ " << i << " ]: " << Q[ i ] << "; "
-	// 	    << std::endl;
-
-	if ( num_positive_Qs > 0 ) {
-	  // Obtain probabilities for the actions based on the Q values
-	  double *Q_positive_prob;
-	  Q_positive_prob = (double *)malloc( num_positive_Qs * sizeof( double ) );
-	
-	  Q_positive_prob[ 0 ] = Q_positive[ 0 ] / sum_Q_positive;
-	  for ( int i = 1; i < num_positive_Qs - 1; i++ ) {
-	    // cummulative sum
-	    Q_positive_prob[ i ] = ( Q_positive[ i ] / sum_Q_positive ) + Q_positive_prob[ i-1 ];
-	  }
-	  Q_positive_prob[ num_positive_Qs - 1 ] = 1.0;
-
-	  // std::cout << "num_positive_Qs: " << num_positive_Qs << std::endl;
-	  // for ( int i = 0; i < num_positive_Qs; i++ )
-	  //   std::cout << "Q_positive_prob[ " << i << " ]: " << Q_positive_prob[ i ]
-	  // 	      << std::endl
-	  // 	      << "actionQ_positive[ " << i << " ]: " << actionQ_positive[ i ]
-	  // 	      << std::endl;
-
-	  // Obtain action based on the calculated probabilities
-	  double p = drand48();
-	  for ( int i = 0; i < num_positive_Qs; i++ ) {
-	    if ( p < Q_positive_prob[ i ] ) {
-	      action =  actionQ_positive[ i ];
-	      break;
-	    }
-	  }
-
-	  // std::cout << "p: " << p << "; "
-	  // 	    << "action: " << action
-	  // 	    << std::endl;
-
-	  free(Q_positive_prob);
-	}
-	else {
-	  action = argmaxQ();
-	}
-
-  	for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
-  						       the correct
-  						       values */
-  	  Q[ a ] = computeQ( a );
-
-	exploitedPolicy = policyToExploit;
-	exploitedPast++;
-
-	free( Q_positive );
-	free( actionQ_positive );
-      // }
-      // else {
-      // 	if ( drand48() < 1 - psi ) { // greedy
-      // 	  // exploit 'new' policy (the one being learned)
-      // 	  action = argmaxQ();
-      // 	  exploitedPolicy = -2;
-      // 	  exploitedNew++;
-      // 	}
-      // 	else {
-      // 	  // explore
-      // 	  action = rand() % getNumActions();
-      // 	  exploitedPolicy = -3;
-      // 	  explored++;
-      // 	}
-      // }
+    //   action = argmaxQ();
     // }
+
+    // for ( int a = 0; a < getNumActions(); a++ ) /* return Q[] to
+    // 						   the correct
+    // 						   values */
+    //   Q[ a ] = computeQ( a );
+
+    // exploitedPolicy = policyToExploit;
+    // exploitedPast++;
+
+    // free( Q_positive );
+    // free( actionQ_positive );
   }
 
   // Policy reuse logging
