@@ -277,15 +277,15 @@ int LinearSarsaAgent::selectAction()
     return action;
   }
   else {
-    // PRQL - will eventually reuse policies
-    if ( policyToExploit == 0 ) {
-      // fully greedy
-      action = argmaxQ();
-      exploitedPolicy = -1;
-      exploitedNew++;
-    }
-    else {
-      if ( drand48() < psi ) { // exploit past policy
+    // // PRQL - will eventually reuse policies
+    // if ( policyToExploit == 0 ) {
+    //   // fully greedy
+    //   action = argmaxQ();
+    //   exploitedPolicy = -1;
+    //   exploitedNew++;
+    // }
+    // else {
+    //   if ( drand48() < psi ) { // exploit past policy
 	// to deal with nonpositives values of Q
 	double sum_Q_positive;
 	int i_Q_positive;
@@ -367,22 +367,22 @@ int LinearSarsaAgent::selectAction()
 
 	free( Q_positive );
 	free( actionQ_positive );
-      }
-      else {
-  	if ( drand48() < 1 - psi ) { // greedy
-  	  // exploit 'new' policy (the one being learned)
-  	  action = argmaxQ();
-	  exploitedPolicy = -2;
-	  exploitedNew++;
-  	}
-  	else {
-  	  // explore
-  	  action = rand() % getNumActions();
-	  exploitedPolicy = -3;
-	  explored++;
-  	}
-      }
-    }
+      // }
+      // else {
+      // 	if ( drand48() < 1 - psi ) { // greedy
+      // 	  // exploit 'new' policy (the one being learned)
+      // 	  action = argmaxQ();
+      // 	  exploitedPolicy = -2;
+      // 	  exploitedNew++;
+      // 	}
+      // 	else {
+      // 	  // explore
+      // 	  action = rand() % getNumActions();
+      // 	  exploitedPolicy = -3;
+      // 	  explored++;
+      // 	}
+      // }
+    // }
   }
 
   // Policy reuse logging
