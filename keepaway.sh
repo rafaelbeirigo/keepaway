@@ -32,7 +32,7 @@ keeper_load_PRQL_3v2_dir=                                            # sub-direc
 keeper_load_PRQL_4v3_dir=201303221353-LTI-PROJETO-TM                                            # sub-directory of weight_dir where weights are stored
 keeper_load_PRQL_Abs_dir=                                            # sub-directory of weight_dir where weights are stored
 
-keeper_learn=1                   # should learning be turned on for keepers?
+keeper_learn=0                   # should learning be turned on for keepers?
 keeper_policy="learned"          # policy followed by keepers
 #keeper_policy="hold"
 #keeper_policy="hand"
