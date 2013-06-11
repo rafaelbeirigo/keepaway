@@ -20,11 +20,11 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 num_keepers=3                    # number of keepers
 keeper_load=0                    # should I load previously learned weights?
 keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
-keeper_learn=0                   # should learning be turned on for keepers?
-#keeper_policy="learned"         # policy followed by keepers
+keeper_learn=1                   # should learning be turned on for keepers?
+keeper_policy="learned"          # policy followed by keepers
 #keeper_policy="hold"
 #keeper_policy="hand"
-keeper_policy="rand"
+#keeper_policy="rand"
 
 ############################################################
 # Taker options                                            #
@@ -41,7 +41,7 @@ taker_policy="hand"
 # Client options                                           #
 ############################################################
 
-save_weights=0                    # should I save learned weights
+save_weights=1                    # should I save learned weights
 weight_dir=$keepaway_dir/weights  # top-level weight directory
 save_client_log=0                 # should I save client logging info to a file?
 log_level="1..1000"               # range of log levels to store
@@ -56,18 +56,18 @@ start_learning_after=-1           # start learning after num episodes
 # Server options                                           #
 ############################################################
 
-ka_width=20                      # Y-axis size of playing region
+ka_width=25                      # Y-axis size of playing region
 ka_length=$ka_width              # X-axis size of playing region
 
 unrestricted_vision=1            # should I use 360-degree vision instead of 90?
-synch_mode=0                     # should I speed up with synchronous mode?
+synch_mode=1                     # should I speed up with synchronous mode?
 
 save_kwy_log=1                   # should I save episode info to .kwy file?
 save_rcg_log=0                   # should I save game log to .rcg file?
 save_rcl_log=0                   # should I save message lof to .rcl file?
 log_dir=$keepaway_dir/logs       # directory to store kwy, rcg, and rcl logs
 
-port=5800                        # server port used by players and monitor
+port=6000                        # server port used by players and monitor
 coach_port=$[port + 1]           # server port used by offline trainer
 olcoach_port=$[port + 2]         # server port used by online coach
 sleep_time=8                     # time (in seconds) before starting PlayOn mode
