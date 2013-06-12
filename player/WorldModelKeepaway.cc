@@ -263,8 +263,13 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
 
   double maxRange = hypot( 25, 25 );
 			  
+  std::cout << "ranges[" << j << "] = maxRange / 2.0" << std::endl;
   ranges[ j ] = maxRange / 2.0;        // WB_dist_to_center           
+
+  std::cout << "minValues[" << j << "] = 0" << std::endl;
   minValues[ j ] = 0;
+
+  std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
   resolutions[ j++ ] = 3.0;
 
   int nK;
