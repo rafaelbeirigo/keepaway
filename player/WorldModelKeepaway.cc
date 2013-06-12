@@ -190,9 +190,7 @@ int WorldModel::keeperStateVars( double state[] )
   }
 
   int j = 0;
-  std::cout << "################ keeperStateVars ################" << std::endl;
 
-  std::cout << "state[" << j << "] = WB_dist_to_C" << std::endl;
   state[ j++ ] = WB_dist_to_C;
 
   int nK;
@@ -202,27 +200,21 @@ int WorldModel::keeperStateVars( double state[] )
 
   for (nK = 3, nT = 2; nK <= numK && nT <= numT; nK++, nT++) {
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = WB_dist_to_K[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_K[ i ];
     }
     for ( int i = 0 + tInc; i < nT; i++ ) {
-      std::cout << "state[" << j << "] = WB_dist_to_T[" << i << "]" << std::endl;
       state[ j++ ] = WB_dist_to_T[ i ];
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = dist_to_C_K[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_K[ i ];
     }
     for ( int i = 0 + tInc; i < nT; i++ ) {
-      std::cout << "state[" << j << "] = dist_to_C_T[" << i << "]" << std::endl;
       state[ j++ ] = dist_to_C_T[ i ];
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = nearest_Opp_dist_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_dist_K[ i ];
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {
-      std::cout << "state[" << j << "] = nearest_Opp_ang_K[" << i << "]" << std::endl;
       state[ j++ ] = nearest_Opp_ang_K[ i ];
     }
 
@@ -263,13 +255,10 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
 
   double maxRange = hypot( 25, 25 );
 			  
-  std::cout << "ranges[" << j << "] = maxRange / 2.0" << std::endl;
   ranges[ j ] = maxRange / 2.0;        // WB_dist_to_center           
 
-  std::cout << "minValues[" << j << "] = 0" << std::endl;
   minValues[ j ] = 0;
 
-  std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
   resolutions[ j++ ] = 3.0;
 
   int nK;
@@ -279,63 +268,33 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
 
   for (nK = 3, nT = 2; nK <= numK && nT <= numT; nK++, nT++) {
     for ( int i = 1 + kInc; i < nK; i++ ) {     // WB_dist_to_T          
-      std::cout << "ranges[" << j << "] = maxRange" << std::endl;
       ranges[ j ] = maxRange;
-
-      std::cout << "minValues[" << j << "] = 0" << std::endl;
       minValues[ j ] = 0;
-
-      std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 0 + tInc; i < nT; i++ ) {     // WB_dist_to_O
-      std::cout << "ranges[" << j << "] = maxRange" << std::endl;
       ranges[ j ] = maxRange;
-
-      std::cout << "minValues[" << j << "] = 0" << std::endl;
       minValues[ j ] = 0;
-
-      std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {     // dist_to_center_T    
-      std::cout << "ranges[" << j << "] = maxRange / 2.0" << std::endl;
       ranges[ j ] = maxRange / 2.0;
-
-      std::cout << "minValues[" << j << "] = 0" << std::endl;
       minValues[ j ] = 0;
-
-      std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 0 + tInc; i < nT; i++ ) {     // dist_to_center_O  
-      std::cout << "ranges[" << j << "] = maxRange / 2.0" << std::endl;
       ranges[ j ] = maxRange / 2.0;
-
-      std::cout << "minValues[" << j << "] = 0" << std::endl;
       minValues[ j ] = 0;
-
-      std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_dist_T 
-      std::cout << "ranges[" << j << "] = maxRange" << std::endl;
       ranges[ j ] = maxRange;
-
-      std::cout << "minValues[" << j << "] = 0" << std::endl;
       minValues[ j ] = 0;
-
-      std::cout << "resolutions[" << j << "] = 3.0" << std::endl;
       resolutions[ j++ ] = 3.0;
     }
     for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_ang_T  
-      std::cout << "ranges[" << j << "] = 180" << std::endl;
       ranges[ j ] = 180;
-
-      std::cout << "minValues[" << j << "] = 0" << std::endl;
       minValues[ j ] = 0;
-
-      std::cout << "resolutions[" << j << "] = 10.0" << std::endl;
       resolutions[ j++ ] = 10.0;
     }
 
