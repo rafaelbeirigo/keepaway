@@ -117,6 +117,11 @@ int main( int argc, char * argv[] )
   ofstream os;
   ofstream osDraw;
 
+  // variables used in PRQL
+  char     *sNumWeightsFilesPRQL;
+  int      numWeightsFilesPRQL = 0;
+  char     **loadWeightsFilesPRQL;
+
   // read in all the command options and change the associated variables
   // assume every two values supplied at prompt, form a duo
   char * str;
@@ -231,6 +236,18 @@ int main( int argc, char * argv[] )
         case 'w':
 	  strcpy( loadWeightsFile, argv[i+1] );
 	  break;
+        case 'W': // may load more than one weight file
+	  // command line option will look like: -W 2 weight_file1.dat weight_file2.dat
+	  sNumWeightsFilesPRQL = &argv[i+1][0];
+	  numWeightsFilesPRQL = atoi(sNumWeightsFilesPRQL);
+
+	  loadWeightsFilesPRQL = (char **) malloc( numWeightsFilesPRQL * sizeof( char * ) );
+	  for (int j = 0; j < numWeightsFilesPRQL; j++) {
+	    loadWeightsFilesPRQL[j] = (char *) malloc( 256 * sizeof ( char ) );
+	    strcpy(loadWeightsFilesPRQL[j], argv[i + 2 + j]);
+	  }
+	  i = i + numWeightsFilesPRQL;
+          break;
         case 'x':
 	  str   = &argv[i+1][0];
 	  iStopAfter = Parse::parseFirstInt( &str ); // exit after running for iStopAfter episodes
@@ -280,13 +297,35 @@ int main( int argc, char * argv[] )
   double resolutions[ MAX_STATE_VARS ];
   int numFeatures = wm.keeperStateRangesAndResolutions( ranges, minValues, resolutions, 
 							iNumKeepers, iNumTakers );
+
+
+
+
+
+
+
+
+  // GAMBIARRA !!!!!!!!!!!!!!!!
+  // se um 4v3 estiver reusando, só considera 13 features
+  if ( numWeightsFilesPRQL > 0 ) numFeatures = 13;
+
+
+
+
+
+
+
+
+
+
   int numActions = iNumKeepers;
 
   if ( strlen( strPolicy ) > 0 && strPolicy[0] == 'l' ) {
     // (l)earned
     sa = new LinearSarsaAgent(
       numFeatures, numActions, bLearn, resolutions,
-      loadWeightsFile, saveWeightsFile
+      loadWeightsFile, saveWeightsFile,
+      numWeightsFilesPRQL, loadWeightsFilesPRQL
     );
   } else if (!strncmp(strPolicy, "ext=", 4)) {
     // Load extension.
@@ -378,6 +417,7 @@ void printOptions( )
    " s(erverconf) file     - use file as server conf file"           << endl <<
    " t(eamname) name       - name of your team"                      << endl <<
    " w(eights) file        - use file to load weights"               << endl <<
+   " W(eights) files       - use file to load many weights (PRQL)"   << endl <<
    " x exit after running for this many episodes"                    << endl <<
    " y enable learning after not learning for this many episodes"    << endl;
 }

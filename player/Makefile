@@ -2428,7 +2428,7 @@ LinearSarsaAgent.o: LinearSarsaAgent.cc /usr/include/stdlib.h \
  /usr/include/c++/4.6/bits/codecvt.h /usr/include/c++/4.6/cstdio \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/basic_file.h \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++io.h \
- /usr/include/c++/4.6/bits/fstream.tcc
+ /usr/include/c++/4.6/bits/fstream.tcc /usr/include/c++/4.6/iomanip
 main.o: main.cc SenseHandler.h Connection.h /usr/include/stdio.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/bits/predefs.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \

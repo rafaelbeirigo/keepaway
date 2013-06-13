@@ -1,0 +1,439 @@
+#+TITLE:     diary.org
+#+AUTHOR:    Rafael Lemes Beirigo
+#+EMAIL:     rafaelbeirigo@LTI-PROJETO-TM
+#+DATE:      2013-03-11 Seg
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+* 201301301752-LTI-PROJETO-TM
+Objetivo: gerar $weights$ de 3v2 para reuso.
+
+diff keepaway.sh.original keepaway.sh
+23,24c23,24
+< keeper_learn=0                   # should learning be turned on for keepers?
+< #keeper_policy="learned"         # policy followed by keepers
+---
+> keeper_learn=1                   # should learning be turned on for keepers?
+> keeper_policy="learned"          # policy followed by keepers
+27c27
+< keeper_policy="rand"
+---
+> #keeper_policy="rand"
+44c44
+< save_weights=0                    # should I save learned weights
+---
+> save_weights=1                    # should I save learned weights
+63c63
+< synch_mode=0                     # should I speed up with synchronous mode?
+---
+> synch_mode=1                     # should I speed up with synchronous mode?
+66c66
+< save_rcg_log=0                   # should I save game log to .rcg file?
+---
+> save_rcg_log=1                   # should I save game log to .rcg file?
+* 201301301958-LTI-PROJETO-TM
+Objetivo: testar reuso de $weights$
+
+diff keepaway.sh.original keepaway.sh
+21,22c21,22
+< keeper_load=0                    # should I load previously learned weights?
+< keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
+---
+> keeper_load=1                    # should I load previously learned weights?
+> keeper_load_dir=201301301752-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+24c24
+< #keeper_policy="learned"         # policy followed by keepers
+---
+> keeper_policy="learned"          # policy followed by keepers
+27c27
+< keeper_policy="rand"
+---
+> #keeper_policy="rand"
+44c44
+< save_weights=0                    # should I save learned weights
+---
+> save_weights=1                    # should I save learned weights
+63c63
+< synch_mode=0                     # should I speed up with synchronous mode?
+---
+> synch_mode=1                     # should I speed up with synchronous mode?
+66c66
+< save_rcg_log=0                   # should I save game log to .rcg file?
+---
+> save_rcg_log=1                   # should I save game log to .rcg file?
+* 201301302106-LTI-PROJETO-TM
+Objetivo: obter weights de 3v2 muito bons.
+
+diff keepaway.sh.original keepaway.sh
+22,24c22,24
+< keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
+< keeper_learn=0                   # should learning be turned on for keepers?
+< #keeper_policy="learned"         # policy followed by keepers
+---
+> keeper_load_dir=201301301752-LTI-PROJETO-TM                 # sub-directory of weight_dir where weights are stored
+> keeper_learn=1                   # should learning be turned on for keepers?
+> keeper_policy="learned"          # policy followed by keepers
+27c27
+< keeper_policy="rand"
+---
+> #keeper_policy="rand"
+44c44
+< save_weights=0                    # should I save learned weights
+---
+> save_weights=1                    # should I save learned weights
+63c63
+< synch_mode=0                     # should I speed up with synchronous mode?
+---
+> synch_mode=1                     # should I speed up with synchronous mode?
+66c66
+< save_rcg_log=0                   # should I save game log to .rcg file?
+---
+> save_rcg_log=1                   # should I save game log to .rcg file?
+* 201302131649-LTI-PROJETO-TM
+3v2.
+
+Geração de pesos.
+
+Testes da nova estrutura de treinamento.
+
+Já com nova estrutura de estados, que foi feita para a transferência
+de conhecimento.
+
+Nessa representação, as novas features presentes em 4v3 são alocadas
+ao final do vetor.
+
+Não há clonagem de pesos para a ação /passK4/ nesse aprendizado.
+* 201302141237-LTI-PROJETO-TM
+Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
+* 201302141632-LTI-PROJETO-TM
+Mais um 3v2 pra comparar o aprendizado antes e depois da modificação.
+* 201302142138-LTI-PROJETO-TM
+4v3 na nova representação
+* 201302150114-LTI-PROJETO-TM
+4v3 reusando 201302141237-LTI-PROJETO-TM.
+Atentando que somente 3 dos 4 jogadores abriram weights.
+Inicialmente o desempenho é ruim (transf. negativa).
+
+Possivelmente tentar posteriormente copiar k3-weights para k4-weights
+(se eu não me engano, foi assim que o Fernandez'10 fez).
+
+O HD ficou cheio.
+
+Deletei os .cfg da pasta logs após o início do experimento.
+* 201302151146-LTI-PROJETO-TM
+4v3 reusando 201302141237-LTI-PROJETO-TM.
+Copiado k3-weghts para k4-weights.
+Isso traz como consequencia: o quarto jogador joga da mesma forma que
+o terceiro.
+Entretanto, não corrige a negligência à ação passK4.
+* 201302161522-LTI-PROJETO-TM
+Aprendizado 3v2, só que aprendendo os pesos para a ação pass_k4.
+
+O reuso realizado em 201302151146-LTI-PROJETO-TM não apresentou
+resultados positivos.
+
+Acredito que o problema do aprendizado está na negligência à ação
+pass_k4, que inicialmente está desprovida de pesos.
+
+Para corrigir isso, modifiquei o fonte de forma a clonar os pesos
+aprendidos para a pass_k3 diretamente em pass_k4.
+
+Dessa forma, no reuso, os jogadores valorizariam a ação pass_k4 tanto
+quanto a ação pass_k3.
+
+Com isso, espero corrigir o problema no aprendizado.
+* 201302162051-LTI-PROJETO-TM
+4v3 reusando 201302161522-LTI-PROJETO-TM.
+
+Como foram aprendidos os pesos para pass_k4, espero um desempenho de
+aprendizado melhor do que o "puro".
+
+RESULTADO: Positivo, pois o reuso implicou um aprendizado mais
+eficiente do que o "puro".
+* 201302161101-LTI-PROJETO-TM
+4v3 reusando 201302161522-LTI-PROJETO-TM.
+
+Repetição de 201302162051-LTI-PROJETO-TM.
+
+RESULTADO: compatível com 201302162051-LTI-PROJETO-TM.
+* 201302261429-LTI-PROJETO-TM
+Teste do módulo 'learning from scratch' para o PRQL.  Isolei o reuso
+para o caso em que há mais de uma política na biblioteca. Caso
+contrário, o aprendizado ocorre como na versão original do programa.
+
+Os resultados iniciais não sugerem nada que indique incorreção.
+* 201302261524-LTI-PROJETO-TM
+Teste PRQL. 4v3 reusando 3v2
+
+PROBLEMA: Os valores utilizados no cálculo de Boltzmann ficavam muito grandes
+muito rápido.
+* 201302261621-LTI-PROJETO-TM
+Teste PRQL. 4v3 reusando 3v2
+
+Modificado tau_increment de 0.05 para 0.0005.
+* 201302261709-LTI-PROJETO-TM
+Teste PRQL. 4v3 reusando 3v2
+
+Modificado tau_increment=0.00005'
+* 201302261807-LTI-PROJETO-TM
+Aprendizado from scratch 4v3.
+Utilizando epsilon e epsilon_increment de acordo com Fernandez'10.
+Será utilizado para comparação com reuso.
+* 201302270325-LTI-PROJETO-TM
+4v3 reusando 3v2 após correção de bug que fazia com que a política que
+estava sendo aprendida não fosse explotada no reuso.
+
+tau_increment 0.025
+
+Resultado: aprendeu muito lentamente.
+* 201302271649-LTI-PROJETO-TM
+Repetição do 201302270325-LTI-PROJETO-TM.
+Modificado tau_increment para 0.05 (o mesmo do artigo).
+* 201302272034-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.005.
+* 201302272101-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.00008.
+* 201302281201-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.0000008.
+* 201302281304-LTI-PROJETO-TM
+Idem.
+Modificado tau_increment para 0.000008.
+* 201302281357-LTI-PROJETO-TM
+Reverti a selectAction para o jeito antigo para ver se o resultado é o
+mesmo de antes.
+
+Parâmetros exatamente iguais aos do Fernandez'10.
+* 201303021838-LTI-PROJETO-TM
+4v3 PRQL 3v2 só que os pesos não sofreram o clone do Taylor.
+tau_increment 0.005
+
+BUG: a parte que explota a política que está sendo aprendida estava
+comentada (a parte que corrigia isso...).
+* 201303030229-LTI-PROJETO-TM
+Percebi que havia um bug: a parte que explota a política que está
+sendo aprendida estava comentada (a parte que corrigia isso...).
+
+tau_increment 0.05
+
+PROBLEMA: valores de e^tau*W ficam muito altos, chegam a infinito, e o
+sistema acaba escolhendo a política errada para explotar.
+* 201303042104-LTI-PROJETO-TM
+Depois de várias correções no código.
+
+Rodando com os parâmetros do Fernández'10.
+
+Inicialmente obteve desempenho similar ao aprendizado cru.
+Posteriormente (~12h de treino) obteve desempenho inferior ao
+aprendizado cru.
+* 201303042241-LTI-PROJETO-TM
+Modifiquei o tau_increment para 0.009 para ver se melhorava.
+
+Obteve desempenho similar ao aprendizado cru no início, entretanto
+PIOR do que utilizando tau_increment = 0.05.
+
+Outra coisa que observei foi que, após um período considerável de
+tempo, a probabilidade de reuso da política 0, ou seja, a que está
+sendo aprendida, fica muito próxima ou igual a zero.
+
+IDEIA: Acho que uma boa seria plotar as quantidades envolvidas,
+pricipalmente os valores relacionados à escolha da política a ser
+explotada.
+
+Isso auxiliaria na verificação do comportamento do reuso. 
+
+IDEIA: fazer ele só reusar. Teoricamente, deve ter um desempenho
+inicial melhor do que o cru, porque já aprendeu algo. (Mas há outros
+componentes... Eles não contariam?)
+
+IDEIA: Reusar a política 3v2 em um jogo 3v2.
+
+IDEIA: O erro não está nos parâmetros, mas na sua evolução. E isso
+pode ser decorrente do meu código.
+
+IDEIA: O gráfico do Fernández'10 foi plotado de forma diferente.
+
+IDEIA: O meu cru não tá igual ao dele. Ele chega em ~12s após 50h de
+treino e eu chego somente em ~10 e ~11. Rodar o aprendizado cru na
+versão original do tjpalmer e com todos aprendendo from scratch na
+minha versão mais atual.
+* 201303111741-LTI-PROJETO-TM
+Experimentos de PRQL após correção de bugs.
+
+tau_increment = 0.009
+* 201303111822-LTI-PROJETO-TM
+Idem.
+
+tau_increment = 0.05
+* 201303121004-LTI-PROJETO-TM
+Idem.
+
+PERCEBI QUE A REFERÊNCIA QUE ESTOU UTILIZANDO PARA O APRENDIZADO "FROM
+SCRATCH" PODE NÃO SER A CORRETA.
+
+ISSO PORQUE ESSE APRENDIZADO FOI REALIZADO POSSIVELMENTE DE UMA
+MANEIRA DISTINTA DO REALIZADO POR FERNÁNDEZ.
+
+Uma característica dos resulados que está intrigante é a diferença
+marcante de resultados em experimentos diferentes.
+* 
+vários pra ver como o aprendizado em 3v2 é "estocástico"
+* 
+um pra reusar 3v2 em 3v2 com tau_increment=0.005 (menor do que o do
+F.)
+* 
+dois pra reusar 3v2 em 3v2 com tau_increment=0.05 (igual ao do F.)
+* 
+um reusando uma biblioteca vazia pra ver se ele tava mesmo carregando
+direito os weights
+* 
+um reusando, só que só explotando, pra ver se ele consegue explotar
+* 
+um reusando, só que só explotando, pra ver se ele consegue explotar,
+só que dessa vez com a biblioteca vazia, pra ver se a biblioteca de
+weights faz mesmo alguma diferença
+
+(é o que tá rodando agora)
+* 
+um mostrando estatísticas:
+
+- qual política foi reusada a cada episódio
+- os valores dos Ps das políticas a cada episódio
+* 
+outro mostrando as mesmas estatísticas, só que para
+tau_increment=0.005.
+
+o que posso testar
+- se tá certa a implementação
+- rodar com vários valores para tau_increment e ver se é esse o problema
+- se distribuição de boltzmann está funcionando
+
+o que percebi é que o k2 não se "liberta do passado": o P[0] dele cai
+pra zero à medida que o experimento prossegue.
+
+Isso pode ser devido a uma baixa qualidade dos pesos aprendidos pelo
+k2.
+
+Eu vejo algumas formas de resolver isso:
+1. Fazer todos os jogadores reusarem o mesmo peso (um que tenha "dado
+   certo")
+2. Utilizar pesos de um treinamento 3v2 que tenha durado mais. Isso
+   poderia implicar que os pesos aprendidos possuem uma "maior"
+   qualidade
+3. Verificar se a *ELIMINAÇÃO*" de features que não mapeiam significa
+   mesmo que essas features não são utilizadas no aprendizado 
+4. Depois ver se a forma como eu calculo lá o negócio que é usado no
+   cálculo de W médio tem alguma interferência no aprendizado. (É O QUE
+   TÁ RODANDO AGORA)
+
+
+
+PROBLEMAÇO: pedi para printar o valor obtido com getNumFeatures() e os
+que estavam reusando printaram 13, mas o que estava aprendendo from
+scratch printou 21.
+
+como estava:
+|-----------+-----------------------+-----+-----------------------+-----|
+| vetor     | 3v2                   | sit | 4v3                   | sit |
+|-----------+-----------------------+-----+-----------------------+-----|
+| state[0]  | WB_dist_to_C          |     | WB_dist_to_C          | OK  |
+| state[1]  | WB_dist_to_K[1]       |     | WB_dist_to_K[1]       | OK  |
+| state[2]  | WB_dist_to_K[2]       |     | WB_dist_to_K[2]       | OK  |
+| state[3]  | WB_dist_to_T[0]       |     | WB_dist_to_T[0]       | OK  |
+| state[4]  | WB_dist_to_T[1]       |     | WB_dist_to_T[1]       | OK  |
+| state[5]  | dist_to_C_K[1]        |     | dist_to_C_K[1]        | OK  |
+| state[6]  | dist_to_C_K[2]        |     | dist_to_C_K[2]        | OK  |
+| state[7]  | dist_to_C_T[0]        |     | dist_to_C_T[0]        | OK  |
+| state[8]  | dist_to_C_T[1]        |     | dist_to_C_T[1]        | OK  |
+| state[9]  | nearest_Opp_dist_K[1] |     | nearest_Opp_dist_K[1] | OK  |
+| state[10] | nearest_Opp_dist_K[2] |     | nearest_Opp_dist_K[2] | OK  |
+| state[11] | nearest_Opp_ang_K[1]  |     | nearest_Opp_ang_K[1]  | OK  |
+| state[12] | nearest_Opp_ang_K[2]  |     | nearest_Opp_ang_K[2]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----|
+|           |                       |     | WB_dist_to_K[3]       | OK  |
+|           |                       |     | WB_dist_to_T[1]       | REP |
+|           |                       |     | WB_dist_to_T[2]       | OK  |
+|           |                       |     | dist_to_C_K[3]        | OK  |
+|           |                       |     | dist_to_C_T[1]        | REP |
+|           |                       |     | dist_to_C_T[2]        | OK  |
+|           |                       |     | nearest_Opp_dist_K[3] | OK  |
+|           |                       |     | nearest_Opp_ang_K[3]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----|
+
+como ficou depois de corrigido:
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+|           | 3v2                   | sit | 4v3                   | sit | 5v3                   | sit |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+| state[0]  | WB_dist_to_C          |     | WB_dist_to_C          | OK  | WB_dist_to_C          | OK  |
+| state[1]  | WB_dist_to_K[1]       |     | WB_dist_to_K[1]       | OK  | WB_dist_to_K[1]       | OK  |
+| state[2]  | WB_dist_to_K[2]       |     | WB_dist_to_K[2]       | OK  | WB_dist_to_K[2]       | OK  |
+| state[3]  | WB_dist_to_T[0]       |     | WB_dist_to_T[0]       | OK  | WB_dist_to_T[0]       | OK  |
+| state[4]  | WB_dist_to_T[1]       |     | WB_dist_to_T[1]       | OK  | WB_dist_to_T[1]       | OK  |
+| state[5]  | dist_to_C_K[1]        |     | dist_to_C_K[1]        | OK  | dist_to_C_K[1]        | OK  |
+| state[6]  | dist_to_C_K[2]        |     | dist_to_C_K[2]        | OK  | dist_to_C_K[2]        | OK  |
+| state[7]  | dist_to_C_T[0]        |     | dist_to_C_T[0]        | OK  | dist_to_C_T[0]        | OK  |
+| state[8]  | dist_to_C_T[1]        |     | dist_to_C_T[1]        | OK  | dist_to_C_T[1]        | OK  |
+| state[9]  | nearest_Opp_dist_K[1] |     | nearest_Opp_dist_K[1] | OK  | nearest_Opp_dist_K[1] | OK  |
+| state[10] | nearest_Opp_dist_K[2] |     | nearest_Opp_dist_K[2] | OK  | nearest_Opp_dist_K[2] | OK  |
+| state[11] | nearest_Opp_ang_K[1]  |     | nearest_Opp_ang_K[1]  | OK  | nearest_Opp_ang_K[1]  | OK  |
+| state[12] | nearest_Opp_ang_K[2]  |     | nearest_Opp_ang_K[2]  | OK  | nearest_Opp_ang_K[2]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+|           |                       |     | WB_dist_to_K[3]       |     | WB_dist_to_K[3]       | OK  |
+|           |                       |     | WB_dist_to_T[2]       |     | WB_dist_to_T[2]       | OK  |
+|           |                       |     | dist_to_C_K[3]        |     | dist_to_C_K[3]        | OK  |
+|           |                       |     | dist_to_C_T[2]        |     | dist_to_C_T[2]        | OK  |
+|           |                       |     | nearest_Opp_dist_K[3] |     | nearest_Opp_dist_K[3] | OK  |
+|           |                       |     | nearest_Opp_ang_K[3]  |     | nearest_Opp_ang_K[3]  | OK  |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+|           |                       |     |                       |     | WB_dist_to_K[4]       |     |
+|           |                       |     |                       |     | WB_dist_to_T[3]       |     |
+|           |                       |     |                       |     | dist_to_C_K[4]        |     |
+|           |                       |     |                       |     | dist_to_C_T[3]        |     |
+|           |                       |     |                       |     | nearest_Opp_dist_K[4] |     |
+|           |                       |     |                       |     | nearest_Opp_ang_K[4]  |     |
+|-----------+-----------------------+-----+-----------------------+-----+-----------------------+-----|
+
+OUTRO PROBLEMAÇO: intervalos e valores máximos para algumas features
+estavam ERRADOS. Isso implica ter que refazer o aprendizado dos pesos
+que serão reusados.
+* 201303191805-LTI-PROJETO-TM
+Após corrigir
+- eliminação de features
+- utilização de reward para cálculo de W
+- mapeamento de features
+- ranges
+- resolutions,
+
+rodei um reuso de 3v2 em 4v3.
+
+O resultado foi ruim.
+
+Isso pode ter ocorrido devido ao fato de os pesos aprendidos em 3v2
+terem sofrido impacto dos ranges e resolutions errados.
+* 201303201040-LTI-PROJETO-TM
+Realizei o aprendizado em 3v2 com a versão corrigida e reusar
+esses pesos em 4v3.
+* 201303201509-LTI-PROJETO-TM
+Reuso de 3v2 em 3v2.
+* 
+SUPER ULTRA PROBLEMAÇO !!!!!!!!
+Descobri que não reinicializava \psi a cada episódio!
+
+Tá rodando. No começo é melhor que sem reuso, mas aprende mais
+devagar.
+
+Essa vagarosidade pode ser devida à uma inadequação dos parâmetros.
+
+Isso porque esse reuso é qualitativamente diferente do 3v2->4v3,
+porque as políticas reusadas são muito melhores.

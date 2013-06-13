@@ -1,10 +1,9 @@
 #!/bin/bash
-
 # Keepaway startup script
 # 
 # No commandline parameters.  All options are set in this file.
 #
-
+#
 # Top-level keepaway directory
 keepaway_dir=`pwd`
 # Top-level rcssjava directory ** SET THIS OPTION **
@@ -18,13 +17,26 @@ export PATH=$keepaway_dir/../rcssserver/src:$PATH
 ############################################################
 
 num_keepers=4                    # number of keepers
-keeper_load=1                    # should I load previously learned weights?
-keeper_load_dir=201306112337-LTI-PROJETO-TM-k4_clone_k3                 # sub-directory of weight_dir where weights are stored
+keeper_load=0                    # should I load previously learned weights?
+keeper_load_dir=                 # sub-directory of weight_dir where weights are stored
+
+keeper_load_PRQL=0               # should I load previously learned weights to use in PRQL?
+
+num_keepers_reuse=0              # numbers of players that will reuse policies
+
+keeper_load_PRQL_3v2=0           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_4v3=0           # should I load previously learned weights to use in PRQL?
+keeper_load_PRQL_Abs=0           # should I load previously learned weights to use in PRQL?
+
+keeper_load_PRQL_3v2_dir=                                            # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_4v3_dir=                                            # sub-directory of weight_dir where weights are stored
+keeper_load_PRQL_Abs_dir=                                            # sub-directory of weight_dir where weights are stored
+
 keeper_learn=0                   # should learning be turned on for keepers?
-keeper_policy="learned"          # policy followed by keepers
+#keeper_policy="learned"          # policy followed by keepers
 #keeper_policy="hold"
 #keeper_policy="hand"
-#keeper_policy="rand"
+keeper_policy="rand"
 
 ############################################################
 # Taker options                                            #
@@ -43,6 +55,7 @@ taker_policy="hand"
 
 save_weights=1                    # should I save learned weights
 weight_dir=$keepaway_dir/weights  # top-level weight directory
+weight_PRQL_dir=$weight_dir       # top-level weight directory
 save_client_log=0                 # should I save client logging info to a file?
 log_level="1..1000"               # range of log levels to store
 save_client_draw_log=0            # should I save client logged shape info to a file?
@@ -82,6 +95,16 @@ use_trainer=0                    # should I use a trainer instead of server refe
 save_trainer_log=0               # should I save cycle queue to a file?
 launch_trainer_monitor=0         # should I launch trainer monitor on startup?
 trainer="rcssjava.trainer.Trainer"   # name of trainer class
+
+############################################################
+#                                                          #
+############################################################
+
+###########################################################
+# Git options                                             #
+###########################################################
+
+git_commit=1                    # should I commit?
 
 ############################################################
 #                                                          #
@@ -173,7 +196,26 @@ do
   if (( $keeper_load )); then
     kweight_opts="$kweight_opts -w $weight_dir/$keeper_load_dir/k$i-weights.dat"
   fi
-  kcmd_line="./$client $client_opts $keeper_opts $klog_opts $kdraw_opts $kweight_opts"
+
+  kweight_opts_PRQL=""
+  if (( $keeper_load_PRQL && $i <= $num_keepers_reuse )); then
+    keeper_load_PRQL_num=0
+    if (( $keeper_load_PRQL_3v2 )); then
+	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`
+	kweight_opts_PRQL="$kweight_opts_PRQL $weight_PRQL_dir/$keeper_load_PRQL_3v2_dir/k$i-weights.dat"
+    fi
+    if (( $keeper_load_PRQL_4v3 )); then
+	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`
+	kweight_opts_PRQL="$kweight_opts_PRQL $weight_PRQL_dir/$keeper_load_PRQL_4v3_dir/k$i-weights.dat"
+    fi
+    if (( $keeper_load_PRQL_Abs )); then
+	keeper_load_PRQL_num=`expr $keeper_load_PRQL_num + 1`
+	kweight_opts_PRQL="$kweight_opts_PRQL $weight_PRQL_dir/$keeper_load_PRQL_Abs_dir/k$i-weights.dat"
+    fi
+    kweight_opts_PRQL="-W $keeper_load_PRQL_num $kweight_opts_PRQL"
+  fi
+
+  kcmd_line="./$client $client_opts $keeper_opts $klog_opts $kdraw_opts $kweight_opts $kweight_opts_PRQL"
   echo Starting Keeper \#$i...
   echo $kcmd_line
   $kcmd_line &
@@ -221,4 +263,8 @@ fi
 if (( $use_trainer )); then
   wait $trainer_pid
   kill -INT $server_pid
+fi
+
+if (( $git_commit )); then
+  git commit -a -m "$proc_name"
 fi

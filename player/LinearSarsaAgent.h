@@ -38,6 +38,28 @@ class LinearSarsaAgent:public SMDPAgent
 
   collision_table *colTab;
 
+  int itLoadedWeights;
+
+  // PRQL
+  double **weightsPRQL;
+  bool loadWeightsPRQL( int numWeightsFiles, char **loadWeightsFiles );
+  int numberOfPolicies;
+  int policyToExploit;
+  int exploitedPolicy;
+  long double *W;
+  int *reuseCounter;
+  long double *P;
+  long double psi;
+  long double v;
+  long double tau;
+  long double tau_increment;
+  double epsilon_increment;
+  int stepNum;
+  double sum_gamma_r_k_h;
+  int exploitedNew;
+  int exploitedPast;
+  int explored;
+
   // Load / Save weights from/to disk
   bool loadWeights( char *filename );
   bool saveWeights( char *filename );
@@ -46,6 +68,7 @@ class LinearSarsaAgent:public SMDPAgent
   int  selectAction();
   void initializeTileWidths( int numK, int numT );
   double computeQ( int a );
+  double computeQ_PRQL( int a );
   int  argmaxQ();
   void updateWeights( double delta );
   void loadTiles( double state[] );
@@ -57,13 +80,20 @@ class LinearSarsaAgent:public SMDPAgent
   void setTrace( int f, float newTraceValue );
   void increaseMinTrace();
 
+  // PRQL
+  void computeP();
+  int getPolicyToExploit();
+
  public:
   LinearSarsaAgent                  ( int    numFeatures,
 				      int    numActions,
 				      bool   bLearn,
 				      double widths[],
 				      char   *loadWeightsFile,
-				      char   *saveWeightsFile );
+				      char   *saveWeightsFile,
+				      int    numWeightsFiles,
+				      char   **loadWeightsFiles
+);
 
   // SMDP Sarsa implementation
   int  startEpisode( double state[] );

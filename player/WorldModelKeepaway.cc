@@ -53,10 +53,10 @@ void WorldModel::setNumTakers( int iNum )
   m_numTakers = iNum;
 }
 
-double WorldModel::congestion( VecPosition pos, bool considerMe ) 
+double WorldModel::congestion( VecPosition pos, bool considerMe )
 {
   double congest = 0;
-  if ( considerMe && pos != getAgentGlobalPosition() ) 
+  if ( considerMe && pos != getAgentGlobalPosition() )
     congest = 1 / getAgentGlobalPosition().getDistanceTo( pos );
 
   VecPosition playerPos;
@@ -76,7 +76,7 @@ double WorldModel::congestion( VecPosition pos, bool considerMe )
 
 void WorldModel::resetEpisode()
 {
-  LogDraw.logText( "episode", VecPosition( 0, 0 ), "Reset", 
+  LogDraw.logText( "episode", VecPosition( 0, 0 ), "Reset",
 		      40, COLOR_WHITE );
   Ball.setTimeLastSeen( -1 );
   for ( int i = 0; i < MAX_TEAMMATES; i++ )
@@ -113,7 +113,7 @@ double WorldModel::keeperReward()
 void WorldModel::setLastAction( int iAction )
 {
   m_lastAction = iAction;
-  m_timeLastAction = 
+  m_timeLastAction =
     ( iAction == UnknownIntValue ) ? UnknownTime : getCurrentCycle();
 }
 
@@ -136,7 +136,7 @@ int WorldModel::keeperStateVars( double state[] )
   VecPosition C = getKeepawayRect().getPosCenter();
 
   double WB_dist_to_C = getGlobalPosition( PB ).getDistanceTo( C );
-  
+
   int numK = getNumKeepers();
   int numT = getNumTakers();
 
@@ -151,7 +151,7 @@ int WorldModel::keeperStateVars( double state[] )
   double WB_dist_to_K[ numK ];
   if ( !sortClosestTo( K, numK, PB, WB_dist_to_K ) )
     return 0;
-  
+
   double WB_dist_to_T[ numT ];
   if ( !sortClosestTo( T, numT, PB, WB_dist_to_T ) )
     return 0;
@@ -190,7 +190,6 @@ int WorldModel::keeperStateVars( double state[] )
   }
 
   int j = 0;
-
   state[ j++ ] = WB_dist_to_C;
 
   int nK;
@@ -226,7 +225,7 @@ int WorldModel::keeperStateVars( double state[] )
 
 // Greg:
 // This really doesn't belong here,
-// because it is related to a specific 
+// because it is related to a specific
 // learner.  I don't know exactly
 // where to put it, though because
 // I want to keep the LinearSarsa
@@ -234,19 +233,19 @@ int WorldModel::keeperStateVars( double state[] )
 
 // Yaxin: changed from keeperTileWidths to keeperResolutions and keeperRanges,
 
-int WorldModel::keeperStateRangesAndResolutions( double ranges[], 
-						 double minValues[], 
-						 double resolutions[], 
+int WorldModel::keeperStateRangesAndResolutions( double ranges[],
+						 double minValues[],
+						 double resolutions[],
 						 int numK, int numT )
 {
   if ( numK < 3 ) {
-    cerr << "keeperTileWidths: num keepers must be at least 3, found: " 
+    cerr << "keeperTileWidths: num keepers must be at least 3, found: "
 	 << numK << endl;
     return 0;
   }
-  
+
   if ( numT < 2 ) {
-    cerr << "keeperTileWidths: num takers must be at least 2, found: " 
+    cerr << "keeperTileWidths: num takers must be at least 2, found: "
 	 << numT << endl;
     return 0;
   }
@@ -254,11 +253,9 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
   int j = 0;
 
   double maxRange = hypot( 25, 25 );
-			  
-  ranges[ j ] = maxRange / 2.0;        // WB_dist_to_center           
 
+  ranges[ j ] = maxRange / 2.0;        // WB_dist_to_center
   minValues[ j ] = 0;
-
   resolutions[ j++ ] = 3.0;
 
   int nK;
@@ -267,7 +264,7 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
   int tInc = 0;
 
   for (nK = 3, nT = 2; nK <= numK && nT <= numT; nK++, nT++) {
-    for ( int i = 1 + kInc; i < nK; i++ ) {     // WB_dist_to_T          
+    for ( int i = 1 + kInc; i < nK; i++ ) {     // WB_dist_to_T
       ranges[ j ] = maxRange;
       minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
@@ -277,22 +274,22 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
       minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
-    for ( int i = 1 + kInc; i < nK; i++ ) {     // dist_to_center_T    
+    for ( int i = 1 + kInc; i < nK; i++ ) {     // dist_to_center_T
       ranges[ j ] = maxRange / 2.0;
       minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
-    for ( int i = 0 + tInc; i < nT; i++ ) {     // dist_to_center_O  
+    for ( int i = 0 + tInc; i < nT; i++ ) {     // dist_to_center_O
       ranges[ j ] = maxRange / 2.0;
       minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
-    for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_dist_T 
+    for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_dist_T
       ranges[ j ] = maxRange;
       minValues[ j ] = 0;
       resolutions[ j++ ] = 3.0;
     }
-    for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_ang_T  
+    for ( int i = 1 + kInc; i < nK; i++ ) {     // nearest_Opp_ang_T
       ranges[ j ] = 180;
       minValues[ j ] = 0;
       resolutions[ j++ ] = 10.0;
@@ -303,7 +300,6 @@ int WorldModel::keeperStateRangesAndResolutions( double ranges[],
 
   return j;
 }
-
 
 void WorldModel::setMoveSpeed( double speed )
 {
@@ -324,4 +320,3 @@ Rect WorldModel::getKeepawayRect()
 {
   return m_keepawayRect;
 }
-

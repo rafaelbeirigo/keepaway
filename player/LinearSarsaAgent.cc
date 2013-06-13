@@ -6,6 +6,9 @@
 #include <time.h>
 #include "LinearSarsaAgent.h"
 #include "LoggerDraw.h"
+#include <iostream>
+#include <iomanip>
+#include <fstream>
 
 // If all is well, there should be no mention of anything keepaway- or soccer-
 // related in this file. 
@@ -14,7 +17,8 @@ extern LoggerDraw LogDraw;
 
 LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn,
 				    double widths[],
-				    char *loadWeightsFile, char *saveWeightsFile ):
+				    char *loadWeightsFile, char *saveWeightsFile,
+				    int numWeightsFiles, char **loadWeightsFiles ):
   SMDPAgent( numFeatures, numActions )
 {
   bLearning = bLearn;
@@ -33,9 +37,14 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
   alpha = 0.125;
   gamma = 1.0;
-  lambda = 0;
-  epsilon = 0.01;
+  lambda = 0.5;
+  epsilon = 0.0;
+  epsilon_increment = 0.0001;
   minimumTrace = 0.01;
+
+  v = 0.95;
+  tau = 0.0;
+  tau_increment = 0.0001;
 
   epochNum = 0;
   lastAction = -1;
@@ -50,19 +59,54 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   int tmp[ 2 ];
   float tmpf[ 2 ];
   colTab = new collision_table( RL_MEMORY_SIZE, 1 );
-    
+
   GetTiles( tmp, 1, 1, tmpf, 0 );  // A dummy call to set the hashing table    
   srand( time( NULL ) );
 
-  if ( strlen( loadWeightsFile ) > 0 )
+  if ( strlen( loadWeightsFile ) > 0 ) {
     loadWeights( loadWeightsFile );
+    itLoadedWeights = 1;
+  }
+  else {
+    itLoadedWeights = 0;
+  }
+
+  if ( numWeightsFiles > 0 ) {
+    loadWeightsPRQL( numWeightsFiles, loadWeightsFiles );
+  }
+
+  numberOfPolicies = 1 + numWeightsFiles;
+
+  W = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
+  P = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
+  reuseCounter = (int *)malloc( numberOfPolicies * sizeof( int ) );
+
+  for (int i = 0; i < numberOfPolicies; i++) {
+    W[i] = 0.0;
+    reuseCounter[i] = 0;
+  }
+
+  std::cout << "numWeightsFiles: " << numWeightsFiles << std::endl
+	    << "getNumFeatures(): " << getNumFeatures() << std::endl;
 }
 
 int LinearSarsaAgent::startEpisode( double state[] )
 {
+  psi = 1.0;
   epochNum++;
+  stepNum = 0;
+  sum_gamma_r_k_h = 0.0;
   decayTraces( 0 );
   loadTiles( state );
+
+  // control of reuse
+  exploitedNew = 0;
+  exploitedPast = 0;
+  explored = 0;
+
+  policyToExploit = getPolicyToExploit();
+  reuseCounter[policyToExploit] += 1;
+
   for ( int a = 0; a < getNumActions(); a++ ) {
     Q[ a ] = computeQ( a );
   }
@@ -77,16 +121,18 @@ int LinearSarsaAgent::startEpisode( double state[] )
 
   for ( int j = 0; j < numTilings; j++ )
     setTrace( tiles[ lastAction ][ j ], 1.0 );
+
   return lastAction;
 }
 
 int LinearSarsaAgent::step( double reward, double state[] )
 {
+  stepNum++;
   double delta = reward - Q[ lastAction ];
   loadTiles( state );
-  for ( int a = 0; a < getNumActions(); a++ ) {
+
+  for ( int a = 0; a < getNumActions(); a++ )
     Q[ a ] = computeQ( a );
-  }
 
   lastAction = selectAction();
 
@@ -107,7 +153,9 @@ int LinearSarsaAgent::step( double reward, double state[] )
 
   delta += Q[ lastAction ];
   updateWeights( delta );
+
   Q[ lastAction ] = computeQ( lastAction ); // need to redo because weights changed
+
   decayTraces( gamma * lambda );
 
   for ( int a = 0; a < getNumActions(); a++ ) {  //clear other than F[a]
@@ -116,8 +164,28 @@ int LinearSarsaAgent::step( double reward, double state[] )
         clearTrace( tiles[ a ][ j ] );
     }
   }
+
   for ( int j = 0; j < numTilings; j++ )      //replace/set traces F[a]
     setTrace( tiles[ lastAction ][ j ], 1.0 );
+
+  psi = psi * v;
+  sum_gamma_r_k_h += pow ( gamma, stepNum ) * reward;
+
+  ofstream myfile;
+  char log_file[1000];
+  // Reward-related values logging
+  strcpy(log_file, weightsFile);
+  strcat(log_file, "_r_values.log");
+  myfile.open (log_file, ios::app);
+
+  myfile << epochNum << " "
+         << stepNum << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << reward << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << Q[lastAction] << " "
+	 << setiosflags(ios::fixed) << setprecision(4) << delta << " "
+	 << std::endl;
+
+  myfile.close();
 
   return lastAction;
 }
@@ -137,6 +205,52 @@ void LinearSarsaAgent::endEpisode( double reward )
       cerr << "We're assuming gamma's 1" << endl;
     double delta = reward - Q[ lastAction ];
     updateWeights( delta );
+
+    W[policyToExploit] = ( (long double)( reuseCounter[policyToExploit] - 1 )
+                           * W[policyToExploit] )
+                         +  sum_gamma_r_k_h;
+    W[policyToExploit] = W[policyToExploit] / reuseCounter[policyToExploit];
+
+    tau += tau_increment;
+    epsilon += epsilon_increment;
+
+    ofstream myfile;
+    char log_file[1000];
+    // W logging
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_W.log");
+    myfile.open (log_file, ios::app);
+    myfile << epochNum;
+    for (int i = 0; i < numberOfPolicies; i++)
+      myfile << " " << setiosflags(ios::fixed) << setprecision(4) << W[i];
+    myfile << std::endl;
+    myfile.close();
+
+    // P logging
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_P.log");
+    myfile.open (log_file, ios::app);
+    myfile << epochNum;
+    for (int i = 0; i < numberOfPolicies; i++)
+      myfile << " " << setiosflags(ios::fixed) << setprecision(4) << P[i];
+    myfile << std::endl;
+    myfile.close();
+
+    // Reuse logging
+    strcpy(log_file, weightsFile);
+    strcat(log_file, "_reuse.log");
+    myfile.open (log_file, ios::app);
+    int totalCount = exploitedPast + exploitedNew + explored;
+    double percentExploitedPast = (double)exploitedPast / totalCount;
+    double percentExploitedNew  = (double)exploitedNew  / totalCount  + percentExploitedPast;
+    double percentExplored      = (double)explored      / totalCount  + percentExploitedNew;
+
+    myfile << epochNum << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedPast << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExploitedNew << " "
+	   << setiosflags(ios::fixed) << setprecision(4) << percentExplored << " "
+           << std::endl;
+    myfile.close();
   }
   if ( bLearning && bSaveWeights && rand() % 200 == 0 ) {
     saveWeights( weightsFile );
@@ -148,11 +262,14 @@ int LinearSarsaAgent::selectAction()
 {
   int action;
 
-  // Epsilon-greedy
-  if ( bLearning && drand48() < epsilon ) {     /* explore */
+  if ( numberOfPolicies == 1 ) { // learning from scratch, no reuse
     action = rand() % getNumActions();
   }
-  else{
+  else {
+    policyToExploit = 1;
+    for ( int a = 0; a < getNumActions(); a++ )
+      Q[ a ] = computeQ_PRQL( a );
+
     action = argmaxQ();
   }
 
@@ -170,6 +287,20 @@ bool LinearSarsaAgent::loadWeights( char *filename )
   return true;
 }
 
+bool LinearSarsaAgent::loadWeightsPRQL( int numWeightsFiles, char **filenames )
+{
+  weightsPRQL = (double **)malloc( numWeightsFiles * sizeof ( double * ) );
+  for (int i = 0; i < numWeightsFiles; i++) {
+    weightsPRQL[i] = (double *)malloc( RL_MEMORY_SIZE * sizeof ( double ) );
+    cout << "PRQL - Loading weights from " << filenames[i] << endl;
+    int file = open( filenames[i], O_RDONLY );
+    read( file, (char *) weightsPRQL[i], RL_MEMORY_SIZE * sizeof(double) );
+    close( file );
+    cout << "...done" << endl;
+  }
+  return true;
+}
+
 bool LinearSarsaAgent::saveWeights( char *filename )
 {
   int file = open( filename, O_CREAT | O_WRONLY, 0664 );
@@ -183,9 +314,18 @@ bool LinearSarsaAgent::saveWeights( char *filename )
 double LinearSarsaAgent::computeQ( int a )
 {
   double q = 0;
-  for ( int j = 0; j < numTilings; j++ ) {
+  for ( int j = 0; j < numTilings; j++ )
     q += weights[ tiles[ a ][ j ] ];
-  }
+
+  return q;
+}
+
+// Compute an action value from current F and theta    
+double LinearSarsaAgent::computeQ_PRQL( int a )
+{
+  double q = 0;
+  for ( int j = 0; j < numTilings; j++ )
+    q += weightsPRQL[policyToExploit-1][ tiles[ a ][ j ] ];
 
   return q;
 }
@@ -311,4 +451,61 @@ void LinearSarsaAgent::increaseMinTrace()
 void LinearSarsaAgent::setParams(int iCutoffEpisodes, int iStopLearningEpisodes)
 {
   /* set learning parameters */
+}
+
+int LinearSarsaAgent::getPolicyToExploit()
+{
+  computeP();
+  double p = drand48();
+
+  for ( int i = 0; i < numberOfPolicies; i++ ) {
+    // std::cout << "getPolicyToExploit: "
+    // 	      << "i: " << i << " "
+    // 	      << "p: " << p << " "
+    // 	      << "P[" << i << "]: " << P[i] << " "
+    // 	      << std::endl;
+
+    if ( p < P[i] )
+      return i;
+  }
+
+  return -1;
+}
+
+void LinearSarsaAgent::computeP()
+{
+  long double *powers;
+  long double sum_powers;
+  long double K = 0; // subtracted from exponents to prevent overflow
+
+  powers = (long double *)malloc( numberOfPolicies * sizeof( long double ) );
+  sum_powers = 0.0;
+  // std::cout << std::endl;
+
+  // Obtain constant to subtract from exponents
+  K = 0;
+  for ( int i = 0; i < numberOfPolicies; i++ )
+    if ( tau * W[i] > K )
+      K = tau * W[i];
+
+  for ( int i = 0; i < numberOfPolicies; i++ ) {
+    powers[i] = pow( M_E, tau * W[i]  - K);
+
+    // std::cout << "computeP(): "
+    // 	      << "tau: " << tau << " "
+    // 	      << "W[" << i << "]: " << W[i] << " "
+    // 	      << "powers[" << i << "]: " << powers[i] << " "
+    // 	      << "epochNum: " << epochNum << " "
+    // 	      << "stepNum: " << stepNum << " "
+    // 	      << std::endl;
+
+    sum_powers += powers[i];
+  }
+
+  P[ 0 ] = powers[ 0 ] / sum_powers;
+  for ( int i = 1; i < numberOfPolicies - 1; i++ ) {
+    // cummulative sum
+    P[ i ] = ( powers[ i ] / sum_powers ) + P[ i-1 ];
+  }
+  P[ numberOfPolicies - 1 ] = 1.0;
 }
