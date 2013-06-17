@@ -348,9 +348,10 @@ SoccerCommand KeepawayPlayer::keeper()
 SoccerCommand KeepawayPlayer::keeperWithBall()
 {
   double state[ MAX_STATE_VARS ];
+  double k_dist_to_ball[ 4 ]
   int action;
 
-  if ( WM->keeperStateVars( state ) > 0 ) { // if we can calculate state vars
+  if ( WM->keeperStateVars( state, k_dist_to_ball ) > 0 ) { // if we can calculate state vars
     // Call startEpisode() on the first SMDP step
     if ( WM->getTimeLastAction() == UnknownTime ) {
       action = SA->startEpisode( state );
