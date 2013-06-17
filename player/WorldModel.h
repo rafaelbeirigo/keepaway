@@ -882,7 +882,8 @@ public:
   int           getTimeLastAction          (                                 );
 
   double        keeperReward               (                                 );
-  int           keeperStateVars            ( double         state[]          );
+  int           keeperStateVars            ( double         state[],
+					     double         k_dist_to_ball[] );
   int           keeperStateRangesAndResolutions ( double         ranges[],
 					     double         minValues[],
 					     double         resolutions[],
