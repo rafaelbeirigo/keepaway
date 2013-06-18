@@ -30,6 +30,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include <assert.h>
+#include <iostream>
 
 #include "WorldModel.h"
 
@@ -127,7 +128,7 @@ int WorldModel::getTimeLastAction()
   return m_timeLastAction;
 }
 
-int WorldModel::keeperStateVars( double state[] )
+int WorldModel::keeperStateVars( double state[], double k_dist_to_ball[] )
 {
   ObjectT PB = getClosestInSetTo( OBJECT_SET_TEAMMATES, OBJECT_BALL );
   if ( !SoccerTypes::isTeammate( PB ) )
@@ -151,6 +152,14 @@ int WorldModel::keeperStateVars( double state[] )
   double WB_dist_to_K[ numK ];
   if ( !sortClosestTo( K, numK, PB, WB_dist_to_K ) )
     return 0;
+
+  // aqui, o vetor K deve estar ordenado por distancia
+
+  // obtem as distancias entre cada keeper e a bola
+  for ( int i = 0; i < numK; i++ ) {
+    k_dist_to_ball[ i ] = getGlobalPosition( K[ i ] ).getDistanceTo( OBJECT_BALL );
+    cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << endl;
+  }
   
   double WB_dist_to_T[ numT ];
   if ( !sortClosestTo( T, numT, PB, WB_dist_to_T ) )
