@@ -161,38 +161,40 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
   else{
     action = argmaxQ();
 
-    d = k_dist_to_ball;
-    d_k = d[ action ];
-    // std::cout << "d_k: " << d_k << std::endl;
+    if ( action != 0 ) {
+      d = k_dist_to_ball;
+      d_k = d[ action ];
+      // std::cout << "d_k: " << d_k << std::endl;
 
-    sum_D = 0.0;
-    for ( int i = 0; i < numK; i++ ) {
-      // std::cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << std::endl;
-      // std::cout << "d[" << i << "]: " << d[ i ] << std::endl;
+      sum_D = 0.0;
+      for ( int i = 0; i < numK; i++ ) {
+	// std::cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << std::endl;
+	// std::cout << "d[" << i << "]: " << d[ i ] << std::endl;
 
-      D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
-      // std::cout << "D[" << i << "]: " << D[ i ] << std::endl;
+	D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
+	// std::cout << "D[" << i << "]: " << D[ i ] << std::endl;
 
-      sum_D += D[ i ];
-      // std::cout << "sum_D: " << sum_D << std::endl;
-    }
+	sum_D += D[ i ];
+	// std::cout << "sum_D: " << sum_D << std::endl;
+      }
 
-    p[ 0 ] = D[ 0 ] / sum_D;
-    for ( int i = 1; i < numK - 1; i++ ) {
-      p[ i ] = p[ i - 1 ] + ( D[ i ] / sum_D );
-    }
-    p[ numK - 1 ] = 1.0;
+      p[ 0 ] = D[ 0 ] / sum_D;
+      for ( int i = 1; i < numK - 1; i++ ) {
+	p[ i ] = p[ i - 1 ] + ( D[ i ] / sum_D );
+      }
+      p[ numK - 1 ] = 1.0;
 
-    for ( int i = 0; i < numK; i++ ) {
-      // std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
-    }
+      for ( int i = 0; i < numK; i++ ) {
+	// std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
+      }
 
-    double r = drand48();
-    // std::cout << "r: " << r << std::endl;
-    for ( int i = 0; i < numK; i++ ) {
-      if ( r <= p[ i ] ) {
-	action = i;
-	break;
+      double r = drand48();
+      // std::cout << "r: " << r << std::endl;
+      for ( int i = 0; i < numK; i++ ) {
+	if ( r <= p[ i ] ) {
+	  action = i;
+	  break;
+	}
       }
     }
   }
