@@ -354,8 +354,7 @@ SoccerCommand KeepawayPlayer::keeperWithBall()
   if ( WM->keeperStateVars( state, k_dist_to_ball ) > 0 ) { // if we can calculate state vars
     // Call startEpisode() on the first SMDP step
     if ( WM->getTimeLastAction() == UnknownTime ) {
-      // TODO: preparar func pra tratar dists
-      action = SA->startEpisode( state );
+      action = SA->startEpisode( state, k_dist_to_ball );
     }
     else if ( WM->getTimeLastAction() == WM->getCurrentCycle() - 1 && 
 	      WM->getLastAction() > 0 ) {   // if we were in the middle of a pass last cycle
@@ -363,8 +362,7 @@ SoccerCommand KeepawayPlayer::keeperWithBall()
     }
     // Call step() on all but first SMDP step
     else {
-      // TODO: preparar func pra tratar dists
-      action = SA->step( WM->keeperReward(), state );
+      action = SA->step( WM->keeperReward(), state, k_dist_to_ball );
     }
     WM->setLastAction( action );
   }

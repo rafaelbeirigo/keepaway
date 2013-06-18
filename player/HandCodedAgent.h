@@ -51,8 +51,8 @@ class HandCodedAgent:public SMDPAgent
 				    char   *strPolicy,
 				    WorldModel *ws );
 
-  int  startEpisode( double state[] );
-  int  step( double reward, double state[] );
+  int  startEpisode( double state[], double k_dist_to_ball[] );
+  int  step( double reward, double state[], double k_dist_to_ball[] );
   void endEpisode( double reward );
   void setParams(int iCutoffEpisodes, int iStopLearningEpisodes){exit(1);} //*met 8/16/05
 } ;

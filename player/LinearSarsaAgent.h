@@ -43,7 +43,7 @@ class LinearSarsaAgent:public SMDPAgent
   bool saveWeights( char *filename );
 
   // Value function methods for CMACs
-  int  selectAction();
+  int  selectAction( double k_dist_to_ball[] );
   void initializeTileWidths( int numK, int numT );
   double computeQ( int a );
   int  argmaxQ();
@@ -66,8 +66,8 @@ class LinearSarsaAgent:public SMDPAgent
 				      char   *saveWeightsFile );
 
   // SMDP Sarsa implementation
-  int  startEpisode( double state[] );
-  int  step( double reward, double state[] );
+  int  startEpisode( double state[], double k_dist_to_ball[] );
+  int  step( double reward, double state[], double k_dist_to_ball[] );
   void endEpisode( double reward );
   void setParams(int iCutoffEpisodes, int iStopLearningEpisodes);
 } ;

@@ -1063,8 +1063,8 @@ WorldModelKeepaway.o: WorldModelKeepaway.cc /usr/include/assert.h \
  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
- /usr/include/x86_64-linux-gnu/gnu/stubs-64.h WorldModel.h Objects.h \
- SoccerTypes.h /usr/include/c++/4.6/iostream \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/c++/4.6/iostream \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/c++config.h \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/os_defines.h \
  /usr/include/c++/4.6/x86_64-linux-gnu/./bits/cpu_defines.h \
@@ -1133,7 +1133,8 @@ WorldModelKeepaway.o: WorldModelKeepaway.cc /usr/include/assert.h \
  /usr/include/c++/4.6/bits/locale_facets.tcc \
  /usr/include/c++/4.6/bits/basic_ios.tcc \
  /usr/include/c++/4.6/bits/ostream.tcc /usr/include/c++/4.6/istream \
- /usr/include/c++/4.6/bits/istream.tcc Geometry.h /usr/include/math.h \
+ /usr/include/c++/4.6/bits/istream.tcc WorldModel.h Objects.h \
+ SoccerTypes.h Geometry.h /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/huge_val.h \
  /usr/include/x86_64-linux-gnu/bits/huge_valf.h \
  /usr/include/x86_64-linux-gnu/bits/huge_vall.h \

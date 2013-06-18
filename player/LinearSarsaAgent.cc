@@ -8,7 +8,7 @@
 #include "LoggerDraw.h"
 
 // If all is well, there should be no mention of anything keepaway- or soccer-
-// related in this file. 
+// related in this file.
 
 extern LoggerDraw LogDraw;
 
@@ -50,15 +50,15 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   int tmp[ 2 ];
   float tmpf[ 2 ];
   colTab = new collision_table( RL_MEMORY_SIZE, 1 );
-    
-  GetTiles( tmp, 1, 1, tmpf, 0 );  // A dummy call to set the hashing table    
+
+  GetTiles( tmp, 1, 1, tmpf, 0 );  // A dummy call to set the hashing table
   srand( time( NULL ) );
 
   if ( strlen( loadWeightsFile ) > 0 )
     loadWeights( loadWeightsFile );
 }
 
-int LinearSarsaAgent::startEpisode( double state[] )
+int LinearSarsaAgent::startEpisode( double state[], double k_dist_to_ball[] )
 {
   epochNum++;
   decayTraces( 0 );
@@ -67,7 +67,7 @@ int LinearSarsaAgent::startEpisode( double state[] )
     Q[ a ] = computeQ( a );
   }
 
-  lastAction = selectAction();
+  lastAction = selectAction( k_dist_to_ball );
 
   char buffer[128];
   sprintf( buffer, "Q[%d] = %.2f", lastAction, Q[lastAction] );
@@ -80,7 +80,7 @@ int LinearSarsaAgent::startEpisode( double state[] )
   return lastAction;
 }
 
-int LinearSarsaAgent::step( double reward, double state[] )
+int LinearSarsaAgent::step( double reward, double state[], double k_dist_to_ball[] )
 {
   double delta = reward - Q[ lastAction ];
   loadTiles( state );
@@ -88,7 +88,7 @@ int LinearSarsaAgent::step( double reward, double state[] )
     Q[ a ] = computeQ( a );
   }
 
-  lastAction = selectAction();
+  lastAction = selectAction( k_dist_to_ball );
 
   char buffer[128];
   sprintf( buffer, "Q[%d] = %.2f", lastAction, Q[lastAction] );
@@ -100,7 +100,7 @@ int LinearSarsaAgent::step( double reward, double state[] )
     return lastAction;
 
   //char buffer[128];
-  sprintf( buffer, "reward: %.2f", reward ); 
+  sprintf( buffer, "reward: %.2f", reward );
   LogDraw.logText( "reward", VecPosition( 25, 30 ),
 		   buffer,
 		   1, COLOR_NAVY );
@@ -126,7 +126,7 @@ void LinearSarsaAgent::endEpisode( double reward )
 {
   if ( bLearning && lastAction != -1 ) { /* otherwise we never ran on this episode */
     char buffer[128];
-    sprintf( buffer, "reward: %.2f", reward ); 
+    sprintf( buffer, "reward: %.2f", reward );
     LogDraw.logText( "reward", VecPosition( 25, 30 ),
 		     buffer,
 		     1, COLOR_NAVY );
@@ -144,9 +144,15 @@ void LinearSarsaAgent::endEpisode( double reward )
   lastAction = -1;
 }
 
-int LinearSarsaAgent::selectAction()
+int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
 {
   int action;
+  double sum_D;
+  double *d;
+  double d_k;
+  int numK = getNumActions();
+  double D[ numK ];
+  double p[ numK ];
 
   // Epsilon-greedy
   if ( bLearning && drand48() < epsilon ) {     /* explore */
@@ -154,8 +160,45 @@ int LinearSarsaAgent::selectAction()
   }
   else{
     action = argmaxQ();
+
+    d = k_dist_to_ball;
+    d_k = d[ action ];
+    // std::cout << "d_k: " << d_k << std::endl;
+
+    sum_D = 0.0;
+    for ( int i = 0; i < numK; i++ ) {
+      // std::cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << std::endl;
+      // std::cout << "d[" << i << "]: " << d[ i ] << std::endl;
+
+      D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
+      // std::cout << "D[" << i << "]: " << D[ i ] << std::endl;
+
+      sum_D += D[ i ];
+      // std::cout << "sum_D: " << sum_D << std::endl;
+    }
+
+    p[ 0 ] = D[ 0 ] / sum_D;
+    for ( int i = 1; i < numK - 1; i++ ) {
+      p[ i ] = p[ i - 1 ] + ( D[ i ] / sum_D );
+    }
+    p[ numK - 1 ] = 1.0;
+
+    for ( int i = 0; i < numK; i++ ) {
+      // std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
+      double p = drand48();
+    }
+
+    double r = drand48();
+    // std::cout << "r: " << r << std::endl;
+    for ( int i = 0; i < numK; i++ ) {
+      if ( r <= p[ i ] ) {
+	action = i;
+	break;
+      }
+    }
   }
 
+  // std::cout << "action: " << action << std::endl;
   return action;
 }
 
@@ -179,7 +222,7 @@ bool LinearSarsaAgent::saveWeights( char *filename )
   return true;
 }
 
-// Compute an action value from current F and theta    
+// Compute an action value from current F and theta
 double LinearSarsaAgent::computeQ( int a )
 {
   double q = 0;
@@ -190,7 +233,7 @@ double LinearSarsaAgent::computeQ( int a )
   return q;
 }
 
-// Returns index (action) of largest entry in Q array, breaking ties randomly 
+// Returns index (action) of largest entry in Q array, breaking ties randomly
 int LinearSarsaAgent::argmaxQ()
 {
   int bestAction = 0;
@@ -236,7 +279,7 @@ void LinearSarsaAgent::loadTiles( double state[] )
     for ( int a = 0; a < getNumActions(); a++ ) {
       GetTiles1( &(tiles[ a ][ numTilings ]), tilingsPerGroup, colTab,
 		 state[ v ] / tileWidths[ v ], a , v );
-    }  
+    }
     numTilings += tilingsPerGroup;
   }
   if ( numTilings > RL_MAX_NUM_TILINGS )
@@ -244,7 +287,7 @@ void LinearSarsaAgent::loadTiles( double state[] )
 }
 
 
-// Clear any trace for feature f      
+// Clear any trace for feature f
 void LinearSarsaAgent::clearTrace( int f)
 {
   if ( f > RL_MEMORY_SIZE || f < 0 )
@@ -253,7 +296,7 @@ void LinearSarsaAgent::clearTrace( int f)
     clearExistentTrace( f, nonzeroTracesInverse[ f ] );
 }
 
-// Clear the trace for feature f at location loc in the list of nonzero traces 
+// Clear the trace for feature f at location loc in the list of nonzero traces
 void LinearSarsaAgent::clearExistentTrace( int f, int loc )
 {
   if ( f > RL_MEMORY_SIZE || f < 0 )
@@ -264,7 +307,7 @@ void LinearSarsaAgent::clearExistentTrace( int f, int loc )
   nonzeroTracesInverse[ nonzeroTraces[ loc ] ] = loc;
 }
 
-// Decays all the (nonzero) traces by decay_rate, removing those below minimum_trace 
+// Decays all the (nonzero) traces by decay_rate, removing those below minimum_trace
 void LinearSarsaAgent::decayTraces( double decayRate )
 {
   int f;
@@ -278,16 +321,16 @@ void LinearSarsaAgent::decayTraces( double decayRate )
   }
 }
 
-// Set the trace for feature f to the given value, which must be positive   
+// Set the trace for feature f to the given value, which must be positive
 void LinearSarsaAgent::setTrace( int f, float newTraceValue )
 {
   if ( f > RL_MEMORY_SIZE || f < 0 )
     cerr << "SetTraces: f out of range " << f << endl;
   if ( traces[ f ] >= minimumTrace )
-    traces[ f ] = newTraceValue;         // trace already exists              
+    traces[ f ] = newTraceValue;         // trace already exists
   else {
     while ( numNonzeroTraces >= RL_MAX_NONZERO_TRACES )
-      increaseMinTrace(); // ensure room for new trace              
+      increaseMinTrace(); // ensure room for new trace
     traces[ f ] = newTraceValue;
     nonzeroTraces[ numNonzeroTraces ] = f;
     nonzeroTracesInverse[ f ] = numNonzeroTraces;
@@ -296,12 +339,12 @@ void LinearSarsaAgent::setTrace( int f, float newTraceValue )
 }
 
 // Try to make room for more traces by incrementing minimum_trace by 10%,
-// culling any traces that fall below the new minimum                      
+// culling any traces that fall below the new minimum
 void LinearSarsaAgent::increaseMinTrace()
 {
   minimumTrace *= 1.1;
   cerr << "Changing minimum_trace to " << minimumTrace << endl;
-  for ( int loc = numNonzeroTraces - 1; loc >= 0; loc-- ) { // necessary to loop downwards    
+  for ( int loc = numNonzeroTraces - 1; loc >= 0; loc-- ) { // necessary to loop downwards
     int f = nonzeroTraces[ loc ];
     if ( traces[ f ] < minimumTrace )
       clearExistentTrace( f, loc );

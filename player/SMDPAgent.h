@@ -52,9 +52,7 @@ class SMDPAgent
   virtual ~SMDPAgent() {}
 
   // abstract methods to be supplied by implementing class
-  virtual int  startEpisode( double state[] ) = 0;
   virtual int  startEpisode( double state[], double k_dist_to_ball[] ) = 0;
-  virtual int  step( double reward, double state[] ) = 0;
   virtual int  step( double reward, double state[], double k_dist_to_ball[] ) = 0;
   virtual void endEpisode( double reward ) = 0;
   virtual void setParams(int iCutoffEpisodes, int iStopLearningEpisodes) = 0; //*met 8/16/05

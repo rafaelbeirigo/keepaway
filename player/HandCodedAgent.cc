@@ -42,12 +42,12 @@ HandCodedAgent::HandCodedAgent( int numFeatures, int numActions,
 }
 
 
-int HandCodedAgent::startEpisode( double state[] )
+int HandCodedAgent::startEpisode( double state[], double k_dist_to_ball[] )
 {
-  return step( 0, state );
+  return step( 0, state, k_dist_to_ball );
 }
 
-int HandCodedAgent::step( double reward, double state[] )
+int HandCodedAgent::step( double reward, double state[], double k_dist_to_ball[] )
 {
   if ( policy[0] == 'r' ) {      // (r)andom
     return random();
