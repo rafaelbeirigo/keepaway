@@ -153,13 +153,8 @@ int WorldModel::keeperStateVars( double state[], double k_dist_to_ball[] )
   if ( !sortClosestTo( K, numK, PB, WB_dist_to_K ) )
     return 0;
 
-  // aqui, o vetor K deve estar ordenado por distancia
-
-  // obtem as distancias entre cada keeper e a bola
-  for ( int i = 0; i < numK; i++ ) {
-    k_dist_to_ball[ i ] = getGlobalPosition( K[ i ] ).getDistanceTo( OBJECT_BALL );
-    cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << endl;
-  }
+  for ( int i = 0; i < numK; i++ )
+    k_dist_to_ball[ i ] = ( getGlobalPosition( K[ i ] ) - getGlobalPosition( OBJECT_BALL ) ).getMagnitude();
   
   double WB_dist_to_T[ numT ];
   if ( !sortClosestTo( T, numT, PB, WB_dist_to_T ) )
