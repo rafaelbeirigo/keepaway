@@ -162,8 +162,10 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
     action = argmaxQ();
 
     int minAction;
+    double tau_X;
 
-    minAction = 1;
+    minAction = 2;
+    tau_X = 0.0;
     if ( action >= minAction ) {
       d = k_dist_to_ball;
       d_k = d[ action ];
@@ -174,7 +176,8 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
 	// std::cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << std::endl;
 	// std::cout << "d[" << i << "]: " << d[ i ] << std::endl;
 
-	D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
+	// D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
+	D[ i ] = pow( 2.781828, tau_X * D[ i ]);
 	// std::cout << "D[" << i << "]: " << D[ i ] << std::endl;
 
 	sum_D += D[ i ];
@@ -187,9 +190,9 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
       }
       p[ numK - 1 ] = 1.0;
 
-      for ( int i = minAction; i < numK; i++ ) {
-	// std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
-      }
+      // for ( int i = minAction; i < numK; i++ ) {
+      // 	std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
+      // }
 
       double r = drand48();
       // std::cout << "r: " << r << std::endl;
