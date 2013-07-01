@@ -38,6 +38,10 @@ class LinearSarsaAgent:public SMDPAgent
 
   collision_table *colTab;
 
+  int minAction;
+  int minKeeper;
+  int maxKeeper;
+
   // Load / Save weights from/to disk
   bool loadWeights( char *filename );
   bool saveWeights( char *filename );
