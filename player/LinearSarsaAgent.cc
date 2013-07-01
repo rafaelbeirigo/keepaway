@@ -176,7 +176,7 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
 	// std::cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << std::endl;
 	// std::cout << "d[" << i << "]: " << d[ i ] << std::endl;
 
-	// D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
+	D[ i ] = 1.0 / ( d_k + abs( d_k - d[ i ] ) );
 	D[ i ] = pow( 2.781828, tau_X * D[ i ]);
 	// std::cout << "D[" << i << "]: " << D[ i ] << std::endl;
 
