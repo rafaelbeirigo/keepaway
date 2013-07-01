@@ -222,3 +222,19 @@ if (( $use_trainer )); then
   wait $trainer_pid
   kill -INT $server_pid
 fi
+
+# parte utilizada para rodar com parametros (ENIA 2013)
+minAction=$1
+minKeeper=$2
+maxKeeper=$3
+lineColor=$4
+
+kwy_file_path=$log_dir/$proc_name.kwy
+
+echo "Rodando para os parametros:"
+echo "minAction=$minAction"
+echo "minKeeper=$minKeeper"
+echo "maxKeeper=$maxKeeper"
+echo "lineColor=$lineColor"
+
+echo "     \"$kwy_file_path\"    title    '$minAction,$minKeeper,$maxKeeper'                lc $lineColor, \\" >> para_plotar.txt
