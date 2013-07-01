@@ -185,7 +185,7 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
       // std::cout << "d_k: " << d_k << std::endl;
 
       sum_D = 0.0;
-      for ( int i = minAction; i < numK; i++ ) {
+      for ( int i = minKeeper; i <= maxKeeper; i++ ) {
 	// std::cout << "k_dist_to_ball[" << i << "]: " << k_dist_to_ball[ i ] << std::endl;
 	// std::cout << "d[" << i << "]: " << d[ i ] << std::endl;
 
@@ -196,19 +196,19 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
 	// std::cout << "sum_D: " << sum_D << std::endl;
       }
 
-      p[ minAction ] = D[ minAction ] / sum_D;
-      for ( int i = minAction + 1; i < numK - 1; i++ ) {
+      p[ minKeeper ] = D[ minKeeper ] / sum_D;
+      for ( int i = minKeeper + 1; i < maxKeeper; i++ ) {
 	p[ i ] = p[ i - 1 ] + ( D[ i ] / sum_D );
       }
-      p[ numK - 1 ] = 1.0;
+      p[ maxKeeper ] = 1.0;
 
-      // for ( int i = minAction; i < numK; i++ ) {
+      // for ( int i = minKeeper; i < numK; i++ ) {
       // 	std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
       // }
 
       double r = drand48();
       // std::cout << "r: " << r << std::endl;
-      for ( int i = minAction; i < numK; i++ ) {
+      for ( int i = minKeeper; i <= maxKeeper; i++ ) {
 	if ( r <= p[ i ] ) {
 	  action = i;
 	  break;
