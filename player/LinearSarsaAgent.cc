@@ -187,9 +187,9 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
       }
       p[ numK - 1 ] = 1.0;
 
-      for ( int i = minAction; i < numK; i++ ) {
-	// std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
-      }
+      // for ( int i = minAction; i < numK; i++ ) {
+      // 	std::cout << "p[" << i << "]: " << p[ i ] << std::endl;
+      // }
 
       double r = drand48();
       // std::cout << "r: " << r << std::endl;
