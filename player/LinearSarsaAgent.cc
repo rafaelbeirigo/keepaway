@@ -6,6 +6,10 @@
 #include <time.h>
 #include "LinearSarsaAgent.h"
 #include "LoggerDraw.h"
+#include <iostream>
+#include <fstream>
+#include <sstream>
+using namespace std;
 
 // If all is well, there should be no mention of anything keepaway- or soccer-
 // related in this file.
@@ -56,6 +60,20 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
 
   if ( strlen( loadWeightsFile ) > 0 )
     loadWeights( loadWeightsFile );
+
+  // Abre os parametros de reuso e remapeamento
+  ifstream inputFile("parameters.txt");
+  string line;
+
+  if ( getline( inputFile, line ) ) {
+    istringstream ss( line );
+
+    ss >> minAction >> minKeeper >> maxKeeper;
+    cout << "========== Parametros de reuso: " << endl
+	 << "minAction: " << minAction << endl
+	 << "minKeeper: " << minKeeper << endl
+	 << "maxKeeper: " << maxKeeper << endl;
+  }
 }
 
 int LinearSarsaAgent::startEpisode( double state[], double k_dist_to_ball[] )
@@ -161,9 +179,6 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
   else{
     action = argmaxQ();
 
-    int minAction;
-
-    minAction = 1;
     if ( action >= minAction ) {
       d = k_dist_to_ball;
       d_k = d[ action ];
