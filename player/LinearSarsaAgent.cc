@@ -186,7 +186,7 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
 	 << "minKeeper: " << minKeeper << endl
 	 << "maxKeeper: " << maxKeeper << endl;
 
-    if ( action >= minAction ) {
+    if ( action >= minAction && action <= maxAction) {
       d = k_dist_to_ball;
       d_k = d[ action ];
       // std::cout << "d_k: " << d_k << std::endl;
