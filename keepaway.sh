@@ -225,16 +225,18 @@ fi
 
 # parte utilizada para rodar com parametros (ENIA 2013)
 minAction=$1
-minKeeper=$2
-maxKeeper=$3
-lineColor=$4
+maxAction=$2
+minKeeper=$3
+maxKeeper=$4
+lineColor=$5
 
 kwy_file_path=$log_dir/$proc_name.kwy
 
-echo "Rodando para os parametros:"
+echo "Rodando para os parametros (keepaway.sh):"
 echo "minAction=$minAction"
+echo "maxAction=$maxAction"
 echo "minKeeper=$minKeeper"
 echo "maxKeeper=$maxKeeper"
 echo "lineColor=$lineColor"
 
-echo "     \"$kwy_file_path.out\"    title    '$minAction,$minKeeper,$maxKeeper'                lc $lineColor, \\" >> para_plotar.txt
+echo "     \"$kwy_file_path.out\"    title    '$minAction,$maxAction,$minKeeper,$maxKeeper'                lc $lineColor, \\" >> para_plotar.txt
