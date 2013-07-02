@@ -17,10 +17,10 @@ do
 	do
 	    for maxKeeper in `seq $minKeeper 3`
 	    do
-		echo "$minAction $minKeeper $maxKeeper" > ./player/parameters.txt
+		echo "$minAction $maxAction $minKeeper $maxKeeper" > ./player/parameters.txt
 		for i in `seq 2`
 		do
-		    ./keepaway.sh $minAction $minKeeper $maxKeeper $lineColor
+		    ./keepaway.sh $minAction $maxAction $minKeeper $maxKeeper $lineColor
 		    sleep 15m
 
 		    pkill rcssserver
