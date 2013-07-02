@@ -68,9 +68,10 @@ LinearSarsaAgent::LinearSarsaAgent( int numFeatures, int numActions, bool bLearn
   if ( getline( inputFile, line ) ) {
     istringstream ss( line );
 
-    ss >> minAction >> minKeeper >> maxKeeper;
+    ss >> minAction >> maxAction >> minKeeper >> maxKeeper;
     cout << "========== Parametros de reuso: " << endl
 	 << "minAction: " << minAction << endl
+	 << "maxAction: " << maxAction << endl
 	 << "minKeeper: " << minKeeper << endl
 	 << "maxKeeper: " << maxKeeper << endl;
   }
@@ -178,6 +179,12 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
   }
   else{
     action = argmaxQ();
+    cout << "action antes: " << action << endl;
+    cout << "========== Parametros de reuso (dentro da selectAction): " << endl
+	 << "minAction: " << minAction << endl
+	 << "maxAction: " << maxAction << endl
+	 << "minKeeper: " << minKeeper << endl
+	 << "maxKeeper: " << maxKeeper << endl;
 
     if ( action >= minAction ) {
       d = k_dist_to_ball;
@@ -217,6 +224,7 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
     }
   }
 
+  cout << "action depois: " << action << endl;
   // std::cout << "action: " << action << std::endl;
   return action;
 }
