@@ -237,4 +237,4 @@ echo "minKeeper=$minKeeper"
 echo "maxKeeper=$maxKeeper"
 echo "lineColor=$lineColor"
 
-echo "     \"$kwy_file_path\"    title    '$minAction,$minKeeper,$maxKeeper'                lc $lineColor, \\" >> para_plotar.txt
+echo "     \"$kwy_file_path.out\"    title    '$minAction,$minKeeper,$maxKeeper'                lc $lineColor, \\" >> para_plotar.txt
