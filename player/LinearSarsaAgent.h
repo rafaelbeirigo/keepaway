@@ -39,6 +39,7 @@ class LinearSarsaAgent:public SMDPAgent
   collision_table *colTab;
 
   int minAction;
+  int maxAction;
   int minKeeper;
   int maxKeeper;
 
