@@ -179,12 +179,6 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
   }
   else{
     action = argmaxQ();
-    cout << "action antes: " << action << endl;
-    cout << "========== Parametros de reuso (selectAction): " << endl
-	 << "minAction: " << minAction << endl
-	 << "maxAction: " << maxAction << endl
-	 << "minKeeper: " << minKeeper << endl
-	 << "maxKeeper: " << maxKeeper << endl;
 
     if ( action >= minAction && action <= maxAction) {
       d = k_dist_to_ball;
@@ -224,7 +218,6 @@ int LinearSarsaAgent::selectAction( double k_dist_to_ball[] )
     }
   }
 
-  cout << "action depois: " << action << endl;
   // std::cout << "action: " << action << std::endl;
   return action;
 }
